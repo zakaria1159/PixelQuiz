@@ -1,0 +1,475 @@
+// src/hooks/useGame.ts - Main game hook that connects Socket.io with Zustand
+import { useEffect, useCallback, useRef, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import socketManager from '@/lib/socket'
+import { useGameStore } from '@/stores/gameStore'
+import { Player, GameState, Question } from '@/types'
+import { getAnswerDisplayText } from '@/lib/scoreCalculator'
+
+interface UseGameOptions {
+  gameCode?: string
+  playerName?: string
+  isHost?: boolean
+  autoConnect?: boolean
+}
+
+export const useGame = (options: UseGameOptions = {}) => {
+  const router = useRouter()
+  const { gameCode, playerName, isHost = false, autoConnect = true } = options
+  
+  // Store state and actions
+  const {
+    gameState,
+    isConnected,
+    connectionError,
+    currentPlayer,
+    answeredPlayers,
+    setGameState,
+    setIsHost,
+    setIsConnected,
+    setConnectionError,
+    setCurrentPlayer,
+    addPlayer,
+    removePlayer,
+    updatePlayer,
+    resetStore,
+    setCurrentQuestion,
+    setQuestionIndex,
+    setTotalQuestions,
+    setTimeLimit,
+    setQuestionResults,
+    setQuestionStartTime,
+    setAnsweredPlayers
+  } = useGameStore()
+
+  // Track ready states for consensus system
+  const [readyPlayers, setReadyPlayers] = useState<{[questionIndex: number]: string[]}>({})
+
+  // Track if we've already connected to avoid duplicate connections
+  const hasConnected = useRef(false)
+  const currentGameCode = useRef<string | null>(null)
+
+  // Connect to socket on mount
+  useEffect(() => {
+    if (autoConnect && !hasConnected.current) {
+      const socket = socketManager.connect()
+      
+      // Listen for connection events
+      socket.on('connect', () => {
+        console.log('🔌 Socket connected:', socket.id)
+        setIsConnected(true)
+        hasConnected.current = true
+        
+        // Set host status
+        if (isHost) {
+          setIsHost(true)
+        }
+      })
+
+      socket.on('disconnect', () => {
+        console.log('❌ Socket disconnected')
+        setIsConnected(false)
+        hasConnected.current = false
+      })
+
+      socket.on('connect_error', (error) => {
+        console.error('🔴 Connection error:', error)
+        setIsConnected(false)
+        setConnectionError('Failed to connect to server')
+      })
+
+      socket.on('error', (error) => {
+        console.error('🔴 Socket error:', error)
+        // Don't show connection errors for normal game state transitions
+        if (error.message && !error.message.includes('Game not in question state')) {
+          setConnectionError(error.message)
+        }
+      })
+    }
+
+    return () => {
+      // Cleanup on unmount
+      if (currentGameCode.current) {
+        socketManager.leaveGame(currentGameCode.current)
+      }
+      socketManager.offAllGameEvents()
+    }
+  }, [autoConnect, isHost, setIsConnected, setIsHost, setConnectionError])
+
+  // Setup socket event listeners
+  useEffect(() => {
+    console.log('🔧 Setting up socket event listeners...')
+    console.log('🔧 Socket connected:', socketManager.isConnected())
+    console.log('🔧 Socket object:', socketManager.getSocket())
+    // Game created (host only)
+    socketManager.onGameCreated((data: { gameCode: string; gameState: GameState }) => {
+      console.log('🎮 Game created:', data.gameCode)
+      setGameState(data.gameState)
+      currentGameCode.current = data.gameCode
+    })
+
+    // Player joined
+    socketManager.onPlayerJoined((data: { player: Player; gameState: GameState }) => {
+      console.log('👤 Player joined:', data.player.name)
+      console.log('📊 Updated game state:', data.gameState)
+      console.log('👥 Players in game:', data.gameState.players.length)
+      setGameState(data.gameState)
+    })
+
+    // Player left
+    socketManager.onPlayerLeft((data: { playerId: string; gameState: GameState }) => {
+      console.log('👋 Player left:', data.playerId)
+      setGameState(data.gameState)
+    })
+
+    // Game starting
+    socketManager.onGameStarting((data: { gameState: GameState }) => {
+      console.log('🚀 Game starting:', data.gameState)
+      setGameState(data.gameState)
+    })
+
+    // Question start
+    socketManager.onQuestionStart((data: { 
+      question: Question, 
+      questionIndex: number, 
+      totalQuestions: number, 
+      timeLimit: number 
+    }) => {
+      console.log('🎯 Question started:', data.questionIndex + 1, 'of', data.totalQuestions)
+      setCurrentQuestion(data.question)
+      setQuestionIndex(data.questionIndex)
+      setTotalQuestions(data.totalQuestions)
+      setTimeLimit(data.timeLimit)
+      setQuestionStartTime(Date.now())
+      // Clear answered players when new question starts
+      setAnsweredPlayers([])
+      // Clear ready states for new question
+      setReadyPlayers(prev => ({ ...prev, [data.questionIndex]: [] }))
+    })
+
+    // Question results
+    socketManager.onQuestionResults((data: { 
+      question: any; 
+      results: any[]; 
+      gameState: GameState 
+    }) => {
+      console.log('📊 Question results:', data.results)
+      setQuestionResults(data.results)
+      setGameState(data.gameState)
+    })
+
+    // Game finished
+    socketManager.onGameFinished((data: { gameState: GameState }) => {
+      console.log('🏁 Game finished:', data.gameState)
+      setGameState(data.gameState)
+    })
+
+    // Game state updated
+    socketManager.onGameStateUpdated((data: { gameState: GameState }) => {
+      console.log('🔄 Game state updated')
+      setGameState(data.gameState)
+    })
+
+    // Game ended
+    socketManager.onGameEnded((data: { reason: string }) => {
+      console.log('🏁 Game ended:', data.reason)
+      // Show end game message or redirect
+      alert(`Game ended: ${data.reason}`)
+      router.push('/')
+    })
+
+    // Join error
+    socketManager.onJoinError((data: { message: string }) => {
+      console.error('❌ Join error:', data.message)
+      setConnectionError(data.message)
+    })
+
+    // General error
+    socketManager.onError((data: { message: string }) => {
+      console.error('🔴 Game error:', data.message)
+      setConnectionError(data.message)
+    })
+
+    // Answer status updated
+    socketManager.onAnswerStatusUpdated((data: { answeredPlayers: string[], totalPlayers: number }) => {
+      console.log('👍 Answer status updated:', data.answeredPlayers.length, 'of', data.totalPlayers)
+      setAnsweredPlayers(data.answeredPlayers)
+    })
+
+    // ADDED: Player ready event listener
+    socketManager.onPlayerReady((data: { questionIndex: number, playerId: string, readyPlayers: string[] }) => {
+      console.log('👍 Player ready update:', data)
+      setReadyPlayers(prev => ({
+        ...prev,
+        [data.questionIndex]: data.readyPlayers
+      }))
+    })
+
+    // ADDED: Ready status updated event
+    socketManager.onReadyStatusUpdated((data: { questionIndex: number, readyPlayers: string[] }) => {
+      console.log('📊 Ready status updated:', data)
+      console.log('📊 Current readyPlayers state:', readyPlayers)
+      setReadyPlayers(prev => {
+        const newState = {
+          ...prev,
+          [data.questionIndex]: data.readyPlayers
+        }
+        console.log('📊 New readyPlayers state:', newState)
+        return newState
+      })
+    })
+
+
+
+    // ADDED: Reveal state updated event
+    socketManager.onRevealStateUpdated((data: { currentRevealIndex: number, gameState: GameState }) => {
+      console.log('🎭 Reveal state updated:', data.currentRevealIndex)
+      setGameState(data.gameState)
+    })
+
+    // Cleanup function
+    return () => {
+      socketManager.offAllGameEvents()
+    }
+  }, [setGameState, setConnectionError, router, setAnsweredPlayers, readyPlayers, setReadyPlayers])
+
+  // Game actions
+  const createGame = useCallback((code: string) => {
+    const socket = socketManager.getSocket()
+    if (!socket || !socket.connected) {
+      setConnectionError('Not connected to server')
+      return false
+    }
+
+    console.log('🎮 Creating game with code:', code)
+    socketManager.createGame(code)
+    currentGameCode.current = code
+    return true
+  }, [setConnectionError])
+
+  const joinGame = useCallback((code: string, name: string) => {
+    console.log('🔍 joinGame called with:', { code, name })
+    console.log('🔍 socketManager.isConnected():', socketManager.isConnected())
+    console.log('🔍 socketManager.getSocket():', socketManager.getSocket())
+    console.log('🔍 socket connected:', socketManager.getSocket()?.connected)
+    
+    // Wait for connection to be established
+    if (!socketManager.getSocket()?.connected) {
+      console.log('⏳ Waiting for socket connection...')
+      setConnectionError('Waiting for connection to establish...')
+      return false
+    }
+    
+    if (!socketManager.isConnected()) {
+      console.log('❌ Not connected to server')
+      setConnectionError('Not connected to server')
+      return false
+    }
+
+    if (!name.trim()) {
+      console.log('❌ Player name is required')
+      setConnectionError('Player name is required')
+      return false
+    }
+
+    console.log('👤 Joining game:', code, 'as', name)
+    socketManager.joinGame(code, name.trim())
+    currentGameCode.current = code
+    
+    // Set initial game state
+    setGameState({
+      id: code,
+      hostId: '',
+      players: [],
+      spectators: [],
+      questions: [],
+      currentQuestion: null,
+      currentQuestionIndex: 0,
+      gameStatus: 'waiting',
+      answers: {},
+      questionStartTime: 0,
+      settings: {
+        maxPlayers: 10,
+        questionsPerGame: 8,
+        timePerQuestion: 15,
+        categories: ['pop_culture'],
+        difficulty: 'mixed',
+        aiGenerated: false,
+        showExplanations: true,
+        allowSpectators: false
+      },
+      createdAt: Date.now(),
+      updatedAt: Date.now()
+    })
+    
+    return true
+  }, [setConnectionError, setGameState])
+
+  const leaveGame = useCallback(() => {
+    if (currentGameCode.current) {
+      console.log('👋 Leaving game:', currentGameCode.current)
+      socketManager.leaveGame(currentGameCode.current)
+      currentGameCode.current = null
+      resetStore()
+    }
+  }, [resetStore])
+
+  const startGame = useCallback(() => {
+    if (!currentGameCode.current) {
+      setConnectionError('No active game')
+      return false
+    }
+
+    if ((gameState?.players?.length || 0) < 2) {
+      setConnectionError('Need at least 2 players to start')
+      return false
+    }
+
+    console.log('🚀 Starting game')
+    socketManager.startGame(currentGameCode.current)
+    return true
+  }, [gameState?.players.length, setConnectionError])
+
+  const reconnect = useCallback(() => {
+    console.log('🔄 Attempting to reconnect...')
+    hasConnected.current = false
+    setConnectionError(null)
+    
+    const socket = socketManager.connect()
+    setIsConnected(socket.connected)
+    hasConnected.current = true
+  }, [setIsConnected, setConnectionError])
+
+  const disconnect = useCallback(() => {
+    console.log('❌ Disconnecting...')
+    leaveGame()
+    socketManager.disconnect()
+    setIsConnected(false)
+    hasConnected.current = false
+  }, [leaveGame, setIsConnected])
+
+  const submitAnswer = useCallback((answer: string | number) => {
+    if (!currentGameCode.current || !gameState?.currentQuestion) {
+      console.error('No active game or current question')
+      return
+    }
+    
+    console.log('📝 Submitting answer:', answer)
+    
+    // Convert to appropriate format for backend
+    const answerPayload = {
+      answer,
+      answerText: getAnswerDisplayText(gameState.currentQuestion, answer),
+      timestamp: Date.now()
+    }
+    
+    socketManager.submitAnswer(currentGameCode.current, String(answer))
+
+  }, [gameState?.currentQuestion])
+
+  const nextReveal = useCallback(() => {
+    if (!currentGameCode.current) {
+      console.error('No active game for reveal')
+      return false
+    }
+    console.log('🎭 Moving to next reveal')
+    socketManager.nextReveal(currentGameCode.current)
+    return true
+  }, [])
+  
+  const challengeQuestion = useCallback((questionIndex: number, explanation: string) => {
+    if (!currentGameCode.current) {
+      console.error('No active game for challenge')
+      return false
+    }
+    console.log('🏛️ Challenging question:', questionIndex, explanation)
+    socketManager.challengeQuestion(currentGameCode.current, questionIndex, explanation)
+    return true
+  }, [])
+
+  const timeUp = useCallback(() => {
+    if (!currentGameCode.current || !gameState) {
+      console.error('No active game or game state')
+      return
+    }
+    
+    console.log('⏰ Time up - auto-submitting')
+    socketManager.timeUp(currentGameCode.current)
+  }, [gameState])
+
+  const playerReady = useCallback((questionIndex: number, playerId: string) => {
+    if (!currentGameCode.current) {
+      console.error('No active game for player ready')
+      return false
+    }
+    console.log('✅ Player ready:', questionIndex, playerId)
+    socketManager.playerReady(currentGameCode.current, questionIndex, playerId)
+    return true
+  }, [])
+
+  const nextQuestion = useCallback(() => {
+    if (!currentGameCode.current || !gameState) {
+      console.error('No active game or game state')
+      return
+    }
+    
+    console.log('⏭️ Moving to next question')
+    socketManager.nextQuestion(currentGameCode.current)
+  }, [gameState])
+
+  const nextQuestionReveal = useCallback(() => {
+    if (!currentGameCode.current || !gameState) {
+      console.error('No active game or game state')
+      return
+    }
+    
+    console.log('🎭 Moving to next question reveal')
+    socketManager.nextQuestionReveal(currentGameCode.current)
+  }, [gameState])
+
+  
+
+  // Helper to get ready players for a specific question
+  const getReadyPlayersForQuestion = useCallback((questionIndex: number) => {
+    return readyPlayers[questionIndex] || []
+  }, [readyPlayers])
+
+  // Return game state and actions
+  return {
+    // State
+    gameState,
+    isConnected,
+    connectionError,
+    currentPlayer,
+    isHost: useGameStore(state => state.isHost),
+    players: gameState?.players || [],
+    gameStatus: gameState?.gameStatus || 'waiting',
+    currentQuestion: gameState?.currentQuestion,
+    answeredPlayers,
+    readyPlayers,
+    
+    // Actions
+    createGame,
+    joinGame,
+    leaveGame,
+    startGame,
+    reconnect,
+    disconnect,
+    submitAnswer,
+    timeUp,
+    nextQuestion,
+    nextQuestionReveal,
+    nextReveal,
+    challengeQuestion,
+    playerReady,
+    
+    
+    // Utilities
+    clearError: () => setConnectionError(null),
+    isInGame: !!currentGameCode.current,
+    gameCode: currentGameCode.current,
+    playerCount: gameState?.players.length || 0,
+    canStartGame: (gameState?.players.length || 0) >= 2,
+    getReadyPlayersForQuestion
+  }
+}

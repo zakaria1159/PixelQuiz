@@ -1,27 +1,51 @@
 {
-  "name": "pixelboots",
+  "name": "ai-quiz-platform",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "server": "node server.js",
+    "dev:server": "nodemon server.js",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.4.4"
+    "clsx": "^2.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "lucide-react": "^0.263.1",
+    "next": "14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "15.4.4",
-    "@eslint/eslintrc": "^3"
+    "@storybook/addon-essentials": "^7.6.20",
+    "@storybook/addon-interactions": "^7.6.20",
+    "@storybook/addon-links": "^7.6.20",
+    "@storybook/addon-onboarding": "^1.0.11",
+    "@storybook/blocks": "^7.6.20",
+    "@storybook/nextjs": "^7.6.20",
+    "@storybook/react": "^7.6.20",
+    "@storybook/react-vite": "^7.6.20",
+    "@storybook/testing-library": "^0.2.2",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/node": "^20.8.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.52.0",
+    "eslint-config-next": "14.0.0",
+    "nodemon": "^3.0.2",
+    "postcss": "^8.4.31",
+    "storybook": "^7.6.20",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5.2.0"
   }
 }
