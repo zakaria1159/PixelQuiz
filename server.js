@@ -2,6 +2,7 @@
 const express = require('express')
 const { createServer } = require('http')
 const { Server } = require('socket.io')
+const { calculateScore, getMaxScore } = require('./scoring')
 const cors = require('cors')
 
 // Sample questions for the game - Mixed types with enhanced text matching
@@ -19,19 +20,6 @@ const sampleQuestions = [
   },
   {
     id: '2',
-    type: 'free_text',
-    question: 'What is the capital city of France?',
-    correctAnswer: 'Paris',
-    acceptableAnswers: ['paris', 'city of paris', 'paris france'],
-    caseSensitive: false,
-    exactMatch: true, // Only exact matches (after normalization)
-    timeLimit: 12,
-    category: 'geography',
-    difficulty: 'easy',
-    explanation: 'Paris has been the capital of France since 987 AD.'
-  },
-  {
-    id: '3',
     type: 'true_false',
     question: 'TikTok was originally called Musical.ly',
     options: ['True', 'False'],
@@ -42,41 +30,29 @@ const sampleQuestions = [
     explanation: 'Musical.ly was acquired by ByteDance and rebranded as TikTok in 2018.'
   },
   {
+    id: '3',
+    type: 'ranking',
+    question: 'Rank the Lord of the Rings trilogy movies in chronological order (earliest to latest):',
+    items: ['The Fellowship of the Ring', 'The Two Towers', 'The Return of the King'],
+    correctOrder: [0, 1, 2], // Fellowship -> Two Towers -> Return of the King
+    timeLimit: 20,
+    category: 'movies',
+    difficulty: 'easy',
+    explanation: 'The Fellowship of the Ring (2001) → The Two Towers (2002) → The Return of the King (2003)',
+    allowPartialCredit: true
+  },
+  {
     id: '4',
-    type: 'multiple_choice',
-    question: 'Which country has won the most FIFA World Cups?',
-    options: ['Germany', 'Argentina', 'Brazil', 'France'],
-    correctAnswer: 2,
-    timeLimit: 15,
-    category: 'sports',
-    difficulty: 'medium',
-    explanation: 'Brazil has won the FIFA World Cup 5 times (1958, 1962, 1970, 1994, 2002).'
-  },
-  {
-    id: '5',
     type: 'free_text',
-    question: 'What Spanish city is famous for the Sagrada Família cathedral?',
-    correctAnswer: 'Barcelona',
-    acceptableAnswers: ['barcelona', 'barcelona spain', 'barcelone'],
+    question: 'What is the capital city of France?',
+    correctAnswer: 'Paris',
+    acceptableAnswers: ['paris', 'city of paris', 'paris france'],
     caseSensitive: false,
-    exactMatch: true,
-    timeLimit: 15,
+    exactMatch: true, // Only exact matches (after normalization)
+    timeLimit: 12,
     category: 'geography',
-    difficulty: 'medium',
-    explanation: 'The Sagrada Família in Barcelona was designed by Antoni Gaudí and has been under construction since 1882.'
-  },
-  {
-    id: '6',
-    type: 'free_text',
-    question: 'Who painted the famous artwork "La Joconde" (Mona Lisa)?',
-    correctAnswer: 'Leonardo da Vinci',
-    acceptableAnswers: ['leonardo da vinci', 'da vinci'], // Removed just "leonardo"
-    caseSensitive: false,
-    exactMatch: true,
-    timeLimit: 15,
-    category: 'art',
-    difficulty: 'medium',
-    explanation: 'Leonardo da Vinci painted the Mona Lisa between 1503-1519.'
+    difficulty: 'easy',
+    explanation: 'Paris has been the capital of France since 987 AD.'
   }
 ]
 
@@ -91,6 +67,75 @@ function normalizeText(text) {
     .replace(/[^\w\s]/g, ' ') // Replace punctuation with spaces (helps with "da Vinci" vs "Davinci")
     .trim()
     .replace(/\s+/g, ' ') // Normalize multiple spaces to single space
+}
+
+// Helper function to calculate longest common subsequence
+function longestCommonSubsequence(str1, str2) {
+  const m = str1.length
+  const n = str2.length
+  const dp = Array(m + 1).fill().map(() => Array(n + 1).fill(0))
+  
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (str1[i - 1] === str2[j - 1]) {
+        dp[i][j] = dp[i - 1][j - 1] + 1
+      } else {
+        dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1])
+      }
+    }
+  }
+  
+  // Reconstruct the LCS
+  let i = m, j = n
+  const lcs = []
+  while (i > 0 && j > 0) {
+    if (str1[i - 1] === str2[j - 1]) {
+      lcs.unshift(str1[i - 1])
+      i--
+      j--
+    } else if (dp[i - 1][j] > dp[i][j - 1]) {
+      i--
+    } else {
+      j--
+    }
+  }
+  
+  return lcs.join('')
+}
+
+// Calculate participation ratio bonus
+function calculateParticipationRatioBonus(game, questionIndex) {
+  const totalPlayers = game.players.length
+  const correctAnswers = game.players.filter(player => {
+    const answerData = game.answers[player.id]?.[questionIndex]
+    return answerData && answerData.isCorrect
+  }).length
+  
+  const participationRatio = correctAnswers / totalPlayers
+  
+  // Bonus calculation:
+  // - If 80%+ got it right: -20% penalty (too easy)
+  // - If 60-80% got it right: 0% (normal difficulty)
+  // - If 40-60% got it right: +20% bonus (moderate difficulty)
+  // - If 20-40% got it right: +40% bonus (hard)
+  // - If <20% got it right: +60% bonus (very hard)
+  
+  let ratioBonus = 0
+  if (participationRatio >= 0.8) {
+    ratioBonus = -0.2 // -20% penalty
+  } else if (participationRatio >= 0.6) {
+    ratioBonus = 0 // No bonus/penalty
+  } else if (participationRatio >= 0.4) {
+    ratioBonus = 0.2 // +20% bonus
+  } else if (participationRatio >= 0.2) {
+    ratioBonus = 0.4 // +40% bonus
+  } else {
+    ratioBonus = 0.6 // +60% bonus
+  }
+  
+  console.log(`📊 Participation ratio for Q${questionIndex + 1}: ${correctAnswers}/${totalPlayers} = ${(participationRatio * 100).toFixed(1)}% (bonus: ${(ratioBonus * 100).toFixed(1)}%)`)
+  
+  return ratioBonus
 }
 
 // Helper function to validate answers based on question type
@@ -111,6 +156,50 @@ function validateAnswer(question, playerAnswer) {
     const isCorrect = answerIndex === question.correctAnswer
     console.log(`🔍 Multiple choice validation: ${answerIndex} === ${question.correctAnswer} = ${isCorrect}`)
     return isCorrect
+  } else if (question.type === 'ranking') {
+    // For ranking questions, compare the order of items
+    const userAnswer = playerAnswer.toString().trim()
+    if (userAnswer === '') {
+      console.log('❌ Empty ranking answer')
+      return false
+    }
+
+    try {
+      // Parse the comma-separated answer (e.g., "0,2,1")
+      const userOrder = userAnswer.split(',').map(i => parseInt(i.trim()))
+      
+      // Check if all indexes are valid
+      if (userOrder.some(isNaN) || userOrder.length !== question.correctOrder.length) {
+        console.log('❌ Invalid ranking format or length')
+        return false
+      }
+
+      // Check for exact match
+      const isExactMatch = userOrder.every((item, index) => item === question.correctOrder[index])
+      if (isExactMatch) {
+        console.log('✅ Exact ranking match')
+        return true
+      }
+
+      // Check for partial credit (if allowed)
+      if (question.allowPartialCredit !== false) {
+        const correctMatches = userOrder.filter((item, index) => item === question.correctOrder[index]).length
+        const partialCreditPercentage = correctMatches / question.correctOrder.length
+        
+        if (partialCreditPercentage >= 0.5) { // At least 50% correct
+          console.log(`✅ Partial ranking credit: ${(partialCreditPercentage * 100).toFixed(1)}%`)
+          return true
+        } else {
+          console.log(`❌ Ranking validation: insufficient partial credit (${(partialCreditPercentage * 100).toFixed(1)}% < 50%)`)
+        }
+      }
+      
+      console.log('❌ Ranking validation: no match found')
+      return false
+    } catch (error) {
+      console.log('❌ Error parsing ranking answer:', error)
+      return false
+    }
   } else if (question.type === 'free_text' || question.type === 'image_guess') {
     // For free text and image guess, use smart text matching
     const userAnswer = playerAnswer.toString().trim()
@@ -169,10 +258,26 @@ function validateAnswer(question, playerAnswer) {
         console.log(`❌ Insufficient word match: ${matchedWords.length}/${correctWords.length} words (${(matchPercentage * 100).toFixed(1)}% < 70%)`)
       }
     } else {
-      // Single word answers - check for similarity
-      if (normalizedUserAnswer.includes(normalizedCorrectAnswer) || normalizedCorrectAnswer.includes(normalizedUserAnswer)) {
-        console.log('✅ Single word partial match')
+      // Single word answers - check for similarity (MORE RESTRICTIVE)
+      // Require at least 90% character similarity for single words (increased from 80%)
+      const minLength = Math.min(normalizedUserAnswer.length, normalizedCorrectAnswer.length)
+      const maxLength = Math.max(normalizedUserAnswer.length, normalizedCorrectAnswer.length)
+      
+      if (minLength === 0) {
+        console.log('❌ Empty word after normalization')
+        return false
+      }
+      
+      // Calculate similarity using longest common subsequence
+      const lcs = longestCommonSubsequence(normalizedUserAnswer, normalizedCorrectAnswer)
+      const similarity = lcs.length / maxLength
+      
+      if (similarity >= 0.9 && minLength >= 3) { // Increased to 90% similarity and minimum 3 chars
+        console.log(`✅ Single word similarity match: ${(similarity * 100).toFixed(1)}% (LCS: ${lcs.length}/${maxLength})`)
         return true
+      } else {
+        console.log(`❌ Insufficient similarity: ${(similarity * 100).toFixed(1)}% < 90% or too short`)
+        return false
       }
     }
     
@@ -194,6 +299,15 @@ function getAnswerDisplayText(question, answer) {
   if (question.type === 'multiple_choice' || question.type === 'true_false') {
     const answerIndex = parseInt(answer)
     return question.options && question.options[answerIndex] ? question.options[answerIndex] : 'Invalid option'
+  } else if (question.type === 'ranking') {
+    // For ranking questions, convert the comma-separated string back to readable format
+    try {
+      const order = answer.toString().split(',').map(num => parseInt(num.trim()))
+      return order.map(index => question.items[index]).join(' → ')
+    } catch (error) {
+      console.log('Error parsing ranking answer:', error)
+      return 'Invalid ranking'
+    }
   } else {
     return typeof answer === 'string' ? answer : 'Invalid answer'
   }
@@ -203,6 +317,12 @@ function getAnswerDisplayText(question, answer) {
 function getCorrectAnswerDisplayText(question) {
   if (question.type === 'multiple_choice' || question.type === 'true_false') {
     return question.options && question.options[question.correctAnswer] ? question.options[question.correctAnswer] : 'Unknown'
+  } else if (question.type === 'ranking') {
+    // For ranking questions, show the correct order
+    if (question.correctOrder && question.items) {
+      return question.correctOrder.map(index => question.items[index]).join(' → ')
+    }
+    return 'Unknown ranking'
   } else {
     return question.correctAnswer
   }
@@ -622,22 +742,43 @@ io.on('connection', (socket) => {
         game.currentRevealIndex++
         console.log(`🎭 Host advancing to reveal question ${game.currentRevealIndex + 1}`)
         
+        // Add processed text fields to the game state for reveals
+        const processedGameState = { ...game }
+        if (processedGameState.answers) {
+          processedGameState.answers = {}
+          game.players.forEach(player => {
+            processedGameState.answers[player.id] = {}
+            game.questions.forEach((question, index) => {
+              const answerData = game.answers[player.id]?.[index]
+              if (answerData) {
+                processedGameState.answers[player.id][index] = {
+                  ...answerData,
+                  playerAnswerText: getAnswerDisplayText(question, answerData.answer),
+                  correctAnswerText: getCorrectAnswerDisplayText(question)
+                }
+              }
+            })
+          })
+        }
+        
         // Broadcast the reveal state update to all players
         io.to(gameCode).emit('reveal-state-updated', {
           currentRevealIndex: game.currentRevealIndex,
-          gameState: game
+          gameState: processedGameState
         })
       } else {
         // Move to final results
         console.log('🏁 Moving to final results')
         game.gameStatus = 'final_results'
         
-        // Apply all stored question scores to players
+        // Apply all stored question scores to players with participation ratio bonus
         if (game.questionScores) {
           game.players.forEach(player => {
             player.score = 0 // Reset score
             for (let questionIndex = 0; questionIndex < game.questions.length; questionIndex++) {
               const questionScore = game.questionScores[questionIndex]?.[player.id] || 0
+              
+              // The scores already include participation bonus from moveToNextQuestion
               player.score += questionScore
             }
             console.log(`📊 Final score for ${player.name}: ${player.score} pts`)
@@ -649,6 +790,9 @@ io.on('connection', (socket) => {
           const questionResults = game.questions.map((question, index) => {
             const answerData = game.answers[player.id]?.[index]
             if (answerData) {
+              // Use the already-calculated score with participation bonus
+              const finalScore = game.questionScores?.[index]?.[player.id] || 0
+              
               return {
                 questionIndex: index,
                 question: question.question,
@@ -658,7 +802,7 @@ io.on('connection', (socket) => {
                 correctAnswerText: getCorrectAnswerDisplayText(question),
                 isCorrect: answerData.isCorrect,
                 time: answerData.time,
-                score: game.questionScores?.[index]?.[player.id] || 0
+                score: finalScore
               }
             }
             return null
@@ -719,7 +863,24 @@ io.on('connection', (socket) => {
         return
       }
 
-      // Check if player can challenge (has challenges remaining, didn't get it right)
+      // Initialize challenge tracking if not exists
+      if (!game.playerChallenges) {
+        game.playerChallenges = {}
+      }
+      if (!game.playerChallenges[socket.id]) {
+        game.playerChallenges[socket.id] = {
+          challengesRemaining: 1, // One challenge per game
+          hasChallenged: false
+        }
+      }
+
+      // Check if player has already used their challenge
+      if (game.playerChallenges[socket.id].hasChallenged) {
+        socket.emit('error', { message: 'You have already used your challenge for this game' })
+        return
+      }
+
+      // Check if player can challenge (didn't get it right)
       const playerAnswer = game.answers[socket.id]?.[questionIndex]
       if (!playerAnswer || playerAnswer.isCorrect) {
         socket.emit('error', { message: 'Cannot challenge correct answers' })
@@ -727,6 +888,19 @@ io.on('connection', (socket) => {
       }
 
       console.log(`🏛️ Challenge submitted by ${playerObj.name} for Q${questionIndex + 1}: "${explanation}"`)
+
+      // Mark that player has used their challenge
+      game.playerChallenges[socket.id].hasChallenged = true
+      game.playerChallenges[socket.id].challengesRemaining = 0
+
+      // Calculate potential score (what they would get if challenge passes)
+      const currentQuestion = game.questions[questionIndex]
+      const baseScore = currentQuestion.difficulty === 'easy' ? 100 :
+                       currentQuestion.difficulty === 'medium' ? 150 : 200
+      
+      // CHALLENGE SCORE SHOULD NOT INCLUDE TIME BONUS
+      // Challenge should never be higher than someone who answered correctly
+      const potentialScore = baseScore
 
       // Start voting phase for this challenge
       const challenge = {
@@ -737,9 +911,13 @@ io.on('connection', (socket) => {
         question: game.questions[questionIndex],
         playerAnswer: playerAnswer.answer,
         explanation: explanation.trim(),
-        potentialScore: game.questionScores?.[questionIndex]?.[socket.id] || 0,
+        potentialScore: potentialScore,
         submittedAt: Date.now()
       }
+
+      // Store challenge in game state
+      if (!game.challenges) game.challenges = []
+      game.challenges.push(challenge)
 
       // Initialize voting
       const voters = game.players.filter(p => p.id !== socket.id)
@@ -772,6 +950,20 @@ io.on('connection', (socket) => {
 
       console.log(`🗳️ Vote received from ${game.players.find(p => p.id === socket.id)?.name}: ${vote}`)
 
+      // Find the challenge to check if this player is the challenger
+      const challenge = game.challenges?.find(c => c.id === challengeId)
+      if (!challenge) {
+        socket.emit('error', { message: 'Challenge not found' })
+        return
+      }
+
+      // PREVENT CHALLENGER FROM VOTING ON THEIR OWN CHALLENGE
+      if (challenge.challengerId === socket.id) {
+        console.log(`❌ Challenger ${game.players.find(p => p.id === socket.id)?.name} attempted to vote on their own challenge - BLOCKED`)
+        socket.emit('error', { message: 'You cannot vote on your own challenge' })
+        return
+      }
+
       // Initialize challenge votes if not exists
       if (!game.challengeVotes) game.challengeVotes = {}
       if (!game.challengeVotes[challengeId]) {
@@ -789,6 +981,8 @@ io.on('connection', (socket) => {
       const totalVoters = game.players.length - 1 // Exclude challenger
       const totalVotes = game.challengeVotes[challengeId].approve.length + game.challengeVotes[challengeId].reject.length
 
+      console.log(`🗳️ Voting progress: ${totalVotes}/${totalVoters} votes (excluding challenger)`)
+
       if (totalVotes >= totalVoters) {
         // Voting complete - resolve challenge
         const approveVotes = game.challengeVotes[challengeId].approve.length
@@ -797,11 +991,120 @@ io.on('connection', (socket) => {
 
         console.log(`🏛️ Challenge voting complete: ${approveVotes} approve, ${rejectVotes} reject - ${challengePassed ? 'PASSED' : 'REJECTED'}`)
 
+        // Find the challenge object to get the correct data
+        const challenge = game.challenges?.find(c => c.id === challengeId)
+        
+        // Update the challenge object with the result
+        if (challenge) {
+          challenge.passed = challengePassed
+          challenge.voteResults = { approve: approveVotes, reject: rejectVotes }
+        }
+        
+        // Apply challenge result if passed
+        if (challengePassed && challenge) {
+          const challengerId = challenge.challengerId
+          const questionIndex = challenge.questionIndex
+          
+          // Update the player's score for this question
+          if (!game.questionScores) game.questionScores = {}
+          if (!game.questionScores[questionIndex]) game.questionScores[questionIndex] = {}
+          
+          // Award the potential score to the challenger (WITHOUT time bonus)
+          const baseScore = challenge.potentialScore
+          
+          // Apply participation ratio bonus to challenge score
+          const ratioBonus = calculateParticipationRatioBonus(game, questionIndex)
+          const bonusAmount = Math.floor(baseScore * ratioBonus)
+          const finalChallengeScore = baseScore + bonusAmount
+          
+          game.questionScores[questionIndex][challengerId] = finalChallengeScore
+          console.log(`🏛️ Challenge PASSED: ${challengerId} awarded ${finalChallengeScore} points (${baseScore} + ${bonusAmount} bonus)`)
+          console.log(`📊 Updated question scores for Q${questionIndex}:`, game.questionScores[questionIndex])
+          
+          // Also update the player's total score
+          const player = game.players.find(p => p.id === challengerId)
+          if (player) {
+            player.score += finalChallengeScore
+            console.log(`📊 Updated total score for ${player.name}: ${player.score}`)
+          }
+        } else if (challengePassed) {
+          console.error(`❌ Challenge not found for ID: ${challengeId}`)
+        }
+
+        // Get the score awarded to the challenger if challenge passed
+        let scoreAwarded = 0
+        if (challengePassed && challenge) {
+          const challenger = game.players.find(p => p.id === challenge.challengerId)
+          if (challenger) {
+            // Find the score for this question
+            const questionScore = game.questionScores?.[challenge.questionIndex]?.[challenge.challengerId]
+            if (questionScore) {
+              scoreAwarded = questionScore
+            }
+          }
+        }
+
         io.to(gameCode).emit('challenge-resolved', {
           challengeId,
           passed: challengePassed,
-          votes: { approve: approveVotes, reject: rejectVotes }
+          votes: { approve: approveVotes, reject: rejectVotes },
+          scoreAwarded
         })
+
+        // Send updated game state to all players
+        io.to(gameCode).emit('game-state-updated', { gameState: game })
+        console.log(`📊 Sending updated game state to ${game.players.length} players`)
+        console.log(`📊 Game status: ${game.gameStatus}`)
+        console.log(`📊 Players in game:`, game.players.map(p => ({ id: p.id, name: p.name })))
+        
+        // If game is in final_results status, recalculate final results after challenge
+        if (game.gameStatus === 'final_results' && game.finalResults) {
+          const detailedResults = game.players.map(player => {
+            const questionResults = game.questions.map((question, index) => {
+              const answerData = game.answers[player.id]?.[index]
+              if (answerData) {
+                return {
+                  questionIndex: index,
+                  question: question.question,
+                  playerAnswer: answerData.answer,
+                  playerAnswerText: getAnswerDisplayText(question, answerData.answer),
+                  correctAnswer: question.correctAnswer,
+                  correctAnswerText: getCorrectAnswerDisplayText(question),
+                  isCorrect: answerData.isCorrect,
+                  time: answerData.time,
+                  score: game.questionScores?.[index]?.[player.id] || 0
+                }
+              }
+              return null
+            }).filter(Boolean)
+            
+            const totalTime = questionResults.reduce((sum, result) => sum + result.time, 0)
+            
+            return {
+              playerId: player.id,
+              playerName: player.name,
+              score: player.score,
+              totalTime,
+              questionResults
+            }
+          })
+          
+          detailedResults.sort((a, b) => {
+            if (a.score !== b.score) {
+              return b.score - a.score
+            }
+            return a.totalTime - b.totalTime
+          })
+          
+          game.finalResults = detailedResults
+          console.log('📊 Updated final results after challenge:', detailedResults.map(r => 
+            `${r.playerName}: ${r.score} pts (${(r.totalTime / 1000).toFixed(1)}s total)`
+          ))
+          
+          // Send updated final results
+          io.to(gameCode).emit('game-finished', { gameState: game })
+        }
+
       }
 
     } catch (error) {
@@ -866,67 +1169,101 @@ socket.on('player-ready', (data) => {
       }
 
       if (game.gameStatus === 'reveal_phase') {
-        // Move to final results - calculate all scores
-        game.gameStatus = 'final_results'
+        // Move to next question in reveal phase
+        if (!game.currentRevealIndex) game.currentRevealIndex = 0
         
-        // Apply all stored question scores to players
-        if (game.questionScores) {
-          game.players.forEach(player => {
-            player.score = 0 // Reset score
-            for (let questionIndex = 0; questionIndex < game.questions.length; questionIndex++) {
-              const questionScore = game.questionScores[questionIndex]?.[player.id] || 0
-              player.score += questionScore
-            }
-            console.log(`📊 Final score for ${player.name}: ${player.score} pts`)
+        if (game.currentRevealIndex < game.questions.length - 1) {
+          // Move to next question in reveal phase
+          game.currentRevealIndex++
+          console.log(`🎭 Host advancing to reveal question ${game.currentRevealIndex + 1}`)
+          
+          // Add processed text fields to the game state for reveals
+          const processedGameState = { ...game }
+          if (processedGameState.answers) {
+            processedGameState.answers = {}
+            game.players.forEach(player => {
+              processedGameState.answers[player.id] = {}
+              game.questions.forEach((question, index) => {
+                const answerData = game.answers[player.id]?.[index]
+                if (answerData) {
+                  processedGameState.answers[player.id][index] = {
+                    ...answerData,
+                    playerAnswerText: getAnswerDisplayText(question, answerData.answer),
+                    correctAnswerText: getCorrectAnswerDisplayText(question)
+                  }
+                }
+              })
+            })
+          }
+          
+          // Broadcast the reveal state update to all players
+          io.to(gameCode).emit('reveal-state-updated', {
+            currentRevealIndex: game.currentRevealIndex,
+            gameState: processedGameState
           })
-        }
-
-        // Generate final results
-        const detailedResults = game.players.map(player => {
-          const questionResults = game.questions.map((question, index) => {
-            const answerData = game.answers[player.id]?.[index]
-            if (answerData) {
-              return {
-                questionIndex: index,
-                question: question.question,
-                playerAnswer: answerData.answer,
-                playerAnswerText: getAnswerDisplayText(question, answerData.answer),
-                correctAnswer: question.correctAnswer,
-                correctAnswerText: getCorrectAnswerDisplayText(question),
-                isCorrect: answerData.isCorrect,
-                time: answerData.time,
-                score: game.questionScores?.[index]?.[player.id] || 0
+        } else {
+          // Move to final results - calculate all scores
+          game.gameStatus = 'final_results'
+          
+          // Apply all stored question scores to players
+          if (game.questionScores) {
+            game.players.forEach(player => {
+              player.score = 0 // Reset score
+              for (let questionIndex = 0; questionIndex < game.questions.length; questionIndex++) {
+                const questionScore = game.questionScores[questionIndex]?.[player.id] || 0
+                player.score += questionScore
               }
+              console.log(`📊 Final score for ${player.name}: ${player.score} pts`)
+            })
+          }
+
+          // Generate final results
+          const detailedResults = game.players.map(player => {
+            const questionResults = game.questions.map((question, index) => {
+              const answerData = game.answers[player.id]?.[index]
+              if (answerData) {
+                return {
+                  questionIndex: index,
+                  question: question.question,
+                  playerAnswer: answerData.answer,
+                  playerAnswerText: getAnswerDisplayText(question, answerData.answer),
+                  correctAnswer: question.correctAnswer,
+                  correctAnswerText: getCorrectAnswerDisplayText(question),
+                  isCorrect: answerData.isCorrect,
+                  time: answerData.time,
+                  score: game.questionScores?.[index]?.[player.id] || 0
+                }
+              }
+              return null
+            }).filter(Boolean)
+            
+            const totalTime = questionResults.reduce((sum, result) => sum + result.time, 0)
+            
+            return {
+              playerId: player.id,
+              playerName: player.name,
+              score: player.score,
+              totalTime,
+              questionResults
             }
-            return null
-          }).filter(Boolean)
+          })
           
-          const totalTime = questionResults.reduce((sum, result) => sum + result.time, 0)
+          detailedResults.sort((a, b) => {
+            if (a.score !== b.score) {
+              return b.score - a.score
+            }
+            return a.totalTime - b.totalTime
+          })
           
-          return {
-            playerId: player.id,
-            playerName: player.name,
-            score: player.score,
-            totalTime,
-            questionResults
-          }
-        })
-        
-        detailedResults.sort((a, b) => {
-          if (a.score !== b.score) {
-            return b.score - a.score
-          }
-          return a.totalTime - b.totalTime
-        })
-        
-        game.finalResults = detailedResults
-        
-        console.log('🏁 Game finished:', gameCode)
-        console.log('📊 Final results:', detailedResults.map(r => 
-          `${r.playerName}: ${r.score} pts (${(r.totalTime / 1000).toFixed(1)}s total)`
-        ))
-        
-        io.to(gameCode).emit('game-finished', { gameState: game })
+          game.finalResults = detailedResults
+          
+          console.log('🏁 Game finished:', gameCode)
+          console.log('📊 Final results:', detailedResults.map(r => 
+            `${r.playerName}: ${r.score} pts (${(r.totalTime / 1000).toFixed(1)}s total)`
+          ))
+          
+          io.to(gameCode).emit('game-finished', { gameState: game })
+        }
       }
 
     } catch (error) {
@@ -991,21 +1328,49 @@ function moveToNextQuestion(gameCode) {
     game.players.forEach(player => {
       const playerAnswerData = game.answers[player.id]?.[game.currentQuestionIndex]
       if (playerAnswerData) {
-        // Calculate score but store it separately for later reveal
-        let score = 0
-        if (playerAnswerData.isCorrect) {
-          const baseScore = currentQuestion.difficulty === 'easy' ? 100 : 
-                           currentQuestion.difficulty === 'hard' ? 400 : 200
-          const timeBonus = Math.max(0, Math.floor((currentQuestion.timeLimit * 1000 - playerAnswerData.time) / 100))
-          score = baseScore + timeBonus
+        // Calculate score using the proper scoring system
+        const baseScore = calculateScore(
+          currentQuestion,
+          playerAnswerData.isCorrect,
+          playerAnswerData.time,
+          currentQuestion.timeLimit
+        )
+        
+        // Calculate participation ratio bonus
+        const totalPlayers = game.players.length
+        const correctAnswers = game.players.filter(p => {
+          const answerData = game.answers[p.id]?.[game.currentQuestionIndex]
+          return answerData && answerData.isCorrect
+        }).length
+        
+        const participationRatio = correctAnswers / totalPlayers
+        let ratioBonus = 0
+        if (participationRatio >= 0.8) {
+          ratioBonus = -0.2 // -20% penalty
+        } else if (participationRatio >= 0.6) {
+          ratioBonus = 0 // No bonus/penalty
+        } else if (participationRatio >= 0.4) {
+          ratioBonus = 0.2 // +20% bonus
+        } else if (participationRatio >= 0.2) {
+          ratioBonus = 0.4 // +40% bonus
+        } else {
+          ratioBonus = 0.6 // +60% bonus
         }
         
-        // Store calculated score for this question (but don't add to player.score yet)
+        const bonusAmount = Math.floor(baseScore * ratioBonus)
+        const finalScore = baseScore + bonusAmount
+        
+        // Store both base score and final score (with participation bonus)
         if (!game.questionScores) game.questionScores = {}
         if (!game.questionScores[game.currentQuestionIndex]) game.questionScores[game.currentQuestionIndex] = {}
-        game.questionScores[game.currentQuestionIndex][player.id] = score
+        game.questionScores[game.currentQuestionIndex][player.id] = finalScore
         
-        console.log(`📊 ${player.name}: ${playerAnswerData.isCorrect ? '✅' : '❌'} (${score} pts calculated, not awarded yet) in ${(playerAnswerData.time / 1000).toFixed(1)}s - ${currentQuestion.difficulty}/${currentQuestion.type}`)
+        // Store base scores separately for reference
+        if (!game.baseScores) game.baseScores = {}
+        if (!game.baseScores[game.currentQuestionIndex]) game.baseScores[game.currentQuestionIndex] = {}
+        game.baseScores[game.currentQuestionIndex][player.id] = baseScore
+        
+        console.log(`📊 ${player.name}: ${playerAnswerData.isCorrect ? '✅' : '❌'} (${baseScore} + ${bonusAmount} = ${finalScore} pts) in ${(playerAnswerData.time / 1000).toFixed(1)}s - ${currentQuestion.difficulty}/${currentQuestion.type}`)
       }
     })
   }
@@ -1013,13 +1378,12 @@ function moveToNextQuestion(gameCode) {
   game.currentQuestionIndex++
   
   if (game.currentQuestionIndex >= game.questions.length) {
-    // Game finished
+    // All questions answered - move to reveal phase
     game.gameStatus = 'reveal_phase'
     game.currentRevealIndex = 0 // Initialize reveal index
     game.readyPlayers = {} // Initialize ready players structure
     for (let i = 0; i < game.questions.length; i++) {
       game.readyPlayers[i] = [game.hostId] // Host is ready by default for all questions
-      console.log(`✅ Host auto-ready for question ${i}`)
     }
     game.updatedAt = Date.now()
     game.isProcessingNextQuestion = false // Reset flag
@@ -1030,6 +1394,9 @@ function moveToNextQuestion(gameCode) {
       const questionResults = game.questions.map((question, index) => {
         const answerData = game.answers[player.id]?.[index]
         if (answerData) {
+          // Use the already-calculated score with participation bonus
+          const finalScore = game.questionScores?.[index]?.[player.id] || 0
+          
           return {
             questionIndex: index,
             question: question.question,
@@ -1039,7 +1406,7 @@ function moveToNextQuestion(gameCode) {
             correctAnswerText: getCorrectAnswerDisplayText(question),
             isCorrect: answerData.isCorrect,
             time: answerData.time,
-            score: answerData.isCorrect ? 10 : 0
+            score: finalScore
           }
         }
         return null

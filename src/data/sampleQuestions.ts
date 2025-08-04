@@ -110,6 +110,18 @@ export const sampleQuestions: Question[] = [
     category: 'history',
     difficulty: 'hard',
     explanation: 'While walls existed earlier, most of the Great Wall we see today was built during the Ming Dynasty (1368-1644).'
+  },
+  {
+    id: '11',
+    type: 'ranking',
+    question: 'Rank the Lord of the Rings trilogy movies in chronological order (earliest to latest):',
+    items: ['The Fellowship of the Ring', 'The Two Towers', 'The Return of the King'],
+    correctOrder: [0, 1, 2],
+    timeLimit: 20,
+    category: 'movies',
+    difficulty: 'easy',
+    explanation: 'The Lord of the Rings trilogy was released in order: The Fellowship of the Ring (2001), The Two Towers (2002), The Return of the King (2003).',
+    allowPartialCredit: true
   }
 ]
 

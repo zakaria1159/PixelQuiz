@@ -49,6 +49,7 @@ export interface GameState {
   finalResults?: PlayerFinalResult[]
   createdAt: number
   updatedAt: number
+  readyPlayers?: Record<number, string[]>
 }
 
 export interface GameStats {

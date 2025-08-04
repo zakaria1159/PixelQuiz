@@ -21,7 +21,8 @@ const POINT_VALUES = {
     multiple_choice: 1.0,
     true_false: 0.8,      // Easier, less points
     free_text: 1.3,       // Harder, more points  
-    image_guess: 1.5      // Hardest, most points
+    image_guess: 1.5,     // Hardest, most points
+    ranking: 1.2          // Good points for ranking (requires thinking)
   }
   
   /**
@@ -158,6 +159,38 @@ const POINT_VALUES = {
     }
   }
   
+  /**
+   * Calculate participation ratio bonus based on how many players got the question correct
+   * @param {number} correctAnswers - Number of players who answered correctly
+   * @param {number} totalPlayers - Total number of players
+   * @returns {number} - Bonus multiplier (-0.2 to +0.6)
+   */
+  function calculateParticipationRatioBonus(correctAnswers, totalPlayers) {
+    const participationRatio = correctAnswers / totalPlayers
+    
+    // Bonus calculation:
+    // - If 80%+ got it right: -20% penalty (too easy)
+    // - If 60-80% got it right: 0% (normal difficulty)
+    // - If 40-60% got it right: +20% bonus (moderate difficulty)
+    // - If 20-40% got it right: +40% bonus (hard)
+    // - If <20% got it right: +60% bonus (very hard)
+    
+    let ratioBonus = 0
+    if (participationRatio >= 0.8) {
+      ratioBonus = -0.2 // -20% penalty
+    } else if (participationRatio >= 0.6) {
+      ratioBonus = 0 // No bonus/penalty
+    } else if (participationRatio >= 0.4) {
+      ratioBonus = 0.2 // +20% bonus
+    } else if (participationRatio >= 0.2) {
+      ratioBonus = 0.4 // +40% bonus
+    } else {
+      ratioBonus = 0.6 // +60% bonus
+    }
+    
+    return ratioBonus
+  }
+
   module.exports = {
     calculateScore,
     getMaxScore,
@@ -165,6 +198,7 @@ const POINT_VALUES = {
     calculateLeaderboard,
     getRankSuffix,
     calculateStats,
+    calculateParticipationRatioBonus,
     POINT_VALUES,
     QUESTION_TYPE_MULTIPLIERS
   }

@@ -11,9 +11,16 @@ interface QuestionRevealProps {
     isHost: boolean
     onFinishReveals: () => void
     onChallengeQuestion: (questionIndex: number, explanation: string) => void
+    onVoteChallenge?: (challengeId: string, vote: 'approve' | 'reject') => void
     onPlayerReady?: (questionIndex: number, playerId: string) => void
     readyPlayers?: {[questionIndex: number]: string[]}
     getReadyPlayersForQuestion?: (questionIndex: number) => string[]
+    currentChallenge?: any
+    challengeVoting?: any
+    hasUsedChallenge?: boolean
+    voteTimeLeft?: number
+    challengeResult?: any
+    onDismissChallengeResult?: () => void
 }
 
 export function QuestionReveal({
@@ -22,9 +29,16 @@ export function QuestionReveal({
     isHost,
     onFinishReveals,
     onChallengeQuestion,
+    onVoteChallenge,
     onPlayerReady,
     readyPlayers = {},
-    getReadyPlayersForQuestion
+    getReadyPlayersForQuestion,
+    currentChallenge,
+    challengeVoting,
+    hasUsedChallenge = false,
+    voteTimeLeft = 20,
+    challengeResult,
+    onDismissChallengeResult
 }: QuestionRevealProps) {
     // Use server-synchronized reveal index if available, otherwise fall back to local state
     const serverRevealIndex = gameState.currentRevealIndex || 0
@@ -33,7 +47,6 @@ export function QuestionReveal({
     const [challengeExplanation, setChallengeExplanation] = useState('')
     const [challengeTimeLeft, setChallengeTimeLeft] = useState(30)
     const [isVoting, setIsVoting] = useState(false)
-    const [voteTimeLeft, setVoteTimeLeft] = useState(20)
 
     // Use ready state from props instead of local state
     const currentQuestionReadyPlayers = getReadyPlayersForQuestion ? 
@@ -108,26 +121,13 @@ export function QuestionReveal({
         }
     }, [showingChallenge, challengeTimeLeft])
 
-    // Voting timer - 20 seconds to vote  
-    useEffect(() => {
-        if (isVoting && voteTimeLeft > 0) {
-            const timer = setTimeout(() => {
-                setVoteTimeLeft(prev => prev - 1)
-            }, 1000)
-            return () => clearTimeout(timer)
-        } else if (isVoting && voteTimeLeft === 0) {
-            setIsVoting(false)
-            setShowingChallenge(false)
-            setChallengeExplanation('')
-        }
-    }, [isVoting, voteTimeLeft])
+
 
     const handleChallenge = () => {
         if (challengeExplanation.trim()) {
             onChallengeQuestion(currentRevealIndex, challengeExplanation.trim())
             setIsVoting(true)
             setShowingChallenge(false)
-            setVoteTimeLeft(20)
         }
     }
 
@@ -155,6 +155,18 @@ export function QuestionReveal({
             if (rawAnswer === '1' || rawAnswer === 1) return 'False'
         }
 
+                // For ranking questions, convert comma-separated indexes to text
+        if (question.type === 'ranking' && question.items) {
+          try {
+            const indexes = rawAnswer.split(',').map((i: string) => parseInt(i.trim()))
+            const texts = indexes.map((index: number) => question.items[index]).filter(Boolean)
+            return texts.join(' → ')
+          } catch (e) {
+            // If parsing fails, return the raw answer
+            return rawAnswer
+          }
+        }
+
         // For free text or if conversion fails, return the raw answer
         return rawAnswer
     }
@@ -168,7 +180,15 @@ export function QuestionReveal({
     let questionScore = 0
 
     console.log('🔍 Starting answer lookup for player:', currentPlayerId, 'question:', currentRevealIndex)
+    console.log('🔍 Current player details:', currentPlayer)
+    console.log('🔍 Available game state keys:', Object.keys(gameState || {}))
+    console.log('🔍 Game state answers structure:', gameState?.answers)
+    console.log('🔍 Game state playerAnswers structure:', gameState?.playerAnswers)
+    console.log('🔍 Game state questionResults structure:', gameState?.questionResults)
+    console.log('🔍 All players in gameState:', gameState?.players)
+    console.log('🔍 Host ID from gameState:', gameState?.hostId)
 
+    // Use the same successful lookup logic as the "All Players" section
     // Strategy 1: Direct lookup by playerId and questionIndex
     if (gameState.answers && gameState.answers[currentPlayerId]) {
         playerAnswer = gameState.answers[currentPlayerId][currentRevealIndex]
@@ -194,9 +214,8 @@ export function QuestionReveal({
         }
     }
 
-    // Strategy 4: Check if answers are stored with different key structure
+    // Strategy 4: Reversed structure - Check if answers are stored as answers[questionIndex][playerId]
     if (!playerAnswer && gameState.answers) {
-        // Maybe answers are stored as answers[questionIndex][playerId]
         const questionAnswers = gameState.answers[currentRevealIndex]
         if (questionAnswers && questionAnswers[currentPlayerId]) {
             playerAnswer = questionAnswers[currentPlayerId]
@@ -204,12 +223,11 @@ export function QuestionReveal({
         }
     }
 
-    // Strategy 5: Search through any results arrays
+    // Strategy 5: Results array
     if (!playerAnswer && gameState.results) {
-        // Check if there's a results array for current question
-        const questionResults = gameState.results[currentRevealIndex]
-        if (Array.isArray(questionResults)) {
-            const playerResult = questionResults.find((result: any) =>
+        const questionResultsArray = gameState.results[currentRevealIndex]
+        if (Array.isArray(questionResultsArray)) {
+            const playerResult = questionResultsArray.find((result: any) =>
                 result.playerId === currentPlayerId || result.playerName === currentPlayer?.name
             )
             if (playerResult) {
@@ -233,11 +251,131 @@ export function QuestionReveal({
         })
     }
 
+    // Strategy 7: Try to find the answer by looking up the current player in the "All Players" logic
+    if (!playerAnswer) {
+        console.log('🔍 Strategy 7: Using "All Players" lookup logic for current player')
+        // Use the exact same logic as the "All Players" section
+        let playerAnswerData = null
+
+        if (gameState.answers && gameState.answers[currentPlayerId]) {
+            playerAnswerData = gameState.answers[currentPlayerId][currentRevealIndex]
+            console.log('🔍 Strategy 7 - Strategy 1:', playerAnswerData)
+        }
+
+        if (!playerAnswerData && gameState.playerAnswers) {
+            playerAnswerData = gameState.playerAnswers[currentPlayerId]?.[currentRevealIndex]
+            console.log('🔍 Strategy 7 - Strategy 2:', playerAnswerData)
+        }
+
+        if (!playerAnswerData && gameState.questionResults) {
+            const questionResult = gameState.questionResults[currentRevealIndex]
+            if (questionResult && questionResult[currentPlayerId]) {
+                playerAnswerData = {
+                    answer: questionResult[currentPlayerId].answer,
+                    isCorrect: questionResult[currentPlayerId].isCorrect,
+                    time: questionResult[currentPlayerId].time || 0
+                }
+                console.log('🔍 Strategy 7 - Strategy 3:', playerAnswerData)
+            }
+        }
+
+        // Strategy 4: Reversed structure
+        if (!playerAnswerData && gameState.answers) {
+            const questionAnswers = gameState.answers[currentRevealIndex]
+            if (questionAnswers && questionAnswers[currentPlayerId]) {
+                playerAnswerData = questionAnswers[currentPlayerId]
+                console.log('🔍 Strategy 7 - Strategy 4:', playerAnswerData)
+            }
+        }
+
+        // Strategy 5: Results array
+        if (!playerAnswerData && gameState.results) {
+            const questionResultsArray = gameState.results[currentRevealIndex]
+            if (Array.isArray(questionResultsArray)) {
+                const playerResult = questionResultsArray.find((result: any) =>
+                    result.playerId === currentPlayerId || result.playerName === currentPlayer?.name
+                )
+                if (playerResult) {
+                    playerAnswerData = {
+                        answer: playerResult.answer,
+                        isCorrect: playerResult.isCorrect,
+                        time: playerResult.time || 0
+                    }
+                    console.log('🔍 Strategy 7 - Strategy 5:', playerAnswerData)
+                }
+            }
+        }
+
+        if (playerAnswerData) {
+            playerAnswer = playerAnswerData
+            console.log('🔍 Strategy 7 found answer:', playerAnswer)
+        }
+    }
+
+    // Strategy 8: Try using host ID if current player is host but answer not found
+    if (!playerAnswer && isHost && gameState?.hostId && gameState.hostId !== currentPlayerId) {
+        console.log('🔍 Strategy 8: Trying host ID instead of current player ID')
+        const hostId = gameState.hostId
+        
+        if (gameState.answers && gameState.answers[hostId]) {
+            playerAnswer = gameState.answers[hostId][currentRevealIndex]
+            console.log('🔍 Strategy 8 - Strategy 1 (host ID):', playerAnswer)
+        }
+
+        if (!playerAnswer && gameState.playerAnswers) {
+            playerAnswer = gameState.playerAnswers[hostId]?.[currentRevealIndex]
+            console.log('🔍 Strategy 8 - Strategy 2 (host ID):', playerAnswer)
+        }
+
+        if (!playerAnswer && gameState.questionResults) {
+            const questionResult = gameState.questionResults[currentRevealIndex]
+            if (questionResult && questionResult[hostId]) {
+                playerAnswer = {
+                    answer: questionResult[hostId].answer,
+                    isCorrect: questionResult[hostId].isCorrect,
+                    time: questionResult[hostId].time || 0
+                }
+                console.log('🔍 Strategy 8 - Strategy 3 (host ID):', playerAnswer)
+            }
+        }
+
+        if (!playerAnswer && gameState.answers) {
+            const questionAnswers = gameState.answers[currentRevealIndex]
+            if (questionAnswers && questionAnswers[hostId]) {
+                playerAnswer = questionAnswers[hostId]
+                console.log('🔍 Strategy 8 - Strategy 4 (host ID):', playerAnswer)
+            }
+        }
+
+        if (!playerAnswer && gameState.results) {
+            const questionResultsArray = gameState.results[currentRevealIndex]
+            if (Array.isArray(questionResultsArray)) {
+                const playerResult = questionResultsArray.find((result: any) =>
+                    result.playerId === hostId || result.playerName === 'Host'
+                )
+                if (playerResult) {
+                    playerAnswer = {
+                        answer: playerResult.answer,
+                        isCorrect: playerResult.isCorrect,
+                        time: playerResult.time || 0
+                    }
+                    console.log('🔍 Strategy 8 - Strategy 5 (host ID):', playerAnswer)
+                }
+            }
+        }
+    }
+
     // Extract values with fallbacks
     if (playerAnswer) {
         isCorrect = playerAnswer.isCorrect || false
         questionScore = gameState.questionScores?.[currentRevealIndex]?.[currentPlayerId] || 0
         console.log('🔍 Final player answer found:', { playerAnswer, isCorrect, questionScore })
+        console.log('🔍 Question scores for current question:', gameState.questionScores?.[currentRevealIndex])
+        console.log('🔍 Current player ID:', currentPlayerId)
+        console.log('🔍 Current reveal index:', currentRevealIndex)
+        console.log('🔍 Full questionScores structure:', gameState.questionScores)
+        console.log('🔍 Score lookup path:', `gameState.questionScores[${currentRevealIndex}][${currentPlayerId}]`)
+        console.log('🔍 Actual score value:', gameState.questionScores?.[currentRevealIndex]?.[currentPlayerId])
     } else {
         console.log('🔍 No player answer found with any strategy')
     }
@@ -382,15 +520,147 @@ export function QuestionReveal({
                     </div>
                 )}
 
-                {isVoting && (
-                    <div className="mb-6 p-4 bg-purple-900/30 border-2 border-purple-400 rounded text-center">
-                        <h3 className="text-2xl font-bold text-purple-400 mb-2">
-                            🗳️ Voting in Progress
+                {/* Voting Phase - Only show to non-challengers */}
+                {(() => {
+                    const shouldShowVoting = challengeVoting && currentChallenge && currentChallenge.challengerId && currentChallenge.challengerId !== currentPlayerId;
+                    console.log('🔍 Voting UI Debug:', {
+                        challengeVoting,
+                        currentChallenge: currentChallenge?.id,
+                        challengerId: currentChallenge?.challengerId,
+                        currentPlayerId,
+                        shouldShowVoting
+                    });
+                    return shouldShowVoting ? (
+                    <div className="mb-6 p-4 bg-purple-900/30 border-2 border-purple-400 rounded">
+                        <div className="text-center mb-4">
+                            <h3 className="text-2xl font-bold text-purple-400 mb-2">
+                                🗳️ Challenge Voting
+                            </h3>
+                            <div className="text-4xl font-bold text-white">
+                                {voteTimeLeft}s
+                            </div>
+                            <p className="text-purple-300">Vote on {currentChallenge.challengerName}'s challenge</p>
+                        </div>
+                        
+                        {/* Challenge Details */}
+                        <div className="bg-gray-800 p-4 rounded border border-gray-600 mb-4">
+                            <h4 className="text-lg font-semibold text-white mb-2">Challenge Details:</h4>
+                            <div className="text-sm text-gray-300 space-y-2">
+                                <div><strong>Challenger:</strong> {currentChallenge.challengerName}</div>
+                                <div><strong>Their Answer:</strong> {getDisplayAnswer(currentQuestion, currentChallenge.playerAnswer)}</div>
+                                <div><strong>Explanation:</strong> "{currentChallenge.explanation}"</div>
+                                <div><strong>Potential Score:</strong> +{currentChallenge.potentialScore} points</div>
+                            </div>
+                        </div>
+
+                        {/* Voting Buttons */}
+                        <div className="flex gap-4 justify-center">
+                            <Button
+                                onClick={() => onVoteChallenge?.(currentChallenge.id, 'approve')}
+                                variant="success"
+                                size="lg"
+                                className="flex-1 max-w-xs"
+                            >
+                                ✅ Approve Challenge
+                            </Button>
+                            <Button
+                                onClick={() => onVoteChallenge?.(currentChallenge.id, 'reject')}
+                                variant="danger"
+                                size="lg"
+                                className="flex-1 max-w-xs"
+                            >
+                                ❌ Reject Challenge
+                            </Button>
+                        </div>
+                    </div>
+                ) : null;
+                })()}
+
+                {/* Challenge Results */}
+                {currentChallenge && currentChallenge.challengerId === currentPlayerId && challengeVoting && (
+                    <div className="mb-6 p-4 bg-blue-900/30 border-2 border-blue-400 rounded text-center">
+                        <h3 className="text-2xl font-bold text-blue-400 mb-2">
+                            🏛️ Your Challenge is Being Voted On
                         </h3>
                         <div className="text-4xl font-bold text-white">
                             {voteTimeLeft}s
                         </div>
-                        <p className="text-purple-300">Cast your votes now!</p>
+                        <p className="text-blue-300">Other players are voting on your challenge...</p>
+                    </div>
+                )}
+
+                {/* Challenge Result Popup */}
+                {challengeResult && (
+                    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                        <div className="bg-gray-800 border-2 border-gray-600 rounded-lg p-6 max-w-lg mx-4">
+                            <div className="text-center">
+                                <h3 className={`text-3xl font-bold mb-6 ${challengeResult.passed ? 'text-green-400' : 'text-red-400'}`}>
+                                    {challengeResult.passed ? '✅ Challenge Accepted!' : '❌ Challenge Rejected'}
+                                </h3>
+                                
+                                {/* Vote Results with Enhanced Graph */}
+                                <div className="mb-6">
+                                    <h4 className="text-lg font-semibold text-white mb-4">🗳️ Anonymous Vote Results</h4>
+                                    
+                                    {/* Vote Counts */}
+                                    <div className="flex justify-between items-center mb-3">
+                                        <div className="text-center">
+                                            <div className="text-2xl font-bold text-green-400">✅</div>
+                                            <div className="text-sm text-gray-300">Approve</div>
+                                            <div className="text-xl font-bold text-white">{challengeResult.votes.approve}</div>
+                                        </div>
+                                        <div className="text-center">
+                                            <div className="text-2xl font-bold text-red-400">❌</div>
+                                            <div className="text-sm text-gray-300">Reject</div>
+                                            <div className="text-xl font-bold text-white">{challengeResult.votes.reject}</div>
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Enhanced Progress Bar */}
+                                    <div className="w-full bg-gray-700 rounded-full h-4 mb-2">
+                                        <div 
+                                            className={`h-4 rounded-full transition-all duration-500 ${challengeResult.passed ? 'bg-green-500' : 'bg-red-500'}`}
+                                            style={{ 
+                                                width: `${(challengeResult.votes.approve / (challengeResult.votes.approve + challengeResult.votes.reject)) * 100}%` 
+                                            }}
+                                        ></div>
+                                    </div>
+                                    
+                                    {/* Vote Percentage */}
+                                    <div className="text-sm text-gray-300">
+                                        {challengeResult.passed ? 
+                                            `${Math.round((challengeResult.votes.approve / (challengeResult.votes.approve + challengeResult.votes.reject)) * 100)}% approved` :
+                                            `${Math.round((challengeResult.votes.reject / (challengeResult.votes.approve + challengeResult.votes.reject)) * 100)}% rejected`
+                                        }
+                                    </div>
+                                </div>
+
+                                {/* Points Awarded (only for challenger) */}
+                                {challengeResult.passed && currentChallenge?.challengerId === currentPlayerId && (
+                                    <div className="mb-6 p-4 bg-green-900/30 border-2 border-green-400 rounded">
+                                        <div className="text-center">
+                                            <div className="text-4xl mb-2">🎉</div>
+                                            <p className="text-green-400 font-bold text-lg">You earned challenge points!</p>
+                                            <p className="text-white text-2xl font-bold">
+                                                +{challengeResult.scoreAwarded || 'Points'} points
+                                            </p>
+                                            <p className="text-sm text-gray-300 mt-2">
+                                                Challenge points are awarded without time bonus
+                                            </p>
+                                        </div>
+                                    </div>
+                                )}
+
+                                <Button
+                                    onClick={onDismissChallengeResult}
+                                    variant="primary"
+                                    size="lg"
+                                    className="w-full"
+                                >
+                                    Continue
+                                </Button>
+                            </div>
+                        </div>
                     </div>
                 )}
 
@@ -424,9 +694,10 @@ export function QuestionReveal({
                                     ✅ Correct Answer:
                                 </h3>
                                 <p className="text-xl text-white font-bold">
-                                    {currentQuestion.type === 'multiple_choice' || currentQuestion.type === 'true_false'
+                                    {playerAnswer?.correctAnswerText || 
+                                     (currentQuestion.type === 'multiple_choice' || currentQuestion.type === 'true_false'
                                         ? currentQuestion.options?.[currentQuestion.correctAnswer]
-                                        : currentQuestion.correctAnswer}
+                                        : currentQuestion.correctAnswer)}
                                 </p>
                             </div>
 
@@ -439,7 +710,8 @@ export function QuestionReveal({
                                     {isCorrect ? '✅' : '❌'} Your Answer:
                                 </h3>
                                 <p className="text-xl text-white font-bold">
-                                    {playerAnswer ? getDisplayAnswer(currentQuestion, playerAnswer.answer) : 'No answer submitted'}
+                                    {playerAnswer?.playerAnswerText || 
+                                     (playerAnswer ? getDisplayAnswer(currentQuestion, playerAnswer.answer) : 'No answer submitted')}
                                 </p>
                                 <div className="mt-2 text-sm text-gray-300">
                                     Time: {playerAnswer ? (playerAnswer.time / 1000).toFixed(1) : '0.0'}s
@@ -457,10 +729,16 @@ export function QuestionReveal({
                                 <div className="text-sm text-gray-300 mt-2">
                                     Running Total: {runningTotal} points
                                 </div>
+                                {/* Debug info */}
+                                {process.env.NODE_ENV === 'development' && (
+                                    <div className="text-xs text-gray-500 mt-2">
+                                        Debug: questionScore={questionScore}, currentRevealIndex={currentRevealIndex}, currentPlayerId={currentPlayerId}
+                                    </div>
+                                )}
                             </div>
 
                             {/* Challenge Section */}
-                            {!isCorrect && !showingChallenge && !isVoting && (
+                            {!isCorrect && !showingChallenge && !challengeVoting && !hasUsedChallenge && (
                                 <div className="mt-6">
                                     <Button
                                         onClick={handleStartChallenge}
@@ -472,6 +750,15 @@ export function QuestionReveal({
                                     </Button>
                                     <p className="text-xs text-gray-400 text-center mt-2">
                                         One challenge per game - use it wisely!
+                                    </p>
+                                </div>
+                            )}
+
+                            {/* Challenge Used Indicator */}
+                            {hasUsedChallenge && (
+                                <div className="mt-6 p-4 bg-gray-700 border-2 border-gray-600 rounded text-center">
+                                    <p className="text-gray-400 text-sm">
+                                        🏛️ You have used your challenge for this game
                                     </p>
                                 </div>
                             )}
@@ -549,7 +836,7 @@ export function QuestionReveal({
                                                 </div>
                                                 <div className="text-sm text-gray-300">
                                                     Answer: <span className="text-white font-medium">
-                                                        {getDisplayAnswer(currentQuestion, result.answer)}
+                                                        {result.playerAnswerText || getDisplayAnswer(currentQuestion, result.answer)}
                                                     </span>
                                                 </div>
                                                 <div className="text-xs text-gray-400">
@@ -583,7 +870,7 @@ export function QuestionReveal({
                 </div>
 
                 {/* Ready/Next Question Controls */}
-                {!showingChallenge && !isVoting && (
+                {!showingChallenge && !challengeVoting && (
                     <div className="text-center mt-8">
                         {!isHost ? (
                             /* Player Ready Button */
@@ -626,28 +913,12 @@ export function QuestionReveal({
                                     </div>
                                     <div className="mt-3 text-center">
                                         <span className="text-lg font-bold text-white">
-                                            {effectiveReadyPlayers.length}/{gameState.players.length} players ready
+                                            {effectiveReadyPlayers.length -1}/{gameState.players.length}  players ready
                                         </span>
                                     </div>
                                 </div>
 
                                 {/* Host Ready Button */}
-                                <div className="mb-4">
-                                    <Button
-                                        onClick={handlePlayerReady}
-                                        disabled={isPlayerReady}
-                                        variant={isPlayerReady ? "success" : "secondary"}
-                                        size="md"
-                                        className="px-6"
-                                    >
-                                        {isPlayerReady ? "✅ Host Ready" : "Mark Host Ready"}
-                                    </Button>
-                                    <p className="text-gray-300 text-xs mt-2">
-                                        {isPlayerReady 
-                                            ? "You've marked yourself ready" 
-                                            : "Optional: Mark yourself as ready too"}
-                                    </p>
-                                </div>
 
                                 <Button
                                     onClick={handleNextQuestion}

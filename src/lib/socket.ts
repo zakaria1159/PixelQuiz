@@ -238,6 +238,25 @@ onReadyStatusUpdated(callback: (data: { questionIndex: number, readyPlayers: str
     this.socket?.on('reveal-state-updated', callback)
   }
 
+  // Challenge and voting event handlers
+  onChallengeVoting(callback: (data: { challenge: any, voters: any[], votingTime: number }) => void) {
+    this.socket?.on('challenge-voting', callback)
+  }
+
+  onChallengeResolved(callback: (data: { challengeId: string, passed: boolean, votes: { approve: number, reject: number } }) => void) {
+    this.socket?.on('challenge-resolved', callback)
+  }
+
+  // Vote submission
+  voteChallenge(gameCode: string, challengeId: string, vote: 'approve' | 'reject') {
+    if (this.socket?.connected) {
+      console.log('🗳️ Submitting vote:', vote)
+      this.socket.emit('vote-challenge', gameCode, challengeId, vote)
+    } else {
+      console.error('Socket not connected for vote-challenge')
+    }
+  }
+
   // Remove event listeners
   offAllGameEvents() {
     const events = [
@@ -250,7 +269,9 @@ onReadyStatusUpdated(callback: (data: { questionIndex: number, readyPlayers: str
       'error',
       'player-ready',
       'ready-status-updated',
-      'reveal-state-updated'
+      'reveal-state-updated',
+      'challenge-voting',
+      'challenge-resolved'
     ]
     
     events.forEach(event => {

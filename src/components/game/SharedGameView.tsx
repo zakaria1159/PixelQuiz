@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import Button from '@/components/ui/Button'
 import Card from '@/components/ui/Card'
 import AnswerOptions from '@/components/game/AnswerOptions'
+import RankingOptions from '@/components/game/RankingOptions'
 import { 
   Question, 
   isMultipleChoiceQuestion, 
@@ -11,7 +12,8 @@ import {
   isFreeTextQuestion, 
   isImageGuessQuestion,
   hasOptions,
-  requiresTextInput 
+  requiresTextInput,
+  requiresRanking
 } from '@/types'
 
 interface SharedGameViewProps {
@@ -40,6 +42,7 @@ export function SharedGameView({
   const [timeLeft, setTimeLeft] = useState(timeLimit)
   const [answerText, setAnswerText] = useState('')
   const [selectedOption, setSelectedOption] = useState<number | undefined>(undefined)
+  const [selectedOrder, setSelectedOrder] = useState<number[] | null>(null)
   const [hasAnswered, setHasAnswered] = useState(false)
   const onTimeUpRef = useRef(onTimeUp)
 
@@ -53,6 +56,7 @@ export function SharedGameView({
     setTimeLeft(timeLimit)
     setAnswerText('')
     setSelectedOption(undefined)
+    setSelectedOrder(null)
     setHasAnswered(false)
   }, [questionIndex, timeLimit])
 
@@ -79,7 +83,7 @@ export function SharedGameView({
   const handleSubmit = () => {
     if (hasAnswered) return
 
-    let answer: string | number
+    let answer: string | number | number[]
     
     if (hasOptions(question)) {
       // Multiple choice or True/False
@@ -89,6 +93,10 @@ export function SharedGameView({
       // Free text or Image guess
       if (!answerText.trim()) return
       answer = answerText.trim()
+    } else if (requiresRanking(question)) {
+      // Ranking question
+      if (selectedOrder === null) return
+      answer = selectedOrder.join(',') // Convert array to comma-separated string
     } else {
       return // Unknown question type
     }
@@ -100,6 +108,11 @@ export function SharedGameView({
   const handleOptionSelect = (optionIndex: number) => {
     if (hasAnswered || timeLeft === 0) return
     setSelectedOption(optionIndex)
+  }
+
+  const handleOrderChange = (order: number[]) => {
+    if (hasAnswered || timeLeft === 0) return
+    setSelectedOrder(order)
   }
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -120,7 +133,8 @@ export function SharedGameView({
 
   const canSubmit = hasAnswered || timeLeft === 0 ? false : 
     hasOptions(question) ? selectedOption !== null :
-    requiresTextInput(question) ? answerText.trim().length > 0 : false
+    requiresTextInput(question) ? answerText.trim().length > 0 :
+    requiresRanking(question) ? selectedOrder !== null : false
 
   const getQuestionTypeIndicator = () => {
     switch (question.type) {
@@ -128,6 +142,7 @@ export function SharedGameView({
       case 'true_false': return '✓❌ True or False'
       case 'free_text': return '✍️ Type Your Answer'
       case 'image_guess': return '🖼️ Guess the Image'
+      case 'ranking': return '📋 Rank Items'
       default: return '❓ Question'
     }
   }
@@ -222,6 +237,15 @@ export function SharedGameView({
                     )}
                   </div>
                 </div>
+              ) : requiresRanking(question) ? (
+                // Ranking question
+                <RankingOptions
+                  items={question.items}
+                  selectedOrder={selectedOrder}
+                  onOrderChange={handleOrderChange}
+                  disabled={hasAnswered || timeLeft === 0}
+                  timeLeft={timeLeft}
+                />
               ) : null}
 
               <div className="text-center mt-6">

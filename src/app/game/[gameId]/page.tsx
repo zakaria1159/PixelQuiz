@@ -7,6 +7,7 @@ import Card from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
 import { SharedGameView } from '@/components/game/SharedGameView'
 import { QuestionReveal } from '@/components/game/QuestionReveal'
+import { GameResults } from '@/components/game/GameResults'
 import type { GameStatus } from '@/types/game'
 import socketManager from '@/lib/socket'
 
@@ -33,11 +34,18 @@ export default function GamePage() {
     // Add these for the reveal system
     nextReveal,
     challengeQuestion,
+    voteChallenge,
     playerReady,
     nextQuestionReveal,
     isHost,
     readyPlayers,                    // ✅ ADD THIS
-    getReadyPlayersForQuestion 
+    getReadyPlayersForQuestion,
+    currentChallenge,
+    challengeVoting,
+    hasUsedChallenge,
+    voteTimeLeft,
+    challengeResult,
+    dismissChallengeResult
   } = useGame({ gameCode, playerName, isHost: false })
 
   const [isJoining, setIsJoining] = useState(false)
@@ -197,9 +205,16 @@ export default function GamePage() {
         isHost={false} // Add this
         onFinishReveals={isHost ? handleNextQuestionReveal : handleNextReveal}
         onChallengeQuestion={handleChallengeQuestion}
+        onVoteChallenge={voteChallenge}
         onPlayerReady={handlePlayerReady} // Add this
         readyPlayers={readyPlayers}                           // ✅ ADD THIS
         getReadyPlayersForQuestion={getReadyPlayersForQuestion}
+        currentChallenge={currentChallenge}
+                        challengeVoting={challengeVoting}
+                hasUsedChallenge={hasUsedChallenge}
+                voteTimeLeft={voteTimeLeft}
+                challengeResult={challengeResult}
+                onDismissChallengeResult={dismissChallengeResult}
       />
     )
   }
@@ -207,79 +222,11 @@ export default function GamePage() {
   // Game finished state
   if (gameStatus === 'final_results' && gameState?.finalResults) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4 bg-black">
-        <Card className="w-full max-w-6xl p-6">
-          <h2 className="text-2xl font-bold text-center mb-6 text-white">🏆 Game Results</h2>
-
-          {/* Leaderboard */}
-          <div className="mb-8">
-            <h3 className="text-lg font-semibold mb-4 text-white">Leaderboard</h3>
-            <div className="space-y-3">
-              {gameState.finalResults.map((result, index) => (
-                <div key={result.playerId} className="flex justify-between items-center p-4 bg-gray-700 border-2 border-gray-600">
-                  <div className="flex items-center">
-                    <span className="text-2xl mr-3">
-                      {index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `${index + 1}.`}
-                    </span>
-                    <span className="font-medium text-white">{result.playerName}</span>
-                    {result.playerId === currentPlayer?.id && (
-                      <span className="ml-2 text-xs bg-blue-600 text-white px-2 py-1 border border-blue-400">YOU</span>
-                    )}
-                  </div>
-                  <div className="text-right">
-                    <div className="text-lg font-bold text-white">{result.score} pts</div>
-                    <div className="text-sm text-gray-300">
-                      Total time: {(result.totalTime / 1000).toFixed(1)}s
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Show only current player's detailed results */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Your Performance</h3>
-            {gameState.finalResults
-              .filter(result => result.playerId === currentPlayer?.id)
-              .map((result) => (
-                <div key={result.playerId} className="border-2 border-gray-600 rounded-none p-4 bg-gray-700">
-                  <h4 className="font-medium mb-3 text-white">{result.playerName} (You)</h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                    {result.questionResults.map((qResult) => (
-                      <div key={qResult.questionIndex} className="text-sm p-3 border-2 border-gray-600 bg-gray-800 h-32 flex flex-col justify-between">
-                        <div className="font-medium text-white">Q{qResult.questionIndex + 1}</div>
-                        <div className={`text-xs font-bold ${qResult.isCorrect ? 'text-green-400' : 'text-red-400'}`}>
-                          {qResult.isCorrect ? '✅ Correct' : '❌ Wrong'}
-                        </div>
-                        <div className="text-xs text-gray-300">
-                          Time: {(qResult.time / 1000).toFixed(1)}s
-                        </div>
-                        <div className="text-xs text-gray-300">
-                          Your Answer: <span className="font-bold">{qResult.playerAnswerText}</span>
-                        </div>
-                        <div className="text-xs text-gray-300">
-                          Correct: <span className="font-bold text-green-400">{qResult.correctAnswerText}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-          </div>
-
-          {/* Back to lobby button */}
-          <div className="text-center mt-8">
-            <Button
-              onClick={() => window.location.href = '/'}
-              variant="primary"
-              size="lg"
-            >
-              Play Again
-            </Button>
-          </div>
-        </Card>
-      </div>
+      <GameResults 
+        gameState={gameState} 
+        currentPlayer={currentPlayer} 
+        isHost={false}
+      />
     )
   }
 

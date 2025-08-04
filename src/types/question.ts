@@ -1,4 +1,4 @@
-export type QuestionType = 'multiple_choice' | 'free_text' | 'true_false' | 'image_guess'
+export type QuestionType = 'multiple_choice' | 'free_text' | 'true_false' | 'image_guess' | 'ranking'
 export type QuestionDifficulty = 'easy' | 'medium' | 'hard'
 export type QuestionCategory = 
   | 'pop_culture' 
@@ -57,8 +57,16 @@ export interface ImageGuessQuestion extends BaseQuestion {
   exactMatch?: boolean
 }
 
+// Ranking specific
+export interface RankingQuestion extends BaseQuestion {
+  type: 'ranking'
+  items: string[] // Items to be ranked
+  correctOrder: number[] // Indices of items in correct chronological order
+  allowPartialCredit?: boolean // Default true - give partial credit for partially correct rankings
+}
+
 // Union type for all questions
-export type Question = MultipleChoiceQuestion | TrueFalseQuestion | FreeTextQuestion | ImageGuessQuestion
+export type Question = MultipleChoiceQuestion | TrueFalseQuestion | FreeTextQuestion | ImageGuessQuestion | RankingQuestion
 
 // Type guards for better TypeScript support
 export function isMultipleChoiceQuestion(question: Question): question is MultipleChoiceQuestion {
@@ -77,8 +85,16 @@ export function isImageGuessQuestion(question: Question): question is ImageGuess
   return question.type === 'image_guess'
 }
 
+export function isRankingQuestion(question: Question): question is RankingQuestion {
+  return question.type === 'ranking'
+}
+
 export function hasOptions(question: Question): question is MultipleChoiceQuestion | TrueFalseQuestion {
   return isMultipleChoiceQuestion(question) || isTrueFalseQuestion(question)
+}
+
+export function requiresRanking(question: Question): question is RankingQuestion {
+  return isRankingQuestion(question)
 }
 
 export function requiresTextInput(question: Question): question is FreeTextQuestion | ImageGuessQuestion {

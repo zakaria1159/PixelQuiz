@@ -1,5 +1,5 @@
 // src/hooks/useGame.ts - Main game hook that connects Socket.io with Zustand
-import { useEffect, useCallback, useRef, useState } from 'react'
+import { useEffect, useCallback, useRef, useState, useMemo } from 'react'
 import { useRouter } from 'next/navigation'
 import socketManager from '@/lib/socket'
 import { useGameStore } from '@/stores/gameStore'
@@ -44,6 +44,13 @@ export const useGame = (options: UseGameOptions = {}) => {
 
   // Track ready states for consensus system
   const [readyPlayers, setReadyPlayers] = useState<{[questionIndex: number]: string[]}>({})
+  
+  // Challenge system state
+  const [currentChallenge, setCurrentChallenge] = useState<any>(null)
+  const [challengeVoting, setChallengeVoting] = useState<any>(null)
+  const [voteTimeLeft, setVoteTimeLeft] = useState(20)
+  const [challengeResult, setChallengeResult] = useState<any>(null)
+
 
   // Track if we've already connected to avoid duplicate connections
   const hasConnected = useRef(false)
@@ -106,6 +113,16 @@ export const useGame = (options: UseGameOptions = {}) => {
       console.log('🎮 Game created:', data.gameCode)
       setGameState(data.gameState)
       currentGameCode.current = data.gameCode
+      
+      // Set current player for host
+      const socket = socketManager.getSocket()
+      if (socket && data.gameState.players) {
+        const currentPlayer = data.gameState.players.find(p => p.id === socket.id)
+        if (currentPlayer) {
+          setCurrentPlayer(currentPlayer)
+          console.log('👤 Set current player (host):', currentPlayer.name, 'ID:', currentPlayer.id)
+        }
+      }
     })
 
     // Player joined
@@ -114,6 +131,16 @@ export const useGame = (options: UseGameOptions = {}) => {
       console.log('📊 Updated game state:', data.gameState)
       console.log('👥 Players in game:', data.gameState.players.length)
       setGameState(data.gameState)
+      
+      // Set current player for joining player
+      const socket = socketManager.getSocket()
+      if (socket && data.gameState.players) {
+        const currentPlayer = data.gameState.players.find(p => p.id === socket.id)
+        if (currentPlayer) {
+          setCurrentPlayer(currentPlayer)
+          console.log('👤 Set current player (joined):', currentPlayer.name, 'ID:', currentPlayer.id)
+        }
+      }
     })
 
     // Player left
@@ -167,7 +194,30 @@ export const useGame = (options: UseGameOptions = {}) => {
     // Game state updated
     socketManager.onGameStateUpdated((data: { gameState: GameState }) => {
       console.log('🔄 Game state updated')
+      console.log('📊 New game state:', data.gameState)
+      console.log('📊 Game status:', data.gameState.gameStatus)
+      console.log('📊 Players:', data.gameState.players)
+      console.log('📊 Ready players from server:', data.gameState.readyPlayers)
       setGameState(data.gameState)
+      
+      // Set current player based on socket ID
+      const socket = socketManager.getSocket()
+      if (socket && data.gameState.players) {
+        const currentPlayer = data.gameState.players.find(p => p.id === socket.id)
+        if (currentPlayer) {
+          setCurrentPlayer(currentPlayer)
+          console.log('👤 Set current player:', currentPlayer.name, 'ID:', currentPlayer.id)
+        }
+      }
+      
+      // Only update readyPlayers if the server data is not empty
+      // This prevents the ready players from being reset when a challenge is resolved
+      if (data.gameState.readyPlayers && Object.keys(data.gameState.readyPlayers).length > 0) {
+        setReadyPlayers(data.gameState.readyPlayers)
+        console.log('📊 Updated readyPlayers from game state:', data.gameState.readyPlayers)
+      } else {
+        console.log('📊 Skipping readyPlayers update - server data is empty')
+      }
     })
 
     // Game ended
@@ -225,6 +275,44 @@ export const useGame = (options: UseGameOptions = {}) => {
     socketManager.onRevealStateUpdated((data: { currentRevealIndex: number, gameState: GameState }) => {
       console.log('🎭 Reveal state updated:', data.currentRevealIndex)
       setGameState(data.gameState)
+    })
+
+
+
+
+    // ADDED: Challenge voting event
+    socketManager.onChallengeVoting((data: { challenge: any, voters: any[], votingTime: number }) => {
+      console.log('🏛️ Challenge voting started:', data)
+      setCurrentChallenge(data.challenge)
+      setChallengeVoting(data)
+      setVoteTimeLeft(data.votingTime) // Start the timer
+    })
+
+    // ADDED: Challenge resolved event
+    socketManager.onChallengeResolved((data: { challengeId: string, passed: boolean, votes: { approve: number, reject: number } }) => {
+      console.log('🏛️ Challenge resolved:', data)
+      setCurrentChallenge(null)
+      setChallengeVoting(null)
+      setVoteTimeLeft(20) // Reset timer
+      
+
+      
+      // Set challenge result for popup
+      setChallengeResult({
+        passed: data.passed,
+        votes: data.votes,
+        challengeId: data.challengeId,
+        scoreAwarded: data.scoreAwarded
+      })
+      
+      // Log the updated game state to see if scores changed
+      if (data.passed) {
+        console.log('🏛️ Challenge PASSED - checking for score updates...')
+        console.log('📊 Current game state:', gameState)
+      }
+      
+      // The server will send a game-state-updated event after this
+      // which will update the game state with the new scores
     })
 
     // Cleanup function
@@ -328,7 +416,7 @@ export const useGame = (options: UseGameOptions = {}) => {
     console.log('🚀 Starting game')
     socketManager.startGame(currentGameCode.current)
     return true
-  }, [gameState?.players.length, setConnectionError])
+  }, [gameState, setConnectionError])
 
   const reconnect = useCallback(() => {
     console.log('🔄 Attempting to reconnect...')
@@ -387,6 +475,16 @@ export const useGame = (options: UseGameOptions = {}) => {
     return true
   }, [])
 
+  const voteChallenge = useCallback((challengeId: string, vote: 'approve' | 'reject') => {
+    if (!currentGameCode.current) {
+      console.error('No active game for voting')
+      return false
+    }
+    console.log('🗳️ Voting on challenge:', challengeId, vote)
+    socketManager.voteChallenge(currentGameCode.current, challengeId, vote)
+    return true
+  }, [])
+
   const timeUp = useCallback(() => {
     if (!currentGameCode.current || !gameState) {
       console.error('No active game or game state')
@@ -434,42 +532,75 @@ export const useGame = (options: UseGameOptions = {}) => {
     return readyPlayers[questionIndex] || []
   }, [readyPlayers])
 
-  // Return game state and actions
-  return {
-    // State
-    gameState,
-    isConnected,
-    connectionError,
-    currentPlayer,
-    isHost: useGameStore(state => state.isHost),
-    players: gameState?.players || [],
-    gameStatus: gameState?.gameStatus || 'waiting',
-    currentQuestion: gameState?.currentQuestion,
-    answeredPlayers,
-    readyPlayers,
-    
-    // Actions
-    createGame,
-    joinGame,
-    leaveGame,
-    startGame,
-    reconnect,
-    disconnect,
-    submitAnswer,
-    timeUp,
-    nextQuestion,
-    nextQuestionReveal,
-    nextReveal,
-    challengeQuestion,
-    playerReady,
-    
-    
-    // Utilities
-    clearError: () => setConnectionError(null),
-    isInGame: !!currentGameCode.current,
+  // Helper to check if current player has used their challenge
+  const hasUsedChallenge = useMemo(() => {
+    if (!gameState || !currentPlayer?.id) return false
+    const playerChallenges = (gameState as any).playerChallenges
+    return playerChallenges?.[currentPlayer.id]?.hasChallenged || false
+  }, [gameState, currentPlayer?.id])
+
+  // Voting timer effect
+  useEffect(() => {
+    if (challengeVoting && voteTimeLeft > 0) {
+      const timer = setTimeout(() => {
+        setVoteTimeLeft(prev => prev - 1)
+      }, 1000)
+      return () => clearTimeout(timer)
+    } else if (challengeVoting && voteTimeLeft === 0) {
+      // Timer expired - clear voting state
+      setChallengeVoting(null)
+      setCurrentChallenge(null)
+    }
+  }, [challengeVoting, voteTimeLeft])
+
+  // Dismiss challenge result popup
+  const dismissChallengeResult = useCallback(() => {
+    setChallengeResult(null)
+  }, [])
+
+      // Return game state and actions
+    return {
+      // State
+      gameState,
+      isConnected,
+      connectionError,
+      currentPlayer,
+      isHost: useGameStore(state => state.isHost),
+      players: gameState?.players || [],
+      gameStatus: gameState?.gameStatus || 'waiting',
+      currentQuestion: gameState?.currentQuestion,
+      answeredPlayers,
+      readyPlayers,
+      currentChallenge,
+      challengeVoting,
+      hasUsedChallenge,
+      voteTimeLeft,
+      challengeResult,
+      
+      // Actions
+      createGame,
+      joinGame,
+      leaveGame,
+      startGame,
+      reconnect,
+      disconnect,
+      submitAnswer,
+      timeUp,
+      nextQuestion,
+      nextQuestionReveal,
+      nextReveal,
+      challengeQuestion,
+      voteChallenge,
+      playerReady,
+      dismissChallengeResult,
+      
+      
+      // Utilities
+      clearError: () => setConnectionError(null),
+      isInGame: !!currentGameCode.current,
     gameCode: currentGameCode.current,
-    playerCount: gameState?.players.length || 0,
-    canStartGame: (gameState?.players.length || 0) >= 2,
+    playerCount: gameState?.players?.length || 0,
+    canStartGame: (gameState?.players?.length || 0) >= 2,
     getReadyPlayersForQuestion
   }
 }
