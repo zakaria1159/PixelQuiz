@@ -301,7 +301,7 @@ export const useGame = (options: UseGameOptions = {}) => {
     })
 
     // ADDED: Challenge resolved event
-    socketManager.onChallengeResolved((data: { challengeId: string, passed: boolean, votes: { approve: number, reject: number } }) => {
+    socketManager.onChallengeResolved((data: { challengeId: string, passed: boolean, votes: { approve: number, reject: number }, scoreAwarded?: number }) => {
       console.log('🏛️ Challenge resolved:', data)
       setCurrentChallenge(null)
       setChallengeVoting(null)

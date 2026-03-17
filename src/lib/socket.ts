@@ -248,7 +248,7 @@ onReadyStatusUpdated(callback: (data: { questionIndex: number, readyPlayers: str
     this.socket?.on('challenge-voting', callback)
   }
 
-  onChallengeResolved(callback: (data: { challengeId: string, passed: boolean, votes: { approve: number, reject: number } }) => void) {
+  onChallengeResolved(callback: (data: { challengeId: string, passed: boolean, votes: { approve: number, reject: number }, scoreAwarded?: number }) => void) {
     this.socket?.on('challenge-resolved', callback)
   }
 
