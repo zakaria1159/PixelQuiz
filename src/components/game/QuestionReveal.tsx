@@ -539,13 +539,7 @@ export function QuestionReveal({
                 </div>
 
                 {/* ── Two-column body ── */}
-                <div style={{
-                    flex: 1,
-                    minHeight: 0,
-                    display: 'flex',
-                    gap: '16px',
-                    paddingBottom: '16px',
-                }}>
+                <div className="reveal-body">
                 {/* LEFT COLUMN */}
                 <div style={{ flex: 1, minWidth: 0, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -719,7 +713,7 @@ export function QuestionReveal({
                 </div>{/* end left column */}
 
                 {/* RIGHT COLUMN */}
-                <div style={{ width: '320px', flexShrink: 0, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div className="reveal-right-col" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
 
                     {/* ── Live Rankings ── */}
                     <div style={{

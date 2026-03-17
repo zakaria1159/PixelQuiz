@@ -38,7 +38,8 @@ interface SharedGameViewProps {
 
 // ─── Circular countdown timer ─────────────────────────────────────────────────
 function CircularTimer({ timeLeft, timeLimit }: { timeLeft: number; timeLimit: number }) {
-  const radius = 36
+  const size = 64
+  const radius = 26
   const circumference = 2 * Math.PI * radius
   const progress = timeLimit > 0 ? timeLeft / timeLimit : 0
   const dashOffset = circumference * (1 - progress)
@@ -54,23 +55,23 @@ function CircularTimer({ timeLeft, timeLimit }: { timeLeft: number; timeLimit: n
       className="relative flex items-center justify-center flex-shrink-0"
       style={isDanger ? { animation: 'timerPulse 0.6s ease-in-out infinite' } : undefined}
     >
-      <svg width="84" height="84" viewBox="0 0 84 84">
-        <circle cx="42" cy="42" r={radius} fill="none" stroke="#1e1e2e" strokeWidth="6" />
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+        <circle cx={size/2} cy={size/2} r={radius} fill="none" stroke="#1e1e2e" strokeWidth="5" />
         <circle
-          cx="42" cy="42" r={radius}
+          cx={size/2} cy={size/2} r={radius}
           fill="none"
           stroke={arcColor}
-          strokeWidth="6"
+          strokeWidth="5"
           strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={dashOffset}
-          transform="rotate(-90 42 42)"
+          transform={`rotate(-90 ${size/2} ${size/2})`}
           style={{ transition: 'stroke-dashoffset 0.5s linear, stroke 0.3s ease' }}
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="font-display text-lg leading-none" style={{ color: textColor }}>{timeLeft}</span>
-        <span className="text-[8px] text-zinc-500 uppercase tracking-widest mt-0.5">sec</span>
+        <span className="font-display leading-none" style={{ fontSize: '13px', color: textColor }}>{timeLeft}</span>
+        <span className="text-[7px] text-zinc-500 uppercase tracking-widest mt-0.5">sec</span>
       </div>
     </div>
   )
@@ -451,7 +452,7 @@ export function SharedGameView({
           <div
             style={{
               flexShrink: 0,
-              padding: '20px 28px',
+              padding: '16px',
               borderBottom: '1px solid rgba(255,255,255,0.05)',
             }}
           >
@@ -496,7 +497,7 @@ export function SharedGameView({
               minHeight: 0,
               display: 'flex',
               flexDirection: 'column',
-              padding: '16px 28px',
+              padding: '12px 16px',
               overflow: 'hidden',
             }}
           >

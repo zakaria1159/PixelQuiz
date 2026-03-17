@@ -121,17 +121,12 @@ export default function HostPage() {
   // Loading state
   if (!isConnected) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black">
-        <Card className="text-center">
-          <div className="text-4xl mb-4">🔌</div>
-          <h2 className="text-xl font-bold mb-4 text-white">Connecting to server...</h2>
-          <p className="text-gray-300">Please wait while we establish connection</p>
-          {connectionError && (
-            <div className="mt-4 p-3 bg-red-500/20 rounded-lg border border-red-500">
-              <p className="text-red-400 text-sm">{connectionError}</p>
-            </div>
-          )}
-        </Card>
+      <div style={{ minHeight: '100svh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'radial-gradient(ellipse at 50% -10%, #13154a 0%, #09090f 70%)' }}>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ width: '44px', height: '44px', borderRadius: '50%', border: '3px solid rgba(99,102,241,0.2)', borderTopColor: '#6366f1', animation: 'spin 0.8s linear infinite', margin: '0 auto 16px' }} />
+          <p style={{ color: '#52525b', fontSize: '13px', fontWeight: 600 }}>Connecting…</p>
+          {connectionError && <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '8px' }}>{connectionError}</p>}
+        </div>
       </div>
     )
   }
