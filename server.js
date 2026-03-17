@@ -710,6 +710,55 @@ io.on('connection', (socket) => {
     }
   })
 
+  // Player rejoins after refresh / reconnect
+  socket.on('rejoin-game', ({ gameCode, playerName, isHost }) => {
+    try {
+      const game = games.get(gameCode)
+      if (!game) {
+        socket.emit('rejoin-error', { message: 'Game not found' })
+        return
+      }
+
+      if (isHost) {
+        // Restore host
+        game.hostId = socket.id
+        players.set(socket.id, { gameCode, isHost: true })
+        socket.join(gameCode)
+        console.log(`🔄 Host rejoined: ${gameCode}`)
+        socket.emit('rejoin-success', { gameState: game, isHost: true })
+        return
+      }
+
+      // Find player by name
+      const player = game.players.find(p => p.name === playerName)
+      if (!player) {
+        socket.emit('rejoin-error', { message: 'Player not found in game' })
+        return
+      }
+
+      // Remap answers from old socket ID to new one
+      if (game.answers && game.answers[player.id]) {
+        game.answers[socket.id] = game.answers[player.id]
+        delete game.answers[player.id]
+      }
+
+      // Update socket ID
+      player.id = socket.id
+      player.connected = true
+      players.set(socket.id, { gameCode, isHost: false })
+      socket.join(gameCode)
+
+      // Check if player already answered the current question
+      const alreadyAnswered = game.answers?.[socket.id]?.[game.currentQuestionIndex] !== undefined
+
+      console.log(`🔄 Player rejoined: ${playerName} in ${gameCode} (answered: ${alreadyAnswered})`)
+      socket.emit('rejoin-success', { gameState: game, isHost: false, alreadyAnswered })
+    } catch (error) {
+      console.error('Error rejoining game:', error)
+      socket.emit('rejoin-error', { message: 'Failed to rejoin' })
+    }
+  })
+
   // Player leaves a game
   socket.on('player-leave-game', (gameCode) => {
     try {

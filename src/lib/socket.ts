@@ -252,6 +252,20 @@ onReadyStatusUpdated(callback: (data: { questionIndex: number, readyPlayers: str
     this.socket?.on('challenge-resolved', callback)
   }
 
+  rejoinGame(gameCode: string, playerName: string, isHost: boolean) {
+    if (this.socket?.connected) {
+      this.socket.emit('rejoin-game', { gameCode, playerName, isHost })
+    }
+  }
+
+  onRejoinSuccess(callback: (data: { gameState: any, isHost: boolean, alreadyAnswered?: boolean }) => void) {
+    this.socket?.on('rejoin-success', callback)
+  }
+
+  onRejoinError(callback: (data: { message: string }) => void) {
+    this.socket?.on('rejoin-error', callback)
+  }
+
   // Vote submission
   voteChallenge(gameCode: string, challengeId: string, vote: 'approve' | 'reject') {
     if (this.socket?.connected) {
@@ -276,7 +290,9 @@ onReadyStatusUpdated(callback: (data: { questionIndex: number, readyPlayers: str
       'ready-status-updated',
       'reveal-state-updated',
       'challenge-voting',
-      'challenge-resolved'
+      'challenge-resolved',
+      'rejoin-success',
+      'rejoin-error'
     ]
     
     events.forEach(event => {

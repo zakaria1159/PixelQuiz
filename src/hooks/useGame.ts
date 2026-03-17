@@ -67,10 +67,13 @@ export const useGame = (options: UseGameOptions = {}) => {
         console.log('🔌 Socket connected:', socket.id)
         setIsConnected(true)
         hasConnected.current = true
-        
-        // Set host status
-        if (isHost) {
-          setIsHost(true)
+
+        if (isHost) setIsHost(true)
+
+        // Auto-rejoin if we have a game code (handles refresh/reconnect)
+        if (gameCode && playerName) {
+          console.log('🔄 Attempting rejoin:', gameCode, playerName)
+          socketManager.rejoinGame(gameCode, playerName, isHost)
         }
       })
 
@@ -95,20 +98,56 @@ export const useGame = (options: UseGameOptions = {}) => {
       })
     }
 
+    // Handle tab switch / app background on mobile
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible' && gameCode && playerName) {
+        const socket = socketManager.getSocket()
+        if (!socket || !socket.connected) {
+          // Socket dropped — reconnect then rejoin (the 'connect' handler above will rejoin)
+          console.log('📱 Page visible — socket lost, reconnecting...')
+          socketManager.connect()
+        } else {
+          // Socket still alive — re-sync state in case we missed events
+          console.log('📱 Page visible — re-syncing state...')
+          socketManager.rejoinGame(gameCode, playerName, isHost)
+        }
+      }
+    }
+
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+
     return () => {
-      // Cleanup on unmount
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
       if (currentGameCode.current) {
         socketManager.leaveGame(currentGameCode.current)
       }
       socketManager.offAllGameEvents()
     }
-  }, [autoConnect, isHost, setIsConnected, setIsHost, setConnectionError])
+  }, [autoConnect, isHost, gameCode, playerName, setIsConnected, setIsHost, setConnectionError])
 
   // Setup socket event listeners
   useEffect(() => {
-    console.log('🔧 Setting up socket event listeners...')
-    console.log('🔧 Socket connected:', socketManager.isConnected())
-    console.log('🔧 Socket object:', socketManager.getSocket())
+    // Rejoin success — restore full game state after refresh/reconnect
+    socketManager.onRejoinSuccess((data) => {
+      console.log('🔄 Rejoin successful')
+      setGameState(data.gameState)
+      currentGameCode.current = gameCode || null
+      if (data.isHost) {
+        setIsHost(true)
+      }
+      const socket = socketManager.getSocket()
+      if (socket && data.gameState.players) {
+        const me = data.gameState.players.find((p: any) =>
+          data.isHost ? p.isHost : p.name === playerName
+        )
+        if (me) setCurrentPlayer(me)
+      }
+    })
+
+    socketManager.onRejoinError((data) => {
+      console.log('⚠️ Rejoin failed:', data.message, '— will join fresh')
+    })
+
     // Game created (host only)
     socketManager.onGameCreated((data: { gameCode: string; gameState: GameState }) => {
       console.log('🎮 Game created:', data.gameCode)
