@@ -113,7 +113,7 @@ export function Lobby({
 
   return (
     <div
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4 py-12"
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4 py-6"
       style={{ background: 'radial-gradient(ellipse at 50% -10%, #13154a 0%, #0f0f1a 50%, #09090f 100%)' }}
     >
       {/* Ambient glow */}
@@ -133,7 +133,7 @@ export function Lobby({
             {isHost ? 'Hosting' : 'Joined'}
           </div>
           <h1 className="text-3xl font-display text-white tracking-tight leading-none">
-            PIXEL<span className="text-indigo-400">QUIZ</span>
+            META<span className="text-indigo-400">QUIZZ</span>
           </h1>
         </div>
 
@@ -195,7 +195,7 @@ export function Lobby({
         )}
 
         {/* Actions */}
-        <div className="flex flex-col gap-3" style={{ animation: 'slideUpFadeIn 0.4s ease 0.28s both' }}>
+        <div className="flex flex-col gap-3" style={{ animation: 'slideUpFadeIn 0.4s ease 0.28s both', paddingBottom: 'env(safe-area-inset-bottom)' }}>
           {isHost ? (
             <>
               {!canStart && (

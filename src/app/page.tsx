@@ -58,7 +58,7 @@ export default function HomePage() {
             <span className="text-2xl">⚡</span>
           </div>
           <h1 className="text-5xl font-display tracking-tight leading-none mb-3">
-            <span className="text-white">PIXEL</span><span className="text-indigo-400">QUIZ</span>
+            <span className="text-white">META</span><span className="text-indigo-400">QUIZZ</span>
           </h1>
           <p className="text-zinc-500 text-sm font-semibold tracking-wide">
             Real-time multiplayer trivia for streamers

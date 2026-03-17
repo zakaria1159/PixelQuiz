@@ -535,7 +535,7 @@ export function SharedGameView({
                   disabled={hasAnswered || timeLeft === 0}
                   placeholder={isImageGuessQuestion(question) ? 'What do you see?' : 'Type your answer…'}
                   className={inputCls}
-                  autoFocus
+
                 />
                 <p className="text-xs text-zinc-600">💡 Not case sensitive · Partial answers accepted</p>
               </div>
@@ -568,7 +568,7 @@ export function SharedGameView({
                   disabled={hasAnswered || timeLeft === 0}
                   placeholder="Enter a number…"
                   className={inputCls}
-                  autoFocus
+
                 />
                 <p className="text-xs text-zinc-600">🎯 Closest number wins</p>
               </div>
@@ -585,7 +585,7 @@ export function SharedGameView({
                   disabled={hasAnswered || timeLeft === 0}
                   placeholder="The missing word…"
                   className={inputCls}
-                  autoFocus
+
                   autoComplete="off"
                 />
                 <p className="text-xs text-zinc-600">✏️ One word only</p>
@@ -840,7 +840,7 @@ export function SharedGameView({
                     disabled={hasAnswered || timeLeft === 0}
                     placeholder="Type the country name…"
                     className={inputCls}
-                    autoFocus
+  
                     autoComplete="off"
                     autoCorrect="off"
                     spellCheck={false}
@@ -853,7 +853,7 @@ export function SharedGameView({
           </div>
 
           {/* ── SUBMIT BUTTON — always pinned at bottom ────────────────────── */}
-          <div style={{ flexShrink: 0, padding: '12px 20px', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+          <div style={{ flexShrink: 0, padding: '12px 20px', paddingBottom: 'calc(12px + env(safe-area-inset-bottom))', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
             <button
               onClick={handleSubmit}
               disabled={!canSubmit}

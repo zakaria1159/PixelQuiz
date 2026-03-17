@@ -22,6 +22,12 @@ export const metadata: Metadata = {
   keywords: ['quiz', 'trivia', 'multiplayer', 'streaming', 'AI', 'games'],
 }
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${pressStart2P.variable}`}>
