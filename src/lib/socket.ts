@@ -13,7 +13,8 @@ class SocketManager {
     }
 
     console.log('🔌 Connecting to server...')
-    this.socket = io('http://localhost:3003', {
+    const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3003'
+    this.socket = io(serverUrl, {
       transports: ['websocket', 'polling'],
       timeout: 20000,
     })
@@ -107,9 +108,9 @@ class SocketManager {
     this.socket?.emit('player-leave-game', gameCode)
   }
 
-  startGame(gameCode: string) {
+  startGame(gameCode: string, settings?: { categories: string[]; types: string[]; questionCount: number }) {
     if (this.socket) {
-      this.socket.emit('host-start-game', gameCode)
+      this.socket.emit('host-start-game', { gameCode, settings: settings ?? {} })
     }
   }
 
@@ -150,9 +151,9 @@ class SocketManager {
     }
   }
 
-  timeUp(gameCode: string) {
+  timeUp(gameCode: string, questionIndex: number) {
     if (this.socket) {
-      this.socket.emit('time-up', gameCode)
+      this.socket.emit('time-up', { gameCode, questionIndex })
     }
   }
 
@@ -194,6 +195,10 @@ class SocketManager {
 
   onQuestionResults(callback: (data: any) => void) {
     this.socket?.on('question-results', callback)
+  }
+
+  onQuestionScores(callback: (data: any) => void) {
+    this.socket?.on('question-scores', callback)
   }
 
   onGameFinished(callback: (data: any) => void) {

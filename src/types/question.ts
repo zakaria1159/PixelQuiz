@@ -1,4 +1,4 @@
-export type QuestionType = 'multiple_choice' | 'free_text' | 'true_false' | 'image_guess' | 'ranking'
+export type QuestionType = 'multiple_choice' | 'free_text' | 'true_false' | 'image_guess' | 'ranking' | 'closest_wins' | 'speed_buzz' | 'fill_blank' | 'pixel_reveal' | 'letter_game' | 'flag_guess' | 'music_guess' | 'animal_sound' | 'clue_chain'
 export type QuestionDifficulty = 'easy' | 'medium' | 'hard'
 export type QuestionCategory = 
   | 'pop_culture' 
@@ -65,8 +65,81 @@ export interface RankingQuestion extends BaseQuestion {
   allowPartialCredit?: boolean // Default true - give partial credit for partially correct rankings
 }
 
+// Speed Buzz specific — same structure as MC, but rank-based scoring
+export interface SpeedBuzzQuestion extends BaseQuestion {
+  type: 'speed_buzz'
+  options: string[]
+  correctAnswer: number // Index of correct option
+}
+
+// Pixel Reveal — image starts heavily pixelated and sharpens over time; answer early for more points
+export interface PixelRevealQuestion extends BaseQuestion {
+  type: 'pixel_reveal'
+  imageUrl: string
+  correctAnswer: string
+  acceptableAnswers?: string[]
+  caseSensitive?: boolean
+}
+
+// Fill in the blank — question field contains the sentence with ___ as the blank
+export interface FillBlankQuestion extends BaseQuestion {
+  type: 'fill_blank'
+  correctAnswer: string      // The single missing word
+  acceptableAnswers?: string[] // Alternative accepted spellings/forms
+  caseSensitive?: boolean    // Default false
+}
+
+// Closest wins specific
+export interface ClosestWinsQuestion extends BaseQuestion {
+  type: 'closest_wins'
+  correctAnswer: number  // The exact correct number
+  unit?: string          // e.g. "million subscribers", "years", "km"
+}
+
+// Letter game (Scattergories-style) — given a letter, fill one word per category
+export interface LetterGameQuestion extends BaseQuestion {
+  type: 'letter_game'
+  letter: string       // Single uppercase letter, e.g. 'A'
+  categories: string[] // e.g. ['Name', 'Animal', 'Country', 'Fruit/Vegetable', 'Profession', 'Object']
+  // No correctAnswer — scored by ratio of valid entries (each word must start with `letter`)
+}
+
+// Flag guess — show a country flag, player types the country name
+export interface FlagGuessQuestion extends BaseQuestion {
+  type: 'flag_guess'
+  countryCode: string    // ISO 3166-1 alpha-2 lowercase, e.g. 'fr'
+  correctAnswer: string  // Country name, e.g. 'France'
+  acceptableAnswers?: string[] // Common aliases e.g. ['USA', 'United States of America']
+}
+
+// Music guess — play a Deezer preview clip, player types the song title
+export interface MusicGuessQuestion extends BaseQuestion {
+  type: 'music_guess'
+  deezerQuery: string        // e.g. "bohemian rhapsody queen" — used to fetch preview from Deezer
+  correctAnswer: string      // song title
+  acceptableAnswers?: string[] // aliases (artist name, alternate titles)
+  artist?: string            // for display in reveal
+  songTitle?: string         // for display in reveal
+}
+
+// Clue chain — 4 hints revealed progressively; answer earlier for more points
+export interface ClueChainQuestion extends BaseQuestion {
+  type: 'clue_chain'
+  clues: string[]          // 4 clues ordered hardest → easiest
+  correctAnswer: string
+  acceptableAnswers?: string[]
+}
+
+// Animal sound — play a short animal sound clip, player types the animal name
+export interface AnimalSoundQuestion extends BaseQuestion {
+  type: 'animal_sound'
+  audioUrl: string           // direct audio URL (Wikimedia Commons OGG)
+  correctAnswer: string      // animal name, e.g. 'Lion'
+  acceptableAnswers?: string[]
+}
+
 // Union type for all questions
-export type Question = MultipleChoiceQuestion | TrueFalseQuestion | FreeTextQuestion | ImageGuessQuestion | RankingQuestion
+export type Question = MultipleChoiceQuestion | TrueFalseQuestion | FreeTextQuestion | ImageGuessQuestion | RankingQuestion | ClosestWinsQuestion | SpeedBuzzQuestion | FillBlankQuestion | PixelRevealQuestion | LetterGameQuestion | FlagGuessQuestion | MusicGuessQuestion | AnimalSoundQuestion | ClueChainQuestion
 
 // Type guards for better TypeScript support
 export function isMultipleChoiceQuestion(question: Question): question is MultipleChoiceQuestion {
@@ -89,50 +162,51 @@ export function isRankingQuestion(question: Question): question is RankingQuesti
   return question.type === 'ranking'
 }
 
-export function hasOptions(question: Question): question is MultipleChoiceQuestion | TrueFalseQuestion {
-  return isMultipleChoiceQuestion(question) || isTrueFalseQuestion(question)
+export function hasOptions(question: Question): question is MultipleChoiceQuestion | TrueFalseQuestion | SpeedBuzzQuestion {
+  return isMultipleChoiceQuestion(question) || isTrueFalseQuestion(question) || isSpeedBuzzQuestion(question)
 }
 
 export function requiresRanking(question: Question): question is RankingQuestion {
   return isRankingQuestion(question)
 }
 
-export function requiresTextInput(question: Question): question is FreeTextQuestion | ImageGuessQuestion {
-  return isFreeTextQuestion(question) || isImageGuessQuestion(question)
+export function requiresTextInput(question: Question): question is FreeTextQuestion | ImageGuessQuestion | MusicGuessQuestion | AnimalSoundQuestion | ClueChainQuestion {
+  return isFreeTextQuestion(question) || isImageGuessQuestion(question) || isMusicGuessQuestion(question) || isAnimalSoundQuestion(question) || isClueChainQuestion(question)
 }
 
-// Answer validation helpers
-export function validateAnswer(question: Question, answer: string | number): boolean {
-  if (hasOptions(question)) {
-    return typeof answer === 'number' && answer === question.correctAnswer
-  }
-  
-  if (requiresTextInput(question)) {
-    if (typeof answer !== 'string') return false
-    
-    const userAnswer = question.caseSensitive ? answer : answer.toLowerCase()
-    const correctAnswer = question.caseSensitive ? question.correctAnswer : question.correctAnswer.toLowerCase()
-    
-    // Check exact match if required
-    if (question.exactMatch) {
-      return userAnswer === correctAnswer
-    }
-    
-    // Check main answer
-    if (userAnswer.includes(correctAnswer) || correctAnswer.includes(userAnswer)) {
-      return true
-    }
-    
-    // Check acceptable answers
-    if (question.acceptableAnswers) {
-      return question.acceptableAnswers.some(acceptable => {
-        const acceptableAnswer = question.caseSensitive ? acceptable : acceptable.toLowerCase()
-        return userAnswer.includes(acceptableAnswer) || acceptableAnswer.includes(userAnswer)
-      })
-    }
-    
-    return false
-  }
-  
-  return false
+export function isClosestWinsQuestion(question: Question): question is ClosestWinsQuestion {
+  return question.type === 'closest_wins'
 }
+
+export function isSpeedBuzzQuestion(question: Question): question is SpeedBuzzQuestion {
+  return question.type === 'speed_buzz'
+}
+
+export function isFillBlankQuestion(question: Question): question is FillBlankQuestion {
+  return question.type === 'fill_blank'
+}
+
+export function isPixelRevealQuestion(question: Question): question is PixelRevealQuestion {
+  return question.type === 'pixel_reveal'
+}
+
+export function isLetterGameQuestion(question: Question): question is LetterGameQuestion {
+  return question.type === 'letter_game'
+}
+
+export function isFlagGuessQuestion(question: Question): question is FlagGuessQuestion {
+  return question.type === 'flag_guess'
+}
+
+export function isMusicGuessQuestion(question: Question): question is MusicGuessQuestion {
+  return question.type === 'music_guess'
+}
+
+export function isAnimalSoundQuestion(question: Question): question is AnimalSoundQuestion {
+  return question.type === 'animal_sound'
+}
+
+export function isClueChainQuestion(question: Question): question is ClueChainQuestion {
+  return question.type === 'clue_chain'
+}
+

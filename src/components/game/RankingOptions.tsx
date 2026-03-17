@@ -91,7 +91,7 @@ const RankingOptions = ({
       if (isSelected && !isCorrect) {
         return 'bg-red-600/30 border-red-400 text-red-100'
       }
-      return 'bg-gray-600/20 border-gray-500 text-gray-400'
+      return 'bg-zinc-600/20 border-zinc-500 text-zinc-400'
     }
     
     if (isDragging) {
@@ -110,11 +110,9 @@ const RankingOptions = ({
   return (
     <div className="space-y-3">
       <div className="text-center mb-4">
-        <p className="text-gray-300 text-lg">
+        <p className="text-zinc-300 text-lg">
           {showResults ? 'Correct Order:' : 'Drag to reorder (earliest to latest):'}
         </p>
-        <p className="text-red-500 text-sm">DEBUG: Items count: {items?.length || 0}</p>
-        <p className="text-red-500 text-sm">DEBUG: Items: {JSON.stringify(items)}</p>
       </div>
       
             {/* REAL DRAG-AND-DROP FUNCTIONALITY */}
@@ -150,7 +148,7 @@ const RankingOptions = ({
                   <div className="text-red-400 text-2xl">✗</div>
                 )}
                 {!isDisabled && (
-                  <div className="text-gray-400 text-lg">⋮⋮</div>
+                  <div className="text-zinc-400 text-lg">⋮⋮</div>
                 )}
               </div>
             </div>
@@ -160,7 +158,7 @@ const RankingOptions = ({
       
       {!showResults && (
         <div className="text-center mt-4">
-          <p className="text-gray-400 text-sm">
+          <p className="text-zinc-400 text-sm">
             Tip: Drag items to reorder them chronologically
           </p>
         </div>

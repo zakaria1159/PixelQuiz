@@ -46,6 +46,7 @@ export const useGame = (options: UseGameOptions = {}) => {
   const [readyPlayers, setReadyPlayers] = useState<{[questionIndex: number]: string[]}>({})
   
   // Challenge system state
+  const [questionScores, setQuestionScores] = useState<any>(null)
   const [currentChallenge, setCurrentChallenge] = useState<any>(null)
   const [challengeVoting, setChallengeVoting] = useState<any>(null)
   const [voteTimeLeft, setVoteTimeLeft] = useState(20)
@@ -155,23 +156,33 @@ export const useGame = (options: UseGameOptions = {}) => {
       setGameState(data.gameState)
     })
 
+    // Between-question leaderboard scores
+    socketManager.onQuestionScores((data: any) => {
+      console.log('📊 Question scores received:', data.questionIndex + 1)
+      setQuestionScores(data)
+    })
+
     // Question start
-    socketManager.onQuestionStart((data: { 
-      question: Question, 
-      questionIndex: number, 
-      totalQuestions: number, 
-      timeLimit: number 
+    socketManager.onQuestionStart((data: {
+      question: Question,
+      questionIndex: number,
+      totalQuestions: number,
+      timeLimit: number
     }) => {
       console.log('🎯 Question started:', data.questionIndex + 1, 'of', data.totalQuestions)
+      setQuestionScores(null) // clear between-question screen
       setCurrentQuestion(data.question)
       setQuestionIndex(data.questionIndex)
       setTotalQuestions(data.totalQuestions)
       setTimeLimit(data.timeLimit)
       setQuestionStartTime(Date.now())
-      // Clear answered players when new question starts
       setAnsweredPlayers([])
-      // Clear ready states for new question
       setReadyPlayers(prev => ({ ...prev, [data.questionIndex]: [] }))
+      // Ensure gameStatus transitions to 'question' (it may be 'starting' for first question)
+      const current = useGameStore.getState().gameState
+      if (current && current.gameStatus !== 'question') {
+        setGameState({ ...current, gameStatus: 'question', currentQuestion: data.question, currentQuestionIndex: data.questionIndex })
+      }
     })
 
     // Question results
@@ -188,6 +199,7 @@ export const useGame = (options: UseGameOptions = {}) => {
     // Game finished
     socketManager.onGameFinished((data: { gameState: GameState }) => {
       console.log('🏁 Game finished:', data.gameState)
+      setQuestionScores(null)
       setGameState(data.gameState)
     })
 
@@ -402,7 +414,7 @@ export const useGame = (options: UseGameOptions = {}) => {
     }
   }, [resetStore])
 
-  const startGame = useCallback(() => {
+  const startGame = useCallback((settings?: { categories: string[]; types: string[]; questionCount: number }) => {
     if (!currentGameCode.current) {
       setConnectionError('No active game')
       return false
@@ -413,8 +425,8 @@ export const useGame = (options: UseGameOptions = {}) => {
       return false
     }
 
-    console.log('🚀 Starting game')
-    socketManager.startGame(currentGameCode.current)
+    console.log('🚀 Starting game', settings)
+    socketManager.startGame(currentGameCode.current, settings)
     return true
   }, [gameState, setConnectionError])
 
@@ -486,14 +498,16 @@ export const useGame = (options: UseGameOptions = {}) => {
   }, [])
 
   const timeUp = useCallback(() => {
-    if (!currentGameCode.current || !gameState) {
-      console.error('No active game or game state')
+    if (!currentGameCode.current) {
+      console.error('No active game')
       return
     }
-    
-    console.log('⏰ Time up - auto-submitting')
-    socketManager.timeUp(currentGameCode.current)
-  }, [gameState])
+    // Read fresh from store — gameState.currentQuestionIndex lags behind because
+    // question-start updates the separate `questionIndex` field, not gameState itself.
+    const questionIndex = useGameStore.getState().questionIndex
+    console.log('⏰ Time up - auto-submitting for Q', questionIndex + 1)
+    socketManager.timeUp(currentGameCode.current, questionIndex)
+  }, [])
 
   const playerReady = useCallback((questionIndex: number, playerId: string) => {
     if (!currentGameCode.current) {
@@ -561,6 +575,7 @@ export const useGame = (options: UseGameOptions = {}) => {
       // Return game state and actions
     return {
       // State
+      questionScores,
       gameState,
       isConnected,
       connectionError,

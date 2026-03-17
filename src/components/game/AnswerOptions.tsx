@@ -1,14 +1,65 @@
+'use client'
+
+import { useState } from 'react'
 import { clsx } from 'clsx'
 
 interface AnswerOptionsProps {
   options: string[]
-  selectedAnswer?: number | undefined 
+  selectedAnswer?: number | undefined
   correctAnswer?: number
   showResults?: boolean
   onAnswerSelect?: (index: number) => void
   disabled?: boolean
   timeLeft?: number
+  fillHeight?: boolean
 }
+
+const PALETTE = [
+  {
+    label: 'A',
+    idle:     'bg-[#1a3a8f]/60 border-[#3b6dea] hover:bg-[#1a3a8f]/90 hover:border-[#6b9dff]',
+    selected: 'bg-[#2952cc] border-[#6b9dff] shadow-[0_0_30px_rgba(59,130,246,0.5)]',
+    badge:    'bg-[#3b6dea]',
+    correct:  'bg-[#14532d]/70 border-[#22c55e] shadow-[0_0_20px_rgba(34,197,94,0.3)]',
+    wrong:    'bg-[#450a0a]/50 border-[#ef4444]',
+    muted:    'bg-white/[0.03] border-white/10',
+    checkBg:  'bg-[#22c55e]',
+    xBg:      'bg-[#ef4444]',
+  },
+  {
+    label: 'B',
+    idle:     'bg-[#7c2d12]/60 border-[#f97316] hover:bg-[#7c2d12]/90 hover:border-[#fdba74]',
+    selected: 'bg-[#c2410c] border-[#fdba74] shadow-[0_0_30px_rgba(249,115,22,0.5)]',
+    badge:    'bg-[#f97316]',
+    correct:  'bg-[#14532d]/70 border-[#22c55e] shadow-[0_0_20px_rgba(34,197,94,0.3)]',
+    wrong:    'bg-[#450a0a]/50 border-[#ef4444]',
+    muted:    'bg-white/[0.03] border-white/10',
+    checkBg:  'bg-[#22c55e]',
+    xBg:      'bg-[#ef4444]',
+  },
+  {
+    label: 'C',
+    idle:     'bg-[#14532d]/60 border-[#22c55e] hover:bg-[#14532d]/90 hover:border-[#86efac]',
+    selected: 'bg-[#15803d] border-[#86efac] shadow-[0_0_30px_rgba(34,197,94,0.5)]',
+    badge:    'bg-[#22c55e]',
+    correct:  'bg-[#14532d]/70 border-[#22c55e] shadow-[0_0_20px_rgba(34,197,94,0.3)]',
+    wrong:    'bg-[#450a0a]/50 border-[#ef4444]',
+    muted:    'bg-white/[0.03] border-white/10',
+    checkBg:  'bg-[#22c55e]',
+    xBg:      'bg-[#ef4444]',
+  },
+  {
+    label: 'D',
+    idle:     'bg-[#4a1d96]/60 border-[#a855f7] hover:bg-[#4a1d96]/90 hover:border-[#d8b4fe]',
+    selected: 'bg-[#7e22ce] border-[#d8b4fe] shadow-[0_0_30px_rgba(168,85,247,0.5)]',
+    badge:    'bg-[#a855f7]',
+    correct:  'bg-[#14532d]/70 border-[#22c55e] shadow-[0_0_20px_rgba(34,197,94,0.3)]',
+    wrong:    'bg-[#450a0a]/50 border-[#ef4444]',
+    muted:    'bg-white/[0.03] border-white/10',
+    checkBg:  'bg-[#22c55e]',
+    xBg:      'bg-[#ef4444]',
+  },
+]
 
 const AnswerOptions = ({
   options,
@@ -17,57 +68,138 @@ const AnswerOptions = ({
   showResults = false,
   onAnswerSelect,
   disabled = false,
-  timeLeft
+  timeLeft,
+  fillHeight = false,
 }: AnswerOptionsProps) => {
-  const getOptionStyle = (index: number) => {
-    if (showResults) {
-      if (index === correctAnswer) {
-        return 'bg-green-600/30 border-green-400 text-green-100'
-      }
-      if (index === selectedAnswer && index !== correctAnswer) {
-        return 'bg-red-600/30 border-red-400 text-red-100'
-      }
-      return 'bg-gray-600/20 border-gray-500 text-gray-400'
-    }
-    
-    if (selectedAnswer === index) {
-      return 'bg-blue-600/30 border-blue-400 text-blue-100 transform scale-[1.02]'
-    }
-    
-    return 'bg-white/20 hover:bg-white/30 border-white/30 cursor-pointer transform hover:scale-[1.02]'
+  const [flashIndex, setFlashIndex] = useState<number | null>(null)
+
+  const handleSelect = (index: number) => {
+    if (disabled || showResults || timeLeft === 0) return
+    setFlashIndex(index)
+    setTimeout(() => setFlashIndex(null), 300)
+    onAnswerSelect?.(index)
   }
 
   const isDisabled = disabled || showResults || timeLeft === 0
 
+  const getCardClass = (index: number) => {
+    const p = PALETTE[index % PALETTE.length]
+    if (showResults) {
+      if (index === correctAnswer) return p.correct
+      if (index === selectedAnswer && index !== correctAnswer) return p.wrong
+      return p.muted
+    }
+    if (selectedAnswer === index) return p.selected
+    return p.idle
+  }
+
+  const getBadgeClass = (index: number) => {
+    const p = PALETTE[index % PALETTE.length]
+    if (showResults) {
+      if (index === correctAnswer) return p.checkBg
+      if (index === selectedAnswer && index !== correctAnswer) return p.xBg
+      return 'bg-white/10'
+    }
+    if (selectedAnswer === index) return p.badge
+    return 'bg-white/15'
+  }
+
+  // In fillHeight mode, we render bare fragments — the parent grid handles layout
+  if (fillHeight) {
+    return (
+      <>
+        {options.map((option, index) => {
+          const p = PALETTE[index % PALETTE.length]
+          const isFlashing = flashIndex === index
+          const isSelected = selectedAnswer === index
+          const isCorrect = showResults && index === correctAnswer
+          const isWrong = showResults && index === selectedAnswer && index !== correctAnswer
+
+          return (
+            <button
+              key={index}
+              onClick={() => handleSelect(index)}
+              disabled={isDisabled}
+              className={clsx(
+                'relative group flex items-center gap-4 px-5 rounded-2xl border-2 text-left w-full h-full',
+                'transition-all duration-200',
+                getCardClass(index),
+                isDisabled && !showResults && 'cursor-not-allowed',
+                isFlashing && 'scale-[1.02]',
+                !isFlashing && isSelected && !showResults && 'scale-[1.01]',
+                !isFlashing && !isSelected && !showResults && !isDisabled && 'hover:scale-[1.01] cursor-pointer',
+              )}
+            >
+              <div className={clsx(
+                'w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0',
+                'text-lg font-black text-white transition-all duration-200',
+                getBadgeClass(index),
+              )}>
+                {isCorrect ? '✓' : isWrong ? '✗' : p.label}
+              </div>
+              <span className={clsx(
+                'text-base font-semibold leading-snug flex-1',
+                showResults && index !== correctAnswer && index !== selectedAnswer
+                  ? 'text-white/30'
+                  : 'text-white',
+              )}>
+                {option}
+              </span>
+              {!showResults && isSelected && (
+                <div className="w-2 h-2 rounded-full bg-white/70 flex-shrink-0" />
+              )}
+            </button>
+          )
+        })}
+      </>
+    )
+  }
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      {options.map((option, index) => (
-        <button
-          key={index}
-          onClick={() => !isDisabled && onAnswerSelect?.(index)}
-          disabled={isDisabled}
-          className={clsx(
-            'p-6 rounded-lg border-2 transition-all duration-200 text-left',
-            getOptionStyle(index),
-            isDisabled && 'cursor-not-allowed'
-          )}
-        >
-          <div className="flex items-center space-x-4">
-            <div className="text-2xl font-bold bg-white/20 rounded-full w-12 h-12 flex items-center justify-center">
-              {String.fromCharCode(65 + index)}
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      {options.map((option, index) => {
+        const p = PALETTE[index % PALETTE.length]
+        const isFlashing = flashIndex === index
+        const isSelected = selectedAnswer === index
+        const isCorrect = showResults && index === correctAnswer
+        const isWrong = showResults && index === selectedAnswer && index !== correctAnswer
+
+        return (
+          <button
+            key={index}
+            onClick={() => handleSelect(index)}
+            disabled={isDisabled}
+            className={clsx(
+              'relative group flex items-center gap-4 p-5 rounded-2xl border-2 text-left',
+              'transition-all duration-200',
+              getCardClass(index),
+              isDisabled && !showResults && 'cursor-not-allowed',
+              isFlashing && 'scale-[1.03]',
+              !isFlashing && isSelected && !showResults && 'scale-[1.01]',
+              !isFlashing && !isSelected && !showResults && !isDisabled && 'hover:scale-[1.015] cursor-pointer',
+            )}
+          >
+            <div className={clsx(
+              'w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0',
+              'text-lg font-black text-white transition-all duration-200',
+              getBadgeClass(index),
+            )}>
+              {isCorrect ? '✓' : isWrong ? '✗' : p.label}
             </div>
-            <div className="text-lg font-medium flex-1">
+            <span className={clsx(
+              'text-base font-semibold leading-snug flex-1',
+              showResults && index !== correctAnswer && index !== selectedAnswer
+                ? 'text-white/30'
+                : 'text-white',
+            )}>
               {option}
-            </div>
-            {showResults && index === correctAnswer && (
-              <div className="text-green-400 text-2xl">✓</div>
+            </span>
+            {!showResults && isSelected && (
+              <div className="w-2 h-2 rounded-full bg-white/70 flex-shrink-0" />
             )}
-            {showResults && index === selectedAnswer && index !== correctAnswer && (
-              <div className="text-red-400 text-2xl">✗</div>
-            )}
-          </div>
-        </button>
-      ))}
+          </button>
+        )
+      })}
     </div>
   )
 }

@@ -1,30 +1,32 @@
-// src/app/layout.tsx
 import type { Metadata } from 'next'
+import { Space_Grotesk, Press_Start_2P } from 'next/font/google'
 import './globals.css'
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-space-grotesk',
+  display: 'swap',
+})
+
+const pressStart2P = Press_Start_2P({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-press-start',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
-  title: 'AI Quiz Platform - Retro Style',
-  description: 'Pixel art multiplayer quiz platform powered by AI for streamers',
-  keywords: ['quiz', 'trivia', 'multiplayer', 'streaming', 'AI', 'games', 'retro', 'pixel'],
-  authors: [{ name: 'AI Quiz Platform Team' }],
-  openGraph: {
-    title: 'AI Quiz Platform - Retro Style',
-    description: 'The ultimate retro multiplayer quiz experience for streamers',
-    type: 'website',
-  },
+  title: 'MetaQuizz — Multiplayer Trivia for Streamers',
+  description: 'Real-time multiplayer quiz platform with 10 question types, AI-powered content, and stream-ready design.',
+  keywords: ['quiz', 'trivia', 'multiplayer', 'streaming', 'AI', 'games'],
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
-      <body className="font-pixel antialiased pixel-bg">
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black relative scanlines">
-          {children}
-        </div>
+    <html lang="en" className={`${spaceGrotesk.variable} ${pressStart2P.variable}`}>
+      <body>
+        {children}
       </body>
     </html>
   )

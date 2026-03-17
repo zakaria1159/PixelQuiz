@@ -1,60 +1,30 @@
 // server.js - Socket.io Game Server with Hybrid Question Support
+require('dotenv').config()
 const express = require('express')
 const { createServer } = require('http')
 const { Server } = require('socket.io')
 const { calculateScore, getMaxScore } = require('./scoring')
 const cors = require('cors')
+const Anthropic = require('@anthropic-ai/sdk')
+const fs = require('fs')
+const path = require('path')
 
-// Sample questions for the game - Mixed types with enhanced text matching
-const sampleQuestions = [
-  {
-    id: '1',
-    type: 'multiple_choice',
-    question: 'Which streaming platform is known for its purple branding?',
-    options: ['YouTube', 'Twitch', 'TikTok', 'Instagram'],
-    correctAnswer: 1,
-    timeLimit: 15,
-    category: 'streaming',
-    difficulty: 'easy',
-    explanation: 'Twitch uses purple as its primary brand color and is the leading live streaming platform for gaming.'
-  },
-  {
-    id: '2',
-    type: 'true_false',
-    question: 'TikTok was originally called Musical.ly',
-    options: ['True', 'False'],
-    correctAnswer: 0,
-    timeLimit: 10,
-    category: 'pop_culture',
-    difficulty: 'easy',
-    explanation: 'Musical.ly was acquired by ByteDance and rebranded as TikTok in 2018.'
-  },
-  {
-    id: '3',
-    type: 'ranking',
-    question: 'Rank the Lord of the Rings trilogy movies in chronological order (earliest to latest):',
-    items: ['The Fellowship of the Ring', 'The Two Towers', 'The Return of the King'],
-    correctOrder: [0, 1, 2], // Fellowship -> Two Towers -> Return of the King
-    timeLimit: 20,
-    category: 'movies',
-    difficulty: 'easy',
-    explanation: 'The Fellowship of the Ring (2001) → The Two Towers (2002) → The Return of the King (2003)',
-    allowPartialCredit: true
-  },
-  {
-    id: '4',
-    type: 'free_text',
-    question: 'What is the capital city of France?',
-    correctAnswer: 'Paris',
-    acceptableAnswers: ['paris', 'city of paris', 'paris france'],
-    caseSensitive: false,
-    exactMatch: true, // Only exact matches (after normalization)
-    timeLimit: 12,
-    category: 'geography',
-    difficulty: 'easy',
-    explanation: 'Paris has been the capital of France since 987 AD.'
+const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+
+// Load questions from JSON files at startup
+const questionsDir = path.join(__dirname, 'questions')
+let allQuestions = []
+try {
+  for (const file of fs.readdirSync(questionsDir)) {
+    if (!file.endsWith('.json')) continue
+    const content = fs.readFileSync(path.join(questionsDir, file), 'utf8')
+    const questions = JSON.parse(content)
+    allQuestions = allQuestions.concat(questions)
   }
-]
+  console.log(`📚 Loaded ${allQuestions.length} questions from library (${fs.readdirSync(questionsDir).filter(f => f.endsWith('.json')).length} categories)`)
+} catch (e) {
+  console.error('Failed to load questions:', e.message)
+}
 
 // Smart text normalization - removes accents and normalizes case
 function normalizeText(text) {
@@ -106,11 +76,18 @@ function longestCommonSubsequence(str1, str2) {
 // Calculate participation ratio bonus
 function calculateParticipationRatioBonus(game, questionIndex) {
   const totalPlayers = game.players.length
+
+  // Not enough players for a meaningful ratio — skip bonus/penalty
+  if (totalPlayers < 4) {
+    console.log(`📊 Participation ratio bonus skipped (${totalPlayers} players < 4)`)
+    return 0
+  }
+
   const correctAnswers = game.players.filter(player => {
     const answerData = game.answers[player.id]?.[questionIndex]
     return answerData && answerData.isCorrect
   }).length
-  
+
   const participationRatio = correctAnswers / totalPlayers
   
   // Bonus calculation:
@@ -138,6 +115,74 @@ function calculateParticipationRatioBonus(game, questionIndex) {
   return ratioBonus
 }
 
+// Default time limits by question type (in seconds)
+const DEFAULT_TIME_LIMITS = {
+  true_false: 15,
+  multiple_choice: 20,
+  ranking: 30,
+  closest_wins: 20,
+  free_text: 40,
+  image_guess: 40,
+  fill_blank: 30,
+  letter_game: 60,
+  speed_buzz: 10,
+  pixel_reveal: 45,
+  flag_guess: 20,
+  music_guess: 30,
+  animal_sound: 20,
+  clue_chain: 60,
+}
+
+function getTimeLimit(question) {
+  return question.timeLimit || DEFAULT_TIME_LIMITS[question.type] || 20
+}
+
+/**
+ * Music guess: returns { isCorrect, partial }
+ * partial=true means artist name matched (half credit), partial=false means title matched (full credit)
+ */
+function validateMusicGuessAnswer(question, playerAnswer) {
+  if (!playerAnswer || playerAnswer.toString().trim() === '') return { isCorrect: false, partial: false }
+
+  const norm = s => s.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim()
+  const lcs = longestCommonSubsequence
+  const similar = (a, b) => {
+    const la = norm(a), lb = norm(b)
+    if (la === lb) return true
+    const l = lcs(la, lb)
+    return l.length / Math.max(la.length, lb.length) >= 0.82
+  }
+
+  const userAnswer = playerAnswer.toString().trim()
+
+  // Check title (correctAnswer / songTitle field) — full credit
+  const titleTargets = [question.correctAnswer, question.songTitle].filter(Boolean)
+  for (const t of titleTargets) {
+    if (similar(userAnswer, t)) {
+      console.log(`✅ Music title match: "${userAnswer}" ~ "${t}" → full credit`)
+      return { isCorrect: true, partial: false }
+    }
+  }
+  // Check acceptableAnswers (title variants) — full credit
+  if (question.acceptableAnswers) {
+    for (const a of question.acceptableAnswers) {
+      if (similar(userAnswer, a)) {
+        console.log(`✅ Music acceptable match: "${userAnswer}" ~ "${a}" → full credit`)
+        return { isCorrect: true, partial: false }
+      }
+    }
+  }
+
+  // Check artist — half credit
+  if (question.artist && similar(userAnswer, question.artist)) {
+    console.log(`⚡ Music artist match: "${userAnswer}" ~ "${question.artist}" → partial credit`)
+    return { isCorrect: true, partial: true }
+  }
+
+  console.log(`❌ Music guess no match: "${userAnswer}"`)
+  return { isCorrect: false, partial: false }
+}
+
 // Helper function to validate answers based on question type
 function validateAnswer(question, playerAnswer) {
   // Check if answer is empty or invalid
@@ -146,8 +191,8 @@ function validateAnswer(question, playerAnswer) {
     return false
   }
 
-  if (question.type === 'multiple_choice' || question.type === 'true_false') {
-    // For multiple choice and true/false, compare numbers
+  if (question.type === 'multiple_choice' || question.type === 'true_false' || question.type === 'speed_buzz') {
+    // For multiple choice, true/false, and speed buzz, compare numbers
     const answerIndex = parseInt(playerAnswer)
     if (isNaN(answerIndex)) {
       console.log('❌ Invalid number for multiple choice:', playerAnswer)
@@ -200,7 +245,28 @@ function validateAnswer(question, playerAnswer) {
       console.log('❌ Error parsing ranking answer:', error)
       return false
     }
-  } else if (question.type === 'free_text' || question.type === 'image_guess') {
+  } else if (question.type === 'flag_guess') {
+    const userAnswer = playerAnswer.toString().trim()
+    if (!userAnswer) return false
+    // Reject ISO codes and abbreviations (≤3 characters)
+    if (userAnswer.length <= 3) {
+      console.log('❌ Flag answer too short (ISO code / abbreviation rejected):', userAnswer)
+      return false
+    }
+    const norm = s => s.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim()
+    const u = norm(userAnswer)
+    if (u === norm(question.correctAnswer)) return true
+    if (question.acceptableAnswers) {
+      for (const alias of question.acceptableAnswers) {
+        if (u === norm(alias)) return true
+      }
+    }
+    // Allow minor typos via LCS similarity >= 0.82
+    const c = norm(question.correctAnswer)
+    const lcs = longestCommonSubsequence(u, c)
+    const sim = lcs.length / Math.max(u.length, c.length)
+    return sim >= 0.82
+  } else if (question.type === 'free_text' || question.type === 'image_guess' || question.type === 'animal_sound' || question.type === 'clue_chain') {
     // For free text and image guess, use smart text matching
     const userAnswer = playerAnswer.toString().trim()
     if (userAnswer === '') {
@@ -234,45 +300,50 @@ function validateAnswer(question, playerAnswer) {
       }
     }
     
-    // Check for partial matches in normalized text (MORE RESTRICTIVE)
+    // If exact match is required, stop here — no partial matching
+    if (question.exactMatch === true) {
+      console.log('❌ Exact match required, no match found')
+      return false
+    }
+
+    // Check for partial matches in normalized text
     const correctWords = normalizedCorrectAnswer.split(' ')
     const userWords = normalizedUserAnswer.split(' ')
-    
+
     // For multi-word answers, require more than just one word match
     if (correctWords.length > 1) {
       // Require at least 70% of the key words to match
-      const matchedWords = correctWords.filter(correctWord => 
-        userWords.some(userWord => 
-          userWord === correctWord || 
+      const matchedWords = correctWords.filter(correctWord =>
+        userWords.some(userWord =>
+          userWord === correctWord ||
           (correctWord.length > 3 && userWord.includes(correctWord)) ||
           (userWord.length > 3 && correctWord.includes(userWord))
         )
       )
-      
+
       const matchPercentage = matchedWords.length / correctWords.length
-      
-      if (matchPercentage >= 0.7) { // At least 70% of words must match
+
+      if (matchPercentage >= 0.7) {
         console.log(`✅ Partial match: ${matchedWords.length}/${correctWords.length} words (${(matchPercentage * 100).toFixed(1)}%)`)
         return true
       } else {
         console.log(`❌ Insufficient word match: ${matchedWords.length}/${correctWords.length} words (${(matchPercentage * 100).toFixed(1)}% < 70%)`)
+        return false
       }
     } else {
-      // Single word answers - check for similarity (MORE RESTRICTIVE)
-      // Require at least 90% character similarity for single words (increased from 80%)
+      // Single word answers - use LCS character similarity
       const minLength = Math.min(normalizedUserAnswer.length, normalizedCorrectAnswer.length)
       const maxLength = Math.max(normalizedUserAnswer.length, normalizedCorrectAnswer.length)
-      
+
       if (minLength === 0) {
         console.log('❌ Empty word after normalization')
         return false
       }
-      
-      // Calculate similarity using longest common subsequence
+
       const lcs = longestCommonSubsequence(normalizedUserAnswer, normalizedCorrectAnswer)
       const similarity = lcs.length / maxLength
-      
-      if (similarity >= 0.9 && minLength >= 3) { // Increased to 90% similarity and minimum 3 chars
+
+      if (similarity >= 0.9 && minLength >= 3) {
         console.log(`✅ Single word similarity match: ${(similarity * 100).toFixed(1)}% (LCS: ${lcs.length}/${maxLength})`)
         return true
       } else {
@@ -280,23 +351,158 @@ function validateAnswer(question, playerAnswer) {
         return false
       }
     }
-    
-    // For strict matching, stop here
-    if (question.exactMatch === true) {
-      console.log('❌ Exact match required, no match found')
-      return false
-    }
-    
-    console.log('❌ No exact match found')
-    return false
   }
   
+  if (question.type === 'closest_wins') {
+    // Winner is resolved after all players answer — always pending at submit time
+    return false
+  }
+
+  if (question.type === 'pixel_reveal') {
+    // Same matching logic as image_guess
+    const userAnswer = playerAnswer.toString().trim()
+    if (!userAnswer) return false
+
+    const normalizedUser = normalizeText(userAnswer)
+    const normalizedCorrect = normalizeText(question.correctAnswer)
+
+    if (normalizedUser === normalizedCorrect) {
+      console.log(`✅ Pixel reveal exact match: "${userAnswer}"`)
+      return true
+    }
+    if (question.acceptableAnswers) {
+      for (const alt of question.acceptableAnswers) {
+        if (normalizedUser === normalizeText(alt)) {
+          console.log(`✅ Pixel reveal acceptable answer: "${alt}"`)
+          return true
+        }
+      }
+    }
+    // Partial word matching (same as free_text)
+    const correctWords = normalizedCorrect.split(' ')
+    const userWords = normalizedUser.split(' ')
+    if (correctWords.length > 1) {
+      const matched = correctWords.filter(cw => userWords.some(uw => uw === cw || (cw.length > 3 && uw.includes(cw))))
+      if (matched.length / correctWords.length >= 0.7) {
+        console.log(`✅ Pixel reveal partial match: ${matched.length}/${correctWords.length} words`)
+        return true
+      }
+    }
+    console.log(`❌ Pixel reveal no match: "${userAnswer}" vs "${question.correctAnswer}"`)
+    return false
+  }
+
+  if (question.type === 'fill_blank') {
+    const userWord = playerAnswer.toString().trim()
+    if (!userWord) return false
+
+    const normalize = (s) => s.trim().toLowerCase().replace(/[^a-z0-9]/g, '')
+    const normalizedUser = normalize(userWord)
+    const normalizedCorrect = normalize(question.correctAnswer)
+
+    if (normalizedUser === normalizedCorrect) {
+      console.log(`✅ Fill-blank exact match: "${userWord}"`)
+      return true
+    }
+
+    if (question.acceptableAnswers) {
+      for (const alt of question.acceptableAnswers) {
+        if (normalizedUser === normalize(alt)) {
+          console.log(`✅ Fill-blank acceptable answer match: "${alt}"`)
+          return true
+        }
+      }
+    }
+
+    console.log(`❌ Fill-blank no match: "${userWord}" vs "${question.correctAnswer}"`)
+    return false
+  }
+
+  if (question.type === 'letter_game') {
+    const validCount = countLetterGameValid(question, playerAnswer)
+    console.log(`🔤 Letter game: ${validCount}/${question.categories.length} valid answers starting with '${question.letter}'`)
+    return validCount > 0
+  }
+
   return false
+}
+
+// Count how many letter_game answers are valid (non-empty and start with the correct letter)
+// Used as a fast fallback when AI validation is unavailable
+function countLetterGameValid(question, playerAnswer) {
+  if (!playerAnswer) return 0
+  const letter = question.letter.toLowerCase()
+  const entries = playerAnswer.toString().split(',')
+  let valid = 0
+  entries.forEach(entry => {
+    const word = entry.trim()
+    if (word.length > 0 && word[0].toLowerCase() === letter) valid++
+  })
+  return valid
+}
+
+// Use Claude to validate all players' letter_game answers in one API call.
+// Returns { playerId: { Category: true/false, ... }, ... }
+// Falls back to letter-only check if the API call fails.
+async function validateLetterGameWithAI(question, playerAnswerMap) {
+  if (!process.env.ANTHROPIC_API_KEY) {
+    console.warn('⚠️  ANTHROPIC_API_KEY not set — falling back to letter-only validation')
+    return null
+  }
+
+  // Build a compact description of every player's answers
+  const lines = Object.entries(playerAnswerMap).map(([playerId, rawAnswer]) => {
+    const entries = rawAnswer.toString().split(',')
+    const pairs = question.categories
+      .map((cat, i) => `${cat}: "${entries[i]?.trim() || ''}"`)
+      .join(', ')
+    return `${playerId}: ${pairs}`
+  })
+
+  const prompt = `You are judging a Scattergories-style word game. The required starting letter is "${question.letter}".
+
+For each player's answers, mark each category answer as true (valid) or false (invalid).
+An answer is valid when ALL of these are true:
+  1. It is non-empty (blank or missing answers are ALWAYS false)
+  2. It is a real, recognisable word or proper noun (not gibberish or clearly made up)
+  3. It genuinely belongs to the stated category
+  4. It starts with the letter "${question.letter}" (case-insensitive)
+
+Categories: ${question.categories.join(', ')}
+
+Player answers:
+${lines.join('\n')}
+
+Reply with ONLY a JSON object — no explanation, no markdown:
+{
+  "<playerId>": { ${question.categories.map(c => `"${c}": true`).join(', ')} },
+  ...
+}
+
+Be reasonably lenient: accept nicknames, common brand names used generically, and well-known regional terms.`
+
+  try {
+    const response = await anthropic.messages.create({
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 800,
+      messages: [{ role: 'user', content: prompt }]
+    })
+
+    const text = response.content[0].text.trim()
+    // Strip optional markdown code fences
+    const json = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '')
+    const result = JSON.parse(json)
+    console.log('🤖 AI letter_game validation result:', JSON.stringify(result, null, 2))
+    return result
+  } catch (err) {
+    console.error('❌ AI letter_game validation failed:', err.message)
+    return null
+  }
 }
 
 // Helper function to get display text for answers
 function getAnswerDisplayText(question, answer) {
-  if (question.type === 'multiple_choice' || question.type === 'true_false') {
+  if (question.type === 'multiple_choice' || question.type === 'true_false' || question.type === 'speed_buzz') {
     const answerIndex = parseInt(answer)
     return question.options && question.options[answerIndex] ? question.options[answerIndex] : 'Invalid option'
   } else if (question.type === 'ranking') {
@@ -308,6 +514,16 @@ function getAnswerDisplayText(question, answer) {
       console.log('Error parsing ranking answer:', error)
       return 'Invalid ranking'
     }
+  } else if (question.type === 'closest_wins') {
+    const unit = question.unit ? ` ${question.unit}` : ''
+    return `${answer}${unit}`
+  } else if (question.type === 'letter_game') {
+    const entries = answer.toString().split(',')
+    return question.categories
+      .map((cat, i) => `${cat}: ${entries[i]?.trim() || '—'}`)
+      .join(' | ')
+  } else if (answer === 'NO_ANSWER') {
+    return '—'
   } else {
     return typeof answer === 'string' ? answer : 'Invalid answer'
   }
@@ -315,30 +531,47 @@ function getAnswerDisplayText(question, answer) {
 
 // Helper function to get correct answer display text
 function getCorrectAnswerDisplayText(question) {
-  if (question.type === 'multiple_choice' || question.type === 'true_false') {
+  if (question.type === 'multiple_choice' || question.type === 'true_false' || question.type === 'speed_buzz') {
     return question.options && question.options[question.correctAnswer] ? question.options[question.correctAnswer] : 'Unknown'
   } else if (question.type === 'ranking') {
-    // For ranking questions, show the correct order
     if (question.correctOrder && question.items) {
       return question.correctOrder.map(index => question.items[index]).join(' → ')
     }
     return 'Unknown ranking'
+  } else if (question.type === 'closest_wins') {
+    const unit = question.unit ? ` ${question.unit}` : ''
+    return `${question.correctAnswer}${unit}`
+  } else if (question.type === 'fill_blank' || question.type === 'pixel_reveal') {
+    return question.correctAnswer
+  } else if (question.type === 'letter_game') {
+    return `Any word starting with '${question.letter}' for each category`
   } else {
     return question.correctAnswer
   }
 }
 
-// Helper function to get random questions
-function getRandomQuestions(count = 5) {
-  const shuffled = [...sampleQuestions].sort(() => 0.5 - Math.random())
-  return shuffled.slice(0, Math.min(count, sampleQuestions.length))
+// Helper function to get random questions — guarantees one question per type
+function getRandomQuestions(settings = {}) {
+  const { categories = [], types = [], questionCount = 10 } = settings
+
+  let pool = allQuestions
+  if (categories.length > 0) pool = pool.filter(q => categories.includes(q.category))
+  if (types.length > 0) pool = pool.filter(q => types.includes(q.type))
+  if (pool.length === 0) pool = allQuestions // fallback if filters yield nothing
+
+  const shuffled = [...pool].sort(() => Math.random() - 0.5)
+  return shuffled.slice(0, Math.min(questionCount, shuffled.length))
 }
 
 const app = express()
 const server = createServer(app)
+const allowedOrigins = process.env.FRONTEND_URL
+  ? [process.env.FRONTEND_URL, "http://localhost:3000"]
+  : ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"]
+
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"],
+    origin: allowedOrigins,
     methods: ["GET", "POST"]
   }
 })
@@ -506,7 +739,10 @@ io.on('connection', (socket) => {
   })
 
   // Host starts the game
-  socket.on('host-start-game', (gameCode) => {
+  socket.on('host-start-game', async (data) => {
+    // Support both old string format and new object format { gameCode, settings }
+    const gameCode = typeof data === 'string' ? data : data?.gameCode
+    const settings = (typeof data === 'object' && data?.settings) ? data.settings : {}
     try {
       const game = games.get(gameCode)
       if (!game) {
@@ -525,7 +761,7 @@ io.on('connection', (socket) => {
         return
       }
 
-      const questions = getRandomQuestions(5)
+      const questions = getRandomQuestions(settings)
       game.questions = questions
       game.currentQuestionIndex = 0
       game.currentQuestion = questions[0]
@@ -536,13 +772,22 @@ io.on('connection', (socket) => {
       console.log('🚀 Game started:', gameCode)
       console.log('📝 Loaded questions:', questions.length)
       console.log('🎯 First question:', game.currentQuestion.question, '(Type:', game.currentQuestion.type + ')')
-      
-      io.to(gameCode).emit('game-starting', { gameState: game })
-      io.to(gameCode).emit('question-start', { 
+
+      game.gameStatus = 'starting'
+      io.to(gameCode).emit('game-starting', { gameState: game, countdown: 4 })
+
+      // 4-second countdown before first question
+      await new Promise(resolve => setTimeout(resolve, 4000))
+
+      game.gameStatus = 'question'
+      game.questionStartTime = Date.now()
+      game.updatedAt = Date.now()
+
+      io.to(gameCode).emit('question-start', {
         question: game.currentQuestion,
         questionIndex: 0,
         totalQuestions: questions.length,
-        timeLimit: game.currentQuestion.timeLimit
+        timeLimit: getTimeLimit(game.currentQuestion)
       })
     } catch (error) {
       console.error('Error starting game:', error)
@@ -582,12 +827,31 @@ io.on('connection', (socket) => {
       }
 
       const answerTime = Date.now() - game.questionStartTime
-      const isCorrect = validateAnswer(currentQuestion, answerText)
+      let isCorrect, partial = false
+      if (currentQuestion.type === 'music_guess') {
+        const result = validateMusicGuessAnswer(currentQuestion, answerText)
+        isCorrect = result.isCorrect
+        partial = result.partial
+      } else {
+        isCorrect = validateAnswer(currentQuestion, answerText)
+      }
 
       game.answers[socket.id][game.currentQuestionIndex] = {
         answer: answerText,
         time: answerTime,
-        isCorrect: isCorrect
+        isCorrect: isCorrect,
+        partial: partial,
+      }
+
+      // Track speed_buzz correct-answer order for rank-based scoring
+      if (currentQuestion.type === 'speed_buzz' && isCorrect) {
+        if (!game.speedBuzzRanks) game.speedBuzzRanks = {}
+        if (!game.speedBuzzRanks[game.currentQuestionIndex]) game.speedBuzzRanks[game.currentQuestionIndex] = []
+        game.speedBuzzRanks[game.currentQuestionIndex].push(socket.id)
+        const rank = game.speedBuzzRanks[game.currentQuestionIndex].length
+        console.log(`⚡ Speed Buzz: ${game.players.find(p=>p.id===socket.id)?.name} answered correctly — rank #${rank}`)
+        // Tell this player their rank immediately
+        socket.emit('speed-buzz-rank', { rank, questionIndex: game.currentQuestionIndex })
       }
 
       const playerObj = game.players.find(p => p.id === socket.id)
@@ -616,10 +880,16 @@ io.on('connection', (socket) => {
       })
 
       if (answeredPlayersCount === game.players.length && !hasAutoSubmittedAnswers) {
+        const snapIndex = game.currentQuestionIndex
         console.log('✅ All players answered naturally, moving to next question in 2 seconds...')
         setTimeout(() => {
-          moveToNextQuestion(gameCode)
-        }, 2000) // Increased delay to 2 seconds
+          // Guard: only advance if we're still on the same question
+          if (game.currentQuestionIndex === snapIndex && game.gameStatus === 'question') {
+            moveToNextQuestion(gameCode)
+          } else {
+            console.log('⚠️ Question already advanced by time-up, skipping duplicate moveToNextQuestion')
+          }
+        }, 2000)
       } else if (answeredPlayersCount === game.players.length && hasAutoSubmittedAnswers) {
         console.log('⚠️ All players answered but some were auto-submitted, letting time-up handler manage advancement')
       }
@@ -630,25 +900,31 @@ io.on('connection', (socket) => {
   })
 
   // Handle time-up for questions
-  socket.on('time-up', (gameCode) => {
+  socket.on('time-up', ({ gameCode, questionIndex: clientQuestionIndex } = {}) => {
     try {
       const game = games.get(gameCode)
       if (!game || game.gameStatus !== 'question') {
         console.log('⚠️ Time-up ignored - game not in question state')
         return
       }
-  
+
       const currentQuestionIndex = game.currentQuestionIndex
-      
+
+      // Reject stale time-up events from clients that are behind
+      if (clientQuestionIndex !== undefined && clientQuestionIndex !== currentQuestionIndex) {
+        console.log(`⚠️ Time-up ignored - client sent Q${clientQuestionIndex + 1} but server is on Q${currentQuestionIndex + 1}`)
+        return
+      }
+
       // Improved duplicate prevention with timestamp
       const now = Date.now()
-      if (game.lastProcessedTimeUpQuestion === currentQuestionIndex && 
-          game.lastTimeUpTimestamp && 
+      if (game.lastProcessedTimeUpQuestion === currentQuestionIndex &&
+          game.lastTimeUpTimestamp &&
           (now - game.lastTimeUpTimestamp) < 2000) {
         console.log('⚠️ Already processed time-up for question', currentQuestionIndex + 1, 'within 2 seconds')
         return
       }
-      
+
       game.lastProcessedTimeUpQuestion = currentQuestionIndex
       game.lastTimeUpTimestamp = now
       console.log('⏰ Processing time-up for question:', currentQuestionIndex + 1)
@@ -663,7 +939,7 @@ io.on('connection', (socket) => {
           // ✅ FIX: Create proper "no answer" entry instead of empty/random
           let noAnswerEntry = {
             answer: "NO_ANSWER", // Clear indicator that no answer was submitted
-            time: game.currentQuestion.timeLimit * 1000, // Full time used
+            time: getTimeLimit(game.currentQuestion) * 1000, // Full time used
             isCorrect: false, // Always wrong
             wasTimeUp: true // Flag to indicate this was auto-submitted
           }
@@ -894,13 +1170,10 @@ io.on('connection', (socket) => {
       game.playerChallenges[socket.id].challengesRemaining = 0
 
       // Calculate potential score (what they would get if challenge passes)
+      // Uses the same base values as the main scoring system but no time bonus
+      // (passing timeToAnswer = timeLimit gives timeRatio = 0, so timeBonus = 0)
       const currentQuestion = game.questions[questionIndex]
-      const baseScore = currentQuestion.difficulty === 'easy' ? 100 :
-                       currentQuestion.difficulty === 'medium' ? 150 : 200
-      
-      // CHALLENGE SCORE SHOULD NOT INCLUDE TIME BONUS
-      // Challenge should never be higher than someone who answered correctly
-      const potentialScore = baseScore
+      const potentialScore = calculateScore(currentQuestion, true, getTimeLimit(currentQuestion) * 1000, getTimeLimit(currentQuestion))
 
       // Start voting phase for this challenge
       const challenge = {
@@ -921,11 +1194,58 @@ io.on('connection', (socket) => {
 
       // Initialize voting
       const voters = game.players.filter(p => p.id !== socket.id)
+
+      // No one left to vote (challenger is the only player) — auto-approve
+      if (voters.length === 0) {
+        console.log(`🏛️ Not enough voters (${voters.length}) — auto-approving challenge`)
+
+        if (!game.questionScores) game.questionScores = {}
+        if (!game.questionScores[questionIndex]) game.questionScores[questionIndex] = {}
+
+        const ratioBonus = calculateParticipationRatioBonus(game, questionIndex)
+        const bonusAmount = Math.floor(challenge.potentialScore * ratioBonus)
+        const finalChallengeScore = challenge.potentialScore + bonusAmount
+
+        game.questionScores[questionIndex][socket.id] = finalChallengeScore
+        const challenger = game.players.find(p => p.id === socket.id)
+        if (challenger) challenger.score += finalChallengeScore
+
+        io.to(gameCode).emit('challenge-resolved', {
+          challengeId: challenge.id,
+          passed: true,
+          votes: { approve: 0, reject: 0 },
+          scoreAwarded: finalChallengeScore
+        })
+        io.to(gameCode).emit('game-state-updated', { gameState: game })
+        return
+      }
+
+      const VOTE_TIMEOUT_MS = 20000
       io.to(gameCode).emit('challenge-voting', {
         challenge,
         voters: voters.map(p => ({ id: p.id, name: p.name })),
-        votingTime: 20 // 20 seconds to vote
+        votingTime: VOTE_TIMEOUT_MS / 1000
       })
+
+      // Server-side timeout: auto-reject if not all votes arrive in time
+      setTimeout(() => {
+        const votes = game.challengeVotes?.[challenge.id]
+        if (!votes) return // Already resolved
+        const totalVotes = (votes.approve?.length || 0) + (votes.reject?.length || 0)
+        const totalVoters = game.players.length - 1
+        if (totalVotes < totalVoters) {
+          console.log(`⏰ Vote timeout for challenge ${challenge.id} — auto-rejecting (${totalVotes}/${totalVoters} votes received)`)
+          // Mark as resolved by deleting the votes entry
+          delete game.challengeVotes[challenge.id]
+          io.to(gameCode).emit('challenge-resolved', {
+            challengeId: challenge.id,
+            passed: false,
+            votes: { approve: votes.approve?.length || 0, reject: votes.reject?.length || 0 },
+            scoreAwarded: 0,
+            timedOut: true
+          })
+        }
+      }, VOTE_TIMEOUT_MS + 2000) // +2s grace period
 
     } catch (error) {
       console.error('Error handling challenge:', error)
@@ -988,6 +1308,9 @@ io.on('connection', (socket) => {
         const approveVotes = game.challengeVotes[challengeId].approve.length
         const rejectVotes = game.challengeVotes[challengeId].reject.length
         const challengePassed = approveVotes > rejectVotes
+
+        // Clear votes so the server-side timeout doesn't re-resolve
+        delete game.challengeVotes[challengeId]
 
         console.log(`🏛️ Challenge voting complete: ${approveVotes} approve, ${rejectVotes} reject - ${challengePassed ? 'PASSED' : 'REJECTED'}`)
 
@@ -1301,7 +1624,7 @@ socket.on('player-ready', (data) => {
 })
 
 // Helper function to move to next question
-function moveToNextQuestion(gameCode) {
+async function moveToNextQuestion(gameCode) {
   const game = games.get(gameCode)
   if (!game) return
   console.log('🔍 moveToNextQuestion called:')
@@ -1323,42 +1646,122 @@ function moveToNextQuestion(gameCode) {
   // Calculate scores for the current question but DON'T update player scores yet
   const currentQuestion = game.currentQuestion
   let questionScores = {}
-  
+
+  // For closest_wins: resolve winner(s) before scoring
+  if (currentQuestion && currentQuestion.type === 'closest_wins') {
+    const entries = game.players
+      .map(player => {
+        const answerData = game.answers[player.id]?.[game.currentQuestionIndex]
+        if (!answerData || answerData.wasTimeUp) return null
+        const num = parseFloat(answerData.answer)
+        if (isNaN(num)) return null
+        return { playerId: player.id, value: num, diff: Math.abs(num - currentQuestion.correctAnswer) }
+      })
+      .filter(Boolean)
+
+    if (entries.length > 0) {
+      const minDiff = Math.min(...entries.map(e => e.diff))
+      entries.forEach(e => {
+        if (e.diff === minDiff) {
+          game.answers[e.playerId][game.currentQuestionIndex].isCorrect = true
+          console.log(`🎯 Closest wins: ${e.playerId} guessed ${e.value} (diff: ${e.diff}) — WINNER`)
+        }
+      })
+    }
+  }
+
   if (currentQuestion) {
+    // Pre-compute speed_buzz rank multipliers
+    const SPEED_BUZZ_RANK_MULTIPLIERS = [1.0, 0.75, 0.5, 0.25]
+    const speedBuzzRanks = game.speedBuzzRanks?.[game.currentQuestionIndex] || []
+
+    // For letter_game: run AI validation once for all players before scoring
+    let aiValidation = null
+    if (currentQuestion.type === 'letter_game') {
+      const playerAnswerMap = {}
+      game.players.forEach(player => {
+        const answerData = game.answers[player.id]?.[game.currentQuestionIndex]
+        if (answerData && !answerData.wasTimeUp) {
+          playerAnswerMap[player.id] = answerData.answer
+        }
+      })
+      if (Object.keys(playerAnswerMap).length > 0) {
+        aiValidation = await validateLetterGameWithAI(currentQuestion, playerAnswerMap)
+      }
+    }
+
     game.players.forEach(player => {
       const playerAnswerData = game.answers[player.id]?.[game.currentQuestionIndex]
       if (playerAnswerData) {
-        // Calculate score using the proper scoring system
-        const baseScore = calculateScore(
-          currentQuestion,
-          playerAnswerData.isCorrect,
-          playerAnswerData.time,
-          currentQuestion.timeLimit
-        )
-        
-        // Calculate participation ratio bonus
-        const totalPlayers = game.players.length
-        const correctAnswers = game.players.filter(p => {
-          const answerData = game.answers[p.id]?.[game.currentQuestionIndex]
-          return answerData && answerData.isCorrect
-        }).length
-        
-        const participationRatio = correctAnswers / totalPlayers
-        let ratioBonus = 0
-        if (participationRatio >= 0.8) {
-          ratioBonus = -0.2 // -20% penalty
-        } else if (participationRatio >= 0.6) {
-          ratioBonus = 0 // No bonus/penalty
-        } else if (participationRatio >= 0.4) {
-          ratioBonus = 0.2 // +20% bonus
-        } else if (participationRatio >= 0.2) {
-          ratioBonus = 0.4 // +40% bonus
+        let baseScore
+
+        if (currentQuestion.type === 'speed_buzz') {
+          // Rank-based scoring: max score × rank multiplier
+          const maxScore = getMaxScore(currentQuestion)
+          const rank = speedBuzzRanks.indexOf(player.id) // -1 if wrong
+          const rankMultiplier = rank >= 0 ? (SPEED_BUZZ_RANK_MULTIPLIERS[rank] ?? 0.25) : 0
+          baseScore = Math.round(maxScore * rankMultiplier)
+          console.log(`⚡ Speed Buzz ${player.name}: rank #${rank + 1}, maxScore=${maxScore}, multiplier=${rankMultiplier}, score=${baseScore}`)
+        } else if (currentQuestion.type === 'letter_game') {
+          // Ratio-based scoring: (validAnswers / totalCategories) × maxScore
+          const maxScore = getMaxScore(currentQuestion)
+          let validCount
+
+          if (aiValidation && aiValidation[player.id]) {
+            // AI-validated: count categories marked true
+            validCount = Object.values(aiValidation[player.id]).filter(Boolean).length
+            // Store validation detail on the answer for the reveal phase
+            playerAnswerData.letterGameValidation = aiValidation[player.id]
+          } else {
+            // Fallback: count words starting with the correct letter
+            validCount = countLetterGameValid(currentQuestion, playerAnswerData.answer)
+          }
+
+          const ratio = validCount / currentQuestion.categories.length
+          baseScore = Math.round(maxScore * ratio)
+          // isCorrect = true if at least one valid answer
+          playerAnswerData.isCorrect = validCount > 0
+          console.log(`🔤 Letter Game ${player.name}: ${validCount}/${currentQuestion.categories.length} valid (${(ratio * 100).toFixed(0)}%), score=${baseScore}`)
         } else {
-          ratioBonus = 0.6 // +60% bonus
+          // Calculate score using the proper scoring system
+          const creditMultiplier = playerAnswerData.partial ? 0.5 : 1.0
+          baseScore = calculateScore(
+            currentQuestion,
+            playerAnswerData.isCorrect,
+            playerAnswerData.time,
+            getTimeLimit(currentQuestion),
+            creditMultiplier
+          )
         }
         
-        const bonusAmount = Math.floor(baseScore * ratioBonus)
-        const finalScore = baseScore + bonusAmount
+        // Speed buzz and letter_game use their own scoring — skip participation ratio bonus
+        let bonusAmount = 0
+        let finalScore = baseScore
+
+        if (currentQuestion.type !== 'speed_buzz' && currentQuestion.type !== 'letter_game') {
+          // Calculate participation ratio bonus
+          const totalPlayers = game.players.length
+          const correctAnswers = game.players.filter(p => {
+            const answerData = game.answers[p.id]?.[game.currentQuestionIndex]
+            return answerData && answerData.isCorrect
+          }).length
+
+          const participationRatio = correctAnswers / totalPlayers
+          let ratioBonus = 0
+          if (participationRatio >= 0.8) {
+            ratioBonus = -0.2 // -20% penalty
+          } else if (participationRatio >= 0.6) {
+            ratioBonus = 0 // No bonus/penalty
+          } else if (participationRatio >= 0.4) {
+            ratioBonus = 0.2 // +20% bonus
+          } else if (participationRatio >= 0.2) {
+            ratioBonus = 0.4 // +40% bonus
+          } else {
+            ratioBonus = 0.6 // +60% bonus
+          }
+          bonusAmount = Math.floor(baseScore * ratioBonus)
+          finalScore = baseScore + bonusAmount
+        }
         
         // Store both base score and final score (with participation bonus)
         if (!game.questionScores) game.questionScores = {}
@@ -1374,9 +1777,34 @@ function moveToNextQuestion(gameCode) {
       }
     })
   }
- // game.processingTimeUp = false
+  // Update each player's cumulative score so clients see live scores
+  const completedIndex = game.currentQuestionIndex
+  game.players.forEach(player => {
+    const earned = game.questionScores[completedIndex]?.[player.id] || 0
+    player.score = (player.score || 0) + earned
+  })
+
+  // Build leaderboard for the between-question screen
+  const leaderboard = [...game.players]
+    .sort((a, b) => (b.score || 0) - (a.score || 0))
+    .map((player, i) => ({
+      playerId: player.id,
+      playerName: player.name,
+      earned: game.questionScores[completedIndex]?.[player.id] || 0,
+      total: player.score || 0,
+      isCorrect: game.answers[player.id]?.[completedIndex]?.isCorrect || false,
+      rank: i + 1,
+    }))
+
+  const completedQuestion = game.questions[completedIndex]
+  io.to(gameCode).emit('question-scores', {
+    questionIndex: completedIndex,
+    correctAnswerText: getCorrectAnswerDisplayText(completedQuestion),
+    leaderboard,
+  })
+
   game.currentQuestionIndex++
-  
+
   if (game.currentQuestionIndex >= game.questions.length) {
     // All questions answered - move to reveal phase
     game.gameStatus = 'reveal_phase'
@@ -1431,37 +1859,65 @@ function moveToNextQuestion(gameCode) {
     })
     
     game.finalResults = detailedResults
-    
+
     console.log('🏁 Game finished:', gameCode)
-    console.log('📊 Final results:', detailedResults.map(r => 
+    console.log('📊 Final results:', detailedResults.map(r =>
       `${r.playerName}: ${r.score} pts (${(r.totalTime / 1000).toFixed(1)}s total)`
     ))
+
+    // Pause so players see the final between-question leaderboard before the end screen
+    await new Promise(resolve => setTimeout(resolve, 4500))
+    if (!games.get(gameCode)) return
+
     io.to(gameCode).emit('game-finished', { gameState: game })
   } else {
-    // Move to next question
+    // Pause for the between-question leaderboard screen (4.5s), then start next question
+    await new Promise(resolve => setTimeout(resolve, 4500))
+
+    // Guard: game might have been cancelled during the delay
+    if (!games.get(gameCode)) return
+
     game.currentQuestion = game.questions[game.currentQuestionIndex]
     game.gameStatus = 'question'
     game.questionStartTime = Date.now()
     game.updatedAt = Date.now()
-    game.isProcessingNextQuestion = false // Reset flag
-    
+    game.isProcessingNextQuestion = false
+
     console.log(`🎯 Question ${game.currentQuestionIndex + 1}/${game.questions.length}:`, game.currentQuestion.question, '(Type:', game.currentQuestion.type + ')')
-    
+
     io.to(gameCode).emit('question-start', {
       question: game.currentQuestion,
       questionIndex: game.currentQuestionIndex,
       totalQuestions: game.questions.length,
-      timeLimit: game.currentQuestion.timeLimit
+      timeLimit: getTimeLimit(game.currentQuestion)
     })
-    
+
     io.to(gameCode).emit('answer-status-updated', {
       answeredPlayers: [],
       totalPlayers: game.players.length
     })
-    
+
     io.to(gameCode).emit('game-state-updated', { gameState: game })
   }
 }
+
+// Deezer preview proxy (avoids CORS issues from browser)
+app.get('/api/deezer-preview', async (req, res) => {
+  const q = req.query.q
+  if (!q) return res.status(400).json({ error: 'Missing query' })
+  try {
+    const response = await fetch(`https://api.deezer.com/search?q=${encodeURIComponent(q)}&limit=1`)
+    const data = await response.json()
+    const preview = data.data?.[0]?.preview
+    if (preview) {
+      res.json({ previewUrl: preview })
+    } else {
+      res.status(404).json({ error: 'No preview found' })
+    }
+  } catch (err) {
+    res.status(500).json({ error: 'Deezer API error' })
+  }
+})
 
 // Health check endpoint
 app.get('/health', (req, res) => {

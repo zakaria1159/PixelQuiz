@@ -3,17 +3,13 @@ import { CardProps } from '@/types'
 
 const Card = ({ children, className, variant = 'default' }: CardProps) => {
   const variantClasses = {
-    default: 'pixel-card bg-gray-800 text-white border-gray-600',
-    glass: 'pixel-card bg-gray-800/90 backdrop-blur-sm text-white border-gray-600',
-    solid: 'pixel-card bg-gray-900 text-white border-gray-700'
+    default: 'bg-zinc-900 border-zinc-800',
+    glass:   'bg-zinc-900/80 backdrop-blur-sm border-zinc-800',
+    solid:   'bg-zinc-950 border-zinc-800',
   }
 
   return (
-    <div className={clsx(
-      variantClasses[variant],
-      'screen-flicker',
-      className
-    )}>
+    <div className={clsx('card', variantClasses[variant], className)}>
       {children}
     </div>
   )

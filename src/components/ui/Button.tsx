@@ -1,4 +1,3 @@
-// src/components/ui/Button.tsx - True Pixel Art Version
 import { ButtonHTMLAttributes, forwardRef } from 'react'
 import { clsx } from 'clsx'
 import { ButtonVariant, ButtonSize } from '@/types'
@@ -10,46 +9,40 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: React.ReactNode
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'md', loading, icon, children, disabled, ...props }, ref) => {
-    const baseClasses = 'pixel-button inline-flex items-center justify-center font-bold relative transition-none focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed'
-    
-    const variantClasses = {
-      primary: 'bg-blue-600 text-white border-blue-400 hover:bg-blue-500',
-      secondary: 'bg-purple-600 text-white border-purple-400 hover:bg-purple-500',
-      success: 'bg-green-600 text-white border-green-400 hover:bg-green-500',
-      danger: 'bg-red-600 text-white border-red-400 hover:bg-red-500',
-      warning: 'bg-yellow-600 text-black border-yellow-400 hover:bg-yellow-500',
-      ghost: 'bg-gray-700 text-gray-100 border-gray-500 hover:bg-gray-600'
-    }
-    
-    const sizeClasses = {
-      sm: 'px-4 py-2 text-[12px]',
-      md: 'px-6 py-3 text-[16px]',
-      lg: 'px-8 py-4 text-[18px]',
-      xl: 'px-12 py-6 text-[20px]'
-    }
+const variantClasses: Record<ButtonVariant, string> = {
+  primary:   'bg-purple-600 hover:bg-purple-500 text-white border border-purple-500/50 shadow-[0_0_20px_rgba(168,85,247,0.2)]',
+  secondary: 'bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-700',
+  success:   'bg-emerald-600 hover:bg-emerald-500 text-white border border-emerald-500/50',
+  danger:    'bg-red-600 hover:bg-red-500 text-white border border-red-500/50',
+  warning:   'bg-amber-500 hover:bg-amber-400 text-black border border-amber-400/50',
+  ghost:     'bg-transparent hover:bg-zinc-800 text-zinc-300 border border-zinc-800 hover:border-zinc-700',
+}
 
-    return (
-      <button
-        className={clsx(
-          baseClasses,
-          variantClasses[variant],
-          sizeClasses[size],
-          className
-        )}
-        disabled={disabled || loading}
-        ref={ref}
-        {...props}
-      >
-        {loading && (
-          <div className="mr-3 text-[16px]">⟳</div>
-        )}
-        {icon && !loading && <span className="mr-3">{icon}</span>}
-        {children}
-      </button>
-    )
-  }
+const sizeClasses: Record<ButtonSize, string> = {
+  sm: 'px-3 py-1.5 text-xs',
+  md: 'px-4 py-2 text-sm',
+  lg: 'px-6 py-3 text-sm',
+  xl: 'px-8 py-4 text-base',
+}
+
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant = 'primary', size = 'md', loading, icon, children, disabled, ...props }, ref) => (
+    <button
+      ref={ref}
+      disabled={disabled || loading}
+      className={clsx(
+        'btn font-semibold',
+        variantClasses[variant],
+        sizeClasses[size],
+        className,
+      )}
+      {...props}
+    >
+      {loading && <span className="mr-2 animate-spin inline-block">↻</span>}
+      {icon && !loading && <span className="mr-2">{icon}</span>}
+      {children}
+    </button>
+  )
 )
 
 Button.displayName = 'Button'

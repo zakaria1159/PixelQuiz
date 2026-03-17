@@ -2,12 +2,16 @@
 
 import { useEffect, useState } from 'react'
 import { useGame } from '@/hooks/useGame'
+import { useGameStore } from '@/stores/gameStore'
 import { useParams, useSearchParams } from 'next/navigation'
 import Card from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
 import { SharedGameView } from '@/components/game/SharedGameView'
+import { Lobby } from '@/components/game/Lobby'
 import { QuestionReveal } from '@/components/game/QuestionReveal'
 import { GameResults } from '@/components/game/GameResults'
+import { BetweenQuestions } from '@/components/game/BetweenQuestions'
+import { GameCountdown } from '@/components/game/GameCountdown'
 import type { GameStatus } from '@/types/game'
 import socketManager from '@/lib/socket'
 
@@ -45,8 +49,11 @@ export default function GamePage() {
     hasUsedChallenge,
     voteTimeLeft,
     challengeResult,
-    dismissChallengeResult
+    dismissChallengeResult,
+    questionScores
   } = useGame({ gameCode, playerName, isHost: false })
+
+  const questionStartTime = useGameStore(state => state.questionStartTime)
 
   const [isJoining, setIsJoining] = useState(false)
 
@@ -163,22 +170,39 @@ export default function GamePage() {
     )
   }
 
+  // Pre-game countdown
+  if (gameStatus === 'starting') {
+    return <GameCountdown playerCount={players.length} />
+  }
+
+  // Between questions leaderboard
+  if (questionScores && gameState) {
+    return (
+      <BetweenQuestions
+        questionIndex={questionScores.questionIndex}
+        totalQuestions={gameState.questions.length}
+        correctAnswerText={questionScores.correctAnswerText}
+        leaderboard={questionScores.leaderboard}
+        currentPlayerId={currentPlayer?.id || ''}
+      />
+    )
+  }
+
   // Game is in question state
   if (gameStatus === 'question' && gameState?.currentQuestion) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4">
-        <SharedGameView
-          question={gameState.currentQuestion}
-          questionIndex={gameState.currentQuestionIndex}
-          totalQuestions={gameState.questions.length}
-          timeLimit={gameState.currentQuestion.timeLimit}
-          players={players}
-          answeredPlayers={answeredPlayers}
-          currentPlayerId={currentPlayer?.id || ''}
-          onAnswerSubmit={handleAnswerSubmit}
-          onTimeUp={handleTimeUp}
-        />
-      </div>
+      <SharedGameView
+        question={gameState.currentQuestion}
+        questionIndex={gameState.currentQuestionIndex}
+        totalQuestions={gameState.questions.length}
+        timeLimit={gameState.currentQuestion.timeLimit}
+        questionStartTime={questionStartTime}
+        players={players}
+        answeredPlayers={answeredPlayers}
+        currentPlayerId={currentPlayer?.id || ''}
+        onAnswerSubmit={handleAnswerSubmit}
+        onTimeUp={handleTimeUp}
+      />
     )
   }
 
@@ -230,116 +254,26 @@ export default function GamePage() {
     )
   }
 
-  // Main game room view
+  // Main game room view — lobby
   return (
-    <div className="min-h-screen p-8 bg-black">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">Game Room</h1>
-          <p className="text-gray-300">Game Code: {gameCode}</p>
-          {currentPlayer && (
-            <p className="text-gray-300">Playing as: {currentPlayer.name}</p>
-          )}
-        </div>
+    <>
+      <Lobby
+        gameCode={gameCode}
+        players={players}
+        currentPlayerId={currentPlayer?.id || ''}
+        isHost={false}
+        questionCount={gameState?.questions?.length}
+        onLeaveGame={handleLeaveGame}
+      />
 
-        {/* Game Status */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Players List */}
-          <Card>
-            <h2 className="text-xl font-bold mb-4 text-white">Players ({players.length})</h2>
-            {players.length === 0 ? (
-              <p className="text-gray-300">No players yet...</p>
-            ) : (
-              <div className="space-y-2">
-                {players.map((player) => (
-                  <div key={player.id} className="flex items-center justify-between p-3 bg-gray-700 border-2 border-gray-600">
-                    <div className="flex items-center">
-                      <div className="w-8 h-8 bg-purple-500 rounded-none flex items-center justify-center mr-3 border-2 border-purple-400">
-                        <span className="text-white font-bold">{player.name.charAt(0).toUpperCase()}</span>
-                      </div>
-                      <span className="font-medium text-white">{player.name}</span>
-                      {player.isHost && (
-                        <span className="ml-2 text-xs bg-yellow-500 text-black px-2 py-1 border border-yellow-400">HOST</span>
-                      )}
-                      {player.id === currentPlayer?.id && (
-                        <span className="ml-2 text-xs bg-blue-600 text-white px-2 py-1 border border-blue-400">YOU</span>
-                      )}
-                    </div>
-                    <span className="text-sm text-gray-300">Score: {player.score}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </Card>
-
-          {/* Game Code Section */}
-          <Card>
-            <h2 className="text-xl font-bold mb-4 text-white">Game Code</h2>
-            <div className="p-4 bg-gray-700 border-2 border-gray-600">
-              <div className="text-sm text-gray-300 mb-2">Share this code with friends:</div>
-              <div className="flex items-center space-x-2">
-                <code className="text-2xl font-mono font-bold text-white bg-gray-800 px-4 py-2 border-2 border-gray-600">
-                  {gameCode}
-                </code>
-                <Button
-                  onClick={() => {
-                    navigator.clipboard.writeText(gameCode)
-                    // You could add a toast notification here
-                  }}
-                  variant="secondary"
-                  size="sm"
-                >
-                  Copy
-                </Button>
-              </div>
-            </div>
-          </Card>
-
-          {/* Game Info */}
-          <Card>
-            <h2 className="text-xl font-bold mb-4 text-white">Game Status</h2>
-            <div className="space-y-4">
-              <div className="p-4 bg-gray-700 border-2 border-gray-600">
-                <div className="text-sm text-gray-300 mb-1">Status</div>
-                <div className="text-lg font-bold capitalize text-white">{gameStatus}</div>
-              </div>
-
-              {gameStatus === 'waiting' && (
-                <div className="p-4 bg-blue-500/20 border-2 border-blue-500">
-                  <p className="text-blue-300">Waiting for host to start the game...</p>
-                </div>
-              )}
-
-              {(gameStatus as string) === 'reveal_phase' && (
-                <div className="p-4 bg-yellow-500/20 border-2 border-yellow-500">
-                  <p className="text-yellow-300">Revealing results...</p>
-                </div>
-              )}
-
-              <Button
-                onClick={handleLeaveGame}
-                variant="danger"
-                size="lg"
-                className="w-full"
-              >
-                Leave Game
-              </Button>
-            </div>
-          </Card>
-        </div>
-
-        {/* Loading State */}
-        {isJoining && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
-            <Card className="text-center">
-              <div className="text-4xl mb-4">🚀</div>
-              <h2 className="text-xl font-bold mb-4 text-white">Joining Game...</h2>
-              <p className="text-gray-300">Connecting to game room</p>
-            </Card>
+      {isJoining && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+          <div className="text-center">
+            <div className="text-5xl mb-4">🚀</div>
+            <p className="text-white font-bold text-lg">Joining game room...</p>
           </div>
-        )}
-      </div>
-    </div>
+        </div>
+      )}
+    </>
   )
 }

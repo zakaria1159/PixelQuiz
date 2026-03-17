@@ -1,5 +1,5 @@
 {
-  "name": "ai-quiz-platform",
+  "name": "metaquizz",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,8 +14,10 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.79.0",
     "clsx": "^2.0.0",
     "cors": "^2.8.5",
+    "dotenv": "^17.3.1",
     "express": "^5.1.0",
     "lucide-react": "^0.263.1",
     "next": "14.0.0",
@@ -37,7 +39,7 @@
     "@storybook/testing-library": "^0.2.2",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20.8.0",
-    "@types/react": "^18.2.0",
+    "@types/react": "18.3.28",
     "@types/react-dom": "^18.2.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.52.0",

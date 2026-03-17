@@ -1,0 +1,136 @@
+[   24160ms] [WARNING] [zustand devtools middleware] Please install/enable Redux devtools extension @ webpack-internal:///(app-pages-browser)/./node_modules/zustand/esm/middleware.mjs:54
+[  700832ms] [WARNING] [zustand devtools middleware] Please install/enable Redux devtools extension @ webpack-internal:///(app-pages-browser)/./node_modules/zustand/esm/middleware.mjs:54
+[  704804ms] [WARNING] [zustand devtools middleware] Please install/enable Redux devtools extension @ webpack-internal:///(app-pages-browser)/./node_modules/zustand/esm/middleware.mjs:54
+[ 1074578ms] [ERROR] ./src/components/game/SharedGameView.tsx
+Error: 
+  × Unexpected token `div`. Expected jsx identifier
+     ╭─[/Users/mac/Documents/PixelQuiz/src/components/game/SharedGameView.tsx:244:1]
+ 244 │   ].join(' ')
+ 245 │ 
+ 246 │   return (
+ 247 │     <div
+     ·      ───
+ 248 │       className="min-h-screen relative overflow-hidden"
+ 249 │       style={{ background: 'radial-gradient(ellipse at 30% 0%, #13154a 0%, #09090f 55%)' }}
+ 250 │     >
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/components/game/SharedGameView.tsx
+./src/app/host/[gameId]/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[ 1074731ms] [ERROR] ./src/components/game/SharedGameView.tsx
+Error: 
+  × Unexpected token `div`. Expected jsx identifier
+     ╭─[/Users/mac/Documents/PixelQuiz/src/components/game/SharedGameView.tsx:244:1]
+ 244 │   ].join(' ')
+ 245 │ 
+ 246 │   return (
+ 247 │     <div
+     ·      ───
+ 248 │       className="min-h-screen relative overflow-hidden"
+ 249 │       style={{ background: 'radial-gradient(ellipse at 30% 0%, #13154a 0%, #09090f 55%)' }}
+ 250 │     >
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/components/game/SharedGameView.tsx
+./src/app/game/[gameId]/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[ 1087666ms] [ERROR] ./src/components/game/SharedGameView.tsx
+Error: 
+  × Unexpected token `div`. Expected jsx identifier
+     ╭─[/Users/mac/Documents/PixelQuiz/src/components/game/SharedGameView.tsx:244:1]
+ 244 │   ].join(' ')
+ 245 │ 
+ 246 │   return (
+ 247 │     <div
+     ·      ───
+ 248 │       className="min-h-screen relative overflow-hidden"
+ 249 │       style={{ background: 'radial-gradient(ellipse at 30% 0%, #13154a 0%, #09090f 55%)' }}
+ 250 │     >
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/components/game/SharedGameView.tsx
+./src/app/host/[gameId]/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[ 1087819ms] [ERROR] ./src/components/game/SharedGameView.tsx
+Error: 
+  × Unexpected token `div`. Expected jsx identifier
+     ╭─[/Users/mac/Documents/PixelQuiz/src/components/game/SharedGameView.tsx:244:1]
+ 244 │   ].join(' ')
+ 245 │ 
+ 246 │   return (
+ 247 │     <div
+     ·      ───
+ 248 │       className="min-h-screen relative overflow-hidden"
+ 249 │       style={{ background: 'radial-gradient(ellipse at 30% 0%, #13154a 0%, #09090f 55%)' }}
+ 250 │     >
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/components/game/SharedGameView.tsx
+./src/app/host/[gameId]/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[ 1087904ms] [ERROR] ./src/components/game/SharedGameView.tsx
+Error: 
+  × Unexpected token `div`. Expected jsx identifier
+     ╭─[/Users/mac/Documents/PixelQuiz/src/components/game/SharedGameView.tsx:244:1]
+ 244 │   ].join(' ')
+ 245 │ 
+ 246 │   return (
+ 247 │     <div
+     ·      ───
+ 248 │       className="min-h-screen relative overflow-hidden"
+ 249 │       style={{ background: 'radial-gradient(ellipse at 30% 0%, #13154a 0%, #09090f 55%)' }}
+ 250 │     >
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/components/game/SharedGameView.tsx
+./src/app/game/[gameId]/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[ 1175276ms] [ERROR] ./src/components/game/SharedGameView.tsx
+Error: 
+  × Unexpected token `div`. Expected jsx identifier
+     ╭─[/Users/mac/Documents/PixelQuiz/src/components/game/SharedGameView.tsx:244:1]
+ 244 │   ].join(' ')
+ 245 │ 
+ 246 │   return (
+ 247 │     <div
+     ·      ───
+ 248 │       className="min-h-screen relative overflow-hidden"
+ 249 │       style={{ background: 'radial-gradient(ellipse at 30% 0%, #13154a 0%, #09090f 55%)' }}
+ 250 │     >
+     ╰────
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/components/game/SharedGameView.tsx
+./src/app/host/[gameId]/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[ 1272548ms] [WARNING] [zustand devtools middleware] Please install/enable Redux devtools extension @ webpack-internal:///(app-pages-browser)/./node_modules/zustand/esm/middleware.mjs:54
+[ 1782061ms] [WARNING] [zustand devtools middleware] Please install/enable Redux devtools extension @ webpack-internal:///(app-pages-browser)/./node_modules/zustand/esm/middleware.mjs:54
+[ 2338773ms] [WARNING] [zustand devtools middleware] Please install/enable Redux devtools extension @ webpack-internal:///(app-pages-browser)/./node_modules/zustand/esm/middleware.mjs:54
+[ 2689450ms] [WARNING] [zustand devtools middleware] Please install/enable Redux devtools extension @ webpack-internal:///(app-pages-browser)/./node_modules/zustand/esm/middleware.mjs:54
+[ 3214668ms] [WARNING] [zustand devtools middleware] Please install/enable Redux devtools extension @ webpack-internal:///(app-pages-browser)/./node_modules/zustand/esm/middleware.mjs:54
+[ 3856496ms] [ERROR] WebSocket connection to 'ws://localhost:3003/socket.io/?EIO=4&transport=websocket' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(app-pages-browser)/./node_modules/engine.io-client/build/esm/transports/websocket.js:127
+[ 3856496ms] [ERROR] 🔴 Connection error: TransportError: websocket error
+    at WS.onError (webpack-internal:///(app-pages-browser)/./node_modules/engine.io-client/build/esm/transport.js:48:37)
+    at ws.onerror (webpack-internal:///(app-pages-browser)/./node_modules/engine.io-client/build/esm/transports/websocket.js:58:39) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[ 3856498ms] [ERROR] 🔴 Connection error: TransportError: websocket error
+    at WS.onError (webpack-internal:///(app-pages-browser)/./node_modules/engine.io-client/build/esm/transport.js:48:37)
+    at ws.onerror (webpack-internal:///(app-pages-browser)/./node_modules/engine.io-client/build/esm/transports/websocket.js:58:39) @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[ 3933131ms] [WARNING] [zustand devtools middleware] Please install/enable Redux devtools extension @ webpack-internal:///(app-pages-browser)/./node_modules/zustand/esm/middleware.mjs:54

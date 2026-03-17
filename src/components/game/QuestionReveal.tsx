@@ -1,8 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
-import Button from '@/components/ui/Button'
-import Card from '@/components/ui/Card'
+import React, { useState, useEffect, useRef } from 'react'
 import { Question } from '@/types'
 
 interface QuestionRevealProps {
@@ -23,6 +21,98 @@ interface QuestionRevealProps {
     onDismissChallengeResult?: () => void
 }
 
+function ScorePopup({ score, isCorrect, runningTotal }: { score: number; isCorrect: boolean; runningTotal: number }) {
+    const [visible, setVisible] = useState(false)
+    const [floatVisible, setFloatVisible] = useState(false)
+    const prevScore = useRef(score)
+
+    useEffect(() => {
+        const t1 = setTimeout(() => setVisible(true), 100)
+        const t2 = setTimeout(() => setFloatVisible(true), 400)
+        return () => { clearTimeout(t1); clearTimeout(t2) }
+    }, [])
+
+    useEffect(() => {
+        if (prevScore.current !== score) {
+            prevScore.current = score
+            setVisible(false)
+            setFloatVisible(false)
+            const t1 = setTimeout(() => setVisible(true), 80)
+            const t2 = setTimeout(() => setFloatVisible(true), 380)
+            return () => { clearTimeout(t1); clearTimeout(t2) }
+        }
+    }, [score])
+
+    const isHuge = score >= 400
+    const isBig = score >= 200
+    const label = !isCorrect || score === 0 ? 'No Points' : isHuge ? '🔥 MASSIVE!' : isBig ? '⚡ GREAT!' : '✓ Points'
+
+    const scoreColor = !isCorrect || score === 0
+        ? '#71717a'
+        : isHuge ? '#fde047' : isBig ? '#86efac' : '#ffffff'
+
+    const glowColor = !isCorrect || score === 0
+        ? 'none'
+        : isHuge ? '0 0 30px rgba(253,224,71,0.6)' : isBig ? '0 0 20px rgba(134,239,172,0.5)' : '0 0 15px rgba(147,197,253,0.4)'
+
+    const labelColor = isCorrect && score > 0
+        ? isHuge ? '#facc15' : isBig ? '#4ade80' : '#60a5fa'
+        : '#52525b'
+
+    return (
+        <div style={{
+            textAlign: 'center',
+            padding: '20px',
+            borderRadius: '16px',
+            background: !isCorrect || score === 0
+                ? 'rgba(39,39,42,0.3)'
+                : isHuge ? 'rgba(78,63,0,0.3)' : isBig ? 'rgba(0,56,28,0.3)' : 'rgba(0,30,56,0.3)',
+            border: `1px solid ${!isCorrect || score === 0
+                ? 'rgba(82,82,91,0.5)'
+                : isHuge ? 'rgba(250,204,21,0.4)' : isBig ? 'rgba(74,222,128,0.4)' : 'rgba(96,165,250,0.4)'}`,
+            overflow: 'hidden',
+        }}>
+            <div style={{
+                fontSize: '11px',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                letterSpacing: '0.12em',
+                marginBottom: '8px',
+                color: labelColor,
+                opacity: floatVisible ? 1 : 0,
+                transform: floatVisible ? 'translateY(0)' : 'translateY(-8px)',
+                transition: 'opacity 0.4s ease, transform 0.4s ease',
+            }}>
+                {label}
+            </div>
+
+            <div style={{
+                fontWeight: 900,
+                fontSize: isHuge ? '52px' : isBig ? '44px' : '36px',
+                color: scoreColor,
+                transform: visible ? 'scale(1)' : 'scale(0.3)',
+                opacity: visible ? 1 : 0,
+                transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease',
+                textShadow: glowColor,
+                fontVariantNumeric: 'tabular-nums',
+            }}>
+                {isCorrect && score > 0 ? `+${score}` : score === 0 ? '—' : `+${score}`}
+            </div>
+
+            <div style={{
+                fontSize: '13px',
+                color: '#71717a',
+                marginTop: '12px',
+                opacity: floatVisible ? 1 : 0,
+                transform: floatVisible ? 'translateY(0)' : 'translateY(4px)',
+                transition: 'opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s',
+            }}>
+                Total: <span style={{ color: 'white', fontWeight: 600 }}>{runningTotal.toLocaleString()}</span> pts
+            </div>
+        </div>
+    )
+}
+
 export function QuestionReveal({
     gameState,
     currentPlayerId,
@@ -40,7 +130,6 @@ export function QuestionReveal({
     challengeResult,
     onDismissChallengeResult
 }: QuestionRevealProps) {
-    // Use server-synchronized reveal index if available, otherwise fall back to local state
     const serverRevealIndex = gameState.currentRevealIndex || 0
     const [currentRevealIndex, setCurrentRevealIndex] = useState(serverRevealIndex)
     const [showingChallenge, setShowingChallenge] = useState(false)
@@ -48,68 +137,22 @@ export function QuestionReveal({
     const [challengeTimeLeft, setChallengeTimeLeft] = useState(30)
     const [isVoting, setIsVoting] = useState(false)
 
-    // Use ready state from props instead of local state
-    const currentQuestionReadyPlayers = getReadyPlayersForQuestion ? 
-        getReadyPlayersForQuestion(currentRevealIndex) : 
-        readyPlayers[currentRevealIndex] || []
-    
-    // Host is always considered ready by default (they control advancement)
-    const effectiveReadyPlayers = isHost && !currentQuestionReadyPlayers.includes(currentPlayerId) 
-        ? [...currentQuestionReadyPlayers, currentPlayerId] 
+    const currentQuestionReadyPlayers = getReadyPlayersForQuestion
+        ? getReadyPlayersForQuestion(currentRevealIndex)
+        : readyPlayers[currentRevealIndex] || []
+
+    const effectiveReadyPlayers = isHost && !currentQuestionReadyPlayers.includes(currentPlayerId)
+        ? [...currentQuestionReadyPlayers, currentPlayerId]
         : currentQuestionReadyPlayers
-    
+
     const isPlayerReady = effectiveReadyPlayers.includes(currentPlayerId)
 
-    // Sync with server reveal index
     useEffect(() => {
         if (gameState.currentRevealIndex !== undefined) {
             setCurrentRevealIndex(gameState.currentRevealIndex)
         }
     }, [gameState.currentRevealIndex])
 
-    // Enhanced Debug logging
-    useEffect(() => {
-        console.log('🔍 QuestionReveal Debug:', {
-            currentPlayerId,
-            currentRevealIndex,
-            currentQuestionReadyPlayers,
-            effectiveReadyPlayers,
-            isPlayerReady,
-            isHost,
-            playersLength: gameState.players.length,
-            allReady: effectiveReadyPlayers.length >= gameState.players.length,
-            gameState: {
-                answers: gameState.answers,
-                questionScores: gameState.questionScores,
-                players: gameState.players,
-                playerAnswers: gameState.playerAnswers,
-                questionResults: gameState.questionResults,
-                // Log ALL top-level properties to see what's available
-                allGameStateKeys: Object.keys(gameState || {}),
-                // Check if answers exist and their structure
-                answersStructure: gameState.answers ? {
-                    keys: Object.keys(gameState.answers),
-                    firstPlayerAnswers: gameState.answers[Object.keys(gameState.answers)[0]]
-                } : null
-            }
-        })
-
-        // Additional detailed logging
-        console.log('🔍 Full GameState for debugging:', gameState)
-
-        // Check if the "All Players" section is working - that means data exists somewhere
-        if (gameState?.players) {
-            gameState.players.forEach((player: any) => {
-                console.log(`🔍 Player ${player.name} (${player.id}):`)
-                console.log('  - answers[playerId]:', gameState.answers?.[player.id])
-                console.log('  - playerAnswers[playerId]:', gameState.playerAnswers?.[player.id])
-                console.log('  - questionResults for this question:', gameState.questionResults?.[currentRevealIndex]?.[player.id])
-                console.log('  - questionScores:', gameState.questionScores?.[currentRevealIndex]?.[player.id])
-            })
-        }
-    }, [currentPlayerId, currentRevealIndex, gameState, currentQuestionReadyPlayers, isPlayerReady])
-
-    // Challenge timer - 30 seconds to explain
     useEffect(() => {
         if (showingChallenge && challengeTimeLeft > 0) {
             const timer = setTimeout(() => {
@@ -120,8 +163,6 @@ export function QuestionReveal({
             handleChallenge()
         }
     }, [showingChallenge, challengeTimeLeft])
-
-
 
     const handleChallenge = () => {
         if (challengeExplanation.trim()) {
@@ -137,12 +178,10 @@ export function QuestionReveal({
     }
 
     const getDisplayAnswer = (question: any, rawAnswer: any) => {
-        // Handle no answer case
         if (rawAnswer === "NO_ANSWER" || rawAnswer === null || rawAnswer === undefined || rawAnswer === '') {
             return 'No answer submitted'
         }
 
-        // For multiple choice and true/false questions, convert index to actual text
         if (question.type === 'multiple_choice' && question.options) {
             const optionIndex = parseInt(rawAnswer)
             if (!isNaN(optionIndex) && question.options[optionIndex]) {
@@ -155,19 +194,16 @@ export function QuestionReveal({
             if (rawAnswer === '1' || rawAnswer === 1) return 'False'
         }
 
-                // For ranking questions, convert comma-separated indexes to text
         if (question.type === 'ranking' && question.items) {
-          try {
-            const indexes = rawAnswer.split(',').map((i: string) => parseInt(i.trim()))
-            const texts = indexes.map((index: number) => question.items[index]).filter(Boolean)
-            return texts.join(' → ')
-          } catch (e) {
-            // If parsing fails, return the raw answer
-            return rawAnswer
-          }
+            try {
+                const indexes = rawAnswer.split(',').map((i: string) => parseInt(i.trim()))
+                const texts = indexes.map((index: number) => question.items[index]).filter(Boolean)
+                return texts.join(' → ')
+            } catch (e) {
+                return rawAnswer
+            }
         }
 
-        // For free text or if conversion fails, return the raw answer
         return rawAnswer
     }
 
@@ -179,26 +215,14 @@ export function QuestionReveal({
     let isCorrect = false
     let questionScore = 0
 
-    console.log('🔍 Starting answer lookup for player:', currentPlayerId, 'question:', currentRevealIndex)
-    console.log('🔍 Current player details:', currentPlayer)
-    console.log('🔍 Available game state keys:', Object.keys(gameState || {}))
-    console.log('🔍 Game state answers structure:', gameState?.answers)
-    console.log('🔍 Game state playerAnswers structure:', gameState?.playerAnswers)
-    console.log('🔍 Game state questionResults structure:', gameState?.questionResults)
-    console.log('🔍 All players in gameState:', gameState?.players)
-    console.log('🔍 Host ID from gameState:', gameState?.hostId)
-
-    // Use the same successful lookup logic as the "All Players" section
     // Strategy 1: Direct lookup by playerId and questionIndex
     if (gameState.answers && gameState.answers[currentPlayerId]) {
         playerAnswer = gameState.answers[currentPlayerId][currentRevealIndex]
-        console.log('🔍 Strategy 1 result:', playerAnswer)
     }
 
     // Strategy 2: If answers are stored differently, try alternative structures
     if (!playerAnswer && gameState.playerAnswers) {
         playerAnswer = gameState.playerAnswers[currentPlayerId]?.[currentRevealIndex]
-        console.log('🔍 Strategy 2 result:', playerAnswer)
     }
 
     // Strategy 3: Look through the questionResults data structure
@@ -210,7 +234,6 @@ export function QuestionReveal({
                 isCorrect: questionResult[currentPlayerId].isCorrect,
                 time: questionResult[currentPlayerId].time || 0
             }
-            console.log('🔍 Strategy 3 result:', playerAnswer)
         }
     }
 
@@ -219,7 +242,6 @@ export function QuestionReveal({
         const questionAnswers = gameState.answers[currentRevealIndex]
         if (questionAnswers && questionAnswers[currentPlayerId]) {
             playerAnswer = questionAnswers[currentPlayerId]
-            console.log('🔍 Strategy 4 (reversed structure) result:', playerAnswer)
         }
     }
 
@@ -236,35 +258,27 @@ export function QuestionReveal({
                     isCorrect: playerResult.isCorrect,
                     time: playerResult.time || 0
                 }
-                console.log('🔍 Strategy 5 (results array) result:', playerAnswer)
             }
         }
     }
 
     // Strategy 6: Look for any property that might contain answers
     if (!playerAnswer) {
-        console.log('🔍 Strategy 6: Searching all game state properties...')
         Object.keys(gameState || {}).forEach(key => {
-            if (key.toLowerCase().includes('answer') || key.toLowerCase().includes('result')) {
-                console.log(`🔍 Found potential answer property: ${key}`, gameState[key])
-            }
+            // intentionally silent — debug logging removed
         })
     }
 
     // Strategy 7: Try to find the answer by looking up the current player in the "All Players" logic
     if (!playerAnswer) {
-        console.log('🔍 Strategy 7: Using "All Players" lookup logic for current player')
-        // Use the exact same logic as the "All Players" section
         let playerAnswerData = null
 
         if (gameState.answers && gameState.answers[currentPlayerId]) {
             playerAnswerData = gameState.answers[currentPlayerId][currentRevealIndex]
-            console.log('🔍 Strategy 7 - Strategy 1:', playerAnswerData)
         }
 
         if (!playerAnswerData && gameState.playerAnswers) {
             playerAnswerData = gameState.playerAnswers[currentPlayerId]?.[currentRevealIndex]
-            console.log('🔍 Strategy 7 - Strategy 2:', playerAnswerData)
         }
 
         if (!playerAnswerData && gameState.questionResults) {
@@ -275,20 +289,16 @@ export function QuestionReveal({
                     isCorrect: questionResult[currentPlayerId].isCorrect,
                     time: questionResult[currentPlayerId].time || 0
                 }
-                console.log('🔍 Strategy 7 - Strategy 3:', playerAnswerData)
             }
         }
 
-        // Strategy 4: Reversed structure
         if (!playerAnswerData && gameState.answers) {
             const questionAnswers = gameState.answers[currentRevealIndex]
             if (questionAnswers && questionAnswers[currentPlayerId]) {
                 playerAnswerData = questionAnswers[currentPlayerId]
-                console.log('🔍 Strategy 7 - Strategy 4:', playerAnswerData)
             }
         }
 
-        // Strategy 5: Results array
         if (!playerAnswerData && gameState.results) {
             const questionResultsArray = gameState.results[currentRevealIndex]
             if (Array.isArray(questionResultsArray)) {
@@ -301,30 +311,25 @@ export function QuestionReveal({
                         isCorrect: playerResult.isCorrect,
                         time: playerResult.time || 0
                     }
-                    console.log('🔍 Strategy 7 - Strategy 5:', playerAnswerData)
                 }
             }
         }
 
         if (playerAnswerData) {
             playerAnswer = playerAnswerData
-            console.log('🔍 Strategy 7 found answer:', playerAnswer)
         }
     }
 
     // Strategy 8: Try using host ID if current player is host but answer not found
     if (!playerAnswer && isHost && gameState?.hostId && gameState.hostId !== currentPlayerId) {
-        console.log('🔍 Strategy 8: Trying host ID instead of current player ID')
         const hostId = gameState.hostId
-        
+
         if (gameState.answers && gameState.answers[hostId]) {
             playerAnswer = gameState.answers[hostId][currentRevealIndex]
-            console.log('🔍 Strategy 8 - Strategy 1 (host ID):', playerAnswer)
         }
 
         if (!playerAnswer && gameState.playerAnswers) {
             playerAnswer = gameState.playerAnswers[hostId]?.[currentRevealIndex]
-            console.log('🔍 Strategy 8 - Strategy 2 (host ID):', playerAnswer)
         }
 
         if (!playerAnswer && gameState.questionResults) {
@@ -335,7 +340,6 @@ export function QuestionReveal({
                     isCorrect: questionResult[hostId].isCorrect,
                     time: questionResult[hostId].time || 0
                 }
-                console.log('🔍 Strategy 8 - Strategy 3 (host ID):', playerAnswer)
             }
         }
 
@@ -343,7 +347,6 @@ export function QuestionReveal({
             const questionAnswers = gameState.answers[currentRevealIndex]
             if (questionAnswers && questionAnswers[hostId]) {
                 playerAnswer = questionAnswers[hostId]
-                console.log('🔍 Strategy 8 - Strategy 4 (host ID):', playerAnswer)
             }
         }
 
@@ -359,7 +362,6 @@ export function QuestionReveal({
                         isCorrect: playerResult.isCorrect,
                         time: playerResult.time || 0
                     }
-                    console.log('🔍 Strategy 8 - Strategy 5 (host ID):', playerAnswer)
                 }
             }
         }
@@ -369,32 +371,18 @@ export function QuestionReveal({
     if (playerAnswer) {
         isCorrect = playerAnswer.isCorrect || false
         questionScore = gameState.questionScores?.[currentRevealIndex]?.[currentPlayerId] || 0
-        console.log('🔍 Final player answer found:', { playerAnswer, isCorrect, questionScore })
-        console.log('🔍 Question scores for current question:', gameState.questionScores?.[currentRevealIndex])
-        console.log('🔍 Current player ID:', currentPlayerId)
-        console.log('🔍 Current reveal index:', currentRevealIndex)
-        console.log('🔍 Full questionScores structure:', gameState.questionScores)
-        console.log('🔍 Score lookup path:', `gameState.questionScores[${currentRevealIndex}][${currentPlayerId}]`)
-        console.log('🔍 Actual score value:', gameState.questionScores?.[currentRevealIndex]?.[currentPlayerId])
-    } else {
-        console.log('🔍 No player answer found with any strategy')
     }
 
     // Get all player results for current question with enhanced lookup
     const questionResults = gameState.players.map((player: any) => {
         let playerAnswerData = null
 
-        console.log(`🔍 Looking up data for player ${player.name} (${player.id})`)
-
-        // Try the same lookup strategies for each player
         if (gameState.answers && gameState.answers[player.id]) {
             playerAnswerData = gameState.answers[player.id][currentRevealIndex]
-            console.log(`🔍 ${player.name} - Strategy 1:`, playerAnswerData)
         }
 
         if (!playerAnswerData && gameState.playerAnswers) {
             playerAnswerData = gameState.playerAnswers[player.id]?.[currentRevealIndex]
-            console.log(`🔍 ${player.name} - Strategy 2:`, playerAnswerData)
         }
 
         if (!playerAnswerData && gameState.questionResults) {
@@ -405,20 +393,16 @@ export function QuestionReveal({
                     isCorrect: questionResult[player.id].isCorrect,
                     time: questionResult[player.id].time || 0
                 }
-                console.log(`🔍 ${player.name} - Strategy 3:`, playerAnswerData)
             }
         }
 
-        // Strategy 4: Reversed structure
         if (!playerAnswerData && gameState.answers) {
             const questionAnswers = gameState.answers[currentRevealIndex]
             if (questionAnswers && questionAnswers[player.id]) {
                 playerAnswerData = questionAnswers[player.id]
-                console.log(`🔍 ${player.name} - Strategy 4:`, playerAnswerData)
             }
         }
 
-        // Strategy 5: Results array
         if (!playerAnswerData && gameState.results) {
             const questionResultsArray = gameState.results[currentRevealIndex]
             if (Array.isArray(questionResultsArray)) {
@@ -431,22 +415,20 @@ export function QuestionReveal({
                         isCorrect: playerResult.isCorrect,
                         time: playerResult.time || 0
                     }
-                    console.log(`🔍 ${player.name} - Strategy 5:`, playerAnswerData)
                 }
             }
         }
 
-        const result = {
+        return {
             playerId: player.id,
             playerName: player.name,
             answer: playerAnswerData?.answer || 'No answer',
             isCorrect: playerAnswerData?.isCorrect || false,
             score: gameState.questionScores?.[currentRevealIndex]?.[player.id] || 0,
-            time: playerAnswerData?.time || 0
+            time: playerAnswerData?.time || 0,
+            letterGameValidation: playerAnswerData?.letterGameValidation || null,
+            playerAnswerText: playerAnswerData?.playerAnswerText || null
         }
-
-        console.log(`🔍 Final result for ${player.name}:`, result)
-        return result
     }).sort((a: any, b: any) => b.score - a.score)
 
     if (currentRevealIndex >= gameState.questions.length) {
@@ -455,493 +437,752 @@ export function QuestionReveal({
 
     const handleNextQuestion = () => {
         if (isHost && onFinishReveals) {
-            // For host, call the server-synchronized function
-            // This will be handled by the parent component
             onFinishReveals()
-        } else {
-            // For players, this shouldn't be called
-            console.log('Players cannot advance questions')
         }
     }
 
-    // FIXED: Proper ready handling with callback using prop values
     const handlePlayerReady = () => {
         if (!isPlayerReady && onPlayerReady) {
             onPlayerReady(currentRevealIndex, currentPlayerId)
         }
     }
 
-    // Calculate running total (sum of all previous questions + current)
     const runningTotal = gameState.players
         .find((p: any) => p.id === currentPlayerId)
         ?.totalScore || questionScore
 
+    // ── Dynamic Live Rankings ──
+    const computeRankingsAt = (upToIndex: number) => {
+        return gameState.players
+            .map((player: any) => {
+                let total = 0
+                for (let i = 0; i <= upToIndex; i++) {
+                    total += gameState.questionScores?.[i]?.[player.id] || 0
+                }
+                return { playerId: player.id, playerName: player.name, total }
+            })
+            .sort((a: any, b: any) => b.total - a.total)
+    }
+
+    const currentRankings = computeRankingsAt(currentRevealIndex)
+    const prevRankings = currentRevealIndex > 0 ? computeRankingsAt(currentRevealIndex - 1) : null
+
+    const diffLabel = (playerId: string, idx: number) => {
+        if (!prevRankings) return null
+        const prevIdx = prevRankings.findIndex((r: any) => r.playerId === playerId)
+        if (prevIdx === -1) return null
+        const delta = prevIdx - idx
+        if (delta > 0) return { text: `▲${delta}`, color: '#4ade80' }
+        if (delta < 0) return { text: `▼${Math.abs(delta)}`, color: '#f87171' }
+        return { text: '—', color: '#52525b' }
+    }
+
+    const MEDALS = ['🥇', '🥈', '🥉']
+
+    // Correct answer display text
+    const correctAnswerDisplay = playerAnswer?.correctAnswerText ||
+        (currentQuestion.type === 'multiple_choice' || currentQuestion.type === 'true_false'
+            ? currentQuestion.options?.[currentQuestion.correctAnswer]
+            : currentQuestion.correctAnswer)
+
+    const difficultyColor = currentQuestion.difficulty === 'easy'
+        ? { bg: 'rgba(34,197,94,0.15)', border: 'rgba(34,197,94,0.3)', text: '#4ade80' }
+        : currentQuestion.difficulty === 'medium'
+        ? { bg: 'rgba(234,179,8,0.15)', border: 'rgba(234,179,8,0.3)', text: '#fbbf24' }
+        : { bg: 'rgba(239,68,68,0.12)', border: 'rgba(239,68,68,0.3)', text: '#f87171' }
+
     return (
-        <div className="min-h-screen bg-black p-4">
-            <div className="max-w-6xl mx-auto">
-                {/* Header */}
-                <div className="text-center mb-8">
-                    <h1 className="text-4xl font-bold text-white mb-4">
-                        📊 Results Reveal
-                    </h1>
-                    <div className="text-xl text-gray-300">
-                        Question {currentRevealIndex + 1} of {gameState.questions.length}
-                    </div>
+        <>
+            <style>{`
+                @keyframes slideUpFadeIn {
+                    from { opacity: 0; transform: translateY(12px); }
+                    to   { opacity: 1; transform: translateY(0); }
+                }
+                @keyframes popIn {
+                    0%   { opacity: 0; transform: scale(0.7); }
+                    60%  { transform: scale(1.08); }
+                    100% { opacity: 1; transform: scale(1); }
+                }
+                @keyframes glowPulse {
+                    0%, 100% { box-shadow: 0 0 20px rgba(74,222,128,0.2); }
+                    50%       { box-shadow: 0 0 40px rgba(74,222,128,0.5); }
+                }
+            `}</style>
 
-                    {/* Progress bar */}
-                    <div className="w-full bg-gray-700 h-4 mt-4 border-2 border-gray-600">
-                        <div
-                            className="bg-blue-500 h-full transition-all duration-1000"
-                            style={{ width: `${((currentRevealIndex + 1) / gameState.questions.length) * 100}%` }}
-                        />
-                    </div>
+            <div style={{
+                height: '100svh',
+                overflow: 'hidden',
+                background: 'radial-gradient(ellipse at 50% -10%, #13154a 0%, #09090f 60%)',
+                display: 'flex',
+                flexDirection: 'column',
+                padding: '16px 20px 0',
+            }}>
+                {/* ── Top Bar ── */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px', flexShrink: 0 }}>
+                    <span style={{ fontSize: '12px', fontWeight: 900, color: '#6366f1', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                        MetaQuizz
+                    </span>
+                    <span style={{ fontSize: '12px', fontWeight: 700, color: '#52525b' }}>
+                        Q{currentRevealIndex + 1}/{gameState.questions.length}
+                    </span>
                 </div>
 
-                {/* Debug info (remove in production) */}
-                {process.env.NODE_ENV === 'development' && (
-                    <div className="mb-4 p-2 bg-gray-900 border border-gray-600 rounded text-xs text-gray-400">
-                        <strong>Debug:</strong> Player Answer: {playerAnswer ? JSON.stringify(playerAnswer) : 'null'} |
-                        Score: {questionScore} | Ready: {isPlayerReady ? 'Yes' : 'No'} | 
-                        Ready Players: {effectiveReadyPlayers.length}/{gameState.players.length} | Host: {isHost ? 'Yes' : 'No'} |
-                        Calculation: {gameState.players.length} - {effectiveReadyPlayers.length} = {gameState.players.length - effectiveReadyPlayers.length}
-                    </div>
-                )}
-
-                {/* Challenge/Voting Status */}
-                {showingChallenge && (
-                    <div className="mb-6 p-4 bg-yellow-900/30 border-2 border-yellow-400 rounded text-center">
-                        <h3 className="text-2xl font-bold text-yellow-400 mb-2">
-                            🏛️ Challenge in Progress
-                        </h3>
-                        <div className="text-4xl font-bold text-white">
-                            {challengeTimeLeft}s
-                        </div>
-                        <p className="text-yellow-300">Time to explain your case!</p>
-                    </div>
-                )}
-
-                {/* Voting Phase - Only show to non-challengers */}
-                {(() => {
-                    const shouldShowVoting = challengeVoting && currentChallenge && currentChallenge.challengerId && currentChallenge.challengerId !== currentPlayerId;
-                    console.log('🔍 Voting UI Debug:', {
-                        challengeVoting,
-                        currentChallenge: currentChallenge?.id,
-                        challengerId: currentChallenge?.challengerId,
-                        currentPlayerId,
-                        shouldShowVoting
-                    });
-                    return shouldShowVoting ? (
-                    <div className="mb-6 p-4 bg-purple-900/30 border-2 border-purple-400 rounded">
-                        <div className="text-center mb-4">
-                            <h3 className="text-2xl font-bold text-purple-400 mb-2">
-                                🗳️ Challenge Voting
-                            </h3>
-                            <div className="text-4xl font-bold text-white">
-                                {voteTimeLeft}s
-                            </div>
-                            <p className="text-purple-300">Vote on {currentChallenge.challengerName}'s challenge</p>
-                        </div>
-                        
-                        {/* Challenge Details */}
-                        <div className="bg-gray-800 p-4 rounded border border-gray-600 mb-4">
-                            <h4 className="text-lg font-semibold text-white mb-2">Challenge Details:</h4>
-                            <div className="text-sm text-gray-300 space-y-2">
-                                <div><strong>Challenger:</strong> {currentChallenge.challengerName}</div>
-                                <div><strong>Their Answer:</strong> {getDisplayAnswer(currentQuestion, currentChallenge.playerAnswer)}</div>
-                                <div><strong>Explanation:</strong> "{currentChallenge.explanation}"</div>
-                                <div><strong>Potential Score:</strong> +{currentChallenge.potentialScore} points</div>
-                            </div>
-                        </div>
-
-                        {/* Voting Buttons */}
-                        <div className="flex gap-4 justify-center">
-                            <Button
-                                onClick={() => onVoteChallenge?.(currentChallenge.id, 'approve')}
-                                variant="success"
-                                size="lg"
-                                className="flex-1 max-w-xs"
-                            >
-                                ✅ Approve Challenge
-                            </Button>
-                            <Button
-                                onClick={() => onVoteChallenge?.(currentChallenge.id, 'reject')}
-                                variant="danger"
-                                size="lg"
-                                className="flex-1 max-w-xs"
-                            >
-                                ❌ Reject Challenge
-                            </Button>
-                        </div>
-                    </div>
-                ) : null;
-                })()}
-
-                {/* Challenge Results */}
-                {currentChallenge && currentChallenge.challengerId === currentPlayerId && challengeVoting && (
-                    <div className="mb-6 p-4 bg-blue-900/30 border-2 border-blue-400 rounded text-center">
-                        <h3 className="text-2xl font-bold text-blue-400 mb-2">
-                            🏛️ Your Challenge is Being Voted On
-                        </h3>
-                        <div className="text-4xl font-bold text-white">
-                            {voteTimeLeft}s
-                        </div>
-                        <p className="text-blue-300">Other players are voting on your challenge...</p>
-                    </div>
-                )}
-
-                {/* Challenge Result Popup */}
-                {challengeResult && (
-                    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-                        <div className="bg-gray-800 border-2 border-gray-600 rounded-lg p-6 max-w-lg mx-4">
-                            <div className="text-center">
-                                <h3 className={`text-3xl font-bold mb-6 ${challengeResult.passed ? 'text-green-400' : 'text-red-400'}`}>
-                                    {challengeResult.passed ? '✅ Challenge Accepted!' : '❌ Challenge Rejected'}
-                                </h3>
-                                
-                                {/* Vote Results with Enhanced Graph */}
-                                <div className="mb-6">
-                                    <h4 className="text-lg font-semibold text-white mb-4">🗳️ Anonymous Vote Results</h4>
-                                    
-                                    {/* Vote Counts */}
-                                    <div className="flex justify-between items-center mb-3">
-                                        <div className="text-center">
-                                            <div className="text-2xl font-bold text-green-400">✅</div>
-                                            <div className="text-sm text-gray-300">Approve</div>
-                                            <div className="text-xl font-bold text-white">{challengeResult.votes.approve}</div>
-                                        </div>
-                                        <div className="text-center">
-                                            <div className="text-2xl font-bold text-red-400">❌</div>
-                                            <div className="text-sm text-gray-300">Reject</div>
-                                            <div className="text-xl font-bold text-white">{challengeResult.votes.reject}</div>
-                                        </div>
-                                    </div>
-                                    
-                                    {/* Enhanced Progress Bar */}
-                                    <div className="w-full bg-gray-700 rounded-full h-4 mb-2">
-                                        <div 
-                                            className={`h-4 rounded-full transition-all duration-500 ${challengeResult.passed ? 'bg-green-500' : 'bg-red-500'}`}
-                                            style={{ 
-                                                width: `${(challengeResult.votes.approve / (challengeResult.votes.approve + challengeResult.votes.reject)) * 100}%` 
-                                            }}
-                                        ></div>
-                                    </div>
-                                    
-                                    {/* Vote Percentage */}
-                                    <div className="text-sm text-gray-300">
-                                        {challengeResult.passed ? 
-                                            `${Math.round((challengeResult.votes.approve / (challengeResult.votes.approve + challengeResult.votes.reject)) * 100)}% approved` :
-                                            `${Math.round((challengeResult.votes.reject / (challengeResult.votes.approve + challengeResult.votes.reject)) * 100)}% rejected`
-                                        }
-                                    </div>
-                                </div>
-
-                                {/* Points Awarded (only for challenger) */}
-                                {challengeResult.passed && currentChallenge?.challengerId === currentPlayerId && (
-                                    <div className="mb-6 p-4 bg-green-900/30 border-2 border-green-400 rounded">
-                                        <div className="text-center">
-                                            <div className="text-4xl mb-2">🎉</div>
-                                            <p className="text-green-400 font-bold text-lg">You earned challenge points!</p>
-                                            <p className="text-white text-2xl font-bold">
-                                                +{challengeResult.scoreAwarded || 'Points'} points
-                                            </p>
-                                            <p className="text-sm text-gray-300 mt-2">
-                                                Challenge points are awarded without time bonus
-                                            </p>
-                                        </div>
-                                    </div>
-                                )}
-
-                                <Button
-                                    onClick={onDismissChallengeResult}
-                                    variant="primary"
-                                    size="lg"
-                                    className="w-full"
-                                >
-                                    Continue
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                )}
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Question & Answer Section */}
-                    <div>
-                        <Card className="p-6 bg-gray-800 border-gray-600">
-                            {/* Question */}
-                            <div className="mb-6">
-                                <h2 className="text-xl font-semibold text-white mb-4">
-                                    {currentQuestion.question}
-                                </h2>
-
-                                {/* Question type and difficulty */}
-                                <div className="flex gap-2 mb-4">
-                                    <span className="text-xs bg-blue-600 text-white px-2 py-1 rounded border">
-                                        {currentQuestion.type.replace('_', ' ').toUpperCase()}
-                                    </span>
-                                    <span className={`text-xs px-2 py-1 rounded border ${currentQuestion.difficulty === 'easy' ? 'bg-green-600 text-white border-green-400' :
-                                            currentQuestion.difficulty === 'medium' ? 'bg-yellow-600 text-black border-yellow-400' :
-                                                'bg-red-600 text-white border-red-400'
-                                        }`}>
-                                        {currentQuestion.difficulty.toUpperCase()}
-                                    </span>
-                                </div>
-                            </div>
-
-                            {/* Correct Answer Reveal */}
-                            <div className="mb-6 p-4 bg-green-900/30 border-2 border-green-400 rounded">
-                                <h3 className="text-lg font-semibold text-green-400 mb-2">
-                                    ✅ Correct Answer:
-                                </h3>
-                                <p className="text-xl text-white font-bold">
-                                    {playerAnswer?.correctAnswerText || 
-                                     (currentQuestion.type === 'multiple_choice' || currentQuestion.type === 'true_false'
-                                        ? currentQuestion.options?.[currentQuestion.correctAnswer]
-                                        : currentQuestion.correctAnswer)}
-                                </p>
-                            </div>
-
-                            {/* Your Answer */}
-                            <div className={`p-4 border-2 rounded mb-6 ${isCorrect
-                                ? 'bg-green-900/20 border-green-400'
-                                : 'bg-red-900/20 border-red-400'
-                                }`}>
-                                <h3 className={`text-lg font-semibold mb-2 ${isCorrect ? 'text-green-400' : 'text-red-400'}`}>
-                                    {isCorrect ? '✅' : '❌'} Your Answer:
-                                </h3>
-                                <p className="text-xl text-white font-bold">
-                                    {playerAnswer?.playerAnswerText || 
-                                     (playerAnswer ? getDisplayAnswer(currentQuestion, playerAnswer.answer) : 'No answer submitted')}
-                                </p>
-                                <div className="mt-2 text-sm text-gray-300">
-                                    Time: {playerAnswer ? (playerAnswer.time / 1000).toFixed(1) : '0.0'}s
-                                </div>
-                            </div>
-
-                            {/* Score for this question */}
-                            <div className="text-center p-4 bg-blue-900/30 border-2 border-blue-400 rounded">
-                                <h3 className="text-lg font-semibold text-blue-400 mb-2">
-                                    Points Earned:
-                                </h3>
-                                <p className="text-3xl text-white font-bold">
-                                    +{questionScore}
-                                </p>
-                                <div className="text-sm text-gray-300 mt-2">
-                                    Running Total: {runningTotal} points
-                                </div>
-                                {/* Debug info */}
-                                {process.env.NODE_ENV === 'development' && (
-                                    <div className="text-xs text-gray-500 mt-2">
-                                        Debug: questionScore={questionScore}, currentRevealIndex={currentRevealIndex}, currentPlayerId={currentPlayerId}
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Challenge Section */}
-                            {!isCorrect && !showingChallenge && !challengeVoting && !hasUsedChallenge && (
-                                <div className="mt-6">
-                                    <Button
-                                        onClick={handleStartChallenge}
-                                        variant="warning"
-                                        size="lg"
-                                        className="w-full"
-                                    >
-                                        🏛️ Challenge This Answer
-                                    </Button>
-                                    <p className="text-xs text-gray-400 text-center mt-2">
-                                        One challenge per game - use it wisely!
-                                    </p>
-                                </div>
-                            )}
-
-                            {/* Challenge Used Indicator */}
-                            {hasUsedChallenge && (
-                                <div className="mt-6 p-4 bg-gray-700 border-2 border-gray-600 rounded text-center">
-                                    <p className="text-gray-400 text-sm">
-                                        🏛️ You have used your challenge for this game
-                                    </p>
-                                </div>
-                            )}
-
-                            {/* Challenge Form */}
-                            {showingChallenge && (
-                                <div className="mt-6 p-4 bg-yellow-900/20 border-2 border-yellow-400 rounded">
-                                    <div className="flex justify-between items-center mb-4">
-                                        <h3 className="text-lg font-semibold text-yellow-400">
-                                            🏛️ Challenge This Question
-                                        </h3>
-                                        <div className="text-2xl font-bold text-yellow-400">
-                                            {challengeTimeLeft}s
-                                        </div>
-                                    </div>
-                                    <textarea
-                                        value={challengeExplanation}
-                                        onChange={(e) => setChallengeExplanation(e.target.value)}
-                                        placeholder="Explain why your answer should be accepted..."
-                                        className="w-full p-3 bg-gray-700 text-white border-2 border-gray-600 rounded resize-none"
-                                        rows={3}
-                                        maxLength={200}
-                                        autoFocus
-                                    />
-                                    <div className="flex gap-2 mt-4">
-                                        <Button
-                                            onClick={handleChallenge}
-                                            disabled={!challengeExplanation.trim()}
-                                            variant="warning"
-                                            className="flex-1"
-                                        >
-                                            Submit Challenge ({challengeTimeLeft}s)
-                                        </Button>
-                                        <Button
-                                            onClick={() => {
-                                                setShowingChallenge(false)
-                                                setChallengeExplanation('')
-                                            }}
-                                            variant="ghost"
-                                            className="flex-1"
-                                        >
-                                            Cancel
-                                        </Button>
-                                    </div>
-                                </div>
-                            )}
-                        </Card>
-                    </div>
-
-                    {/* All Players Results */}
-                    <div>
-                        <Card className="p-6 bg-gray-800 border-gray-600">
-                            <h3 className="text-xl font-semibold text-white mb-4">
-                                📊 All Players - Question {currentRevealIndex + 1}
-                            </h3>
-
-                            <div className="space-y-3">
-                                {questionResults.map((result: any, index: number) => (
-                                    <div
-                                        key={result.playerId}
-                                        className={`p-3 border-2 rounded ${result.isCorrect ? 'border-green-400 bg-green-900/20' : 'border-red-400 bg-red-900/20'
-                                            } ${result.playerId === currentPlayerId ? 'ring-2 ring-blue-400' : ''}`}
-                                    >
-                                        <div className="flex justify-between items-start">
-                                            <div className="flex-1">
-                                                <div className="flex items-center gap-2 mb-1">
-                                                    <span className="font-medium text-white">
-                                                        {result.playerName}
-                                                    </span>
-                                                    {result.playerId === currentPlayerId && (
-                                                        <span className="text-xs bg-blue-600 text-white px-2 py-1 rounded">
-                                                            YOU
-                                                        </span>
-                                                    )}
-                                                </div>
-                                                <div className="text-sm text-gray-300">
-                                                    Answer: <span className="text-white font-medium">
-                                                        {result.playerAnswerText || getDisplayAnswer(currentQuestion, result.answer)}
-                                                    </span>
-                                                </div>
-                                                <div className="text-xs text-gray-400">
-                                                    Time: {(result.time / 1000).toFixed(1)}s
-                                                </div>
-                                            </div>
-                                            <div className="text-right">
-                                                <div className={`text-lg font-bold ${result.isCorrect ? 'text-green-400' : 'text-red-400'}`}>
-                                                    {result.isCorrect ? '✅' : '❌'}
-                                                </div>
-                                                <div className="text-sm text-white font-medium">
-                                                    +{result.score}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-
-                            {/* Question Statistics */}
-                            <div className="mt-6 p-4 bg-gray-700 border-2 border-gray-600 rounded">
-                                <h4 className="text-sm font-semibold text-white mb-2">Question Stats:</h4>
-                                <div className="text-xs text-gray-300 space-y-1">
-                                    <div>Correct: {questionResults.filter((r: any) => r.isCorrect).length}/{questionResults.length} players</div>
-                                    <div>Average time: {(questionResults.reduce((sum: number, r: any) => sum + r.time, 0) / questionResults.length / 1000).toFixed(1)}s</div>
-                                    <div>Highest score: {Math.max(...questionResults.map((r: any) => r.score))} pts</div>
-                                </div>
-                            </div>
-                        </Card>
-                    </div>
+                {/* Progress bar */}
+                <div style={{ width: '100%', height: '3px', background: 'rgba(255,255,255,0.05)', borderRadius: '99px', overflow: 'hidden', marginBottom: '16px', flexShrink: 0 }}>
+                    <div style={{
+                        height: '100%',
+                        borderRadius: '99px',
+                        background: 'linear-gradient(90deg,#6366f1,#818cf8)',
+                        width: `${((currentRevealIndex + 1) / gameState.questions.length) * 100}%`,
+                        transition: 'width 0.8s ease',
+                    }} />
                 </div>
 
-                {/* Ready/Next Question Controls */}
-                {!showingChallenge && !challengeVoting && (
-                    <div className="text-center mt-8">
-                        {!isHost ? (
-                            /* Player Ready Button */
-                            <div className="space-y-4">
-                                <Button
-                                    onClick={handlePlayerReady}
-                                    disabled={isPlayerReady}
-                                    variant={isPlayerReady ? "success" : "secondary"}
-                                    size="lg"
-                                    className="px-8"
-                                >
-                                    {isPlayerReady ? "✅ Ready for Next" : "Ready for Next Question"}
-                                </Button>
-                                <p className="text-gray-300 text-sm">
-                                    {isPlayerReady
-                                        ? "Waiting for other players and host..."
-                                        : "Click when you're ready to move on"}
+                {/* ── Two-column body ── */}
+                <div style={{
+                    flex: 1,
+                    minHeight: 0,
+                    display: 'flex',
+                    gap: '16px',
+                    paddingBottom: '16px',
+                }}>
+                {/* LEFT COLUMN */}
+                <div style={{ flex: 1, minWidth: 0, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+
+                    {/* ── Question Card ── */}
+                    <div style={{
+                        borderRadius: '20px',
+                        background: 'rgba(255,255,255,0.04)',
+                        border: '1px solid rgba(255,255,255,0.08)',
+                        padding: '18px 20px',
+                    }}>
+                        <p style={{ fontSize: '15px', fontWeight: 700, color: 'white', lineHeight: 1.5, margin: 0, marginBottom: '12px' }}>
+                            {currentQuestion.question}
+                        </p>
+                        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                            <span style={{
+                                fontSize: '10px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em',
+                                padding: '3px 10px', borderRadius: '99px',
+                                background: 'rgba(99,102,241,0.15)', border: '1px solid rgba(99,102,241,0.3)', color: '#818cf8',
+                            }}>
+                                {currentQuestion.type.replace(/_/g, ' ')}
+                            </span>
+                            <span style={{
+                                fontSize: '10px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em',
+                                padding: '3px 10px', borderRadius: '99px',
+                                background: difficultyColor.bg, border: `1px solid ${difficultyColor.border}`, color: difficultyColor.text,
+                            }}>
+                                {currentQuestion.difficulty}
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* ── Player Readiness (host view) ── */}
+                    {!showingChallenge && !challengeVoting && (
+                        <div style={{
+                            borderRadius: '20px',
+                            background: 'rgba(255,255,255,0.03)',
+                            border: '1px solid rgba(255,255,255,0.07)',
+                            padding: '14px 20px',
+                        }}>
+                            {!isHost ? (
+                                <p style={{ textAlign: 'center', fontSize: '13px', color: '#52525b', margin: 0 }}>
+                                    ⏳ Waiting for host to continue...
+                                </p>
+                            ) : (
+                                <div>
+                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
+                                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                                            {gameState.players.map((player: any) => {
+                                                const ready = effectiveReadyPlayers.includes(player.id)
+                                                return (
+                                                    <div
+                                                        key={player.id}
+                                                        style={{
+                                                            display: 'flex', alignItems: 'center', gap: '5px',
+                                                            padding: '4px 10px', borderRadius: '99px',
+                                                            background: ready ? 'rgba(74,222,128,0.12)' : 'rgba(255,255,255,0.04)',
+                                                            border: `1px solid ${ready ? 'rgba(74,222,128,0.3)' : 'rgba(255,255,255,0.08)'}`,
+                                                            fontSize: '11px', fontWeight: 600,
+                                                            color: ready ? '#4ade80' : '#52525b',
+                                                        }}
+                                                    >
+                                                        <span style={{
+                                                            width: '6px', height: '6px', borderRadius: '50%', flexShrink: 0,
+                                                            background: ready ? '#4ade80' : '#3f3f46',
+                                                        }} />
+                                                        {player.name}
+                                                        {player.isHost && <span style={{ fontSize: '9px', opacity: 0.5 }}>(host)</span>}
+                                                    </div>
+                                                )
+                                            })}
+                                        </div>
+                                        <button
+                                            onClick={handleNextQuestion}
+                                            style={{
+                                                padding: '10px 20px',
+                                                borderRadius: '12px',
+                                                background: 'linear-gradient(135deg, rgba(99,102,241,0.3), rgba(129,140,248,0.2))',
+                                                border: '1px solid rgba(99,102,241,0.5)',
+                                                color: 'white',
+                                                fontWeight: 800,
+                                                fontSize: '13px',
+                                                cursor: 'pointer',
+                                                whiteSpace: 'nowrap',
+                                            }}
+                                        >
+                                            {currentRevealIndex < gameState.questions.length - 1 ? 'Next →' : 'Final Results 🏆'}
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    )}
+
+                    {/* ── Correct Answer Card ── */}
+                    <div style={{
+                        borderRadius: '20px',
+                        background: 'rgba(74,222,128,0.1)',
+                        border: '1px solid rgba(74,222,128,0.25)',
+                        padding: '18px 20px',
+                        animation: 'glowPulse 2s ease infinite',
+                    }}>
+                        <div style={{ fontSize: '11px', fontWeight: 700, color: '#4ade80', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' }}>
+                            ✅ Correct Answer
+                        </div>
+                        {currentQuestion.type === 'letter_game' ? (
+                            <div style={{ textAlign: 'center' }}>
+                                <div style={{ fontSize: '48px', fontWeight: 900, color: '#fbbf24', marginBottom: '4px' }}>{currentQuestion.letter}</div>
+                                <p style={{ fontSize: '12px', color: '#a1a1aa', margin: 0 }}>
+                                    Any valid English word starting with <strong style={{ color: '#fde68a' }}>{currentQuestion.letter}</strong> for each category
                                 </p>
                             </div>
                         ) : (
-                            /* Host Controls */
-                            <div className="space-y-4">
-                                <div className="mb-4 p-4 bg-gray-800 border-2 border-gray-600 rounded">
-                                    <h3 className="text-lg font-semibold text-white mb-2">Player Readiness</h3>
-                                    <div className="grid grid-cols-2 gap-2">
-                                        {gameState.players.map((player: any) => (
-                                            <div
-                                                key={player.id}
-                                                className={`p-2 rounded border-2 text-sm ${effectiveReadyPlayers.includes(player.id)
-                                                    ? 'bg-green-900/30 border-green-400 text-green-300'
-                                                    : 'bg-gray-700 border-gray-500 text-gray-300'
-                                                    }`}
-                                            >
-                                                {effectiveReadyPlayers.includes(player.id) ? '✅' : '⏳'} {player.name}
-                                                {player.isHost && (
-                                                    <span className="ml-1 text-xs opacity-75">(Host - Auto Ready)</span>
-                                                )}
+                            <p style={{ fontSize: '20px', fontWeight: 900, color: 'white', margin: 0 }}>
+                                {correctAnswerDisplay}
+                            </p>
+                        )}
+                    </div>
+
+                    {/* ── Your Result Card ── */}
+                    <div style={{
+                        borderRadius: '20px',
+                        background: isCorrect ? 'rgba(74,222,128,0.08)' : 'rgba(239,68,68,0.08)',
+                        border: `1px solid ${isCorrect ? 'rgba(74,222,128,0.25)' : 'rgba(239,68,68,0.2)'}`,
+                        padding: '18px 20px',
+                        animation: 'popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both',
+                    }}>
+                        <div style={{ fontSize: '11px', fontWeight: 700, color: isCorrect ? '#4ade80' : '#f87171', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '10px' }}>
+                            {isCorrect ? '✓ Your Answer' : '✗ Your Answer'}
+                        </div>
+
+                        {currentQuestion.type === 'letter_game' ? (
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                                {(currentQuestion.categories || []).map((cat: string, i: number) => {
+                                    const entries = (playerAnswer?.answer || '').split(',')
+                                    const word = entries[i]?.trim() || ''
+                                    const validation = playerAnswer?.letterGameValidation
+                                    const isValid = validation ? validation[cat] === true : null
+                                    return (
+                                        <div key={cat} style={{
+                                            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                                            padding: '8px 12px', borderRadius: '10px',
+                                            background: isValid === true ? 'rgba(74,222,128,0.1)' : isValid === false ? 'rgba(239,68,68,0.1)' : 'rgba(255,255,255,0.04)',
+                                            border: `1px solid ${isValid === true ? 'rgba(74,222,128,0.3)' : isValid === false ? 'rgba(239,68,68,0.25)' : 'rgba(255,255,255,0.07)'}`,
+                                        }}>
+                                            <span style={{ fontSize: '12px', color: '#71717a', width: '100px', flexShrink: 0 }}>{cat}</span>
+                                            <span style={{ fontSize: '13px', fontWeight: 700, color: word ? 'white' : '#52525b', flex: 1, textAlign: 'center' }}>{word || '—'}</span>
+                                            <span style={{ width: '20px', textAlign: 'right' }}>{isValid === true ? '✅' : isValid === false ? '❌' : ''}</span>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        ) : (
+                            <p style={{ fontSize: '17px', fontWeight: 800, color: 'white', margin: 0, marginBottom: '8px' }}>
+                                {playerAnswer?.playerAnswerText ||
+                                    (playerAnswer ? getDisplayAnswer(currentQuestion, playerAnswer.answer) : 'No answer submitted')}
+                            </p>
+                        )}
+
+                        <div style={{ fontSize: '11px', color: '#52525b', marginTop: '6px' }}>
+                            Time: {playerAnswer ? (playerAnswer.time / 1000).toFixed(1) : '0.0'}s
+                        </div>
+
+                        {/* Score popup inline */}
+                        <div style={{ marginTop: '14px' }}>
+                            <ScorePopup score={questionScore} isCorrect={isCorrect} runningTotal={runningTotal} />
+                        </div>
+                    </div>
+
+                </div>{/* end left inner */}
+                </div>{/* end left column */}
+
+                {/* RIGHT COLUMN */}
+                <div style={{ width: '320px', flexShrink: 0, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+
+                    {/* ── Live Rankings ── */}
+                    <div style={{
+                        borderRadius: '20px',
+                        background: 'rgba(255,255,255,0.04)',
+                        border: '1px solid rgba(255,255,255,0.08)',
+                        padding: '18px 20px',
+                    }}>
+                        <div style={{ fontSize: '11px', fontWeight: 700, color: '#6366f1', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '14px' }}>
+                            📊 Live Rankings
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                            {currentRankings.map((entry: any, idx: number) => {
+                                const isMe = entry.playerId === currentPlayerId
+                                const diff = diffLabel(entry.playerId, idx)
+                                return (
+                                    <div
+                                        key={entry.playerId}
+                                        style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '10px',
+                                            padding: '10px 14px',
+                                            borderRadius: '14px',
+                                            background: isMe ? 'rgba(99,102,241,0.15)' : 'rgba(255,255,255,0.03)',
+                                            border: `1px solid ${isMe ? 'rgba(99,102,241,0.4)' : 'rgba(255,255,255,0.06)'}`,
+                                            animation: `slideUpFadeIn 0.4s ease ${idx * 0.07}s both`,
+                                        }}
+                                    >
+                                        <div style={{ width: '26px', textAlign: 'center', flexShrink: 0 }}>
+                                            {idx < 3
+                                                ? <span style={{ fontSize: '18px' }}>{MEDALS[idx]}</span>
+                                                : <span style={{ fontSize: '12px', fontWeight: 700, color: '#52525b' }}>{idx + 1}</span>
+                                            }
+                                        </div>
+                                        <div style={{ flex: 1, minWidth: 0 }}>
+                                            <span style={{ fontWeight: 700, color: isMe ? '#a5b4fc' : 'white', fontSize: '13px' }}>
+                                                {entry.playerName}
+                                            </span>
+                                            {isMe && (
+                                                <span style={{
+                                                    marginLeft: '6px', fontSize: '9px', fontWeight: 700,
+                                                    background: 'rgba(99,102,241,0.3)', color: '#818cf8',
+                                                    padding: '1px 6px', borderRadius: '99px',
+                                                }}>you</span>
+                                            )}
+                                        </div>
+                                        <div style={{ fontSize: '14px', fontWeight: 900, color: isMe ? '#a5b4fc' : '#a1a1aa', flexShrink: 0 }}>
+                                            {entry.total.toLocaleString()}
+                                        </div>
+                                        {diff && (
+                                            <div style={{ fontSize: '11px', fontWeight: 700, color: diff.color, flexShrink: 0, minWidth: '28px', textAlign: 'right' }}>
+                                                {diff.text}
                                             </div>
-                                        ))}
+                                        )}
                                     </div>
-                                    <div className="mt-3 text-center">
-                                        <span className="text-lg font-bold text-white">
-                                            {effectiveReadyPlayers.length -1}/{gameState.players.length}  players ready
-                                        </span>
+                                )
+                            })}
+                        </div>
+                    </div>
+
+                    {/* ── All Answers This Question ── */}
+                    <div style={{
+                        borderRadius: '20px',
+                        background: 'rgba(255,255,255,0.04)',
+                        border: '1px solid rgba(255,255,255,0.08)',
+                        padding: '18px 20px',
+                    }}>
+                        <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '14px' }}>
+                            👥 All Answers — Q{currentRevealIndex + 1}
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                            {questionResults.map((result: any, index: number) => (
+                                <div
+                                    key={result.playerId}
+                                    style={{
+                                        display: 'flex',
+                                        alignItems: 'flex-start',
+                                        gap: '10px',
+                                        padding: '10px 14px',
+                                        borderRadius: '14px',
+                                        background: result.isCorrect ? 'rgba(74,222,128,0.06)' : 'rgba(239,68,68,0.06)',
+                                        border: `1px solid ${result.isCorrect ? 'rgba(74,222,128,0.18)' : 'rgba(239,68,68,0.15)'}`,
+                                        outline: result.playerId === currentPlayerId ? '1px solid rgba(99,102,241,0.4)' : 'none',
+                                        outlineOffset: '1px',
+                                    }}
+                                >
+                                    <span style={{ fontSize: '16px', flexShrink: 0, marginTop: '1px' }}>
+                                        {result.isCorrect ? '✅' : '❌'}
+                                    </span>
+                                    <div style={{ flex: 1, minWidth: 0 }}>
+                                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '3px' }}>
+                                            <span style={{ fontWeight: 700, color: result.playerId === currentPlayerId ? '#a5b4fc' : 'white', fontSize: '13px' }}>
+                                                {result.playerName}
+                                            </span>
+                                            {result.playerId === currentPlayerId && (
+                                                <span style={{
+                                                    fontSize: '9px', fontWeight: 700,
+                                                    background: 'rgba(99,102,241,0.3)', color: '#818cf8',
+                                                    padding: '1px 5px', borderRadius: '99px',
+                                                }}>you</span>
+                                            )}
+                                        </div>
+                                        {currentQuestion.type === 'letter_game' ? (
+                                            <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+                                                {(currentQuestion.categories || []).map((cat: string, i: number) => {
+                                                    const entries = (result.answer || '').split(',')
+                                                    const word = entries[i]?.trim() || ''
+                                                    const isValid = result.letterGameValidation ? result.letterGameValidation[cat] === true : null
+                                                    return (
+                                                        <div key={cat} style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '11px' }}>
+                                                            <span style={{ color: '#52525b', width: '80px', flexShrink: 0 }}>{cat}</span>
+                                                            <span style={{ fontWeight: 600, color: word ? 'white' : '#3f3f46' }}>{word || '—'}</span>
+                                                            {isValid !== null && <span>{isValid ? '✅' : '❌'}</span>}
+                                                        </div>
+                                                    )
+                                                })}
+                                            </div>
+                                        ) : (
+                                            <div style={{ fontSize: '12px', color: '#a1a1aa' }}>
+                                                {result.playerAnswerText || getDisplayAnswer(currentQuestion, result.answer)}
+                                            </div>
+                                        )}
+                                        <div style={{ fontSize: '10px', color: '#52525b', marginTop: '2px' }}>
+                                            {(result.time / 1000).toFixed(1)}s
+                                        </div>
+                                    </div>
+                                    {result.score > 0 && (
+                                        <div style={{ fontSize: '12px', fontWeight: 800, color: '#4ade80', flexShrink: 0, alignSelf: 'center' }}>
+                                            +{result.score}
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* ── Challenge Section ── */}
+                    {!isCorrect && !showingChallenge && !challengeVoting && !hasUsedChallenge && (
+                        <div style={{
+                            borderRadius: '20px',
+                            background: 'rgba(245,158,11,0.08)',
+                            border: '1px solid rgba(245,158,11,0.25)',
+                            padding: '16px 20px',
+                            textAlign: 'center',
+                        }}>
+                            <button
+                                onClick={handleStartChallenge}
+                                style={{
+                                    width: '100%',
+                                    padding: '12px 24px',
+                                    borderRadius: '14px',
+                                    background: 'rgba(245,158,11,0.15)',
+                                    border: '1px solid rgba(245,158,11,0.4)',
+                                    color: '#fbbf24',
+                                    fontWeight: 800,
+                                    fontSize: '14px',
+                                    cursor: 'pointer',
+                                    letterSpacing: '0.03em',
+                                }}
+                            >
+                                🏛️ Challenge This Answer
+                            </button>
+                            <p style={{ fontSize: '11px', color: '#52525b', margin: '8px 0 0' }}>
+                                One challenge per game — use it wisely!
+                            </p>
+                        </div>
+                    )}
+
+                    {hasUsedChallenge && (
+                        <div style={{
+                            borderRadius: '20px',
+                            background: 'rgba(255,255,255,0.03)',
+                            border: '1px solid rgba(255,255,255,0.07)',
+                            padding: '14px 20px',
+                            textAlign: 'center',
+                            fontSize: '12px',
+                            color: '#52525b',
+                        }}>
+                            🏛️ You have used your challenge for this game
+                        </div>
+                    )}
+
+                    {/* Challenge Form */}
+                    {showingChallenge && (
+                        <div style={{
+                            borderRadius: '20px',
+                            background: 'rgba(245,158,11,0.1)',
+                            border: '1px solid rgba(245,158,11,0.3)',
+                            padding: '18px 20px',
+                        }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
+                                <span style={{ fontSize: '13px', fontWeight: 700, color: '#fbbf24' }}>🏛️ Challenge This Question</span>
+                                <span style={{ fontSize: '20px', fontWeight: 900, color: '#fbbf24' }}>{challengeTimeLeft}s</span>
+                            </div>
+                            <textarea
+                                value={challengeExplanation}
+                                onChange={(e) => setChallengeExplanation(e.target.value)}
+                                placeholder="Explain why your answer should be accepted..."
+                                rows={3}
+                                maxLength={200}
+                                autoFocus
+                                style={{
+                                    width: '100%',
+                                    borderRadius: '12px',
+                                    background: 'rgba(255,255,255,0.06)',
+                                    border: '1px solid rgba(245,158,11,0.3)',
+                                    color: 'white',
+                                    padding: '12px',
+                                    fontSize: '14px',
+                                    resize: 'none',
+                                    outline: 'none',
+                                    boxSizing: 'border-box',
+                                    fontFamily: 'inherit',
+                                }}
+                            />
+                            <div style={{ display: 'flex', gap: '10px', marginTop: '12px' }}>
+                                <button
+                                    onClick={handleChallenge}
+                                    disabled={!challengeExplanation.trim()}
+                                    style={{
+                                        flex: 1,
+                                        padding: '11px',
+                                        borderRadius: '12px',
+                                        background: challengeExplanation.trim() ? 'rgba(245,158,11,0.2)' : 'rgba(255,255,255,0.04)',
+                                        border: `1px solid ${challengeExplanation.trim() ? 'rgba(245,158,11,0.5)' : 'rgba(255,255,255,0.08)'}`,
+                                        color: challengeExplanation.trim() ? '#fbbf24' : '#52525b',
+                                        fontWeight: 700,
+                                        fontSize: '13px',
+                                        cursor: challengeExplanation.trim() ? 'pointer' : 'default',
+                                    }}
+                                >
+                                    Submit ({challengeTimeLeft}s)
+                                </button>
+                                <button
+                                    onClick={() => { setShowingChallenge(false); setChallengeExplanation('') }}
+                                    style={{
+                                        flex: 1,
+                                        padding: '11px',
+                                        borderRadius: '12px',
+                                        background: 'rgba(255,255,255,0.04)',
+                                        border: '1px solid rgba(255,255,255,0.08)',
+                                        color: '#71717a',
+                                        fontWeight: 700,
+                                        fontSize: '13px',
+                                        cursor: 'pointer',
+                                    }}
+                                >
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Challenge in progress (showing challenge timer banner) */}
+                    {showingChallenge && (
+                        <div style={{
+                            borderRadius: '20px',
+                            background: 'rgba(245,158,11,0.1)',
+                            border: '1px solid rgba(245,158,11,0.3)',
+                            padding: '16px 20px',
+                            textAlign: 'center',
+                        }}>
+                            <div style={{ fontSize: '13px', fontWeight: 700, color: '#fbbf24', marginBottom: '6px' }}>
+                                🏛️ Challenge in Progress
+                            </div>
+                            <div style={{ fontSize: '36px', fontWeight: 900, color: 'white' }}>{challengeTimeLeft}s</div>
+                            <p style={{ fontSize: '12px', color: '#fbbf24', margin: '4px 0 0' }}>Time to explain your case!</p>
+                        </div>
+                    )}
+
+                    {/* Voting Phase for non-challengers */}
+                    {(() => {
+                        const shouldShowVoting = challengeVoting && currentChallenge && currentChallenge.challengerId && currentChallenge.challengerId !== currentPlayerId
+                        return shouldShowVoting ? (
+                            <div style={{
+                                borderRadius: '20px',
+                                background: 'rgba(139,92,246,0.1)',
+                                border: '1px solid rgba(139,92,246,0.3)',
+                                padding: '18px 20px',
+                            }}>
+                                <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+                                    <div style={{ fontSize: '13px', fontWeight: 700, color: '#a78bfa', marginBottom: '6px' }}>
+                                        🗳️ Challenge Voting
+                                    </div>
+                                    <div style={{ fontSize: '36px', fontWeight: 900, color: 'white' }}>{voteTimeLeft}s</div>
+                                    <p style={{ fontSize: '12px', color: '#c4b5fd', margin: '4px 0 0' }}>
+                                        Vote on {currentChallenge.challengerName}&apos;s challenge
+                                    </p>
+                                </div>
+
+                                <div style={{
+                                    borderRadius: '14px',
+                                    background: 'rgba(255,255,255,0.04)',
+                                    border: '1px solid rgba(255,255,255,0.08)',
+                                    padding: '14px 16px',
+                                    marginBottom: '14px',
+                                }}>
+                                    <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
+                                        Challenge Details
+                                    </div>
+                                    <div style={{ fontSize: '13px', color: '#a1a1aa', lineHeight: 1.6 }}>
+                                        <div><span style={{ color: '#71717a' }}>Challenger:</span> <span style={{ color: 'white', fontWeight: 700 }}>{currentChallenge.challengerName}</span></div>
+                                        <div><span style={{ color: '#71717a' }}>Their Answer:</span> <span style={{ color: 'white', fontWeight: 700 }}>{getDisplayAnswer(currentQuestion, currentChallenge.playerAnswer)}</span></div>
+                                        <div><span style={{ color: '#71717a' }}>Reason:</span> <span style={{ color: '#e4e4e7' }}>"{currentChallenge.explanation}"</span></div>
+                                        <div><span style={{ color: '#71717a' }}>Potential:</span> <span style={{ color: '#4ade80', fontWeight: 700 }}>+{currentChallenge.potentialScore} pts</span></div>
                                     </div>
                                 </div>
 
-                                {/* Host Ready Button */}
-
-                                <Button
-                                    onClick={handleNextQuestion}
-                                    disabled={effectiveReadyPlayers.length < gameState.players.length}
-                                    variant="primary"
-                                    size="lg"
-                                    className="px-8"
-                                >
-                                    {currentRevealIndex < gameState.questions.length - 1
-                                        ? `Next Question →`
-                                        : `Show Final Results 🏆`}
-                                </Button>
-                                <p className="text-gray-300 text-sm">
-                                    {effectiveReadyPlayers.length >= gameState.players.length 
-                                        ? "All players ready! You can advance anytime."
-                                        : `${gameState.players.length - effectiveReadyPlayers.length} player(s) still reviewing...`
-                                    }
-                                </p>
+                                <div style={{ display: 'flex', gap: '10px' }}>
+                                    <button
+                                        onClick={() => onVoteChallenge?.(currentChallenge.id, 'approve')}
+                                        style={{
+                                            flex: 1, padding: '12px',
+                                            borderRadius: '12px',
+                                            background: 'rgba(74,222,128,0.15)',
+                                            border: '1px solid rgba(74,222,128,0.4)',
+                                            color: '#4ade80', fontWeight: 800, fontSize: '13px', cursor: 'pointer',
+                                        }}
+                                    >
+                                        ✅ Approve
+                                    </button>
+                                    <button
+                                        onClick={() => onVoteChallenge?.(currentChallenge.id, 'reject')}
+                                        style={{
+                                            flex: 1, padding: '12px',
+                                            borderRadius: '12px',
+                                            background: 'rgba(239,68,68,0.12)',
+                                            border: '1px solid rgba(239,68,68,0.3)',
+                                            color: '#f87171', fontWeight: 800, fontSize: '13px', cursor: 'pointer',
+                                        }}
+                                    >
+                                        ❌ Reject
+                                    </button>
+                                </div>
                             </div>
-                        )}
-                    </div>
-                )}
+                        ) : null
+                    })()}
+
+                    {/* Challenger waiting for votes */}
+                    {currentChallenge && currentChallenge.challengerId === currentPlayerId && challengeVoting && (
+                        <div style={{
+                            borderRadius: '20px',
+                            background: 'rgba(99,102,241,0.1)',
+                            border: '1px solid rgba(99,102,241,0.3)',
+                            padding: '18px 20px',
+                            textAlign: 'center',
+                        }}>
+                            <div style={{ fontSize: '13px', fontWeight: 700, color: '#818cf8', marginBottom: '6px' }}>
+                                🏛️ Your Challenge is Being Voted On
+                            </div>
+                            <div style={{ fontSize: '36px', fontWeight: 900, color: 'white' }}>{voteTimeLeft}s</div>
+                            <p style={{ fontSize: '12px', color: '#a5b4fc', margin: '4px 0 0' }}>Other players are voting...</p>
+                        </div>
+                    )}
+
+                </div>{/* end right column */}
+                </div>{/* end two-column body */}
             </div>
-        </div>
+
+            {/* ── Challenge Result Modal ── */}
+            {challengeResult && (
+                <div style={{
+                    position: 'fixed', inset: 0,
+                    background: 'rgba(0,0,0,0.7)',
+                    backdropFilter: 'blur(8px)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    zIndex: 50,
+                    padding: '20px',
+                }}>
+                    <div style={{
+                        borderRadius: '24px',
+                        background: '#0f0f1a',
+                        border: '1px solid rgba(255,255,255,0.1)',
+                        padding: '32px 28px',
+                        width: '100%',
+                        maxWidth: '420px',
+                    }}>
+                        <div style={{ textAlign: 'center' }}>
+                            <h3 style={{
+                                fontSize: '24px', fontWeight: 900,
+                                color: challengeResult.passed ? '#4ade80' : '#f87171',
+                                marginBottom: '24px',
+                            }}>
+                                {challengeResult.passed ? '✅ Challenge Accepted!' : '❌ Challenge Rejected'}
+                            </h3>
+
+                            <div style={{ marginBottom: '20px' }}>
+                                <div style={{ fontSize: '11px', fontWeight: 700, color: '#52525b', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '14px' }}>
+                                    🗳️ Anonymous Vote Results
+                                </div>
+                                <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', marginBottom: '14px' }}>
+                                    <div style={{ textAlign: 'center' }}>
+                                        <div style={{ fontSize: '24px' }}>✅</div>
+                                        <div style={{ fontSize: '11px', color: '#71717a' }}>Approve</div>
+                                        <div style={{ fontSize: '20px', fontWeight: 900, color: 'white' }}>{challengeResult.votes.approve}</div>
+                                    </div>
+                                    <div style={{ textAlign: 'center' }}>
+                                        <div style={{ fontSize: '24px' }}>❌</div>
+                                        <div style={{ fontSize: '11px', color: '#71717a' }}>Reject</div>
+                                        <div style={{ fontSize: '20px', fontWeight: 900, color: 'white' }}>{challengeResult.votes.reject}</div>
+                                    </div>
+                                </div>
+
+                                <div style={{ width: '100%', height: '8px', borderRadius: '99px', background: 'rgba(255,255,255,0.06)', overflow: 'hidden', marginBottom: '8px' }}>
+                                    <div style={{
+                                        height: '100%',
+                                        borderRadius: '99px',
+                                        background: challengeResult.passed ? '#4ade80' : '#f87171',
+                                        width: `${(challengeResult.votes.approve / (challengeResult.votes.approve + challengeResult.votes.reject)) * 100}%`,
+                                        transition: 'width 0.6s ease',
+                                    }} />
+                                </div>
+
+                                <div style={{ fontSize: '12px', color: '#71717a' }}>
+                                    {challengeResult.passed
+                                        ? `${Math.round((challengeResult.votes.approve / (challengeResult.votes.approve + challengeResult.votes.reject)) * 100)}% approved`
+                                        : `${Math.round((challengeResult.votes.reject / (challengeResult.votes.approve + challengeResult.votes.reject)) * 100)}% rejected`}
+                                </div>
+                            </div>
+
+                            {challengeResult.passed && currentChallenge?.challengerId === currentPlayerId && (
+                                <div style={{
+                                    borderRadius: '16px',
+                                    background: 'rgba(74,222,128,0.1)',
+                                    border: '1px solid rgba(74,222,128,0.25)',
+                                    padding: '16px',
+                                    marginBottom: '20px',
+                                    textAlign: 'center',
+                                }}>
+                                    <div style={{ fontSize: '32px', marginBottom: '8px' }}>🎉</div>
+                                    <p style={{ fontWeight: 800, color: '#4ade80', fontSize: '14px', margin: '0 0 4px' }}>
+                                        You earned challenge points!
+                                    </p>
+                                    <p style={{ fontSize: '24px', fontWeight: 900, color: 'white', margin: '0 0 6px' }}>
+                                        +{challengeResult.scoreAwarded || 'Points'} points
+                                    </p>
+                                    <p style={{ fontSize: '11px', color: '#52525b', margin: 0 }}>
+                                        Challenge points are awarded without time bonus
+                                    </p>
+                                </div>
+                            )}
+
+                            <button
+                                onClick={onDismissChallengeResult}
+                                style={{
+                                    width: '100%',
+                                    padding: '14px',
+                                    borderRadius: '14px',
+                                    background: 'rgba(99,102,241,0.2)',
+                                    border: '1px solid rgba(99,102,241,0.4)',
+                                    color: 'white',
+                                    fontWeight: 800,
+                                    fontSize: '14px',
+                                    cursor: 'pointer',
+                                }}
+                            >
+                                Continue
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </>
     )
 }
