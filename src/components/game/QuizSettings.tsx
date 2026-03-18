@@ -19,6 +19,10 @@ const CATEGORIES = [
   { id: 'streaming',   label: 'Streaming',   emoji: '📺' },
 ]
 
+const THEMED_CATEGORIES = [
+  { id: 'harry_potter', label: 'Harry Potter', emoji: '🧙' },
+]
+
 const QUESTION_TYPES = [
   { id: 'multiple_choice', label: 'Multiple Choice', emoji: '🔤' },
   { id: 'true_false',      label: 'True / False',    emoji: '✅' },
@@ -105,7 +109,9 @@ function ToggleGrid({
   )
 }
 
-const ALL_CATEGORY_IDS  = CATEGORIES.map(c => c.id)
+const ALL_GENERAL_CATEGORY_IDS = CATEGORIES.map(c => c.id)
+const ALL_THEMED_CATEGORY_IDS  = THEMED_CATEGORIES.map(c => c.id)
+const ALL_CATEGORY_IDS  = [...ALL_GENERAL_CATEGORY_IDS, ...ALL_THEMED_CATEGORY_IDS]
 const ALL_TYPE_IDS      = QUESTION_TYPES.map(t => t.id)
 
 export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
@@ -190,7 +196,7 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
           </div>
           {selectedCategories.length === 0 ? (
             <button
-              onClick={() => { setSelectedCategories(ALL_CATEGORY_IDS); emit(ALL_CATEGORY_IDS, selectedTypes, questionCount) }}
+              onClick={() => { setSelectedCategories(ALL_GENERAL_CATEGORY_IDS); emit(ALL_GENERAL_CATEGORY_IDS, selectedTypes, questionCount) }}
               style={{ fontSize: '11px', color: '#6366f1', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
             >
               Select All
@@ -208,7 +214,25 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
           items={CATEGORIES}
           selected={selectedCategories}
           onToggle={toggleCategory}
-          onSelectAll={() => { setSelectedCategories(ALL_CATEGORY_IDS); emit(ALL_CATEGORY_IDS, selectedTypes, questionCount) }}
+          onSelectAll={() => { setSelectedCategories(ALL_GENERAL_CATEGORY_IDS); emit(ALL_GENERAL_CATEGORY_IDS, selectedTypes, questionCount) }}
+        />
+      </div>
+
+      {/* Themed categories */}
+      <div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+          <div style={{ height: '1px', flex: 1, background: 'rgba(255,255,255,0.06)' }} />
+          <div style={{ fontSize: '10px', fontWeight: 700, color: '#3f3f46', textTransform: 'uppercase', letterSpacing: '0.12em', whiteSpace: 'nowrap' }}>
+            Themed
+          </div>
+          <div style={{ height: '1px', flex: 1, background: 'rgba(255,255,255,0.06)' }} />
+        </div>
+        <ToggleGrid
+          items={THEMED_CATEGORIES}
+          selected={selectedCategories}
+          onToggle={toggleCategory}
+          onSelectAll={() => { setSelectedCategories(ALL_THEMED_CATEGORY_IDS); emit(ALL_THEMED_CATEGORY_IDS, selectedTypes, questionCount) }}
+          accentColor='rgba(251,191,36'
         />
       </div>
 
