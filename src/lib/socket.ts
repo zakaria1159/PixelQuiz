@@ -172,6 +172,15 @@ class SocketManager {
     }
   }
 
+  skipReveal(gameCode: string) {
+    if (this.socket?.connected) {
+      console.log('📡 Sending skip-reveal event')
+      this.socket.emit('skip-reveal', gameCode)
+    } else {
+      console.error('Socket not connected for skip-reveal')
+    }
+  }
+
   // Event listener helpers
   onGameCreated(callback: (data: any) => void) {
     this.socket?.on('game-created', callback)

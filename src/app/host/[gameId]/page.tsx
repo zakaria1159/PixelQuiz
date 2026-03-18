@@ -108,6 +108,10 @@ export default function HostPage() {
     }
   }
 
+  const handleSkipToResults = () => {
+    socketManager.skipReveal(gameCode)
+  }
+
   const handleChallengeQuestion = (questionIndex: number, explanation: string) => {
     if (challengeQuestion) {
       challengeQuestion(questionIndex, explanation)
@@ -204,6 +208,7 @@ export default function HostPage() {
         currentPlayerId={currentPlayer?.id || ''}
         isHost={true}
         onFinishReveals={handleNextQuestionReveal}
+        onSkipToResults={handleSkipToResults}
         onChallengeQuestion={handleChallengeQuestion}
         onVoteChallenge={voteChallenge}
         onPlayerReady={handlePlayerReady}

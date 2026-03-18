@@ -1178,6 +1178,70 @@ io.on('connection', (socket) => {
     }
   })
 
+  // Skip directly to final results from reveal phase
+  socket.on('skip-reveal', (gameCode) => {
+    try {
+      const game = games.get(gameCode)
+      if (!game) return
+
+      const player = players.get(socket.id)
+      if (!player || !player.isHost) {
+        socket.emit('error', { message: 'Only host can skip reveals' })
+        return
+      }
+
+      if (game.gameStatus !== 'reveal_phase') return
+
+      console.log('⏭ Host skipping to final results')
+      game.gameStatus = 'final_results'
+
+      if (game.questionScores) {
+        game.players.forEach(player => {
+          player.score = 0
+          for (let qi = 0; qi < game.questions.length; qi++) {
+            player.score += game.questionScores[qi]?.[player.id] || 0
+          }
+        })
+      }
+
+      const detailedResults = game.players.map(player => {
+        const questionResults = game.questions.map((question, index) => {
+          const answerData = game.answers[player.id]?.[index]
+          if (answerData) {
+            return {
+              questionIndex: index,
+              question: question.question,
+              playerAnswer: answerData.answer,
+              playerAnswerText: getAnswerDisplayText(question, answerData.answer),
+              correctAnswer: question.correctAnswer,
+              correctAnswerText: getCorrectAnswerDisplayText(question),
+              isCorrect: answerData.isCorrect,
+              time: answerData.time,
+              score: game.questionScores?.[index]?.[player.id] || 0
+            }
+          }
+          return null
+        }).filter(Boolean)
+
+        const totalTime = questionResults.reduce((sum, r) => sum + r.time, 0)
+        return {
+          playerId: player.id,
+          playerName: player.name,
+          score: player.score,
+          totalTime,
+          questionResults
+        }
+      })
+
+      detailedResults.sort((a, b) => a.score !== b.score ? b.score - a.score : a.totalTime - b.totalTime)
+      game.finalResults = detailedResults
+
+      io.to(gameCode).emit('game-finished', { gameState: game })
+    } catch (error) {
+      console.error('Error skipping reveal:', error)
+    }
+  })
+
   // Handle challenge submission during reveal phase
   socket.on('challenge-question', (gameCode, questionIndex, explanation) => {
     try {

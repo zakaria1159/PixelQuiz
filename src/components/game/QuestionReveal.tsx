@@ -8,6 +8,7 @@ interface QuestionRevealProps {
     currentPlayerId: string
     isHost: boolean
     onFinishReveals: () => void
+    onSkipToResults?: () => void
     onChallengeQuestion: (questionIndex: number, explanation: string) => void
     onVoteChallenge?: (challengeId: string, vote: 'approve' | 'reject') => void
     onPlayerReady?: (questionIndex: number, playerId: string) => void
@@ -118,6 +119,7 @@ export function QuestionReveal({
     currentPlayerId,
     isHost,
     onFinishReveals,
+    onSkipToResults,
     onChallengeQuestion,
     onVoteChallenge,
     onPlayerReady,
@@ -1068,11 +1070,32 @@ export function QuestionReveal({
                     backdropFilter: 'blur(12px)',
                     borderTop: '1px solid rgba(255,255,255,0.06)',
                     zIndex: 40,
+                    display: 'flex',
+                    gap: '10px',
                 }}>
+                    {currentRevealIndex < gameState.questions.length - 1 && onSkipToResults && (
+                        <button
+                            onClick={onSkipToResults}
+                            style={{
+                                flexShrink: 0,
+                                padding: '14px 18px',
+                                borderRadius: '14px',
+                                background: 'rgba(255,255,255,0.06)',
+                                border: '1px solid rgba(255,255,255,0.12)',
+                                color: '#a1a1aa',
+                                fontWeight: 700,
+                                fontSize: '13px',
+                                cursor: 'pointer',
+                                whiteSpace: 'nowrap',
+                            }}
+                        >
+                            Skip to Results ⏭
+                        </button>
+                    )}
                     <button
                         onClick={handleNextQuestion}
                         style={{
-                            width: '100%',
+                            flex: 1,
                             padding: '14px',
                             borderRadius: '14px',
                             background: 'linear-gradient(135deg, #4f46e5, #4338ca)',
