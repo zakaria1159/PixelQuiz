@@ -5,6 +5,7 @@ export interface QuizSettings {
   categories: string[]
   types: string[]
   questionCount: number
+  lang: string
 }
 
 const CATEGORIES = [
@@ -42,6 +43,11 @@ const QUESTION_TYPES = [
 ]
 
 const QUESTION_COUNTS = [5, 10, 15, 20]
+
+const LANGUAGES = [
+  { id: 'en', label: 'English', emoji: '🇬🇧' },
+  { id: 'fr', label: 'Français', emoji: '🇫🇷' },
+]
 
 interface QuizSettingsPanelProps {
   onChange: (settings: QuizSettings) => void
@@ -119,13 +125,14 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const [selectedTypes,      setSelectedTypes]      = useState<string[]>([])
   const [questionCount,      setQuestionCount]      = useState(10)
+  const [lang,               setLang]               = useState('en')
 
-  const emit = (cats: string[], types: string[], count: number) =>
-    onChange({ categories: cats, types, questionCount: count })
+  const emit = (cats: string[], types: string[], count: number, l: string) =>
+    onChange({ categories: cats, types, questionCount: count, lang: l })
 
   // Emit initial state so parent has correct values without user interaction
   useEffect(() => {
-    emit([], [], 10)
+    emit([], [], 10, 'en')
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -134,7 +141,7 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
       ? selectedCategories.filter(c => c !== id)
       : [...selectedCategories, id]
     setSelectedCategories(next)
-    emit(next, selectedTypes, questionCount)
+    emit(next, selectedTypes, questionCount, lang)
   }
 
   const toggleType = (id: string) => {
@@ -142,16 +149,59 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
       ? selectedTypes.filter(t => t !== id)
       : [...selectedTypes, id]
     setSelectedTypes(next)
-    emit(selectedCategories, next, questionCount)
+    emit(selectedCategories, next, questionCount, lang)
   }
 
   const selectCount = (count: number) => {
     setQuestionCount(count)
-    emit(selectedCategories, selectedTypes, count)
+    emit(selectedCategories, selectedTypes, count, lang)
+  }
+
+  const selectLang = (l: string) => {
+    setLang(l)
+    emit(selectedCategories, selectedTypes, questionCount, l)
   }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+
+      {/* Language */}
+      <div>
+        <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '10px' }}>
+          Language
+        </div>
+        <div style={{ display: 'flex', gap: '8px' }}>
+          {LANGUAGES.map(l => (
+            <button
+              key={l.id}
+              onClick={() => selectLang(l.id)}
+              style={{
+                flex: 1,
+                padding: '9px 0',
+                borderRadius: '12px',
+                border: lang === l.id
+                  ? '1.5px solid rgba(99,102,241,0.7)'
+                  : '1.5px solid rgba(255,255,255,0.08)',
+                background: lang === l.id
+                  ? 'rgba(99,102,241,0.2)'
+                  : 'rgba(255,255,255,0.03)',
+                color: lang === l.id ? '#818cf8' : '#52525b',
+                fontWeight: 700,
+                fontSize: '13px',
+                cursor: 'pointer',
+                transition: 'all 0.15s ease',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '6px',
+              }}
+            >
+              <span>{l.emoji}</span>
+              <span>{l.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
 
       {/* Question count */}
       <div>
@@ -197,14 +247,14 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
           </div>
           {selectedCategories.length === 0 ? (
             <button
-              onClick={() => { setSelectedCategories(ALL_GENERAL_CATEGORY_IDS); emit(ALL_GENERAL_CATEGORY_IDS, selectedTypes, questionCount) }}
+              onClick={() => { setSelectedCategories(ALL_GENERAL_CATEGORY_IDS); emit(ALL_GENERAL_CATEGORY_IDS, selectedTypes, questionCount, lang) }}
               style={{ fontSize: '11px', color: '#6366f1', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
             >
               Select All
             </button>
           ) : (
             <button
-              onClick={() => { setSelectedCategories([]); emit([], selectedTypes, questionCount) }}
+              onClick={() => { setSelectedCategories([]); emit([], selectedTypes, questionCount, lang) }}
               style={{ fontSize: '11px', color: '#52525b', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
             >
               Clear
@@ -215,7 +265,7 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
           items={CATEGORIES}
           selected={selectedCategories}
           onToggle={toggleCategory}
-          onSelectAll={() => { setSelectedCategories(ALL_GENERAL_CATEGORY_IDS); emit(ALL_GENERAL_CATEGORY_IDS, selectedTypes, questionCount) }}
+          onSelectAll={() => { setSelectedCategories(ALL_GENERAL_CATEGORY_IDS); emit(ALL_GENERAL_CATEGORY_IDS, selectedTypes, questionCount, lang) }}
         />
       </div>
 
@@ -232,7 +282,7 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
           items={THEMED_CATEGORIES}
           selected={selectedCategories}
           onToggle={toggleCategory}
-          onSelectAll={() => { setSelectedCategories(ALL_THEMED_CATEGORY_IDS); emit(ALL_THEMED_CATEGORY_IDS, selectedTypes, questionCount) }}
+          onSelectAll={() => { setSelectedCategories(ALL_THEMED_CATEGORY_IDS); emit(ALL_THEMED_CATEGORY_IDS, selectedTypes, questionCount, lang) }}
           accentColor='rgba(251,191,36'
         />
       </div>
@@ -251,14 +301,14 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
           </div>
           {selectedTypes.length === 0 ? (
             <button
-              onClick={() => { setSelectedTypes(ALL_TYPE_IDS); emit(selectedCategories, ALL_TYPE_IDS, questionCount) }}
+              onClick={() => { setSelectedTypes(ALL_TYPE_IDS); emit(selectedCategories, ALL_TYPE_IDS, questionCount, lang) }}
               style={{ fontSize: '11px', color: '#14b8a6', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
             >
               Select All
             </button>
           ) : (
             <button
-              onClick={() => { setSelectedTypes([]); emit(selectedCategories, [], questionCount) }}
+              onClick={() => { setSelectedTypes([]); emit(selectedCategories, [], questionCount, lang) }}
               style={{ fontSize: '11px', color: '#52525b', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
             >
               Clear
@@ -269,7 +319,7 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
           items={QUESTION_TYPES}
           selected={selectedTypes}
           onToggle={toggleType}
-          onSelectAll={() => { setSelectedTypes(ALL_TYPE_IDS); emit(selectedCategories, ALL_TYPE_IDS, questionCount) }}
+          onSelectAll={() => { setSelectedTypes(ALL_TYPE_IDS); emit(selectedCategories, ALL_TYPE_IDS, questionCount, lang) }}
           accentColor='rgba(20,184,166'
         />
       </div>

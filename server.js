@@ -11,20 +11,31 @@ const path = require('path')
 
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
-// Load questions from JSON files at startup
-const questionsDir = path.join(__dirname, 'questions')
-let allQuestions = []
-try {
-  for (const file of fs.readdirSync(questionsDir)) {
+// Load questions from a directory into an array
+function loadQuestionsFromDir(dir) {
+  const questions = []
+  if (!fs.existsSync(dir)) return questions
+  for (const file of fs.readdirSync(dir)) {
     if (!file.endsWith('.json')) continue
-    const content = fs.readFileSync(path.join(questionsDir, file), 'utf8')
-    const questions = JSON.parse(content)
-    allQuestions = allQuestions.concat(questions)
+    try {
+      const content = fs.readFileSync(path.join(dir, file), 'utf8')
+      questions.push(...JSON.parse(content))
+    } catch (e) {
+      console.error(`Failed to load ${file}:`, e.message)
+    }
   }
-  console.log(`📚 Loaded ${allQuestions.length} questions from library (${fs.readdirSync(questionsDir).filter(f => f.endsWith('.json')).length} categories)`)
-} catch (e) {
-  console.error('Failed to load questions:', e.message)
+  return questions
 }
+
+// Load questions at startup — one pool per language
+const questionsDir = path.join(__dirname, 'questions')
+const questionsByLang = {
+  en: loadQuestionsFromDir(questionsDir),
+  fr: loadQuestionsFromDir(path.join(questionsDir, 'fr')),
+}
+// Keep allQuestions as English for backwards compatibility
+const allQuestions = questionsByLang.en
+console.log(`📚 Loaded questions — EN: ${questionsByLang.en.length}, FR: ${questionsByLang.fr.length}`)
 
 // Smart text normalization - removes accents and normalizes case
 function normalizeText(text) {
@@ -561,12 +572,17 @@ function shuffle(arr) {
 }
 
 function getRandomQuestions(settings = {}) {
-  const { categories = [], types = [], questionCount = 10 } = settings
+  const { categories = [], types = [], questionCount = 10, lang = 'en' } = settings
 
-  let pool = allQuestions
+  // Use lang-specific pool, fall back to English if empty
+  let base = (questionsByLang[lang] && questionsByLang[lang].length > 0)
+    ? questionsByLang[lang]
+    : questionsByLang.en
+
+  let pool = base
   if (categories.length > 0) pool = pool.filter(q => categories.includes(q.category))
   if (types.length > 0) pool = pool.filter(q => types.includes(q.type))
-  if (pool.length === 0) pool = allQuestions // fallback if filters yield nothing
+  if (pool.length === 0) pool = base // fallback if filters yield nothing
 
   return shuffle(pool).slice(0, Math.min(questionCount, pool.length))
 }
