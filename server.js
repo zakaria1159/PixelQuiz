@@ -722,6 +722,14 @@ io.on('connection', (socket) => {
       if (isHost) {
         // Restore host
         game.hostId = socket.id
+        // Also update host's player entry so grace-period timeout doesn't evict them
+        const hostPlayer = game.players.find(p => p.isHost)
+        if (hostPlayer) {
+          hostPlayer.id = socket.id
+          hostPlayer.connected = true
+          delete hostPlayer.disconnectedAt
+          delete hostPlayer.disconnectedSocketId
+        }
         players.set(socket.id, { gameCode, isHost: true })
         socket.join(gameCode)
         console.log(`🔄 Host rejoined: ${gameCode}`)
