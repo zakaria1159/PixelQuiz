@@ -53,9 +53,12 @@ export const useGame = (options: UseGameOptions = {}) => {
   const [challengeResult, setChallengeResult] = useState<any>(null)
 
 
+  const [isAbandoned, setIsAbandoned] = useState(false)
+
   // Track if we've already connected to avoid duplicate connections
   const hasConnected = useRef(false)
   const currentGameCode = useRef<string | null>(null)
+  const hiddenAt = useRef<number | null>(null)
 
   // Connect to socket on mount
   useEffect(() => {
@@ -100,16 +103,27 @@ export const useGame = (options: UseGameOptions = {}) => {
 
     // Handle tab switch / app background on mobile
     const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible' && gameCode && playerName) {
-        const socket = socketManager.getSocket()
-        if (!socket || !socket.connected) {
-          // Socket dropped — reconnect then rejoin (the 'connect' handler above will rejoin)
-          console.log('📱 Page visible — socket lost, reconnecting...')
-          socketManager.connect()
-        } else {
-          // Socket still alive — re-sync state in case we missed events
-          console.log('📱 Page visible — re-syncing state...')
-          socketManager.rejoinGame(gameCode, playerName, isHost)
+      if (document.visibilityState === 'hidden') {
+        hiddenAt.current = Date.now()
+      } else if (document.visibilityState === 'visible') {
+        const awayMs = hiddenAt.current ? Date.now() - hiddenAt.current : 0
+        hiddenAt.current = null
+
+        // Away for more than 90 seconds — treat as abandoned
+        if (awayMs > 90 * 1000) {
+          setIsAbandoned(true)
+          return
+        }
+
+        if (gameCode && playerName) {
+          const socket = socketManager.getSocket()
+          if (!socket || !socket.connected) {
+            console.log('📱 Page visible — socket lost, reconnecting...')
+            socketManager.connect()
+          } else {
+            console.log('📱 Page visible — re-syncing state...')
+            socketManager.rejoinGame(gameCode, playerName, isHost)
+          }
         }
       }
     }
@@ -145,7 +159,9 @@ export const useGame = (options: UseGameOptions = {}) => {
     })
 
     socketManager.onRejoinError((data) => {
-      console.log('⚠️ Rejoin failed:', data.message, '— will join fresh')
+      console.log('⚠️ Rejoin failed:', data.message)
+      // Game no longer exists — treat as abandoned
+      setIsAbandoned(true)
     })
 
     // Game created (host only)
@@ -652,6 +668,8 @@ export const useGame = (options: UseGameOptions = {}) => {
       
       // Utilities
       clearError: () => setConnectionError(null),
+      isAbandoned,
+      dismissAbandoned: () => setIsAbandoned(false),
       isInGame: !!currentGameCode.current,
     gameCode: currentGameCode.current,
     playerCount: gameState?.players?.length || 0,

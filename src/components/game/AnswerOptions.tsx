@@ -110,7 +110,6 @@ const AnswerOptions = ({
       <>
         {options.map((option, index) => {
           const p = PALETTE[index % PALETTE.length]
-          const isFlashing = flashIndex === index
           const isSelected = selectedAnswer === index
           const isCorrect = showResults && index === correctAnswer
           const isWrong = showResults && index === selectedAnswer && index !== correctAnswer
@@ -121,24 +120,22 @@ const AnswerOptions = ({
               onClick={() => handleSelect(index)}
               disabled={isDisabled}
               className={clsx(
-                'relative group flex items-center gap-4 px-5 rounded-2xl border-2 text-left w-full h-full',
+                'relative group flex items-center gap-3 px-4 rounded-2xl border-2 text-left w-full h-full',
                 'transition-all duration-200',
                 getCardClass(index),
                 isDisabled && !showResults && 'cursor-not-allowed',
-                isFlashing && 'scale-[1.02]',
-                !isFlashing && isSelected && !showResults && 'scale-[1.01]',
-                !isFlashing && !isSelected && !showResults && !isDisabled && 'hover:scale-[1.01] cursor-pointer',
+                !isSelected && !showResults && !isDisabled && 'cursor-pointer',
               )}
             >
               <div className={clsx(
-                'w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0',
-                'text-lg font-black text-white transition-all duration-200',
+                'w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0',
+                'text-base font-black text-white transition-all duration-200',
                 getBadgeClass(index),
               )}>
                 {isCorrect ? '✓' : isWrong ? '✗' : p.label}
               </div>
               <span className={clsx(
-                'text-base font-semibold leading-snug flex-1',
+                'text-sm font-semibold leading-snug min-w-0 break-words flex-1',
                 showResults && index !== correctAnswer && index !== selectedAnswer
                   ? 'text-white/30'
                   : 'text-white',
@@ -156,10 +153,9 @@ const AnswerOptions = ({
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3" style={{ overflow: 'hidden' }}>
       {options.map((option, index) => {
         const p = PALETTE[index % PALETTE.length]
-        const isFlashing = flashIndex === index
         const isSelected = selectedAnswer === index
         const isCorrect = showResults && index === correctAnswer
         const isWrong = showResults && index === selectedAnswer && index !== correctAnswer
@@ -170,24 +166,22 @@ const AnswerOptions = ({
             onClick={() => handleSelect(index)}
             disabled={isDisabled}
             className={clsx(
-              'relative group flex items-center gap-4 p-5 rounded-2xl border-2 text-left',
+              'relative group flex items-center gap-3 p-4 rounded-2xl border-2 text-left w-full',
               'transition-all duration-200',
               getCardClass(index),
               isDisabled && !showResults && 'cursor-not-allowed',
-              isFlashing && 'scale-[1.03]',
-              !isFlashing && isSelected && !showResults && 'scale-[1.01]',
-              !isFlashing && !isSelected && !showResults && !isDisabled && 'hover:scale-[1.015] cursor-pointer',
+              !isSelected && !showResults && !isDisabled && 'cursor-pointer',
             )}
           >
             <div className={clsx(
-              'w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0',
-              'text-lg font-black text-white transition-all duration-200',
+              'w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0',
+              'text-base font-black text-white transition-all duration-200',
               getBadgeClass(index),
             )}>
               {isCorrect ? '✓' : isWrong ? '✗' : p.label}
             </div>
             <span className={clsx(
-              'text-base font-semibold leading-snug flex-1',
+              'text-sm font-semibold leading-snug min-w-0 break-words flex-1',
               showResults && index !== correctAnswer && index !== selectedAnswer
                 ? 'text-white/30'
                 : 'text-white',

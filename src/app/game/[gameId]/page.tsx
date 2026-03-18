@@ -50,7 +50,8 @@ export default function GamePage() {
     voteTimeLeft,
     challengeResult,
     dismissChallengeResult,
-    questionScores
+    questionScores,
+    isAbandoned,
   } = useGame({ gameCode, playerName, isHost: false })
 
   const questionStartTime = useGameStore(state => state.questionStartTime)
@@ -136,6 +137,27 @@ export default function GamePage() {
   console.log('🔍 Using player ID:', detectedPlayerId)
 
   
+
+  // Abandoned state
+  if (isAbandoned) {
+    return (
+      <div style={{ minHeight: '100svh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'radial-gradient(ellipse at 50% -10%, #13154a 0%, #09090f 70%)', padding: '24px' }}>
+        <div style={{ textAlign: 'center', maxWidth: '320px' }}>
+          <div style={{ fontSize: '56px', marginBottom: '16px' }}>😴</div>
+          <h2 style={{ color: 'white', fontWeight: 800, fontSize: '22px', marginBottom: '8px' }}>Game abandoned</h2>
+          <p style={{ color: '#71717a', fontSize: '14px', marginBottom: '32px', lineHeight: 1.5 }}>
+            You were away for a while. The game has likely moved on without you.
+          </p>
+          <button
+            onClick={() => window.location.href = '/'}
+            style={{ width: '100%', padding: '16px', borderRadius: '16px', background: 'linear-gradient(135deg, #4f46e5, #4338ca)', border: 'none', color: 'white', fontWeight: 800, fontSize: '16px', cursor: 'pointer' }}
+          >
+            Back to Home
+          </button>
+        </div>
+      </div>
+    )
+  }
 
   // Loading state
   if (!isConnected) {
