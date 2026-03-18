@@ -15,6 +15,7 @@ interface LobbyProps {
   players: Player[]
   currentPlayerId: string
   isHost: boolean
+  isSolo?: boolean
   questionCount?: number
   onStartGame?: (settings: QuizSettings) => void
   onLeaveGame?: () => void
@@ -96,13 +97,14 @@ export function Lobby({
   players,
   currentPlayerId,
   isHost,
+  isSolo = false,
   questionCount = 0,
   onStartGame,
   onLeaveGame,
 }: LobbyProps) {
   const [copied, setCopied] = useState(false)
   const [settings, setSettings] = useState<QuizSettings>({ categories: [], types: [], questionCount: 10 })
-  const canStart = players.length >= 2
+  const canStart = isSolo ? players.length >= 1 : players.length >= 2
   const nonHostPlayers = players.filter(p => !p.isHost)
 
   const handleCopy = () => {
@@ -213,7 +215,11 @@ export function Lobby({
                   border: canStart ? 'none' : '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                {canStart ? `▶  Start Game · ${nonHostPlayers.length} player${nonHostPlayers.length !== 1 ? 's' : ''} ready` : 'Need 2+ players'}
+                {canStart
+                  ? isSolo
+                    ? '🎯  Start Practice'
+                    : `▶  Start Game · ${nonHostPlayers.length} player${nonHostPlayers.length !== 1 ? 's' : ''} ready`
+                  : 'Need 2+ players'}
               </button>
             </>
           ) : (

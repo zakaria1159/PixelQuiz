@@ -21,6 +21,7 @@ export default function HostPage() {
   const searchParams = useSearchParams()
   const gameCode = params.gameId as string
   const playerName = searchParams.get('name') || 'Host'
+  const isSolo = searchParams.get('solo') === 'true'
   const [isCreating, setIsCreating] = useState(false)
 
   const {
@@ -237,6 +238,7 @@ export default function HostPage() {
         players={players}
         currentPlayerId={currentPlayer?.id || ''}
         isHost={true}
+        isSolo={isSolo}
         questionCount={gameState?.questions?.length}
         onStartGame={handleStartGame}
       />

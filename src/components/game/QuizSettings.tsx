@@ -47,13 +47,13 @@ function ToggleGrid({
   items,
   selected,
   onToggle,
-  onReset,
+  onSelectAll,
   accentColor = 'rgba(99,102,241',
 }: {
   items: { id: string; label: string; emoji: string }[]
   selected: string[]
   onToggle: (id: string) => void
-  onReset: () => void
+  onSelectAll: () => void
   accentColor?: string
 }) {
   const allSelected = selected.length === 0
@@ -97,10 +97,10 @@ function ToggleGrid({
             <>
               {selected.length} of {items.length} selected —{' '}
               <button
-                onClick={onReset}
+                onClick={onSelectAll}
                 style={{ fontSize: '11px', color: '#6366f1', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
               >
-                reset
+                select all
               </button>
             </>
           )}
@@ -176,14 +176,22 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
 
       {/* Categories */}
       <div>
-        <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '10px' }}>
-          Categories
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+          <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+            Categories
+          </div>
+          <button
+            onClick={() => { setSelectedCategories([]); emit([], selectedTypes, questionCount) }}
+            style={{ fontSize: '11px', color: '#6366f1', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+          >
+            Select All
+          </button>
         </div>
         <ToggleGrid
           items={CATEGORIES}
           selected={selectedCategories}
           onToggle={toggleCategory}
-          onReset={() => { setSelectedCategories([]); emit([], selectedTypes, questionCount) }}
+          onSelectAll={() => { setSelectedCategories([]); emit([], selectedTypes, questionCount) }}
         />
       </div>
 
@@ -192,14 +200,22 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
 
       {/* Question types */}
       <div>
-        <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '10px' }}>
-          Question Types
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+          <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+            Question Types
+          </div>
+          <button
+            onClick={() => { setSelectedTypes([]); emit(selectedCategories, [], questionCount) }}
+            style={{ fontSize: '11px', color: '#14b8a6', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+          >
+            Select All
+          </button>
         </div>
         <ToggleGrid
           items={QUESTION_TYPES}
           selected={selectedTypes}
           onToggle={toggleType}
-          onReset={() => { setSelectedTypes([]); emit(selectedCategories, [], questionCount) }}
+          onSelectAll={() => { setSelectedTypes([]); emit(selectedCategories, [], questionCount) }}
           accentColor='rgba(20,184,166'
         />
       </div>

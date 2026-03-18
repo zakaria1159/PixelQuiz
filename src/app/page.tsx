@@ -9,15 +9,17 @@ export default function HomePage() {
   const [playerName,  setPlayerName]  = useState('')
   const [hostName,    setHostName]    = useState('')
   const [isLoading,   setIsLoading]   = useState(false)
-  const [mode,        setMode]        = useState<'idle' | 'join' | 'host'>('idle')
+  const [mode,        setMode]        = useState<'idle' | 'join' | 'host' | 'practice'>('idle')
   const router = useRouter()
 
-  const createGame = async () => {
+  const createGame = async (solo = false) => {
     if (!hostName.trim()) return
     setIsLoading(true)
     const code = generateGameCode()
     await new Promise(r => setTimeout(r, 200))
-    router.push(`/host/${code}?name=${encodeURIComponent(hostName.trim())}` as any)
+    const params = new URLSearchParams({ name: hostName.trim() })
+    if (solo) params.set('solo', 'true')
+    router.push(`/host/${code}?${params}` as any)
   }
 
   const canHost = hostName.trim().length > 0
@@ -84,6 +86,13 @@ export default function HomePage() {
                 <span className="relative z-10">▶  Host a Game</span>
               </button>
 
+              <button
+                onClick={() => setMode('practice')}
+                className="w-full py-4 px-6 rounded-2xl font-black text-base text-emerald-300 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-emerald-800/60 hover:border-emerald-700 hover:bg-emerald-950/30"
+              >
+                🎯  Solo Practice
+              </button>
+
               <div className="relative flex items-center gap-3 py-1">
                 <div className="flex-1 h-px bg-white/10" />
                 <span className="text-xs text-zinc-600 font-semibold">or</span>
@@ -97,7 +106,7 @@ export default function HomePage() {
                 Join a Game
               </button>
             </div>
-          ) : mode === 'host' ? (
+          ) : mode === 'host' || mode === 'practice' ? (
             <div className="space-y-4" style={{ animation: 'slideUpFadeIn 0.3s ease both' }}>
               <div>
                 <label className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2">
@@ -107,7 +116,7 @@ export default function HomePage() {
                   type="text"
                   value={hostName}
                   onChange={e => setHostName(e.target.value)}
-                  onKeyDown={e => e.key === 'Enter' && canHost && createGame()}
+                  onKeyDown={e => e.key === 'Enter' && canHost && createGame(mode === 'practice')}
                   placeholder="Enter your name…"
                   maxLength={20}
                   autoFocus
@@ -116,16 +125,22 @@ export default function HomePage() {
               </div>
 
               <button
-                onClick={createGame}
+                onClick={() => createGame(mode === 'practice')}
                 disabled={!canHost || isLoading}
                 className="w-full py-5 px-6 rounded-2xl font-black text-lg text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
                 style={{
-                  background: canHost ? 'linear-gradient(135deg, #4f46e5, #4338ca)' : 'rgba(255,255,255,0.05)',
-                  boxShadow: canHost ? '0 0 30px rgba(79,70,229,0.4)' : 'none',
+                  background: canHost
+                    ? mode === 'practice'
+                      ? 'linear-gradient(135deg, #059669, #047857)'
+                      : 'linear-gradient(135deg, #4f46e5, #4338ca)'
+                    : 'rgba(255,255,255,0.05)',
+                  boxShadow: canHost
+                    ? mode === 'practice' ? '0 0 30px rgba(5,150,105,0.4)' : '0 0 30px rgba(79,70,229,0.4)'
+                    : 'none',
                   border: canHost ? 'none' : '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                {isLoading ? 'Setting up…' : '▶  Create Game'}
+                {isLoading ? 'Setting up…' : mode === 'practice' ? '🎯  Start Practice' : '▶  Create Game'}
               </button>
 
               <button
