@@ -21,6 +21,7 @@ const CATEGORIES = [
 
 const THEMED_CATEGORIES = [
   { id: 'harry_potter', label: 'Harry Potter', emoji: '🧙' },
+  { id: 'football',     label: 'Football',     emoji: '⚽' },
 ]
 
 const QUESTION_TYPES = [
