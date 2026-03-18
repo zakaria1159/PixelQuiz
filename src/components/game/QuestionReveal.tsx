@@ -516,6 +516,7 @@ export function QuestionReveal({
                 display: 'flex',
                 flexDirection: 'column',
                 padding: '16px 20px 0',
+                paddingBottom: isHost && !showingChallenge && !challengeVoting ? 'calc(64px + env(safe-area-inset-bottom))' : 0,
             }}>
                 {/* ── Top Bar ── */}
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px', flexShrink: 0 }}>
@@ -585,50 +586,30 @@ export function QuestionReveal({
                                     ⏳ Waiting for host to continue...
                                 </p>
                             ) : (
-                                <div>
-                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', flexWrap: 'wrap' }}>
-                                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
-                                            {gameState.players.map((player: any) => {
-                                                const ready = effectiveReadyPlayers.includes(player.id)
-                                                return (
-                                                    <div
-                                                        key={player.id}
-                                                        style={{
-                                                            display: 'flex', alignItems: 'center', gap: '5px',
-                                                            padding: '4px 10px', borderRadius: '99px',
-                                                            background: ready ? 'rgba(74,222,128,0.12)' : 'rgba(255,255,255,0.04)',
-                                                            border: `1px solid ${ready ? 'rgba(74,222,128,0.3)' : 'rgba(255,255,255,0.08)'}`,
-                                                            fontSize: '11px', fontWeight: 600,
-                                                            color: ready ? '#4ade80' : '#52525b',
-                                                        }}
-                                                    >
-                                                        <span style={{
-                                                            width: '6px', height: '6px', borderRadius: '50%', flexShrink: 0,
-                                                            background: ready ? '#4ade80' : '#3f3f46',
-                                                        }} />
-                                                        {player.name}
-                                                        {player.isHost && <span style={{ fontSize: '9px', opacity: 0.5 }}>(host)</span>}
-                                                    </div>
-                                                )
-                                            })}
-                                        </div>
-                                        <button
-                                            onClick={handleNextQuestion}
-                                            style={{
-                                                padding: '10px 20px',
-                                                borderRadius: '12px',
-                                                background: 'linear-gradient(135deg, rgba(99,102,241,0.3), rgba(129,140,248,0.2))',
-                                                border: '1px solid rgba(99,102,241,0.5)',
-                                                color: 'white',
-                                                fontWeight: 800,
-                                                fontSize: '13px',
-                                                cursor: 'pointer',
-                                                whiteSpace: 'nowrap',
-                                            }}
-                                        >
-                                            {currentRevealIndex < gameState.questions.length - 1 ? 'Next →' : 'Final Results 🏆'}
-                                        </button>
-                                    </div>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                                    {gameState.players.map((player: any) => {
+                                        const ready = effectiveReadyPlayers.includes(player.id)
+                                        return (
+                                            <div
+                                                key={player.id}
+                                                style={{
+                                                    display: 'flex', alignItems: 'center', gap: '5px',
+                                                    padding: '4px 10px', borderRadius: '99px',
+                                                    background: ready ? 'rgba(74,222,128,0.12)' : 'rgba(255,255,255,0.04)',
+                                                    border: `1px solid ${ready ? 'rgba(74,222,128,0.3)' : 'rgba(255,255,255,0.08)'}`,
+                                                    fontSize: '11px', fontWeight: 600,
+                                                    color: ready ? '#4ade80' : '#52525b',
+                                                }}
+                                            >
+                                                <span style={{
+                                                    width: '6px', height: '6px', borderRadius: '50%', flexShrink: 0,
+                                                    background: ready ? '#4ade80' : '#3f3f46',
+                                                }} />
+                                                {player.name}
+                                                {player.isHost && <span style={{ fontSize: '9px', opacity: 0.5 }}>(host)</span>}
+                                            </div>
+                                        )
+                                    })}
                                 </div>
                             )}
                         </div>
@@ -1073,6 +1054,40 @@ export function QuestionReveal({
                 </div>{/* end right column */}
                 </div>{/* end two-column body */}
             </div>
+
+            {/* ── Host Next button — fixed footer, always visible ── */}
+            {isHost && !showingChallenge && !challengeVoting && (
+                <div style={{
+                    position: 'fixed',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    padding: '12px 20px',
+                    paddingBottom: 'calc(12px + env(safe-area-inset-bottom))',
+                    background: 'rgba(9,9,15,0.9)',
+                    backdropFilter: 'blur(12px)',
+                    borderTop: '1px solid rgba(255,255,255,0.06)',
+                    zIndex: 40,
+                }}>
+                    <button
+                        onClick={handleNextQuestion}
+                        style={{
+                            width: '100%',
+                            padding: '14px',
+                            borderRadius: '14px',
+                            background: 'linear-gradient(135deg, #4f46e5, #4338ca)',
+                            border: 'none',
+                            color: 'white',
+                            fontWeight: 800,
+                            fontSize: '15px',
+                            cursor: 'pointer',
+                            boxShadow: '0 0 30px rgba(79,70,229,0.4)',
+                        }}
+                    >
+                        {currentRevealIndex < gameState.questions.length - 1 ? 'Next Question →' : 'Final Results 🏆'}
+                    </button>
+                </div>
+            )}
 
             {/* ── Challenge Result Modal ── */}
             {challengeResult && (
