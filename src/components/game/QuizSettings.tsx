@@ -109,8 +109,8 @@ const ALL_CATEGORY_IDS  = CATEGORIES.map(c => c.id)
 const ALL_TYPE_IDS      = QUESTION_TYPES.map(t => t.id)
 
 export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
-  const [selectedCategories, setSelectedCategories] = useState<string[]>(ALL_CATEGORY_IDS)
-  const [selectedTypes,      setSelectedTypes]      = useState<string[]>(ALL_TYPE_IDS)
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+  const [selectedTypes,      setSelectedTypes]      = useState<string[]>([])
   const [questionCount,      setQuestionCount]      = useState(10)
 
   const emit = (cats: string[], types: string[], count: number) =>
@@ -118,7 +118,7 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
 
   // Emit initial state so parent has correct values without user interaction
   useEffect(() => {
-    emit(ALL_CATEGORY_IDS, ALL_TYPE_IDS, 10)
+    emit([], [], 10)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -184,13 +184,25 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
           <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
             Categories
+            <span style={{ fontWeight: 400, color: '#3f3f46', marginLeft: '6px', textTransform: 'none', letterSpacing: 0 }}>
+              {selectedCategories.length === 0 ? '(all)' : `${selectedCategories.length} selected`}
+            </span>
           </div>
-          <button
-            onClick={() => { setSelectedCategories(ALL_CATEGORY_IDS); emit(ALL_CATEGORY_IDS, selectedTypes, questionCount) }}
-            style={{ fontSize: '11px', color: '#6366f1', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
-          >
-            Select All
-          </button>
+          {selectedCategories.length === 0 ? (
+            <button
+              onClick={() => { setSelectedCategories(ALL_CATEGORY_IDS); emit(ALL_CATEGORY_IDS, selectedTypes, questionCount) }}
+              style={{ fontSize: '11px', color: '#6366f1', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+            >
+              Select All
+            </button>
+          ) : (
+            <button
+              onClick={() => { setSelectedCategories([]); emit([], selectedTypes, questionCount) }}
+              style={{ fontSize: '11px', color: '#52525b', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+            >
+              Clear
+            </button>
+          )}
         </div>
         <ToggleGrid
           items={CATEGORIES}
@@ -208,13 +220,25 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
           <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
             Question Types
+            <span style={{ fontWeight: 400, color: '#3f3f46', marginLeft: '6px', textTransform: 'none', letterSpacing: 0 }}>
+              {selectedTypes.length === 0 ? '(all)' : `${selectedTypes.length} selected`}
+            </span>
           </div>
-          <button
-            onClick={() => { setSelectedTypes(ALL_TYPE_IDS); emit(selectedCategories, ALL_TYPE_IDS, questionCount) }}
-            style={{ fontSize: '11px', color: '#14b8a6', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
-          >
-            Select All
-          </button>
+          {selectedTypes.length === 0 ? (
+            <button
+              onClick={() => { setSelectedTypes(ALL_TYPE_IDS); emit(selectedCategories, ALL_TYPE_IDS, questionCount) }}
+              style={{ fontSize: '11px', color: '#14b8a6', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+            >
+              Select All
+            </button>
+          ) : (
+            <button
+              onClick={() => { setSelectedTypes([]); emit(selectedCategories, [], questionCount) }}
+              style={{ fontSize: '11px', color: '#52525b', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+            >
+              Clear
+            </button>
+          )}
         </div>
         <ToggleGrid
           items={QUESTION_TYPES}
