@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export interface QuizSettings {
   categories: string[]
@@ -56,7 +56,7 @@ function ToggleGrid({
   onSelectAll: () => void
   accentColor?: string
 }) {
-  const allSelected = selected.length === 0
+  const allSelected = selected.length === items.length
   return (
     <>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '6px' }}>
@@ -90,32 +90,37 @@ function ToggleGrid({
           )
         })}
       </div>
-      <p style={{ fontSize: '11px', color: '#3f3f46', marginTop: '10px', textAlign: 'center' }}>
-        {allSelected
-          ? 'All included · tap to filter'
-          : (
-            <>
-              {selected.length} of {items.length} selected —{' '}
-              <button
-                onClick={onSelectAll}
-                style={{ fontSize: '11px', color: '#6366f1', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
-              >
-                select all
-              </button>
-            </>
-          )}
-      </p>
+      {!allSelected && (
+        <p style={{ fontSize: '11px', color: '#3f3f46', marginTop: '10px', textAlign: 'center' }}>
+          {selected.length} of {items.length} selected —{' '}
+          <button
+            onClick={onSelectAll}
+            style={{ fontSize: '11px', color: '#6366f1', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+          >
+            select all
+          </button>
+        </p>
+      )}
     </>
   )
 }
 
+const ALL_CATEGORY_IDS  = CATEGORIES.map(c => c.id)
+const ALL_TYPE_IDS      = QUESTION_TYPES.map(t => t.id)
+
 export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
-  const [selectedTypes,      setSelectedTypes]      = useState<string[]>([])
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(ALL_CATEGORY_IDS)
+  const [selectedTypes,      setSelectedTypes]      = useState<string[]>(ALL_TYPE_IDS)
   const [questionCount,      setQuestionCount]      = useState(10)
 
   const emit = (cats: string[], types: string[], count: number) =>
     onChange({ categories: cats, types, questionCount: count })
+
+  // Emit initial state so parent has correct values without user interaction
+  useEffect(() => {
+    emit(ALL_CATEGORY_IDS, ALL_TYPE_IDS, 10)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const toggleCategory = (id: string) => {
     const next = selectedCategories.includes(id)
@@ -181,7 +186,7 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
             Categories
           </div>
           <button
-            onClick={() => { setSelectedCategories([]); emit([], selectedTypes, questionCount) }}
+            onClick={() => { setSelectedCategories(ALL_CATEGORY_IDS); emit(ALL_CATEGORY_IDS, selectedTypes, questionCount) }}
             style={{ fontSize: '11px', color: '#6366f1', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
           >
             Select All
@@ -191,7 +196,7 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
           items={CATEGORIES}
           selected={selectedCategories}
           onToggle={toggleCategory}
-          onSelectAll={() => { setSelectedCategories([]); emit([], selectedTypes, questionCount) }}
+          onSelectAll={() => { setSelectedCategories(ALL_CATEGORY_IDS); emit(ALL_CATEGORY_IDS, selectedTypes, questionCount) }}
         />
       </div>
 
@@ -205,7 +210,7 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
             Question Types
           </div>
           <button
-            onClick={() => { setSelectedTypes([]); emit(selectedCategories, [], questionCount) }}
+            onClick={() => { setSelectedTypes(ALL_TYPE_IDS); emit(selectedCategories, ALL_TYPE_IDS, questionCount) }}
             style={{ fontSize: '11px', color: '#14b8a6', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
           >
             Select All
@@ -215,7 +220,7 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
           items={QUESTION_TYPES}
           selected={selectedTypes}
           onToggle={toggleType}
-          onSelectAll={() => { setSelectedTypes([]); emit(selectedCategories, [], questionCount) }}
+          onSelectAll={() => { setSelectedTypes(ALL_TYPE_IDS); emit(selectedCategories, ALL_TYPE_IDS, questionCount) }}
           accentColor='rgba(20,184,166'
         />
       </div>
