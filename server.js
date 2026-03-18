@@ -551,6 +551,15 @@ function getCorrectAnswerDisplayText(question) {
 }
 
 // Helper function to get random questions — guarantees one question per type
+function shuffle(arr) {
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
 function getRandomQuestions(settings = {}) {
   const { categories = [], types = [], questionCount = 10 } = settings
 
@@ -559,8 +568,7 @@ function getRandomQuestions(settings = {}) {
   if (types.length > 0) pool = pool.filter(q => types.includes(q.type))
   if (pool.length === 0) pool = allQuestions // fallback if filters yield nothing
 
-  const shuffled = [...pool].sort(() => Math.random() - 0.5)
-  return shuffled.slice(0, Math.min(questionCount, shuffled.length))
+  return shuffle(pool).slice(0, Math.min(questionCount, pool.length))
 }
 
 const app = express()
