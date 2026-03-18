@@ -160,8 +160,11 @@ export const useGame = (options: UseGameOptions = {}) => {
 
     socketManager.onRejoinError((data) => {
       console.log('⚠️ Rejoin failed:', data.message)
-      // Game no longer exists — treat as abandoned
-      setIsAbandoned(true)
+      // Only treat as abandoned if we were previously in a game.
+      // A null currentGameCode means this is a fresh load — ignore the error.
+      if (currentGameCode.current) {
+        setIsAbandoned(true)
+      }
     })
 
     // Game created (host only)
