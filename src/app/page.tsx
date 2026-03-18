@@ -7,16 +7,20 @@ import { generateGameCode } from '@/lib/utils'
 export default function HomePage() {
   const [gameCode,    setGameCode]    = useState('')
   const [playerName,  setPlayerName]  = useState('')
+  const [hostName,    setHostName]    = useState('')
   const [isLoading,   setIsLoading]   = useState(false)
-  const [mode,        setMode]        = useState<'idle' | 'join'>('idle')
+  const [mode,        setMode]        = useState<'idle' | 'join' | 'host'>('idle')
   const router = useRouter()
 
   const createGame = async () => {
+    if (!hostName.trim()) return
     setIsLoading(true)
     const code = generateGameCode()
     await new Promise(r => setTimeout(r, 200))
-    router.push(`/host/${code}` as any)
+    router.push(`/host/${code}?name=${encodeURIComponent(hostName.trim())}` as any)
   }
+
+  const canHost = hostName.trim().length > 0
 
   const joinGame = async () => {
     if (!gameCode.trim() || !playerName.trim()) return
@@ -70,15 +74,14 @@ export default function HomePage() {
           {mode === 'idle' ? (
             <div className="space-y-3" style={{ animation: 'slideUpFadeIn 0.35s ease both' }}>
               <button
-                onClick={createGame}
-                disabled={isLoading}
-                className="w-full relative group py-5 px-6 rounded-2xl font-black text-lg text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={() => setMode('host')}
+                className="w-full relative group py-5 px-6 rounded-2xl font-black text-lg text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: 'linear-gradient(135deg, #4f46e5, #4338ca)',
                   boxShadow: '0 0 40px rgba(79,70,229,0.4), inset 0 1px 0 rgba(255,255,255,0.1)',
                 }}
               >
-                <span className="relative z-10">{isLoading ? 'Setting up…' : '▶  Host a Game'}</span>
+                <span className="relative z-10">▶  Host a Game</span>
               </button>
 
               <div className="relative flex items-center gap-3 py-1">
@@ -92,6 +95,44 @@ export default function HomePage() {
                 className="w-full py-5 px-6 rounded-2xl font-black text-lg text-zinc-200 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-white/10 hover:border-white/20 hover:bg-white/5"
               >
                 Join a Game
+              </button>
+            </div>
+          ) : mode === 'host' ? (
+            <div className="space-y-4" style={{ animation: 'slideUpFadeIn 0.3s ease both' }}>
+              <div>
+                <label className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2">
+                  Your name
+                </label>
+                <input
+                  type="text"
+                  value={hostName}
+                  onChange={e => setHostName(e.target.value)}
+                  onKeyDown={e => e.key === 'Enter' && canHost && createGame()}
+                  placeholder="Enter your name…"
+                  maxLength={20}
+                  autoFocus
+                  className="w-full bg-white/5 border border-white/10 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-white placeholder-zinc-600 font-semibold text-base py-4 px-5 rounded-xl outline-none transition-all duration-150"
+                />
+              </div>
+
+              <button
+                onClick={createGame}
+                disabled={!canHost || isLoading}
+                className="w-full py-5 px-6 rounded-2xl font-black text-lg text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                style={{
+                  background: canHost ? 'linear-gradient(135deg, #4f46e5, #4338ca)' : 'rgba(255,255,255,0.05)',
+                  boxShadow: canHost ? '0 0 30px rgba(79,70,229,0.4)' : 'none',
+                  border: canHost ? 'none' : '1px solid rgba(255,255,255,0.08)',
+                }}
+              >
+                {isLoading ? 'Setting up…' : '▶  Create Game'}
+              </button>
+
+              <button
+                onClick={() => { setMode('idle'); setHostName('') }}
+                className="w-full text-zinc-600 hover:text-zinc-400 text-sm font-semibold py-2 transition-colors"
+              >
+                ← Back
               </button>
             </div>
           ) : (

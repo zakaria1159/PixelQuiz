@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useParams } from 'next/navigation'
+import { useParams, useSearchParams } from 'next/navigation'
 import { useGame } from '@/hooks/useGame'
 import { useGameStore } from '@/stores/gameStore'
 import Card from '@/components/ui/Card'
@@ -18,8 +18,9 @@ import socketManager from '@/lib/socket'
 
 export default function HostPage() {
   const params = useParams()
+  const searchParams = useSearchParams()
   const gameCode = params.gameId as string
-  const playerName = 'Host' // Host doesn't need a player name
+  const playerName = searchParams.get('name') || 'Host'
   const [isCreating, setIsCreating] = useState(false)
 
   const {

@@ -621,7 +621,7 @@ io.on('connection', (socket) => {
   console.log('🔌 New connection:', socket.id)
 
   // Host creates a game
-  socket.on('host-create-game', (gameCode) => {
+  socket.on('host-create-game', ({ gameCode, hostName }) => {
     try {
       if (games.has(gameCode)) {
         const existingGame = games.get(gameCode)
@@ -641,7 +641,7 @@ io.on('connection', (socket) => {
       
       gameState.players.push({
         id: socket.id,
-        name: 'Host',
+        name: hostName || 'Host',
         isHost: true,
         score: 0,
         joinedAt: Date.now()

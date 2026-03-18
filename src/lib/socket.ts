@@ -94,8 +94,8 @@ class SocketManager {
   }
 
   // Game-specific methods
-  createGame(gameCode: string) {
-    this.socket?.emit('host-create-game', gameCode)
+  createGame(gameCode: string, hostName: string) {
+    this.socket?.emit('host-create-game', { gameCode, hostName })
   }
 
   joinGame(gameCode: string, playerName: string) {

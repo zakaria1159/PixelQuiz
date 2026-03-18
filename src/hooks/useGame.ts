@@ -381,7 +381,7 @@ export const useGame = (options: UseGameOptions = {}) => {
     }
 
     console.log('🎮 Creating game with code:', code)
-    socketManager.createGame(code)
+    socketManager.createGame(code, playerName || 'Host')
     currentGameCode.current = code
     return true
   }, [setConnectionError])
