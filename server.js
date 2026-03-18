@@ -802,6 +802,7 @@ io.on('connection', (socket) => {
     // Support both old string format and new object format { gameCode, settings }
     const gameCode = typeof data === 'string' ? data : data?.gameCode
     const settings = (typeof data === 'object' && data?.settings) ? data.settings : {}
+    const solo = typeof data === 'object' && data?.solo === true
     try {
       const game = games.get(gameCode)
       if (!game) {
@@ -815,7 +816,7 @@ io.on('connection', (socket) => {
         return
       }
 
-      if (game.players.length < 2) {
+      if (!solo && game.players.length < 2) {
         socket.emit('error', { message: 'Need at least 2 players to start' })
         return
       }

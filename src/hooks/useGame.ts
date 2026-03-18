@@ -453,19 +453,20 @@ export const useGame = (options: UseGameOptions = {}) => {
     }
   }, [resetStore])
 
-  const startGame = useCallback((settings?: { categories: string[]; types: string[]; questionCount: number }) => {
+  const startGame = useCallback((settings?: { categories: string[]; types: string[]; questionCount: number }, solo?: boolean) => {
     if (!currentGameCode.current) {
       setConnectionError('No active game')
       return false
     }
 
-    if ((gameState?.players?.length || 0) < 2) {
-      setConnectionError('Need at least 2 players to start')
+    const minPlayers = solo ? 1 : 2
+    if ((gameState?.players?.length || 0) < minPlayers) {
+      setConnectionError(`Need at least ${minPlayers} player${minPlayers > 1 ? 's' : ''} to start`)
       return false
     }
 
     console.log('🚀 Starting game', settings)
-    socketManager.startGame(currentGameCode.current, settings)
+    socketManager.startGame(currentGameCode.current, settings, solo)
     return true
   }, [gameState, setConnectionError])
 
@@ -654,7 +655,7 @@ export const useGame = (options: UseGameOptions = {}) => {
       isInGame: !!currentGameCode.current,
     gameCode: currentGameCode.current,
     playerCount: gameState?.players?.length || 0,
-    canStartGame: (gameState?.players?.length || 0) >= 2,
+    canStartGame: (gameState?.players?.length || 0) >= (isHost ? 1 : 2),
     getReadyPlayersForQuestion
   }
 }

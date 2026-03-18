@@ -75,8 +75,8 @@ export default function HostPage() {
   }, [gameCode, gameState, createGame, isConnected])
 
   const handleStartGame = (settings: { categories: string[]; types: string[]; questionCount: number }) => {
-    if (canStartGame) {
-      startGame(settings)
+    if (isSolo || canStartGame) {
+      startGame(settings, isSolo)
     }
   }
 

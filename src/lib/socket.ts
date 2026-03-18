@@ -108,9 +108,9 @@ class SocketManager {
     this.socket?.emit('player-leave-game', gameCode)
   }
 
-  startGame(gameCode: string, settings?: { categories: string[]; types: string[]; questionCount: number }) {
+  startGame(gameCode: string, settings?: { categories: string[]; types: string[]; questionCount: number }, solo?: boolean) {
     if (this.socket) {
-      this.socket.emit('host-start-game', { gameCode, settings: settings ?? {} })
+      this.socket.emit('host-start-game', { gameCode, settings: settings ?? {}, solo: solo ?? false })
     }
   }
 
