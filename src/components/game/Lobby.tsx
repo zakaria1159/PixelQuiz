@@ -103,7 +103,7 @@ export function Lobby({
   onLeaveGame,
 }: LobbyProps) {
   const [copied, setCopied] = useState(false)
-  const [settings, setSettings] = useState<QuizSettings>({ categories: [], types: [], questionCount: 10 })
+  const [settings, setSettings] = useState<QuizSettings>({ categories: [], types: [], questionCount: 10, lang: 'en' })
   const canStart = isSolo ? players.length >= 1 : players.length >= 2
   const nonHostPlayers = players.filter(p => !p.isHost)
 
