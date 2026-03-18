@@ -742,9 +742,11 @@ io.on('connection', (socket) => {
         delete game.answers[player.id]
       }
 
-      // Update socket ID
+      // Update socket ID and clear disconnection marker
       player.id = socket.id
       player.connected = true
+      delete player.disconnectedAt
+      delete player.disconnectedSocketId
       players.set(socket.id, { gameCode, isHost: false })
       socket.join(gameCode)
 
@@ -1647,7 +1649,7 @@ socket.on('player-ready', (data) => {
   // Handle disconnection
   socket.on('disconnect', () => {
     console.log('❌ Player disconnected:', socket.id)
-    
+
     const player = players.get(socket.id)
     if (player) {
       const game = games.get(player.gameCode)
@@ -1655,16 +1657,28 @@ socket.on('player-ready', (data) => {
         const playerIndex = game.players.findIndex(p => p.id === socket.id)
         if (playerIndex !== -1) {
           const playerObj = game.players[playerIndex]
-          game.players.splice(playerIndex, 1)
+          // Mark as disconnected but keep in game for 30s grace period (handles mobile background/refresh)
+          playerObj.disconnectedAt = Date.now()
+          playerObj.disconnectedSocketId = socket.id
           game.updatedAt = Date.now()
 
-          console.log('👋 Player disconnected:', playerObj.name)
+          console.log('👋 Player temporarily disconnected:', playerObj.name, '— grace period started')
           io.to(player.gameCode).emit('player-left', { playerId: socket.id, gameState: game })
 
-          if (game.players.length === 0) {
-            games.delete(player.gameCode)
-            console.log('🗑️ Game deleted due to no players:', player.gameCode)
-          }
+          // Delayed removal — gives host/players time to rejoin on mobile
+          setTimeout(() => {
+            const currentGame = games.get(player.gameCode)
+            if (!currentGame) return
+            const idx = currentGame.players.findIndex(p => p.disconnectedSocketId === socket.id && p.disconnectedAt)
+            if (idx === -1) return // Player already rejoined (socket ID updated)
+            currentGame.players.splice(idx, 1)
+            currentGame.updatedAt = Date.now()
+            console.log('🗑️ Removed disconnected player after grace period:', playerObj.name)
+            if (currentGame.players.length === 0) {
+              games.delete(player.gameCode)
+              console.log('🗑️ Game deleted due to no players:', player.gameCode)
+            }
+          }, 30000)
         }
       }
       players.delete(socket.id)
