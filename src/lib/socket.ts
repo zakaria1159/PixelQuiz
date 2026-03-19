@@ -301,7 +301,13 @@ onReadyStatusUpdated(callback: (data: { questionIndex: number, readyPlayers: str
       'challenge-voting',
       'challenge-resolved',
       'rejoin-success',
-      'rejoin-error'
+      'rejoin-error',
+      'question-start',
+      'question-results',
+      'question-scores',
+      'game-finished',
+      'game-state-updated',
+      'answer-status-updated',
     ]
     
     events.forEach(event => {
