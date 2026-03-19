@@ -1377,6 +1377,7 @@ io.on('connection', (socket) => {
 
       // Server-side timeout: auto-reject if not all votes arrive in time
       setTimeout(() => {
+        if (!games.has(gameCode)) return // Game no longer exists
         const votes = game.challengeVotes?.[challenge.id]
         if (!votes) return // Already resolved
         const totalVotes = (votes.approve?.length || 0) + (votes.reject?.length || 0)
