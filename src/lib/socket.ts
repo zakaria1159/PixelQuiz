@@ -19,25 +19,7 @@ class SocketManager {
       timeout: 20000,
     })
 
-    this.socket.on('connect', () => {
-      console.log('🔌 Connected to server:', this.socket?.id)
-    })
-
-    this.socket.on('disconnect', () => {
-      console.log('❌ Disconnected from server')
-    })
-
-    this.socket.on('connect_error', (error) => {
-      console.error('🔴 Connection error:', error)
-    })
-
-    this.socket.on('error', (error) => {
-      console.error('🔴 Socket error:', error)
-      // Don't show connection errors for normal game state transitions
-      if (error.message && !error.message.includes('Game not in question state')) {
-        console.error('🔴 Game error:', error.message)
-      }
-    })
+    this.setupEventListeners()
 
     return this.socket
   }
