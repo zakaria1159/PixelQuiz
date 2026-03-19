@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { QuizSettingsPanel, QuizSettings } from '@/components/game/QuizSettings'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface Player {
   id: string
@@ -49,6 +50,7 @@ function PulsingDots() {
 function PlayerCard({ player, index, isCurrentPlayer }: { player: Player; index: number; isCurrentPlayer: boolean }) {
   const [visible, setVisible] = useState(false)
   const grad = AVATAR_COLORS[index % AVATAR_COLORS.length]
+  const { t } = useTranslation()
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 50 + index * 30)
@@ -78,12 +80,12 @@ function PlayerCard({ player, index, isCurrentPlayer }: { player: Player; index:
       <div className="flex items-center gap-1.5 flex-shrink-0">
         {player.isHost && (
           <span className="text-[10px] bg-yellow-500/20 text-yellow-400 px-2 py-0.5 rounded-full border border-yellow-500/40 font-bold uppercase tracking-wide">
-            Host
+            {t('host_badge')}
           </span>
         )}
         {isCurrentPlayer && (
           <span className="text-[10px] bg-indigo-500/20 text-indigo-400 px-2 py-0.5 rounded-full border border-indigo-500/40 font-bold uppercase tracking-wide">
-            You
+            {t('you_badge')}
           </span>
         )}
         <div className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_6px_rgba(74,222,128,0.7)]" />
@@ -104,6 +106,7 @@ export function Lobby({
 }: LobbyProps) {
   const [copied, setCopied] = useState(false)
   const [settings, setSettings] = useState<QuizSettings>({ categories: [], types: [], questionCount: 10, lang: 'en' })
+  const { t } = useTranslation()
   const canStart = isSolo ? players.length >= 1 : players.length >= 2
   const nonHostPlayers = players.filter(p => !p.isHost)
 
@@ -132,7 +135,7 @@ export function Lobby({
         {/* Branding */}
         <div className="text-center" style={{ animation: 'slideUpFadeIn 0.4s ease both' }}>
           <div className="text-xs text-indigo-400 uppercase tracking-[0.4em] mb-2 font-bold">
-            {isHost ? 'Hosting' : 'Joined'}
+            {isHost ? t('hosting') : t('joined')}
           </div>
           <h1 className="text-3xl font-display text-white tracking-tight leading-none">
             META<span className="text-indigo-400">QUIZZ</span>
@@ -141,7 +144,7 @@ export function Lobby({
 
         {/* Game code card */}
         <div className="glass p-6 text-center cursor-pointer" onClick={handleCopy} style={{ animation: 'slideUpFadeIn 0.4s ease 0.07s both' }}>
-          <div className="text-xs text-zinc-500 uppercase tracking-widest mb-3 font-semibold">Game Code</div>
+          <div className="text-xs text-zinc-500 uppercase tracking-widest mb-3 font-semibold">{t('game_code')}</div>
           <div
             className="font-display text-5xl text-white tracking-[0.3em] leading-none mb-3"
             style={{ textShadow: '0 0 40px rgba(99,102,241,0.6)' }}
@@ -149,7 +152,7 @@ export function Lobby({
             {gameCode}
           </div>
           <div className={`text-xs font-semibold transition-colors ${copied ? 'text-green-400' : 'text-zinc-600'}`}>
-            {copied ? '✓ Copied to clipboard' : 'Click to copy'}
+            {copied ? t('copied') : t('click_to_copy')}
           </div>
           {questionCount > 0 && (
             <div className="mt-3 text-xs text-zinc-500">
@@ -161,7 +164,7 @@ export function Lobby({
         {/* Players list */}
         <div className="glass p-5" style={{ animation: 'slideUpFadeIn 0.4s ease 0.14s both' }}>
           <div className="flex items-center justify-between mb-4">
-            <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest">Players</span>
+            <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest">{t('players')}</span>
             <span className={`text-xs font-bold px-2.5 py-1 rounded-full border ${
               canStart
                 ? 'text-green-400 border-green-800 bg-green-950/50'
@@ -174,7 +177,7 @@ export function Lobby({
           <div className="space-y-2 min-h-[72px]">
             {players.length === 0 ? (
               <div className="flex items-center justify-center h-16 text-zinc-600 text-sm">
-                Waiting for players<PulsingDots />
+                {t('waiting_for_players')}<PulsingDots />
               </div>
             ) : (
               players.map((player, index) => (
@@ -202,7 +205,7 @@ export function Lobby({
             <>
               {!canStart && (
                 <div className="text-center text-sm text-yellow-400 bg-yellow-950/30 border border-yellow-900/50 rounded-2xl px-4 py-3">
-                  Waiting for players<PulsingDots />
+                  {t('waiting_for_players')}<PulsingDots />
                 </div>
               )}
               <button
@@ -217,14 +220,14 @@ export function Lobby({
               >
                 {canStart
                   ? isSolo
-                    ? '🎯  Start Practice'
-                    : `▶  Start Game · ${nonHostPlayers.length} player${nonHostPlayers.length !== 1 ? 's' : ''} ready`
-                  : 'Need 2+ players'}
+                    ? t('start_practice')
+                    : `${t('start_game')} · ${nonHostPlayers.length === 1 ? t('player_ready_singular', { n: nonHostPlayers.length }) : t('player_ready_plural', { n: nonHostPlayers.length })}`
+                  : t('need_2_players')}
               </button>
             </>
           ) : (
             <div className="text-center text-sm text-blue-400 bg-blue-950/30 border border-blue-900/50 rounded-2xl px-4 py-4">
-              Waiting for host to start<PulsingDots />
+              {t('waiting_for_host')}<PulsingDots />
             </div>
           )}
 
@@ -233,7 +236,7 @@ export function Lobby({
               onClick={onLeaveGame}
               className="w-full py-3 px-6 text-sm text-zinc-600 hover:text-zinc-400 font-semibold transition-colors"
             >
-              Leave Game
+              {t('leave_game')}
             </button>
           )}
         </div>

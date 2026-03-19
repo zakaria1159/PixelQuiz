@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface GameCountdownProps {
   playerCount: number
@@ -10,6 +11,7 @@ export function GameCountdown({ playerCount }: GameCountdownProps) {
   const [count, setCount] = useState(3)
   const [phase, setPhase] = useState<'ready' | 'counting' | 'go'>('ready')
   const [visible, setVisible] = useState(false)
+  const { t } = useTranslation()
 
   useEffect(() => {
     const t = setTimeout(() => setVisible(true), 50)
@@ -66,7 +68,7 @@ export function GameCountdown({ playerCount }: GameCountdownProps) {
         padding: '6px 16px',
         letterSpacing: '0.08em',
       }}>
-        {playerCount} {playerCount === 1 ? 'player' : 'players'} ready
+        {playerCount === 1 ? t('player_ready_singular', { n: playerCount }) : t('player_ready_plural', { n: playerCount })}
       </div>
 
       {/* Main display */}
@@ -79,7 +81,7 @@ export function GameCountdown({ playerCount }: GameCountdownProps) {
           }}
         >
           <div style={{ fontSize: '18px', fontWeight: 700, color: '#a1a1aa', marginBottom: '12px', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
-            Get Ready!
+            {t('get_ready')}
           </div>
           <div style={{ fontSize: '80px', lineHeight: 1 }}>🎮</div>
         </div>
@@ -119,7 +121,7 @@ export function GameCountdown({ playerCount }: GameCountdownProps) {
 
       {/* Subtitle */}
       <div style={{ fontSize: '12px', color: '#3f3f46', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-        First question starting soon
+        {t('first_question_soon')}
       </div>
 
       <style>{`

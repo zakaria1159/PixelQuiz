@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useGame } from '@/hooks/useGame'
 import { useGameStore } from '@/stores/gameStore'
+import { useTranslation } from '@/hooks/useTranslation'
 import { useParams, useSearchParams } from 'next/navigation'
 import Card from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
@@ -55,6 +56,7 @@ export default function GamePage() {
   } = useGame({ gameCode, playerName, isHost: false })
 
   const questionStartTime = useGameStore(state => state.questionStartTime)
+  const { t } = useTranslation()
 
   const [isJoining, setIsJoining] = useState(false)
 
@@ -144,15 +146,15 @@ export default function GamePage() {
       <div style={{ minHeight: '100svh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'radial-gradient(ellipse at 50% -10%, #13154a 0%, #09090f 70%)', padding: '24px' }}>
         <div style={{ textAlign: 'center', maxWidth: '320px' }}>
           <div style={{ fontSize: '56px', marginBottom: '16px' }}>😴</div>
-          <h2 style={{ color: 'white', fontWeight: 800, fontSize: '22px', marginBottom: '8px' }}>Game abandoned</h2>
+          <h2 style={{ color: 'white', fontWeight: 800, fontSize: '22px', marginBottom: '8px' }}>{t('game_abandoned')}</h2>
           <p style={{ color: '#71717a', fontSize: '14px', marginBottom: '32px', lineHeight: 1.5 }}>
-            You were away for a while. The game has likely moved on without you.
+            {t('game_abandoned_msg')}
           </p>
           <button
             onClick={() => window.location.href = '/'}
             style={{ width: '100%', padding: '16px', borderRadius: '16px', background: 'linear-gradient(135deg, #4f46e5, #4338ca)', border: 'none', color: 'white', fontWeight: 800, fontSize: '16px', cursor: 'pointer' }}
           >
-            Back to Home
+            {t('back_to_home')}
           </button>
         </div>
       </div>
@@ -165,7 +167,7 @@ export default function GamePage() {
       <div style={{ minHeight: '100svh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'radial-gradient(ellipse at 50% -10%, #13154a 0%, #09090f 70%)' }}>
         <div style={{ textAlign: 'center' }}>
           <div style={{ width: '44px', height: '44px', borderRadius: '50%', border: '3px solid rgba(99,102,241,0.2)', borderTopColor: '#6366f1', animation: 'spin 0.8s linear infinite', margin: '0 auto 16px' }} />
-          <p style={{ color: '#52525b', fontSize: '13px', fontWeight: 600 }}>Connecting…</p>
+          <p style={{ color: '#52525b', fontSize: '13px', fontWeight: 600 }}>{t('connecting')}</p>
           {connectionError && <p style={{ color: '#ef4444', fontSize: '12px', marginTop: '8px' }}>{connectionError}</p>}
         </div>
       </div>
@@ -177,10 +179,10 @@ export default function GamePage() {
       <div className="min-h-screen flex items-center justify-center bg-black">
         <Card className="text-center">
           <div className="text-4xl mb-4">❌</div>
-          <h2 className="text-xl font-bold mb-4 text-white">Connection Error</h2>
+          <h2 className="text-xl font-bold mb-4 text-white">{t('connection_error')}</h2>
           <p className="text-red-400 mb-4">{connectionError}</p>
           <Button onClick={clearError} variant="primary">
-            Try Again
+            {t('try_again')}
           </Button>
         </Card>
       </div>
@@ -228,8 +230,8 @@ export default function GamePage() {
     return (
       <div className="min-h-screen flex items-center justify-center p-4 bg-black">
         <Card className="w-full max-w-2xl p-6">
-          <h2 className="text-2xl font-bold text-center mb-6 text-white">Processing...</h2>
-          <p className="text-center text-gray-300">Moving to next question...</p>
+          <h2 className="text-2xl font-bold text-center mb-6 text-white">{t('processing')}</h2>
+          <p className="text-center text-gray-300">{t('moving_to_next')}</p>
         </Card>
       </div>
     )
@@ -287,7 +289,7 @@ export default function GamePage() {
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
           <div className="text-center">
             <div className="text-5xl mb-4">🚀</div>
-            <p className="text-white font-bold text-lg">Joining game room...</p>
+            <p className="text-white font-bold text-lg">{t('joining')}</p>
           </div>
         </div>
       )}

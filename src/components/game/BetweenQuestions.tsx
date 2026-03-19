@@ -1,6 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useTranslation } from '@/hooks/useTranslation'
+import type { TranslationKey } from '@/lib/translations'
 
 interface ScoreEntry {
   playerId: string
@@ -37,13 +39,13 @@ function AnimatedScore({ value }: { value: number }) {
   return <>{displayed.toLocaleString()}</>
 }
 
-function generateHints(
+function generateHintKeys(
   leaderboard: ScoreEntry[],
   myEntry: ScoreEntry | undefined,
   questionIndex: number,
   totalQuestions: number
-): string[] {
-  const hints: string[] = []
+): TranslationKey[] {
+  const keys: TranslationKey[] = []
   const n = leaderboard.length
   const correctCount = leaderboard.filter(p => p.isCorrect).length
   const questionsLeft = totalQuestions - questionIndex - 1
@@ -51,28 +53,28 @@ function generateHints(
   // ── Personal hints ──
   if (myEntry) {
     if (myEntry.rank === 1 && myEntry.isCorrect)
-      hints.push("You're leading and just got it right. Don't get comfortable 👀")
+      keys.push('commentary_leading_correct')
     else if (myEntry.rank === 1 && !myEntry.isCorrect)
-      hints.push("You're in the lead... but you just dropped points 😬")
+      keys.push('commentary_leading_wrong')
     else if (myEntry.rank === n && myEntry.isCorrect)
-      hints.push("You got that one! Keep the momentum going 🔥")
+      keys.push('commentary_got_it')
     else if (myEntry.rank === n && !myEntry.isCorrect)
-      hints.push("Rough round. The next question is your chance to turn it around 💪")
+      keys.push('commentary_missed')
     else if (myEntry.isCorrect)
-      hints.push("Nice answer! Every point matters in this game 🎯")
+      keys.push('commentary_nice')
     else
-      hints.push("Missed that one. Stay sharp — it's not over yet ⚡")
+      keys.push('commentary_missed_short')
   }
 
   // ── Social hints ──
   if (correctCount === n)
-    hints.push("Everyone nailed that one — no one gains an edge 😅")
+    keys.push('commentary_everyone_correct')
   else if (correctCount === 0)
-    hints.push("Nobody got that one right. Brutal question 🤯")
+    keys.push('commentary_nobody_correct')
   else if (correctCount === 1)
-    hints.push("Only one player got that right... they know something you don't 🔍")
+    keys.push('commentary_only_one')
   else if (correctCount === n - 1)
-    hints.push("Almost everyone got it — someone's having a tough time 😬")
+    keys.push('commentary_almost_everyone')
 
   // ── Tension/drama hints ──
   const scores = leaderboard.map(p => p.total)
@@ -82,19 +84,19 @@ function generateHints(
   const avg = scores.reduce((a, b) => a + b, 0) / n
 
   if (spread < avg * 0.15 && n > 2)
-    hints.push("The scores are dangerously close right now... 😰")
+    keys.push('commentary_close_scores')
   else if (spread > avg * 2)
-    hints.push("Someone is pulling away from the pack 🏃")
+    keys.push('commentary_pulling_away')
 
   if (questionsLeft === 1)
-    hints.push("Last question coming up — everything can still change 🔥")
+    keys.push('commentary_last_question')
   else if (questionsLeft === 2)
-    hints.push("Two questions left. The real game starts now 🎲")
+    keys.push('commentary_two_left')
   else if (questionsLeft === 0)
-    hints.push("That was the last question! Head to the reveal... 🏁")
+    keys.push('commentary_game_over')
 
   // Return max 2, pick from beginning (most relevant)
-  return hints.slice(0, 2)
+  return keys.slice(0, 2)
 }
 
 export function BetweenQuestions({
@@ -106,6 +108,7 @@ export function BetweenQuestions({
 }: BetweenQuestionsProps) {
   const [countdown, setCountdown] = useState(4)
   const [visible, setVisible] = useState(false)
+  const { t } = useTranslation()
 
   const me = leaderboard.find(p => p.playerId === currentPlayerId)
 
@@ -120,7 +123,8 @@ export function BetweenQuestions({
     return () => clearTimeout(t)
   }, [countdown])
 
-  const hints = generateHints(leaderboard, me, questionIndex, totalQuestions)
+  const hintKeys = generateHintKeys(leaderboard, me, questionIndex, totalQuestions)
+  const hints = hintKeys.map(k => t(k))
 
   return (
     <>
@@ -159,10 +163,10 @@ export function BetweenQuestions({
             textTransform: 'uppercase',
             letterSpacing: '0.15em',
           }}>
-            Question {questionIndex + 1} / {totalQuestions}
+            {t('question_n_of_m', { n: questionIndex + 1, total: totalQuestions })}
           </span>
           <div style={{ fontSize: '12px', color: '#52525b', marginTop: '4px', fontWeight: 600 }}>
-            Answer: <span style={{ color: '#a1a1aa', fontWeight: 700 }}>{correctAnswerText}</span>
+            {t('answer_label')} <span style={{ color: '#a1a1aa', fontWeight: 700 }}>{correctAnswerText}</span>
           </div>
         </div>
 
@@ -188,7 +192,7 @@ export function BetweenQuestions({
               color: me.isCorrect ? '#4ade80' : '#f87171',
               marginBottom: '6px',
             }}>
-              {me.isCorrect ? 'Correct!' : 'Wrong answer'}
+              {me.isCorrect ? t('correct') : t('wrong_answer')}
             </div>
             {me.earned > 0 && (
               <div
@@ -240,7 +244,7 @@ export function BetweenQuestions({
             textTransform: 'uppercase',
             letterSpacing: '0.1em',
           }}>
-            Next question in
+            {t('next_question_in')}
           </div>
           <div
             style={{

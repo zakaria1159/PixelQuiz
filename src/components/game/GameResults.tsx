@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface GameResultsProps {
   gameState: any
@@ -105,6 +106,7 @@ export function GameResults({ gameState, currentPlayer, isHost }: GameResultsPro
   const [showPodium, setShowPodium] = useState(false)
   const [showList, setShowList] = useState(false)
   const [showStats, setShowStats] = useState(false)
+  const { t } = useTranslation()
 
   useEffect(() => {
     const t1 = setTimeout(() => setVisible(true), 50)
@@ -157,10 +159,10 @@ export function GameResults({ gameState, currentPlayer, isHost }: GameResultsPro
           METAQUIZZ
         </div>
         <div style={{ fontSize: '32px', fontWeight: 900, color: 'white', letterSpacing: '-0.02em' }}>
-          Game Over
+          {t('game_over')}
         </div>
         <div style={{ fontSize: '13px', color: '#52525b', marginTop: '4px', fontWeight: 600 }}>
-          {results.length} players · {results[0]?.questionResults?.length ?? 0} questions
+          {t('n_players_n_questions', { players: results.length, questions: results[0]?.questionResults?.length ?? 0 })}
         </div>
       </div>
 
@@ -183,7 +185,7 @@ export function GameResults({ gameState, currentPlayer, isHost }: GameResultsPro
           {winner?.playerName}
         </div>
         <div style={{ fontSize: '13px', color: '#a16207', fontWeight: 700, marginTop: '4px' }}>
-          {winner?.score?.toLocaleString()} pts · wins the game!
+          {winner?.score?.toLocaleString()} {t('wins_the_game')}
         </div>
       </div>
 
@@ -264,7 +266,7 @@ export function GameResults({ gameState, currentPlayer, isHost }: GameResultsPro
         }}
       >
         <div style={{ fontSize: '11px', fontWeight: 700, color: '#3f3f46', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px' }}>
-          Final standings
+          {t('final_standings')}
         </div>
         {results.map((entry: any, i: number) => {
           const isMe = entry.playerId === currentPlayer?.id
@@ -295,10 +297,10 @@ export function GameResults({ gameState, currentPlayer, isHost }: GameResultsPro
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontWeight: 700, color: isMe ? '#a5b4fc' : 'white', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   {entry.playerName}
-                  {isMe && <span style={{ fontSize: '10px', background: 'rgba(99,102,241,0.3)', color: '#818cf8', padding: '1px 6px', borderRadius: '99px', fontWeight: 700 }}>you</span>}
+                  {isMe && <span style={{ fontSize: '10px', background: 'rgba(99,102,241,0.3)', color: '#818cf8', padding: '1px 6px', borderRadius: '99px', fontWeight: 700 }}>{t('you_badge')}</span>}
                 </div>
                 <div style={{ fontSize: '11px', color: '#52525b', fontWeight: 600, marginTop: '2px' }}>
-                  {correct}/{total} correct
+                  {t('n_correct', { n: correct, total })}
                 </div>
               </div>
               <div style={{ fontSize: '16px', fontWeight: 900, color: isMe ? '#a5b4fc' : rankStyle.text, flexShrink: 0, minWidth: '60px', textAlign: 'right' }}>
@@ -325,14 +327,14 @@ export function GameResults({ gameState, currentPlayer, isHost }: GameResultsPro
           }}
         >
           <div style={{ fontSize: '11px', fontWeight: 700, color: '#6366f1', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '14px' }}>
-            Your performance
+            {t('your_performance')}
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '12px' }}>
             {[
-              { label: 'Rank', value: myRank === 1 ? '🥇 1st' : `#${myRank}`, highlight: myRank === 1 },
-              { label: 'Score', value: (myResult.score || 0).toLocaleString(), highlight: false },
+              { label: t('rank_label'), value: myRank === 1 ? '🥇 1st' : `#${myRank}`, highlight: myRank === 1 },
+              { label: t('score_label'), value: (myResult.score || 0).toLocaleString(), highlight: false },
               {
-                label: 'Accuracy',
+                label: t('accuracy_label'),
                 value: `${Math.round(
                   ((myResult.questionResults?.filter((q: any) => q.isCorrect).length ?? 0) /
                     (myResult.questionResults?.length || 1)) * 100
@@ -373,7 +375,7 @@ export function GameResults({ gameState, currentPlayer, isHost }: GameResultsPro
         onMouseEnter={e => (e.currentTarget.style.background = 'rgba(99,102,241,0.28)')}
         onMouseLeave={e => (e.currentTarget.style.background = 'rgba(99,102,241,0.15)')}
       >
-        Back to Home
+        {t('back_to_home')}
       </button>
 
       <style>{`

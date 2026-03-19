@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import { Question } from '@/types'
+import { useTranslation } from '@/hooks/useTranslation'
 
 interface QuestionRevealProps {
     gameState: any
@@ -23,6 +24,7 @@ interface QuestionRevealProps {
 }
 
 function ScorePopup({ score, isCorrect, runningTotal }: { score: number; isCorrect: boolean; runningTotal: number }) {
+    const { t } = useTranslation()
     const [visible, setVisible] = useState(false)
     const [floatVisible, setFloatVisible] = useState(false)
     const prevScore = useRef(score)
@@ -46,7 +48,7 @@ function ScorePopup({ score, isCorrect, runningTotal }: { score: number; isCorre
 
     const isHuge = score >= 400
     const isBig = score >= 200
-    const label = !isCorrect || score === 0 ? 'No Points' : isHuge ? '🔥 MASSIVE!' : isBig ? '⚡ GREAT!' : '✓ Points'
+    const label = !isCorrect || score === 0 ? t('no_points') : isHuge ? t('score_massive') : isBig ? t('score_great') : '✓ Points'
 
     const scoreColor = !isCorrect || score === 0
         ? '#71717a'
@@ -108,7 +110,7 @@ function ScorePopup({ score, isCorrect, runningTotal }: { score: number; isCorre
                 transform: floatVisible ? 'translateY(0)' : 'translateY(4px)',
                 transition: 'opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s',
             }}>
-                Total: <span style={{ color: 'white', fontWeight: 600 }}>{runningTotal.toLocaleString()}</span> pts
+                {t('total_pts', { n: runningTotal.toLocaleString() })}
             </div>
         </div>
     )
@@ -132,6 +134,7 @@ export function QuestionReveal({
     challengeResult,
     onDismissChallengeResult
 }: QuestionRevealProps) {
+    const { t } = useTranslation()
     const serverRevealIndex = gameState.currentRevealIndex || 0
     const [currentRevealIndex, setCurrentRevealIndex] = useState(serverRevealIndex)
     const [showingChallenge, setShowingChallenge] = useState(false)
@@ -181,7 +184,7 @@ export function QuestionReveal({
 
     const getDisplayAnswer = (question: any, rawAnswer: any) => {
         if (rawAnswer === "NO_ANSWER" || rawAnswer === null || rawAnswer === undefined || rawAnswer === '') {
-            return 'No answer submitted'
+            return t('no_answer')
         }
 
         if (question.type === 'multiple_choice' && question.options) {
@@ -585,7 +588,7 @@ export function QuestionReveal({
                         }}>
                             {!isHost ? (
                                 <p style={{ textAlign: 'center', fontSize: '13px', color: '#52525b', margin: 0 }}>
-                                    ⏳ Waiting for host to continue...
+                                    {t('waiting_for_host_reveal')}
                                 </p>
                             ) : (
                                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
@@ -626,7 +629,7 @@ export function QuestionReveal({
                         animation: 'glowPulse 2s ease infinite',
                     }}>
                         <div style={{ fontSize: '11px', fontWeight: 700, color: '#4ade80', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' }}>
-                            ✅ Correct Answer
+                            {t('correct_answer_heading')}
                         </div>
                         {currentQuestion.type === 'letter_game' ? (
                             <div style={{ textAlign: 'center' }}>
@@ -651,7 +654,7 @@ export function QuestionReveal({
                         animation: 'popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both',
                     }}>
                         <div style={{ fontSize: '11px', fontWeight: 700, color: isCorrect ? '#4ade80' : '#f87171', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '10px' }}>
-                            {isCorrect ? '✓ Your Answer' : '✗ Your Answer'}
+                            {isCorrect ? t('your_answer_correct') : t('your_answer_wrong')}
                         </div>
 
                         {currentQuestion.type === 'letter_game' ? (
@@ -678,12 +681,12 @@ export function QuestionReveal({
                         ) : (
                             <p style={{ fontSize: '17px', fontWeight: 800, color: 'white', margin: 0, marginBottom: '8px' }}>
                                 {playerAnswer?.playerAnswerText ||
-                                    (playerAnswer ? getDisplayAnswer(currentQuestion, playerAnswer.answer) : 'No answer submitted')}
+                                    (playerAnswer ? getDisplayAnswer(currentQuestion, playerAnswer.answer) : t('no_answer'))}
                             </p>
                         )}
 
                         <div style={{ fontSize: '11px', color: '#52525b', marginTop: '6px' }}>
-                            Time: {playerAnswer ? (playerAnswer.time / 1000).toFixed(1) : '0.0'}s
+                            {t('time_display', { n: playerAnswer ? (playerAnswer.time / 1000).toFixed(1) : '0.0' })}
                         </div>
 
                         {/* Score popup inline */}
@@ -706,7 +709,7 @@ export function QuestionReveal({
                         padding: '18px 20px',
                     }}>
                         <div style={{ fontSize: '11px', fontWeight: 700, color: '#6366f1', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '14px' }}>
-                            📊 Live Rankings
+                            {t('live_rankings')}
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                             {currentRankings.map((entry: any, idx: number) => {
@@ -766,7 +769,7 @@ export function QuestionReveal({
                         padding: '18px 20px',
                     }}>
                         <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '14px' }}>
-                            👥 All Answers — Q{currentRevealIndex + 1}
+                            {t('all_answers_heading', { n: currentRevealIndex + 1 })}
                         </div>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                             {questionResults.map((result: any, index: number) => (
@@ -858,10 +861,10 @@ export function QuestionReveal({
                                     letterSpacing: '0.03em',
                                 }}
                             >
-                                🏛️ Challenge This Answer
+                                {t('challenge_button')}
                             </button>
                             <p style={{ fontSize: '11px', color: '#52525b', margin: '8px 0 0' }}>
-                                One challenge per game — use it wisely!
+                                {t('challenge_limit')}
                             </p>
                         </div>
                     )}
@@ -876,7 +879,7 @@ export function QuestionReveal({
                             fontSize: '12px',
                             color: '#52525b',
                         }}>
-                            🏛️ You have used your challenge for this game
+                            {t('challenge_used')}
                         </div>
                     )}
 
@@ -889,13 +892,13 @@ export function QuestionReveal({
                             padding: '18px 20px',
                         }}>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
-                                <span style={{ fontSize: '13px', fontWeight: 700, color: '#fbbf24' }}>🏛️ Challenge This Question</span>
+                                <span style={{ fontSize: '13px', fontWeight: 700, color: '#fbbf24' }}>{t('challenge_form_title')}</span>
                                 <span style={{ fontSize: '20px', fontWeight: 900, color: '#fbbf24' }}>{challengeTimeLeft}s</span>
                             </div>
                             <textarea
                                 value={challengeExplanation}
                                 onChange={(e) => setChallengeExplanation(e.target.value)}
-                                placeholder="Explain why your answer should be accepted..."
+                                placeholder={t('challenge_explain_placeholder')}
                                 rows={3}
                                 maxLength={200}
                                 autoFocus
@@ -929,7 +932,7 @@ export function QuestionReveal({
                                         cursor: challengeExplanation.trim() ? 'pointer' : 'default',
                                     }}
                                 >
-                                    Submit ({challengeTimeLeft}s)
+                                    {t('challenge_submit', { n: challengeTimeLeft })}
                                 </button>
                                 <button
                                     onClick={() => { setShowingChallenge(false); setChallengeExplanation('') }}
@@ -945,7 +948,7 @@ export function QuestionReveal({
                                         cursor: 'pointer',
                                     }}
                                 >
-                                    Cancel
+                                    {t('cancel')}
                                 </button>
                             </div>
                         </div>
@@ -961,10 +964,10 @@ export function QuestionReveal({
                             textAlign: 'center',
                         }}>
                             <div style={{ fontSize: '13px', fontWeight: 700, color: '#fbbf24', marginBottom: '6px' }}>
-                                🏛️ Challenge in Progress
+                                {t('challenge_in_progress')}
                             </div>
                             <div style={{ fontSize: '36px', fontWeight: 900, color: 'white' }}>{challengeTimeLeft}s</div>
-                            <p style={{ fontSize: '12px', color: '#fbbf24', margin: '4px 0 0' }}>Time to explain your case!</p>
+                            <p style={{ fontSize: '12px', color: '#fbbf24', margin: '4px 0 0' }}>{t('challenge_in_progress_msg')}</p>
                         </div>
                     )}
 
@@ -980,11 +983,11 @@ export function QuestionReveal({
                             }}>
                                 <div style={{ textAlign: 'center', marginBottom: '16px' }}>
                                     <div style={{ fontSize: '13px', fontWeight: 700, color: '#a78bfa', marginBottom: '6px' }}>
-                                        🗳️ Challenge Voting
+                                        {t('challenge_voting_title')}
                                     </div>
                                     <div style={{ fontSize: '36px', fontWeight: 900, color: 'white' }}>{voteTimeLeft}s</div>
                                     <p style={{ fontSize: '12px', color: '#c4b5fd', margin: '4px 0 0' }}>
-                                        Vote on {currentChallenge.challengerName}&apos;s challenge
+                                        {t('vote_on', { name: currentChallenge.challengerName })}
                                     </p>
                                 </div>
 
@@ -996,13 +999,13 @@ export function QuestionReveal({
                                     marginBottom: '14px',
                                 }}>
                                     <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '10px' }}>
-                                        Challenge Details
+                                        {t('challenge_details')}
                                     </div>
                                     <div style={{ fontSize: '13px', color: '#a1a1aa', lineHeight: 1.6 }}>
-                                        <div><span style={{ color: '#71717a' }}>Challenger:</span> <span style={{ color: 'white', fontWeight: 700 }}>{currentChallenge.challengerName}</span></div>
-                                        <div><span style={{ color: '#71717a' }}>Their Answer:</span> <span style={{ color: 'white', fontWeight: 700 }}>{getDisplayAnswer(currentQuestion, currentChallenge.playerAnswer)}</span></div>
-                                        <div><span style={{ color: '#71717a' }}>Reason:</span> <span style={{ color: '#e4e4e7' }}>"{currentChallenge.explanation}"</span></div>
-                                        <div><span style={{ color: '#71717a' }}>Potential:</span> <span style={{ color: '#4ade80', fontWeight: 700 }}>+{currentChallenge.potentialScore} pts</span></div>
+                                        <div><span style={{ color: '#71717a' }}>{t('challenger_label')}</span> <span style={{ color: 'white', fontWeight: 700 }}>{currentChallenge.challengerName}</span></div>
+                                        <div><span style={{ color: '#71717a' }}>{t('their_answer_label')}</span> <span style={{ color: 'white', fontWeight: 700 }}>{getDisplayAnswer(currentQuestion, currentChallenge.playerAnswer)}</span></div>
+                                        <div><span style={{ color: '#71717a' }}>{t('reason_label')}</span> <span style={{ color: '#e4e4e7' }}>"{currentChallenge.explanation}"</span></div>
+                                        <div><span style={{ color: '#71717a' }}>{t('potential_label')}</span> <span style={{ color: '#4ade80', fontWeight: 700 }}>+{currentChallenge.potentialScore} pts</span></div>
                                     </div>
                                 </div>
 
@@ -1017,7 +1020,7 @@ export function QuestionReveal({
                                             color: '#4ade80', fontWeight: 800, fontSize: '13px', cursor: 'pointer',
                                         }}
                                     >
-                                        ✅ Approve
+                                        {t('approve')}
                                     </button>
                                     <button
                                         onClick={() => onVoteChallenge?.(currentChallenge.id, 'reject')}
@@ -1029,7 +1032,7 @@ export function QuestionReveal({
                                             color: '#f87171', fontWeight: 800, fontSize: '13px', cursor: 'pointer',
                                         }}
                                     >
-                                        ❌ Reject
+                                        {t('reject')}
                                     </button>
                                 </div>
                             </div>
@@ -1046,10 +1049,10 @@ export function QuestionReveal({
                             textAlign: 'center',
                         }}>
                             <div style={{ fontSize: '13px', fontWeight: 700, color: '#818cf8', marginBottom: '6px' }}>
-                                🏛️ Your Challenge is Being Voted On
+                                {t('your_challenge_voting')}
                             </div>
                             <div style={{ fontSize: '36px', fontWeight: 900, color: 'white' }}>{voteTimeLeft}s</div>
-                            <p style={{ fontSize: '12px', color: '#a5b4fc', margin: '4px 0 0' }}>Other players are voting...</p>
+                            <p style={{ fontSize: '12px', color: '#a5b4fc', margin: '4px 0 0' }}>{t('other_players_voting')}</p>
                         </div>
                     )}
 
@@ -1089,7 +1092,7 @@ export function QuestionReveal({
                                 whiteSpace: 'nowrap',
                             }}
                         >
-                            Skip to Results ⏭
+                            {t('skip_to_results')}
                         </button>
                     )}
                     <button
@@ -1107,7 +1110,7 @@ export function QuestionReveal({
                             boxShadow: '0 0 30px rgba(79,70,229,0.4)',
                         }}
                     >
-                        {currentRevealIndex < gameState.questions.length - 1 ? 'Next Question →' : 'Final Results 🏆'}
+                        {currentRevealIndex < gameState.questions.length - 1 ? t('next_question_btn') : t('final_results_btn')}
                     </button>
                 </div>
             )}
@@ -1136,22 +1139,22 @@ export function QuestionReveal({
                                 color: challengeResult.passed ? '#4ade80' : '#f87171',
                                 marginBottom: '24px',
                             }}>
-                                {challengeResult.passed ? '✅ Challenge Accepted!' : '❌ Challenge Rejected'}
+                                {challengeResult.passed ? t('challenge_accepted') : t('challenge_rejected')}
                             </h3>
 
                             <div style={{ marginBottom: '20px' }}>
                                 <div style={{ fontSize: '11px', fontWeight: 700, color: '#52525b', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '14px' }}>
-                                    🗳️ Anonymous Vote Results
+                                    {t('vote_results_heading')}
                                 </div>
                                 <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', marginBottom: '14px' }}>
                                     <div style={{ textAlign: 'center' }}>
                                         <div style={{ fontSize: '24px' }}>✅</div>
-                                        <div style={{ fontSize: '11px', color: '#71717a' }}>Approve</div>
+                                        <div style={{ fontSize: '11px', color: '#71717a' }}>{t('approve_label')}</div>
                                         <div style={{ fontSize: '20px', fontWeight: 900, color: 'white' }}>{challengeResult.votes.approve}</div>
                                     </div>
                                     <div style={{ textAlign: 'center' }}>
                                         <div style={{ fontSize: '24px' }}>❌</div>
-                                        <div style={{ fontSize: '11px', color: '#71717a' }}>Reject</div>
+                                        <div style={{ fontSize: '11px', color: '#71717a' }}>{t('reject_label')}</div>
                                         <div style={{ fontSize: '20px', fontWeight: 900, color: 'white' }}>{challengeResult.votes.reject}</div>
                                     </div>
                                 </div>
@@ -1168,8 +1171,8 @@ export function QuestionReveal({
 
                                 <div style={{ fontSize: '12px', color: '#71717a' }}>
                                     {challengeResult.passed
-                                        ? `${Math.round((challengeResult.votes.approve / (challengeResult.votes.approve + challengeResult.votes.reject)) * 100)}% approved`
-                                        : `${Math.round((challengeResult.votes.reject / (challengeResult.votes.approve + challengeResult.votes.reject)) * 100)}% rejected`}
+                                        ? t('percent_approved', { n: Math.round((challengeResult.votes.approve / (challengeResult.votes.approve + challengeResult.votes.reject)) * 100) })
+                                        : t('percent_rejected', { n: Math.round((challengeResult.votes.reject / (challengeResult.votes.approve + challengeResult.votes.reject)) * 100) })}
                                 </div>
                             </div>
 
@@ -1184,13 +1187,13 @@ export function QuestionReveal({
                                 }}>
                                     <div style={{ fontSize: '32px', marginBottom: '8px' }}>🎉</div>
                                     <p style={{ fontWeight: 800, color: '#4ade80', fontSize: '14px', margin: '0 0 4px' }}>
-                                        You earned challenge points!
+                                        {t('you_earned_points')}
                                     </p>
                                     <p style={{ fontSize: '24px', fontWeight: 900, color: 'white', margin: '0 0 6px' }}>
                                         +{challengeResult.scoreAwarded || 'Points'} points
                                     </p>
                                     <p style={{ fontSize: '11px', color: '#52525b', margin: 0 }}>
-                                        Challenge points are awarded without time bonus
+                                        {t('challenge_no_time_bonus')}
                                     </p>
                                 </div>
                             )}

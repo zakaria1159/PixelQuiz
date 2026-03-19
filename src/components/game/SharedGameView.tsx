@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
+import { useTranslation } from '@/hooks/useTranslation'
+import type { TranslationKey } from '@/lib/translations'
 import AnswerOptions from '@/components/game/AnswerOptions'
 import RankingOptions from '@/components/game/RankingOptions'
 import PixelRevealImage from '@/components/game/PixelRevealImage'
@@ -38,6 +40,7 @@ interface SharedGameViewProps {
 
 // ─── Circular countdown timer ─────────────────────────────────────────────────
 function CircularTimer({ timeLeft, timeLimit }: { timeLeft: number; timeLimit: number }) {
+  const { t } = useTranslation()
   const size = 64
   const radius = 26
   const circumference = 2 * Math.PI * radius
@@ -71,28 +74,45 @@ function CircularTimer({ timeLeft, timeLimit }: { timeLeft: number; timeLimit: n
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="font-display leading-none" style={{ fontSize: '13px', color: textColor }}>{timeLeft}</span>
-        <span className="text-[7px] text-zinc-500 uppercase tracking-widest mt-0.5">sec</span>
+        <span className="text-[7px] text-zinc-500 uppercase tracking-widest mt-0.5">{t('sec')}</span>
       </div>
     </div>
   )
 }
 
 // ─── Question type metadata ───────────────────────────────────────────────────
-const TYPE_META: Record<string, { label: string; color: string }> = {
-  multiple_choice: { label: 'Multiple Choice', color: 'bg-blue-600/30 text-blue-300 border-blue-500/40' },
-  true_false:      { label: 'True or False',   color: 'bg-emerald-600/30 text-emerald-300 border-emerald-500/40' },
-  free_text:       { label: 'Type Answer',     color: 'bg-violet-600/30 text-violet-300 border-violet-500/40' },
-  image_guess:     { label: 'Guess the Image', color: 'bg-pink-600/30 text-pink-300 border-pink-500/40' },
-  ranking:         { label: 'Rank Items',      color: 'bg-orange-600/30 text-orange-300 border-orange-500/40' },
-  closest_wins:    { label: 'Closest Wins',    color: 'bg-yellow-600/30 text-yellow-300 border-yellow-500/40' },
-  speed_buzz:      { label: 'Speed Buzz',      color: 'bg-red-600/30 text-red-300 border-red-500/40' },
-  fill_blank:      { label: 'Fill the Blank',  color: 'bg-cyan-600/30 text-cyan-300 border-cyan-500/40' },
-  pixel_reveal:    { label: 'Pixel Reveal',    color: 'bg-indigo-600/30 text-indigo-300 border-indigo-500/40' },
-  letter_game:     { label: 'Letter Game',     color: 'bg-teal-600/30 text-teal-300 border-teal-500/40' },
-  flag_guess:      { label: 'Flag Quiz',        color: 'bg-sky-600/30 text-sky-300 border-sky-500/40' },
-  music_guess:     { label: 'Music Round',      color: 'bg-indigo-600/30 text-indigo-300 border-indigo-500/40' },
-  animal_sound:    { label: 'Animal Sound',     color: 'bg-green-600/30 text-green-300 border-green-500/40' },
-  clue_chain:      { label: 'Clue Chain',       color: 'bg-amber-600/30 text-amber-300 border-amber-500/40' },
+const TYPE_COLORS: Record<string, string> = {
+  multiple_choice: 'bg-blue-600/30 text-blue-300 border-blue-500/40',
+  true_false:      'bg-emerald-600/30 text-emerald-300 border-emerald-500/40',
+  free_text:       'bg-violet-600/30 text-violet-300 border-violet-500/40',
+  image_guess:     'bg-pink-600/30 text-pink-300 border-pink-500/40',
+  ranking:         'bg-orange-600/30 text-orange-300 border-orange-500/40',
+  closest_wins:    'bg-yellow-600/30 text-yellow-300 border-yellow-500/40',
+  speed_buzz:      'bg-red-600/30 text-red-300 border-red-500/40',
+  fill_blank:      'bg-cyan-600/30 text-cyan-300 border-cyan-500/40',
+  pixel_reveal:    'bg-indigo-600/30 text-indigo-300 border-indigo-500/40',
+  letter_game:     'bg-teal-600/30 text-teal-300 border-teal-500/40',
+  flag_guess:      'bg-sky-600/30 text-sky-300 border-sky-500/40',
+  music_guess:     'bg-indigo-600/30 text-indigo-300 border-indigo-500/40',
+  animal_sound:    'bg-green-600/30 text-green-300 border-green-500/40',
+  clue_chain:      'bg-amber-600/30 text-amber-300 border-amber-500/40',
+}
+
+const TYPE_LABEL_KEYS: Record<string, TranslationKey> = {
+  multiple_choice: 'type_multiple_choice',
+  true_false:      'type_true_false',
+  free_text:       'type_free_text',
+  image_guess:     'type_image_guess',
+  ranking:         'type_ranking',
+  closest_wins:    'type_closest_wins',
+  speed_buzz:      'type_speed_buzz',
+  fill_blank:      'type_fill_blank',
+  pixel_reveal:    'type_pixel_reveal',
+  letter_game:     'type_letter_game',
+  flag_guess:      'type_flag_guess',
+  music_guess:     'type_music_guess',
+  animal_sound:    'type_animal_sound',
+  clue_chain:      'type_clue_chain',
 }
 
 export function SharedGameView({
@@ -107,6 +127,7 @@ export function SharedGameView({
   onAnswerSubmit,
   onTimeUp,
 }: SharedGameViewProps) {
+  const { t } = useTranslation()
   const [answerText,        setAnswerText]        = useState('')
   const [flagAnswer,        setFlagAnswer]        = useState('')
   const [numberAnswer,      setNumberAnswer]      = useState('')
@@ -255,7 +276,9 @@ export function SharedGameView({
     isLetterGameQuestion(question)     ? letterGameAnswers.some(a => a.trim().length > 0) :
     isFlagGuessQuestion(question)      ? flagAnswer.trim().length > 0 : false
 
-  const meta         = TYPE_META[question.type] ?? { label: 'Question', color: 'bg-zinc-700/40 text-zinc-300 border-zinc-600/40' }
+  const metaColor    = TYPE_COLORS[question.type] ?? 'bg-zinc-700/40 text-zinc-300 border-zinc-600/40'
+  const metaLabel    = TYPE_LABEL_KEYS[question.type] ? t(TYPE_LABEL_KEYS[question.type]) : 'Question'
+  const meta         = { label: metaLabel, color: metaColor }
   const sortedPlayers = [...players].sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
   const myScore      = sortedPlayers.find(p => p.id === currentPlayerId)?.score ?? 0
 
@@ -370,7 +393,7 @@ export function SharedGameView({
             padding: '5px 12px',
           }}
         >
-          <span style={{ fontSize: '11px', color: '#6366f1', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>pts</span>
+          <span style={{ fontSize: '11px', color: '#6366f1', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t('pts')}</span>
           <span
             className="font-display tabular-nums"
             style={{ fontSize: '13px', color: 'white', textShadow: '0 0 20px rgba(99,102,241,0.7)' }}
@@ -409,7 +432,7 @@ export function SharedGameView({
 
         {/* Timer */}
         {allAnswered ? (
-          <div className="text-sm font-bold text-emerald-400 animate-pulse flex-shrink-0">✓ All in!</div>
+          <div className="text-sm font-bold text-emerald-400 animate-pulse flex-shrink-0">{t('all_in')}</div>
         ) : (
           <CircularTimer timeLeft={timeLeft} timeLimit={timeLimit} />
         )}
@@ -534,11 +557,11 @@ export function SharedGameView({
                   onChange={e => setAnswerText(e.target.value)}
                   onKeyDown={handleKeyDown}
                   disabled={hasAnswered || timeLeft === 0}
-                  placeholder={isImageGuessQuestion(question) ? 'What do you see?' : 'Type your answer…'}
+                  placeholder={isImageGuessQuestion(question) ? t('what_do_you_see') : t('type_your_answer')}
                   className={inputCls}
 
                 />
-                <p className="text-xs text-zinc-600">💡 Not case sensitive · Partial answers accepted</p>
+                <p className="text-xs text-zinc-600">{t('not_case_sensitive')}</p>
               </div>
             )}
 
@@ -567,11 +590,11 @@ export function SharedGameView({
                   onChange={e => setNumberAnswer(e.target.value)}
                   onKeyDown={handleKeyDown}
                   disabled={hasAnswered || timeLeft === 0}
-                  placeholder="Enter a number…"
+                  placeholder={t('enter_number')}
                   className={inputCls}
 
                 />
-                <p className="text-xs text-zinc-600">🎯 Closest number wins</p>
+                <p className="text-xs text-zinc-600">{t('closest_wins_help')}</p>
               </div>
             )}
 
@@ -584,12 +607,12 @@ export function SharedGameView({
                   onChange={e => setFillBlankAnswer(e.target.value.replace(/\s+/g, ''))}
                   onKeyDown={handleKeyDown}
                   disabled={hasAnswered || timeLeft === 0}
-                  placeholder="The missing word…"
+                  placeholder={t('missing_word')}
                   className={inputCls}
 
                   autoComplete="off"
                 />
-                <p className="text-xs text-zinc-600">✏️ One word only</p>
+                <p className="text-xs text-zinc-600">{t('one_word_only')}</p>
               </div>
             )}
 
@@ -605,7 +628,7 @@ export function SharedGameView({
                     />
                     {!hasAnswered && (
                       <div className="absolute top-2 right-2 glass text-xs text-white px-2 py-1 rounded-lg">
-                        {pixelSize > 1 ? `${Math.round((1 - pixelSize / 24) * 100)}% revealed` : 'Fully revealed'}
+                        {pixelSize > 1 ? t('percent_revealed', { n: Math.round((1 - pixelSize / 24) * 100) }) : t('fully_revealed')}
                       </div>
                     )}
                   </div>
@@ -617,7 +640,7 @@ export function SharedGameView({
                     onChange={e => setPixelRevealAnswer(e.target.value)}
                     onKeyDown={handleKeyDown}
                     disabled={hasAnswered || timeLeft === 0}
-                    placeholder="What is this?"
+                    placeholder={t('what_is_this')}
                     className={inputCls}
                     autoComplete="off"
                   />
@@ -631,7 +654,7 @@ export function SharedGameView({
                 <div className="text-center" style={{ flexShrink: 0 }}>
                   <span className="text-5xl font-black text-yellow-400 leading-none">{question.letter}</span>
                   <p className="text-xs text-zinc-500 mt-1">
-                    One word per category starting with <strong className="text-yellow-300">{question.letter}</strong>
+                    {t('one_word_per_category', { letter: question.letter })}
                   </p>
                 </div>
                 <div style={{ flex: 1, minHeight: 0, overflowY: 'auto' }}>
@@ -673,13 +696,13 @@ export function SharedGameView({
                     onChange={e => setAnswerText(e.target.value)}
                     onKeyDown={handleKeyDown}
                     disabled={hasAnswered || timeLeft === 0}
-                    placeholder="Type the song title..."
+                    placeholder={t('type_song_title')}
                     className={inputCls}
                     autoComplete="off"
                     autoCorrect="off"
                     spellCheck={false}
                   />
-                  <p className="text-xs text-zinc-600">🎵 Song title = full points · artist name = ½ points · typos forgiven</p>
+                  <p className="text-xs text-zinc-600">{t('music_help')}</p>
                 </div>
               </div>
             )}
@@ -710,7 +733,7 @@ export function SharedGameView({
                       />
                     ))}
                     <span style={{ fontSize: '11px', color: '#71717a', fontWeight: 600, flexShrink: 0 }}>
-                      {cluesVisible}/{totalClues} clues
+                      {t('clues_count', { n: cluesVisible, total: totalClues })}
                     </span>
                   </div>
 
@@ -771,13 +794,13 @@ export function SharedGameView({
                       onChange={e => setAnswerText(e.target.value)}
                       onKeyDown={handleKeyDown}
                       disabled={hasAnswered || timeLeft === 0}
-                      placeholder="Your answer…"
+                      placeholder={t('your_answer_placeholder')}
                       className={inputCls}
                       autoComplete="off"
                       autoCorrect="off"
                       spellCheck={false}
                     />
-                    <p className="text-xs text-zinc-600">🔍 Answer early for more points · minor typos forgiven</p>
+                    <p className="text-xs text-zinc-600">{t('clue_chain_help')}</p>
                   </div>
                 </div>
               )
@@ -790,7 +813,7 @@ export function SharedGameView({
                   audioUrl={question.audioUrl}
                   allowedDuration={30}
                   hasAnswered={hasAnswered}
-                  label="🐾 ANIMAL SOUND"
+                  label={t('animal_sound_label')}
                 />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                   <input
@@ -799,13 +822,13 @@ export function SharedGameView({
                     onChange={e => setAnswerText(e.target.value)}
                     onKeyDown={handleKeyDown}
                     disabled={hasAnswered || timeLeft === 0}
-                    placeholder="Which animal makes this sound?"
+                    placeholder={t('which_animal')}
                     className={inputCls}
                     autoComplete="off"
                     autoCorrect="off"
                     spellCheck={false}
                   />
-                  <p className="text-xs text-zinc-600">🐾 Type the animal name · minor typos are forgiven</p>
+                  <p className="text-xs text-zinc-600">{t('animal_help')}</p>
                 </div>
               </div>
             )}
@@ -839,14 +862,14 @@ export function SharedGameView({
                     onChange={e => setFlagAnswer(e.target.value)}
                     onKeyDown={handleKeyDown}
                     disabled={hasAnswered || timeLeft === 0}
-                    placeholder="Type the country name…"
+                    placeholder={t('type_country_name')}
                     className={inputCls}
   
                     autoComplete="off"
                     autoCorrect="off"
                     spellCheck={false}
                   />
-                  <p className="text-xs text-zinc-600">🌍 Type the full country name — minor typos are forgiven</p>
+                  <p className="text-xs text-zinc-600">{t('flag_help')}</p>
                 </div>
               </div>
             )}
@@ -875,16 +898,16 @@ export function SharedGameView({
                 } : undefined
               }
             >
-              {hasAnswered ? '✓ Locked In!' : 'Submit Answer'}
+              {hasAnswered ? t('locked_in') : t('submit_answer')}
             </button>
             {isSpeedBuzzQuestion(question) && hasAnswered && (
               <div className="text-center text-sm font-bold mt-2">
                 {speedBuzzRank === null
-                  ? <span className="text-zinc-500">Waiting for result…</span>
-                  : speedBuzzRank === 1 ? <span className="text-yellow-400">🥇 1st to answer!</span>
-                  : speedBuzzRank === 2 ? <span className="text-zinc-300">🥈 2nd correct</span>
-                  : speedBuzzRank === 3 ? <span className="text-orange-400">🥉 3rd correct</span>
-                  : <span className="text-zinc-400">#{speedBuzzRank} correct</span>
+                  ? <span className="text-zinc-500">{t('waiting_result')}</span>
+                  : speedBuzzRank === 1 ? <span className="text-yellow-400">{t('first_answer')}</span>
+                  : speedBuzzRank === 2 ? <span className="text-zinc-300">{t('second_correct')}</span>
+                  : speedBuzzRank === 3 ? <span className="text-orange-400">{t('third_correct')}</span>
+                  : <span className="text-zinc-400">{t('nth_correct', { n: speedBuzzRank })}</span>
                 }
               </div>
             )}

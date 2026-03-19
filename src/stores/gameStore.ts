@@ -17,9 +17,11 @@ interface GameStore {
   questionResults: any[]
   questionStartTime: number
   answeredPlayers: string[]
+  lang: string
 
   // Actions
   setGameState: (gameState: GameState) => void
+  setLang: (lang: string) => void
   updateGameState: (updates: Partial<GameState>) => void
   setIsHost: (isHost: boolean) => void
   setIsConnected: (connected: boolean) => void
@@ -95,9 +97,12 @@ export const useGameStore = create<GameStore>()(
       questionResults: [],
       questionStartTime: 0,
       answeredPlayers: [],
+      lang: 'en',
 
       // Basic setters
-      setGameState: (gameState) => 
+      setLang: (lang) => set({ lang }, false, 'setLang'),
+
+      setGameState: (gameState) =>
         set({ gameState: { ...gameState, updatedAt: Date.now() } }, false, 'setGameState'),
 
       updateGameState: (updates) =>

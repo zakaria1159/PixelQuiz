@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { useGameStore } from '@/stores/gameStore'
 
 export interface QuizSettings {
   categories: string[]
@@ -159,6 +160,7 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
 
   const selectLang = (l: string) => {
     setLang(l)
+    useGameStore.getState().setLang(l)
     emit(selectedCategories, selectedTypes, questionCount, l)
   }
 
