@@ -136,6 +136,14 @@ export const useGame = (options: UseGameOptions = {}) => {
         socketManager.leaveGame(currentGameCode.current)
       }
       socketManager.offAllGameEvents()
+      // Remove raw connection listeners registered above
+      const s = socketManager.getSocket()
+      if (s) {
+        s.off('connect')
+        s.off('disconnect')
+        s.off('connect_error')
+        s.off('error')
+      }
     }
   }, [autoConnect, isHost, gameCode, playerName, setIsConnected, setIsHost, setConnectionError])
 
