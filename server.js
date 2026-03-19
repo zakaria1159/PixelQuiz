@@ -1586,9 +1586,10 @@ io.on('connection', (socket) => {
   // Add this socket handler for player ready events
 socket.on('player-ready', (data) => {
   try {
-    const { gameCode, questionIndex, playerId } = data
+    const { gameCode, questionIndex } = data
+    const playerId = socket.id
     const game = games.get(gameCode)
-    
+
     if (!game) {
       console.log('❌ Game not found for ready event:', gameCode)
       return
@@ -1597,13 +1598,13 @@ socket.on('player-ready', (data) => {
     // Initialize ready players structure
     if (!game.readyPlayers) game.readyPlayers = {}
     if (!game.readyPlayers[questionIndex]) game.readyPlayers[questionIndex] = []
-    
+
     // Add player to ready list if not already there
     if (!game.readyPlayers[questionIndex].includes(playerId)) {
       game.readyPlayers[questionIndex].push(playerId)
       console.log(`✅ Player ready: ${playerId} for question ${questionIndex}`)
       console.log(`📊 Ready players for Q${questionIndex}:`, game.readyPlayers[questionIndex])
-      
+
       // Broadcast updated ready status to all players in the game
       const eventData = {
         questionIndex,
@@ -1611,7 +1612,7 @@ socket.on('player-ready', (data) => {
       }
       console.log(`📡 Sending ready-status-updated event to room ${gameCode}:`, eventData)
       console.log(`📡 Players in game:`, game.players.map(p => ({ id: p.id, name: p.name })))
-      
+
       // Add a small delay to ensure clients are ready
       setTimeout(() => {
         io.to(gameCode).emit('ready-status-updated', eventData)
