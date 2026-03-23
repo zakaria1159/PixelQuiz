@@ -31,47 +31,87 @@ Regular gameplay is completely unaffected when streamer mode is off.
 
 ### Transport
 
-Spectators join the existing Socket.io game room via a new `spectator-join` event. They receive all existing server broadcasts (`question-start`, `game-state-updated`, `answer-status-updated`, `question-scores`, `game-finished`, etc.) for free — no duplicate emissions needed.
+Spectators join the existing Socket.io game room via a new `spectator-join` event. They receive all existing server broadcasts (`question-start`, `game-state-updated`, `question-scores`, `game-finished`, etc.) for free. A new `player-answered` push event is introduced for per-player answer tracking (see below).
 
-Spectators are tracked in `game.spectators[]` (already scaffolded in `createGameState`). The server broadcasts a `spectator-count-updated` event whenever the count changes.
+Spectators are tracked in two places:
+1. `game.spectators[]` — array of socket ID strings in the game state. **The existing `GameState.spectators` type in `src/types/game.ts` is `Player[]` and must be changed to `string[]`.**
+2. A separate `spectators: Map<socketId, { gameCode }>` — mirrors the existing `players` Map, used for disconnect cleanup
 
-### Answer visibility
+### Per-player answer visibility
 
-The existing `answer-status-updated` event currently sends `{ playerId, answered: boolean }`. It needs to also carry `answer` (the actual choice submitted) so spectators can see what each player picked in real time.
+The existing `answer-status-updated` event sends `{ answeredPlayers: string[], totalPlayers: number }` (a list of IDs only). Rather than restructuring this event, a new **`player-answered`** event is emitted alongside it whenever a player submits, carrying `{ playerId, playerName, answer }`. The watch page uses this to build its answer tracker. Existing players and host ignore this new event.
 
-> **Note:** This is the only change to an existing event payload. Players and the host already receive this event — adding `answer` does not break their existing handlers since they ignore unknown fields.
+### `gameState` sanitization for spectators
+
+`game.answers` contains `{ answer, time, isCorrect, partial }` per player — correctness data that must not be leaked during an active question. When sending `gameState` to a spectator on join, the server strips the `answers` field if `gameStatus === 'question'`. After reveal, `answers` may be included.
 
 ---
 
 ## Server Changes (`server.js`)
 
-### 1. `spectator-join` handler
+### 1. `spectators` Map (top-level, mirrors `players` Map)
+```js
+const spectators = new Map() // socketId → { gameCode }
+```
+
+### 2. `spectator-join` handler
 ```
 socket.on('spectator-join', ({ gameCode }) => {
-  - Validate game exists, return 'spectator-error' if not
+  - Validate game exists → emit 'spectator-error' if not
+  - Validate game.settings.streamerMode === true → emit 'spectator-error' if not
   - socket.join(gameCode)
-  - Add socket.id to game.spectators[]
-  - Emit 'spectator-joined' to socket with current gameState
-  - Broadcast 'spectator-count-updated' to room with count
+  - spectators.set(socket.id, { gameCode })
+  - game.spectators.push(socket.id)
+  - Emit 'spectator-joined' to socket with sanitized gameState (strip answers if status === 'question')
+  - Broadcast 'spectator-count-updated' { count: game.spectators.length } to room
 })
 ```
 
-### 2. `spectator-leave` on disconnect
+### 3. Disconnect handler — spectator cleanup
+In the existing `disconnect` handler, after the `players.get(socket.id)` branch, add:
 ```
-On disconnect:
-  - If socket.id is in any game.spectators[]:
-    - Remove from spectators[]
-    - Broadcast 'spectator-count-updated' to room
+if (spectators.has(socket.id)) {
+  const { gameCode } = spectators.get(socket.id)
+  spectators.delete(socket.id)
+  const game = games.get(gameCode)
+  if (game) {
+    game.spectators = game.spectators.filter(id => id !== socket.id)
+    io.to(gameCode).emit('spectator-count-updated', { count: game.spectators.length })
+  }
+}
 ```
 
-### 3. `answer-status-updated` payload extension
-Add `answer` field to the payload emitted when a player submits:
+### 4. `player-answered` event
+Emitted **only to spectator sockets** (not to the full room) to prevent active players from reading opponents' answers via DevTools. Iterate `game.spectators` and emit individually:
+
 ```js
-{ playerId, playerName, answered: true, answer: submittedAnswer }
+game.spectators.forEach(spectatorId => {
+  io.to(spectatorId).emit('player-answered', {
+    playerId: socket.id,
+    playerName: player.name,
+    answer: submittedAnswer
+  })
+})
 ```
 
-### 4. `streamerMode` setting
-Pass `streamerMode` from `host-start-game` settings through to `game.settings.streamerMode`. No logic change — purely stored for potential future use.
+This ensures raw answer data never reaches active player browsers during the question phase.
+
+### 5. `streamerMode` in `game.settings`
+In the `host-start-game` handler, after `getRandomQuestions(settings)`, explicitly write:
+```js
+game.settings.streamerMode = settings.streamerMode ?? false
+```
+
+---
+
+## TypeScript / Type Changes
+
+### `src/types/game.ts`
+- Add `streamerMode?: boolean` to `GameSettings` interface.
+- Change `spectators: Player[]` to `spectators: string[]` in `GameState` interface.
+
+### `src/components/game/QuizSettings.tsx`
+Add `streamerMode?: boolean` to the `QuizSettings` interface (or manage as separate local state in Lobby and merge at `onStartGame` call site — preferred to keep `QuizSettings` focused on quiz config).
 
 ---
 
@@ -81,34 +121,35 @@ Pass `streamerMode` from `host-start-game` settings through to `game.settings.st
 - Add `spectatorJoin(gameCode)` emit method
 - Add `onSpectatorJoined(cb)` listener
 - Add `onSpectatorCountUpdated(cb)` listener
+- Add `onPlayerAnswered(cb)` listener (new event)
 
 ### `src/hooks/useSpectator.ts` (new)
-Lightweight hook for watch/overlay pages:
+Lightweight read-only hook:
 - Connects to socket, calls `spectatorJoin(gameCode)` on connection
-- Listens to: `spectator-joined`, `question-start`, `game-state-updated`, `answer-status-updated`, `question-scores`, `game-finished`, `spectator-count-updated`
-- Maintains local state: `gameState`, `gameStatus`, `currentQuestion`, `playerAnswers` (map of playerId → answer), `spectatorCount`, `timeLimit`, `questionStartTime`
-- Read-only — no emit methods beyond join
+- On reconnect, re-emits `spectatorJoin(gameCode)` to rejoin room. Use the Manager-level reconnect event (`socket.io.on('reconnect', ...)`) consistent with the existing pattern in `src/lib/socket.ts`
+- Listens to: `spectator-joined`, `question-start`, `game-state-updated`, `player-answered`, `question-scores`, `game-finished`, `spectator-count-updated`
+- Maintains local state: `gameState`, `gameStatus`, `currentQuestion`, `playerAnswers` (Map of playerId → answer, reset on each `question-start`), `spectatorCount`, `timeLimit`, `questionStartTime`
+- Read-only — no emit methods beyond join/rejoin
 
 ### `src/components/game/Lobby.tsx`
-- Add `StreamerModeCard` section (host only, below custom questions)
-- Toggle off by default
+- Add `StreamerModeCard` section (host only, below custom questions), toggled by local state `streamerMode` (default false)
 - When enabled: show watch link, overlay link with copy buttons, live spectator count (via `onSpectatorCountUpdated`)
-- Pass `streamerMode` through `onStartGame` settings
+- Merge `streamerMode` at `onStartGame` call site: `onStartGame?.({ ...settings, customQuestions, customOnly, streamerMode })`
 
 ### `src/app/watch/[gameCode]/page.tsx` (new)
 - Uses `useSpectator` hook
-- **Pre-game state:** "Game starting soon · X players in lobby" waiting screen with game code
-- **Question state:** Full question card + answer options + player answer tracker (shows each player's name/avatar + their answer as submitted) + live timer + live leaderboard sidebar
-- **Between questions:** Leaderboard with correct answer revealed
+- **Pre-game / waiting state** (`gameStatus === 'waiting'` or game not found yet): "Game starting soon · X players in lobby · Hosted by [name]" with pulsing dots
+- **Question state:** Full question card + answer options + player answer tracker + live timer + live leaderboard sidebar
+- **Between questions (`question-scores`):** Leaderboard with correct answer
 - **Game finished:** Final results view (read-only)
 - No answer submission UI anywhere
 
 ### `src/app/overlay/[gameCode]/page.tsx` (new)
 - Uses `useSpectator` hook
-- Transparent background (`background: transparent`)
-- Fixed layout: question + timer left, compact leaderboard right
-- Minimal styling — designed to sit on top of stream content
-- No waiting screen (just empty until game starts)
+- `background: transparent` — designed as OBS browser source
+- Fixed layout: question + timer left, compact leaderboard + spectator count right
+- No waiting screen (renders empty until `gameStatus === 'question'`)
+- No interaction elements
 
 ---
 
@@ -117,15 +158,14 @@ Lightweight hook for watch/overlay pages:
 | Event | Direction | Payload |
 |---|---|---|
 | `spectator-join` | Client → Server | `{ gameCode }` |
-| `spectator-joined` | Server → Client | `{ gameState }` |
+| `spectator-joined` | Server → Client | `{ gameState }` (sanitized) |
 | `spectator-count-updated` | Server → Room | `{ count }` |
 | `spectator-error` | Server → Client | `{ message }` |
+| `player-answered` | Server → Spectators only | `{ playerId, playerName, answer }` |
 
-### Modified Events
+### Existing events consumed by spectators (no change)
 
-| Event | Change |
-|---|---|
-| `answer-status-updated` | Add `answer` field to payload |
+`question-start`, `game-state-updated`, `question-scores`, `game-finished`
 
 ---
 
@@ -134,12 +174,12 @@ Lightweight hook for watch/overlay pages:
 ### Watch page — player answer tracker
 Below the question card, a row per player shows:
 - Avatar + name
-- Answer indicator: grey dot (not answered yet) → colored chip with their chosen answer once submitted
+- Answer indicator: grey dot (not answered yet) → colored chip with their chosen answer once `player-answered` fires
 
 ### Watch page — waiting screen
 ```
-[game code]
-Game starting soon
+[METAQUIZZ logo]
+Game starting soon...
 X players in lobby · Hosted by [name]
 [pulsing dots]
 ```
@@ -162,7 +202,8 @@ Transparent background. No interaction elements.
 ## Out of Scope (this iteration)
 
 - Twitch chat bot / chat voting
-- Spectator delay (no artificial delay on watch page)
+- Artificial answer delay on watch page
 - Spectator chat or reactions
 - Multiple overlay layout options
 - Streamer mode persisting across games (toggle resets each session)
+- Full reconnection recovery with state resync for spectators (re-emit `spectator-join` on reconnect is sufficient)
