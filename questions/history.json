@@ -1,52 +1,1210 @@
 [
-  { "id": "tf2",  "type": "true_false", "category": "history", "question": "The Great Wall of China is visible from space with the naked eye.", "options": ["True", "False"], "correctAnswer": 1, "difficulty": "medium", "timeLimit": 12, "explanation": "This is a common myth — the wall is too narrow to be seen from space." },
-  { "id": "ft2",  "type": "free_text", "category": "history", "question": "Who painted the Mona Lisa?", "correctAnswer": "Leonardo da Vinci", "acceptableAnswers": ["da vinci", "leonardo", "davinci"], "caseSensitive": false, "difficulty": "easy", "timeLimit": 15, "explanation": "Leonardo da Vinci painted the Mona Lisa between 1503 and 1519." },
-  { "id": "fb2",  "type": "fill_blank", "category": "history", "question": "Houston, we have a ___.", "correctAnswer": "problem", "difficulty": "medium", "timeLimit": 15, "explanation": "Adapted from the Apollo 13 transmission: 'Houston, we've had a problem.'" },
-
-  { "id": "his_mc1", "type": "multiple_choice", "category": "history", "question": "In which year did World War II end?", "options": ["1943", "1944", "1945", "1946"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 15, "explanation": "World War II ended in 1945 — V-E Day (May 8) in Europe and V-J Day (September 2) in the Pacific." },
-  { "id": "his_mc2", "type": "multiple_choice", "category": "history", "question": "Who was the first person to walk on the Moon?", "options": ["Buzz Aldrin", "Yuri Gagarin", "Neil Armstrong", "John Glenn"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 15, "explanation": "Neil Armstrong became the first human on the Moon on July 20, 1969." },
-  { "id": "his_mc3", "type": "multiple_choice", "category": "history", "question": "The Berlin Wall fell in which year?", "options": ["1987", "1988", "1989", "1990"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "The Berlin Wall fell on November 9, 1989, marking the end of the Cold War era in Germany." },
-  { "id": "his_mc4", "type": "multiple_choice", "category": "history", "question": "Which ancient wonder of the world still exists today?", "options": ["The Colossus of Rhodes", "The Great Pyramid of Giza", "The Hanging Gardens of Babylon", "The Lighthouse of Alexandria"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 15, "explanation": "The Great Pyramid of Giza is the only surviving ancient wonder of the world." },
-  { "id": "his_mc5", "type": "multiple_choice", "category": "history", "question": "Who was the first Emperor of a unified China?", "options": ["Kublai Khan", "Sun Yat-sen", "Qin Shi Huang", "Wu Zetian"], "correctAnswer": 2, "difficulty": "hard", "timeLimit": 20, "explanation": "Qin Shi Huang unified China in 221 BC and became its first emperor, building the foundations of the Great Wall." },
-
-  { "id": "his_tf1", "type": "true_false", "category": "history", "question": "Napoleon Bonaparte was born in France.", "options": ["True", "False"], "correctAnswer": 1, "difficulty": "hard", "timeLimit": 15, "explanation": "Napoleon was born in Corsica on August 15, 1769 — just one year after France acquired the island from Genoa." },
-  { "id": "his_tf2", "type": "true_false", "category": "history", "question": "The Titanic sank on its maiden voyage.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 12, "explanation": "The Titanic sank on April 15, 1912 during its very first voyage from Southampton to New York." },
-  { "id": "his_tf3", "type": "true_false", "category": "history", "question": "Cleopatra lived closer in time to the Moon landing than to the construction of the Great Pyramid.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "hard", "timeLimit": 15, "explanation": "The Great Pyramid was built ~2560 BC (2530 years before Cleopatra's death in 30 BC). The Moon landing was 1969 (~2000 years after Cleopatra). She's closer to the Moon landing." },
-  { "id": "his_tf4", "type": "true_false", "category": "history", "question": "The ancient Romans had a form of underfloor heating.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 12, "explanation": "Romans used the 'hypocaust' system — a raised floor through which hot air circulated, heating rooms from below." },
-  { "id": "his_tf5", "type": "true_false", "category": "history", "question": "The Hundred Years' War lasted exactly 100 years.", "options": ["True", "False"], "correctAnswer": 1, "difficulty": "medium", "timeLimit": 12, "explanation": "The Hundred Years' War between England and France lasted from 1337 to 1453 — 116 years." },
-
-  { "id": "his_fb1", "type": "fill_blank", "category": "history", "question": "Julius Caesar's famous words were 'Veni, Vidi, ___'", "correctAnswer": "Vici", "acceptableAnswers": ["vici", "I conquered"], "difficulty": "medium", "timeLimit": 15, "explanation": "'Veni, Vidi, Vici' means 'I came, I saw, I conquered' — Caesar reportedly said this after a swift military victory in 47 BC." },
-  { "id": "his_fb2", "type": "fill_blank", "category": "history", "question": "Marie ___ was the first woman to win a Nobel Prize.", "correctAnswer": "Curie", "difficulty": "easy", "timeLimit": 12, "explanation": "Marie Curie won the Nobel Prize in Physics in 1903 and Chemistry in 1911 — the first person to win in two different sciences." },
-  { "id": "his_fb3", "type": "fill_blank", "category": "history", "question": "The Cold War was a geopolitical tension between the United States and the ___.", "correctAnswer": "Soviet Union", "acceptableAnswers": ["soviet union", "ussr", "russia"], "difficulty": "easy", "timeLimit": 15, "explanation": "The Cold War (1947–1991) was a prolonged ideological and geopolitical rivalry between the USA and the Soviet Union." },
-  { "id": "his_fb4", "type": "fill_blank", "category": "history", "question": "Rosa Parks refused to give up her seat on a ___ in Montgomery, Alabama.", "correctAnswer": "bus", "difficulty": "easy", "timeLimit": 12, "explanation": "On December 1, 1955, Rosa Parks refused to give up her seat on a Montgomery city bus, igniting the Civil Rights Movement." },
-  { "id": "his_fb5", "type": "fill_blank", "category": "history", "question": "The ancient Egyptian writing system is called ___.", "correctAnswer": "hieroglyphics", "acceptableAnswers": ["hieroglyphics", "hieroglyphs"], "difficulty": "easy", "timeLimit": 15, "explanation": "Egyptian hieroglyphics is one of the oldest writing systems, using symbols to represent sounds and ideas." },
-
-  { "id": "his_rk1", "type": "ranking", "category": "history", "question": "Rank these historical events chronologically (earliest first):", "items": ["Moon Landing", "World War II Ends", "Berlin Wall Falls"], "correctOrder": [1, 0, 2], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "WWII ends (1945) → Moon Landing (1969) → Berlin Wall falls (1989)" },
-  { "id": "his_rk2", "type": "ranking", "category": "history", "question": "Rank these inventions by year (oldest first):", "items": ["Internet", "Telephone", "Television"], "correctOrder": [1, 2, 0], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "Telephone (1876) → Television (1920s) → Internet (1969/1991)" },
-  { "id": "his_rk3", "type": "ranking", "category": "history", "question": "Rank these historical figures by birth year (oldest first):", "items": ["Albert Einstein", "Napoleon Bonaparte", "Julius Caesar"], "correctOrder": [2, 1, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Julius Caesar (100 BC) → Napoleon Bonaparte (1769) → Albert Einstein (1879)" },
-  { "id": "his_rk4", "type": "ranking", "category": "history", "question": "Rank these wars by their start date (oldest first):", "items": ["World War I", "American Civil War", "Vietnam War"], "correctOrder": [1, 0, 2], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "American Civil War (1861) → World War I (1914) → Vietnam War (1955)" },
-  { "id": "his_rk5", "type": "ranking", "category": "history", "question": "Rank these ancient civilisations by founding date (oldest first):", "items": ["Ancient Rome", "Ancient Egypt", "Ancient Greece"], "correctOrder": [1, 2, 0], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "Ancient Egypt (~3100 BC) → Ancient Greece (~800 BC) → Ancient Rome (~753 BC)" },
-
-  { "id": "his_cw1", "type": "closest_wins", "category": "history", "question": "In what year was the Eiffel Tower completed?", "correctAnswer": 1889, "difficulty": "medium", "timeLimit": 15, "explanation": "The Eiffel Tower was completed on March 31, 1889, built for the 1889 World's Fair in Paris." },
-  { "id": "his_cw2", "type": "closest_wins", "category": "history", "question": "How many years did the Hundred Years' War actually last?", "correctAnswer": 116, "unit": "years", "difficulty": "hard", "timeLimit": 20, "explanation": "The Hundred Years' War lasted from 1337 to 1453 — 116 years, not 100." },
-  { "id": "his_cw3", "type": "closest_wins", "category": "history", "question": "In what year did the French Revolution begin?", "correctAnswer": 1789, "difficulty": "medium", "timeLimit": 15, "explanation": "The French Revolution began in 1789 with the storming of the Bastille on July 14." },
-  { "id": "his_cw4", "type": "closest_wins", "category": "history", "question": "In what year was the United States Declaration of Independence signed?", "correctAnswer": 1776, "difficulty": "easy", "timeLimit": 12, "explanation": "The Declaration of Independence was adopted by the Continental Congress on July 4, 1776." },
-  { "id": "his_cw5", "type": "closest_wins", "category": "history", "question": "How many wives did Henry VIII of England have?", "correctAnswer": 6, "difficulty": "medium", "timeLimit": 12, "explanation": "Henry VIII had six wives: Catherine of Aragon, Anne Boleyn, Jane Seymour, Anne of Cleves, Catherine Howard, and Catherine Parr." },
-
-  { "id": "his_sb1", "type": "speed_buzz", "category": "history", "question": "Which country gifted the Statue of Liberty to the United States?", "options": ["United Kingdom", "France", "Spain", "Italy"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 10, "explanation": "France gifted the Statue of Liberty to the USA in 1886, designed by Frédéric Auguste Bartholdi." },
-  { "id": "his_sb2", "type": "speed_buzz", "category": "history", "question": "In which city was the Titanic built?", "options": ["London", "Liverpool", "Belfast", "Glasgow"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 12, "explanation": "The Titanic was built at the Harland and Wolff shipyard in Belfast, Northern Ireland." },
-  { "id": "his_sb3", "type": "speed_buzz", "category": "history", "question": "Who was the first female Prime Minister of the United Kingdom?", "options": ["Angela Merkel", "Margaret Thatcher", "Theresa May", "Indira Gandhi"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 12, "explanation": "Margaret Thatcher became the UK's first female Prime Minister in 1979 and served until 1990." },
-  { "id": "his_sb4", "type": "speed_buzz", "category": "history", "question": "The ancient city of Troy was located in modern-day which country?", "options": ["Greece", "Turkey", "Italy", "Egypt"], "correctAnswer": 1, "difficulty": "medium", "timeLimit": 12, "explanation": "The ruins of Troy (Hisarlik) are located in northwest Turkey, near the Aegean coast." },
-  { "id": "his_sb5", "type": "speed_buzz", "category": "history", "question": "Which country was the first to give women the right to vote?", "options": ["Australia", "USA", "New Zealand", "Sweden"], "correctAnswer": 2, "difficulty": "hard", "timeLimit": 15, "explanation": "New Zealand became the first self-governing country to grant women the right to vote in 1893." },
-
-  { "id": "his_ft1", "type": "free_text", "category": "history", "question": "Who was the first President of the United States?", "correctAnswer": "George Washington", "acceptableAnswers": ["george washington", "washington"], "difficulty": "easy", "timeLimit": 12, "explanation": "George Washington served as the first President of the United States from 1789 to 1797." },
-  { "id": "his_ft2", "type": "free_text", "category": "history", "question": "Which country did Germany invade on September 1, 1939, triggering World War II?", "correctAnswer": "Poland", "acceptableAnswers": ["poland"], "difficulty": "easy", "timeLimit": 15, "explanation": "Germany's invasion of Poland on September 1, 1939 prompted Britain and France to declare war, starting WWII." },
-  { "id": "his_ft3", "type": "free_text", "category": "history", "question": "What was the name of the atomic bomb dropped on Hiroshima in 1945?", "correctAnswer": "Little Boy", "acceptableAnswers": ["little boy"], "difficulty": "hard", "timeLimit": 20, "explanation": "'Little Boy' was the uranium gun-type bomb dropped on Hiroshima on August 6, 1945. 'Fat Man' was used on Nagasaki three days later." },
-  { "id": "his_ft4", "type": "free_text", "category": "history", "question": "Name the ancient Egyptian queen famous for her relationships with Julius Caesar and Mark Antony.", "correctAnswer": "Cleopatra", "acceptableAnswers": ["cleopatra", "cleopatra vii"], "difficulty": "easy", "timeLimit": 15, "explanation": "Cleopatra VII was the last active ruler of the Ptolemaic Kingdom of Egypt, known for her alliances with Roman leaders." },
-
-  { "id": "cc_his1", "type": "clue_chain", "category": "history", "question": "Who am I?", "clues": ["I was born in 1452 in the Republic of Florence and was a true polymath", "I designed flying machines, tanks, and solar power — centuries before they existed", "I wrote in mirror script and kept thousands of pages of scientific notebooks", "I painted the Mona Lisa and The Last Supper"], "correctAnswer": "Leonardo da Vinci", "acceptableAnswers": ["da vinci", "leonardo", "davinci"], "difficulty": "medium", "timeLimit": 60 },
-  { "id": "cc_his2", "type": "clue_chain", "category": "history", "question": "What event am I?", "clues": ["I happened in 1969 and was watched live by an estimated 600 million people", "I was the culmination of a space race between two superpowers", "Three astronauts made the journey, but only two walked on the surface", "Neil Armstrong took 'one small step for man, one giant leap for mankind'"], "correctAnswer": "Moon Landing", "acceptableAnswers": ["apollo 11", "first moon landing", "apollo"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_his3", "type": "clue_chain", "category": "history", "question": "Who am I?", "clues": ["I was born in 1769 and rose to power during a period of political chaos in Europe", "I am under 5'7\" — though the idea I was extremely short is a historical myth", "I conquered most of continental Europe before a catastrophic Russian campaign", "I was Emperor of France and exiled twice — first to Elba, then to Saint Helena"], "correctAnswer": "Napoleon Bonaparte", "acceptableAnswers": ["napoleon", "napoleon i"], "difficulty": "medium", "timeLimit": 60 },
-  { "id": "cc_his4", "type": "clue_chain", "category": "history", "question": "Who am I?", "clues": ["I was born on January 15, 1929 in Atlanta, Georgia", "I led the Montgomery Bus Boycott in 1955–56, a pivotal moment in civil rights history", "I delivered my 'I Have a Dream' speech to 250,000 people in Washington D.C. in 1963", "I was assassinated in Memphis, Tennessee on April 4, 1968"], "correctAnswer": "Martin Luther King Jr.", "acceptableAnswers": ["martin luther king", "mlk", "martin luther king jr"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_his5", "type": "clue_chain", "category": "history", "question": "What event am I?", "clues": ["I began in 1789 with widespread famine, inequality, and resentment of the monarchy", "The storming of my most famous prison became a national symbol of freedom", "I led to the execution of King Louis XVI and Queen Marie Antoinette by guillotine", "I ended the French monarchy and planted the seeds of modern democracy across Europe"], "correctAnswer": "French Revolution", "acceptableAnswers": ["french revolution", "revolution francaise"], "difficulty": "medium", "timeLimit": 60 }
+  {
+    "id": "tf2",
+    "type": "true_false",
+    "category": "history",
+    "question": "The Great Wall of China is visible from space with the naked eye.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "This is a common myth — the wall is too narrow to be seen from space."
+  },
+  {
+    "id": "ft2",
+    "type": "free_text",
+    "category": "history",
+    "question": "Who painted the Mona Lisa?",
+    "correctAnswer": "Leonardo da Vinci",
+    "acceptableAnswers": [
+      "da vinci",
+      "leonardo",
+      "davinci"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Leonardo da Vinci painted the Mona Lisa between 1503 and 1519."
+  },
+  {
+    "id": "fb2",
+    "type": "fill_blank",
+    "category": "history",
+    "question": "Houston, we have a ___.",
+    "correctAnswer": "problem",
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Adapted from the Apollo 13 transmission: 'Houston, we've had a problem.'"
+  },
+  {
+    "id": "his_mc1",
+    "type": "multiple_choice",
+    "category": "history",
+    "question": "In which year did World War II end?",
+    "options": [
+      "1943",
+      "1944",
+      "1945",
+      "1946"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "World War II ended in 1945 — V-E Day (May 8) in Europe and V-J Day (September 2) in the Pacific."
+  },
+  {
+    "id": "his_mc2",
+    "type": "multiple_choice",
+    "category": "history",
+    "question": "Who was the first person to walk on the Moon?",
+    "options": [
+      "Buzz Aldrin",
+      "Yuri Gagarin",
+      "Neil Armstrong",
+      "John Glenn"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Neil Armstrong became the first human on the Moon on July 20, 1969."
+  },
+  {
+    "id": "his_mc3",
+    "type": "multiple_choice",
+    "category": "history",
+    "question": "The Berlin Wall fell in which year?",
+    "options": [
+      "1987",
+      "1988",
+      "1989",
+      "1990"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "The Berlin Wall fell on November 9, 1989, marking the end of the Cold War era in Germany."
+  },
+  {
+    "id": "his_mc4",
+    "type": "multiple_choice",
+    "category": "history",
+    "question": "Which ancient wonder of the world still exists today?",
+    "options": [
+      "The Colossus of Rhodes",
+      "The Great Pyramid of Giza",
+      "The Hanging Gardens of Babylon",
+      "The Lighthouse of Alexandria"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "The Great Pyramid of Giza is the only surviving ancient wonder of the world."
+  },
+  {
+    "id": "his_mc5",
+    "type": "multiple_choice",
+    "category": "history",
+    "question": "Who was the first Emperor of a unified China?",
+    "options": [
+      "Kublai Khan",
+      "Sun Yat-sen",
+      "Qin Shi Huang",
+      "Wu Zetian"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Qin Shi Huang unified China in 221 BC and became its first emperor, building the foundations of the Great Wall."
+  },
+  {
+    "id": "his_tf1",
+    "type": "true_false",
+    "category": "history",
+    "question": "Napoleon Bonaparte was born in France.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "Napoleon was born in Corsica on August 15, 1769 — just one year after France acquired the island from Genoa."
+  },
+  {
+    "id": "his_tf2",
+    "type": "true_false",
+    "category": "history",
+    "question": "The Titanic sank on its maiden voyage.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "The Titanic sank on April 15, 1912 during its very first voyage from Southampton to New York."
+  },
+  {
+    "id": "his_tf3",
+    "type": "true_false",
+    "category": "history",
+    "question": "Cleopatra lived closer in time to the Moon landing than to the construction of the Great Pyramid.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "The Great Pyramid was built ~2560 BC (2530 years before Cleopatra's death in 30 BC). The Moon landing was 1969 (~2000 years after Cleopatra). She's closer to the Moon landing."
+  },
+  {
+    "id": "his_tf4",
+    "type": "true_false",
+    "category": "history",
+    "question": "The ancient Romans had a form of underfloor heating.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Romans used the 'hypocaust' system — a raised floor through which hot air circulated, heating rooms from below."
+  },
+  {
+    "id": "his_tf5",
+    "type": "true_false",
+    "category": "history",
+    "question": "The Hundred Years' War lasted exactly 100 years.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "The Hundred Years' War between England and France lasted from 1337 to 1453 — 116 years."
+  },
+  {
+    "id": "his_fb1",
+    "type": "fill_blank",
+    "category": "history",
+    "question": "Julius Caesar's famous words were 'Veni, Vidi, ___'",
+    "correctAnswer": "Vici",
+    "acceptableAnswers": [
+      "vici",
+      "I conquered"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "'Veni, Vidi, Vici' means 'I came, I saw, I conquered' — Caesar reportedly said this after a swift military victory in 47 BC."
+  },
+  {
+    "id": "his_fb2",
+    "type": "fill_blank",
+    "category": "history",
+    "question": "Marie ___ was the first woman to win a Nobel Prize.",
+    "correctAnswer": "Curie",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Marie Curie won the Nobel Prize in Physics in 1903 and Chemistry in 1911 — the first person to win in two different sciences."
+  },
+  {
+    "id": "his_fb3",
+    "type": "fill_blank",
+    "category": "history",
+    "question": "The Cold War was a geopolitical tension between the United States and the ___.",
+    "correctAnswer": "Soviet Union",
+    "acceptableAnswers": [
+      "soviet union",
+      "ussr",
+      "russia"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "The Cold War (1947–1991) was a prolonged ideological and geopolitical rivalry between the USA and the Soviet Union."
+  },
+  {
+    "id": "his_fb4",
+    "type": "fill_blank",
+    "category": "history",
+    "question": "Rosa Parks refused to give up her seat on a ___ in Montgomery, Alabama.",
+    "correctAnswer": "bus",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "On December 1, 1955, Rosa Parks refused to give up her seat on a Montgomery city bus, igniting the Civil Rights Movement."
+  },
+  {
+    "id": "his_fb5",
+    "type": "fill_blank",
+    "category": "history",
+    "question": "The ancient Egyptian writing system is called ___.",
+    "correctAnswer": "hieroglyphics",
+    "acceptableAnswers": [
+      "hieroglyphics",
+      "hieroglyphs"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Egyptian hieroglyphics is one of the oldest writing systems, using symbols to represent sounds and ideas."
+  },
+  {
+    "id": "his_rk1",
+    "type": "ranking",
+    "category": "history",
+    "question": "Rank these historical events chronologically (earliest first):",
+    "items": [
+      "Moon Landing",
+      "World War II Ends",
+      "Berlin Wall Falls"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "WWII ends (1945) → Moon Landing (1969) → Berlin Wall falls (1989)"
+  },
+  {
+    "id": "his_rk2",
+    "type": "ranking",
+    "category": "history",
+    "question": "Rank these inventions by year (oldest first):",
+    "items": [
+      "Internet",
+      "Telephone",
+      "Television"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Telephone (1876) → Television (1920s) → Internet (1969/1991)"
+  },
+  {
+    "id": "his_rk3",
+    "type": "ranking",
+    "category": "history",
+    "question": "Rank these historical figures by birth year (oldest first):",
+    "items": [
+      "Albert Einstein",
+      "Napoleon Bonaparte",
+      "Julius Caesar"
+    ],
+    "correctOrder": [
+      2,
+      1,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Julius Caesar (100 BC) → Napoleon Bonaparte (1769) → Albert Einstein (1879)"
+  },
+  {
+    "id": "his_rk4",
+    "type": "ranking",
+    "category": "history",
+    "question": "Rank these wars by their start date (oldest first):",
+    "items": [
+      "World War I",
+      "American Civil War",
+      "Vietnam War"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "American Civil War (1861) → World War I (1914) → Vietnam War (1955)"
+  },
+  {
+    "id": "his_rk5",
+    "type": "ranking",
+    "category": "history",
+    "question": "Rank these ancient civilisations by founding date (oldest first):",
+    "items": [
+      "Ancient Rome",
+      "Ancient Egypt",
+      "Ancient Greece"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Ancient Egypt (~3100 BC) → Ancient Greece (~800 BC) → Ancient Rome (~753 BC)"
+  },
+  {
+    "id": "his_cw1",
+    "type": "closest_wins",
+    "category": "history",
+    "question": "In what year was the Eiffel Tower completed?",
+    "correctAnswer": 1889,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "The Eiffel Tower was completed on March 31, 1889, built for the 1889 World's Fair in Paris."
+  },
+  {
+    "id": "his_cw2",
+    "type": "closest_wins",
+    "category": "history",
+    "question": "How many years did the Hundred Years' War actually last?",
+    "correctAnswer": 116,
+    "unit": "years",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "The Hundred Years' War lasted from 1337 to 1453 — 116 years, not 100."
+  },
+  {
+    "id": "his_cw3",
+    "type": "closest_wins",
+    "category": "history",
+    "question": "In what year did the French Revolution begin?",
+    "correctAnswer": 1789,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "The French Revolution began in 1789 with the storming of the Bastille on July 14."
+  },
+  {
+    "id": "his_cw4",
+    "type": "closest_wins",
+    "category": "history",
+    "question": "In what year was the United States Declaration of Independence signed?",
+    "correctAnswer": 1776,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "The Declaration of Independence was adopted by the Continental Congress on July 4, 1776."
+  },
+  {
+    "id": "his_cw5",
+    "type": "closest_wins",
+    "category": "history",
+    "question": "How many wives did Henry VIII of England have?",
+    "correctAnswer": 6,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Henry VIII had six wives: Catherine of Aragon, Anne Boleyn, Jane Seymour, Anne of Cleves, Catherine Howard, and Catherine Parr."
+  },
+  {
+    "id": "his_sb1",
+    "type": "speed_buzz",
+    "category": "history",
+    "question": "Which country gifted the Statue of Liberty to the United States?",
+    "options": [
+      "United Kingdom",
+      "France",
+      "Spain",
+      "Italy"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "France gifted the Statue of Liberty to the USA in 1886, designed by Frédéric Auguste Bartholdi."
+  },
+  {
+    "id": "his_sb2",
+    "type": "speed_buzz",
+    "category": "history",
+    "question": "In which city was the Titanic built?",
+    "options": [
+      "London",
+      "Liverpool",
+      "Belfast",
+      "Glasgow"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "The Titanic was built at the Harland and Wolff shipyard in Belfast, Northern Ireland."
+  },
+  {
+    "id": "his_sb3",
+    "type": "speed_buzz",
+    "category": "history",
+    "question": "Who was the first female Prime Minister of the United Kingdom?",
+    "options": [
+      "Angela Merkel",
+      "Margaret Thatcher",
+      "Theresa May",
+      "Indira Gandhi"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Margaret Thatcher became the UK's first female Prime Minister in 1979 and served until 1990."
+  },
+  {
+    "id": "his_sb4",
+    "type": "speed_buzz",
+    "category": "history",
+    "question": "The ancient city of Troy was located in modern-day which country?",
+    "options": [
+      "Greece",
+      "Turkey",
+      "Italy",
+      "Egypt"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "The ruins of Troy (Hisarlik) are located in northwest Turkey, near the Aegean coast."
+  },
+  {
+    "id": "his_sb5",
+    "type": "speed_buzz",
+    "category": "history",
+    "question": "Which country was the first to give women the right to vote?",
+    "options": [
+      "Australia",
+      "USA",
+      "New Zealand",
+      "Sweden"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "New Zealand became the first self-governing country to grant women the right to vote in 1893."
+  },
+  {
+    "id": "his_ft1",
+    "type": "free_text",
+    "category": "history",
+    "question": "Who was the first President of the United States?",
+    "correctAnswer": "George Washington",
+    "acceptableAnswers": [
+      "george washington",
+      "washington"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "George Washington served as the first President of the United States from 1789 to 1797."
+  },
+  {
+    "id": "his_ft2",
+    "type": "free_text",
+    "category": "history",
+    "question": "Which country did Germany invade on September 1, 1939, triggering World War II?",
+    "correctAnswer": "Poland",
+    "acceptableAnswers": [
+      "poland"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Germany's invasion of Poland on September 1, 1939 prompted Britain and France to declare war, starting WWII."
+  },
+  {
+    "id": "his_ft3",
+    "type": "free_text",
+    "category": "history",
+    "question": "What was the name of the atomic bomb dropped on Hiroshima in 1945?",
+    "correctAnswer": "Little Boy",
+    "acceptableAnswers": [
+      "little boy"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "'Little Boy' was the uranium gun-type bomb dropped on Hiroshima on August 6, 1945. 'Fat Man' was used on Nagasaki three days later."
+  },
+  {
+    "id": "his_ft4",
+    "type": "free_text",
+    "category": "history",
+    "question": "Name the ancient Egyptian queen famous for her relationships with Julius Caesar and Mark Antony.",
+    "correctAnswer": "Cleopatra",
+    "acceptableAnswers": [
+      "cleopatra",
+      "cleopatra vii"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Cleopatra VII was the last active ruler of the Ptolemaic Kingdom of Egypt, known for her alliances with Roman leaders."
+  },
+  {
+    "id": "cc_his1",
+    "type": "clue_chain",
+    "category": "history",
+    "question": "Who am I?",
+    "clues": [
+      "I was born in 1452 in the Republic of Florence and was a true polymath",
+      "I designed flying machines, tanks, and solar power — centuries before they existed",
+      "I wrote in mirror script and kept thousands of pages of scientific notebooks",
+      "I painted the Mona Lisa and The Last Supper"
+    ],
+    "correctAnswer": "Leonardo da Vinci",
+    "acceptableAnswers": [
+      "da vinci",
+      "leonardo",
+      "davinci"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_his2",
+    "type": "clue_chain",
+    "category": "history",
+    "question": "What event am I?",
+    "clues": [
+      "I happened in 1969 and was watched live by an estimated 600 million people",
+      "I was the culmination of a space race between two superpowers",
+      "Three astronauts made the journey, but only two walked on the surface",
+      "Neil Armstrong took 'one small step for man, one giant leap for mankind'"
+    ],
+    "correctAnswer": "Moon Landing",
+    "acceptableAnswers": [
+      "apollo 11",
+      "first moon landing",
+      "apollo"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_his3",
+    "type": "clue_chain",
+    "category": "history",
+    "question": "Who am I?",
+    "clues": [
+      "I was born in 1769 and rose to power during a period of political chaos in Europe",
+      "I am under 5'7\" — though the idea I was extremely short is a historical myth",
+      "I conquered most of continental Europe before a catastrophic Russian campaign",
+      "I was Emperor of France and exiled twice — first to Elba, then to Saint Helena"
+    ],
+    "correctAnswer": "Napoleon Bonaparte",
+    "acceptableAnswers": [
+      "napoleon",
+      "napoleon i"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_his4",
+    "type": "clue_chain",
+    "category": "history",
+    "question": "Who am I?",
+    "clues": [
+      "I was born on January 15, 1929 in Atlanta, Georgia",
+      "I led the Montgomery Bus Boycott in 1955–56, a pivotal moment in civil rights history",
+      "I delivered my 'I Have a Dream' speech to 250,000 people in Washington D.C. in 1963",
+      "I was assassinated in Memphis, Tennessee on April 4, 1968"
+    ],
+    "correctAnswer": "Martin Luther King Jr.",
+    "acceptableAnswers": [
+      "martin luther king",
+      "mlk",
+      "martin luther king jr"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_his5",
+    "type": "clue_chain",
+    "category": "history",
+    "question": "What event am I?",
+    "clues": [
+      "I began in 1789 with widespread famine, inequality, and resentment of the monarchy",
+      "The storming of my most famous prison became a national symbol of freedom",
+      "I led to the execution of King Louis XVI and Queen Marie Antoinette by guillotine",
+      "I ended the French monarchy and planted the seeds of modern democracy across Europe"
+    ],
+    "correctAnswer": "French Revolution",
+    "acceptableAnswers": [
+      "french revolution",
+      "revolution francaise"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "fg_his_1",
+    "type": "flag_guess",
+    "category": "history",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "gb",
+    "correctAnswer": "United Kingdom",
+    "acceptableAnswers": [
+      "United Kingdom",
+      "UK",
+      "Great Britain",
+      "Britain"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "The British Empire, at its height in 1920, covered about 24% of the world's land area and influenced history globally."
+  },
+  {
+    "id": "fg_his_2",
+    "type": "flag_guess",
+    "category": "history",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "cn",
+    "correctAnswer": "China",
+    "acceptableAnswers": [
+      "China"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "China has one of the world's oldest civilisations, with a history spanning over 4,000 years including dynasties like the Han, Tang and Ming."
+  },
+  {
+    "id": "fg_his_3",
+    "type": "flag_guess",
+    "category": "history",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "in",
+    "correctAnswer": "India",
+    "acceptableAnswers": [
+      "India"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "India's independence movement, led by Mahatma Gandhi, ended British colonial rule in 1947 and became a model for non-violent resistance worldwide."
+  },
+  {
+    "id": "fg_his_4",
+    "type": "flag_guess",
+    "category": "history",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "eg",
+    "correctAnswer": "Egypt",
+    "acceptableAnswers": [
+      "Egypt"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Ancient Egypt was one of the earliest and most powerful civilisations, famous for its pyramids, pharaohs, and the invention of writing."
+  },
+  {
+    "id": "fg_his_5",
+    "type": "flag_guess",
+    "category": "history",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "gr",
+    "correctAnswer": "Greece",
+    "acceptableAnswers": [
+      "Greece"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Ancient Greece is the birthplace of democracy, Western philosophy (Socrates, Plato, Aristotle) and the Olympic Games (776 BC)."
+  },
+  {
+    "id": "fg_his_6",
+    "type": "flag_guess",
+    "category": "history",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "ru",
+    "correctAnswer": "Russia",
+    "acceptableAnswers": [
+      "Russia"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Russia's history spans from Kievan Rus through the Tsarist Empire, the 1917 Revolution, the Soviet Union, and the modern Russian Federation."
+  },
+  {
+    "id": "fg_his_7",
+    "type": "flag_guess",
+    "category": "history",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "de",
+    "correctAnswer": "Germany",
+    "acceptableAnswers": [
+      "Germany"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Germany's 20th-century history is defined by World War I, the Weimar Republic, the Nazi regime, World War II, division into East/West, and reunification in 1990."
+  },
+  {
+    "id": "fg_his_8",
+    "type": "flag_guess",
+    "category": "history",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "fr",
+    "correctAnswer": "France",
+    "acceptableAnswers": [
+      "France"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "The French Revolution (1789) and Napoleon Bonaparte's conquests reshaped European politics and spread Enlightenment ideals across the continent."
+  },
+  {
+    "id": "fg_his_9",
+    "type": "flag_guess",
+    "category": "history",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "es",
+    "correctAnswer": "Spain",
+    "acceptableAnswers": [
+      "Spain"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Spain's Age of Discovery in the 15th–16th centuries, led by Columbus and Magellan, established colonial empires in the Americas and Asia."
+  },
+  {
+    "id": "fg_his_10",
+    "type": "flag_guess",
+    "category": "history",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "it",
+    "correctAnswer": "Italy",
+    "acceptableAnswers": [
+      "Italy"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Italy was the centre of the Roman Empire and the Renaissance, profoundly shaping Western civilisation in art, law, literature and architecture."
+  },
+  {
+    "id": "fg_his_11",
+    "type": "flag_guess",
+    "category": "history",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "pt",
+    "correctAnswer": "Portugal",
+    "acceptableAnswers": [
+      "Portugal"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Portugal led the Age of Discovery, with Vasco da Gama reaching India in 1498 and establishing trading routes across Africa, Asia and the Americas."
+  },
+  {
+    "id": "fg_his_12",
+    "type": "flag_guess",
+    "category": "history",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "at",
+    "correctAnswer": "Austria",
+    "acceptableAnswers": [
+      "Austria"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "The Austro-Hungarian Empire, centred on Vienna, was one of Europe's great powers until its dissolution after World War I in 1918."
+  },
+  {
+    "id": "ig_his_1",
+    "type": "image_guess",
+    "category": "history",
+    "question": "Who is this historical figure?",
+    "imageUrl": "/quiz-images/napoleon.jpg",
+    "correctAnswer": "Napoleon Bonaparte",
+    "acceptableAnswers": [
+      "napoleon",
+      "napoleon bonaparte"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Napoleon Bonaparte (1769–1821) was a French military leader who became Emperor of the French and reshaped Europe through his conquests."
+  },
+  {
+    "id": "ig_his_2",
+    "type": "image_guess",
+    "category": "history",
+    "question": "Who is this civil rights leader?",
+    "imageUrl": "/quiz-images/martin-luther-king.jpg",
+    "correctAnswer": "Martin Luther King Jr",
+    "acceptableAnswers": [
+      "martin luther king",
+      "martin luther king jr",
+      "mlk"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Martin Luther King Jr (1929–1968) led the American civil rights movement, delivering the famous 'I Have a Dream' speech in 1963."
+  },
+  {
+    "id": "ig_his_3",
+    "type": "image_guess",
+    "category": "history",
+    "question": "Who is this iconic leader?",
+    "imageUrl": "/quiz-images/gandhi.jpg",
+    "correctAnswer": "Mahatma Gandhi",
+    "acceptableAnswers": [
+      "gandhi",
+      "mahatma gandhi"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Mahatma Gandhi (1869–1948) led India's non-violent independence movement against British colonial rule, inspiring civil rights leaders worldwide."
+  },
+  {
+    "id": "ig_his_4",
+    "type": "image_guess",
+    "category": "history",
+    "question": "What historical event is depicted here?",
+    "imageUrl": "/quiz-images/berlin-wall-fall.jpg",
+    "correctAnswer": "Fall of the Berlin Wall",
+    "acceptableAnswers": [
+      "berlin wall",
+      "fall of the berlin wall",
+      "berlin wall fall"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "The Berlin Wall, which divided East and West Berlin from 1961 to 1989, fell on 9 November 1989 — a defining moment of the Cold War's end."
+  },
+  {
+    "id": "ig_his_5",
+    "type": "image_guess",
+    "category": "history",
+    "question": "What ancient wonder is this?",
+    "imageUrl": "/quiz-images/pyramids-of-giza.jpg",
+    "correctAnswer": "Pyramids of Giza",
+    "acceptableAnswers": [
+      "pyramids",
+      "pyramids of giza",
+      "great pyramid",
+      "giza pyramids"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "The Great Pyramid of Giza (c. 2560 BC) is the oldest and only surviving member of the Seven Wonders of the Ancient World."
+  },
+  {
+    "id": "ig_his_6",
+    "type": "image_guess",
+    "category": "history",
+    "question": "Who is this world leader?",
+    "imageUrl": "/quiz-images/winston-churchill.jpg",
+    "correctAnswer": "Winston Churchill",
+    "acceptableAnswers": [
+      "winston churchill",
+      "churchill"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Winston Churchill served as British Prime Minister during World War II and is famous for his wartime speeches rallying the nation."
+  },
+  {
+    "id": "ig_his_7",
+    "type": "image_guess",
+    "category": "history",
+    "question": "Who is this revolutionary leader?",
+    "imageUrl": "/quiz-images/che-guevara.jpg",
+    "correctAnswer": "Che Guevara",
+    "acceptableAnswers": [
+      "che guevara",
+      "che",
+      "guevara"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Ernesto 'Che' Guevara (1928–1967) was an Argentine Marxist revolutionary who played a key role in the Cuban Revolution alongside Fidel Castro."
+  },
+  {
+    "id": "ig_his_8",
+    "type": "image_guess",
+    "category": "history",
+    "question": "What historical event is depicted here?",
+    "imageUrl": "/quiz-images/d-day-normandy.jpg",
+    "correctAnswer": "D-Day",
+    "acceptableAnswers": [
+      "d-day",
+      "normandy landing",
+      "normandy landings",
+      "operation overlord"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "D-Day (6 June 1944) saw Allied forces land on five beaches in Normandy, France — the largest seaborne invasion in history, turning the tide of World War II."
+  },
+  {
+    "id": "ig_his_9",
+    "type": "image_guess",
+    "category": "history",
+    "question": "Who is this Egyptian queen?",
+    "imageUrl": "/quiz-images/cleopatra-bust.jpg",
+    "correctAnswer": "Cleopatra",
+    "acceptableAnswers": [
+      "cleopatra",
+      "cleopatra vii"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Cleopatra VII (69–30 BC) was the last active ruler of the Ptolemaic Kingdom of Egypt, famous for her alliances with Julius Caesar and Mark Antony."
+  },
+  {
+    "id": "ig_his_10",
+    "type": "image_guess",
+    "category": "history",
+    "question": "Who is this US president?",
+    "imageUrl": "/quiz-images/abraham-lincoln.jpg",
+    "correctAnswer": "Abraham Lincoln",
+    "acceptableAnswers": [
+      "abraham lincoln",
+      "lincoln"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Abraham Lincoln (1809–1865), the 16th US President, preserved the Union during the Civil War and abolished slavery with the Emancipation Proclamation."
+  },
+  {
+    "id": "pr_his_1",
+    "type": "pixel_reveal",
+    "category": "history",
+    "question": "Who is this historical figure?",
+    "imageUrl": "/quiz-images/pixel/history-julius-caesar.jpg",
+    "correctAnswer": "Julius Caesar",
+    "acceptableAnswers": [
+      "julius caesar",
+      "caesar"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Julius Caesar (100–44 BC) was a Roman general, statesman and author who played a critical role in transforming the Roman Republic into the Roman Empire."
+  },
+  {
+    "id": "pr_his_2",
+    "type": "pixel_reveal",
+    "category": "history",
+    "question": "Who is this queen?",
+    "imageUrl": "/quiz-images/pixel/history-queen-elizabeth-i.jpg",
+    "correctAnswer": "Queen Elizabeth I",
+    "acceptableAnswers": [
+      "elizabeth i",
+      "queen elizabeth i",
+      "elizabeth the first"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Elizabeth I (1533–1603) was Queen of England and Ireland from 1558 until her death. Her reign is known as the Elizabethan Era — a golden age of exploration and culture."
+  },
+  {
+    "id": "pr_his_3",
+    "type": "pixel_reveal",
+    "category": "history",
+    "question": "Who is this revolutionary?",
+    "imageUrl": "/quiz-images/pixel/history-nelson-mandela.jpg",
+    "correctAnswer": "Nelson Mandela",
+    "acceptableAnswers": [
+      "nelson mandela",
+      "mandela",
+      "madiba"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Nelson Mandela spent 27 years in prison fighting apartheid in South Africa, then became the country's first democratically elected president in 1994."
+  },
+  {
+    "id": "pr_his_4",
+    "type": "pixel_reveal",
+    "category": "history",
+    "question": "Who is this dictator?",
+    "imageUrl": "/quiz-images/pixel/history-mussolini.jpg",
+    "correctAnswer": "Benito Mussolini",
+    "acceptableAnswers": [
+      "mussolini",
+      "benito mussolini"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Benito Mussolini founded Italian Fascism and ruled Italy as Il Duce from 1922 to 1943, aligning with Nazi Germany in World War II."
+  },
+  {
+    "id": "pr_his_5",
+    "type": "pixel_reveal",
+    "category": "history",
+    "question": "Who is this French emperor?",
+    "imageUrl": "/quiz-images/pixel/history-charlemagne.jpg",
+    "correctAnswer": "Charlemagne",
+    "acceptableAnswers": [
+      "charlemagne",
+      "charles the great",
+      "karl der grosse"
+    ],
+    "caseSensitive": false,
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "explanation": "Charlemagne (742–814 AD), King of the Franks, unified most of Western Europe and was crowned Holy Roman Emperor on Christmas Day 800 AD."
+  },
+  {
+    "id": "pr_his_6",
+    "type": "pixel_reveal",
+    "category": "history",
+    "question": "Who is this revolutionary leader?",
+    "imageUrl": "/quiz-images/pixel/history-fidel-castro.jpg",
+    "correctAnswer": "Fidel Castro",
+    "acceptableAnswers": [
+      "fidel castro",
+      "castro"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Fidel Castro led the Cuban Revolution in 1959, establishing a communist government in Cuba and becoming one of the Cold War's defining figures."
+  },
+  {
+    "id": "pr_his_7",
+    "type": "pixel_reveal",
+    "category": "history",
+    "question": "Who is this founding father?",
+    "imageUrl": "/quiz-images/pixel/history-george-washington.jpg",
+    "correctAnswer": "George Washington",
+    "acceptableAnswers": [
+      "george washington",
+      "washington"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "George Washington was the commanding general of the Continental Army during the American Revolution and the first President of the United States (1789–1797)."
+  },
+  {
+    "id": "pr_his_8",
+    "type": "pixel_reveal",
+    "category": "history",
+    "question": "Who is this Mongol leader?",
+    "imageUrl": "/quiz-images/pixel/history-genghis-khan.jpg",
+    "correctAnswer": "Genghis Khan",
+    "acceptableAnswers": [
+      "genghis khan",
+      "ghengis khan",
+      "chinggis khan"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Genghis Khan (c. 1162–1227) founded the Mongol Empire, the largest contiguous land empire in history, spanning from China to Eastern Europe."
+  },
+  {
+    "id": "as_his_1",
+    "type": "animal_sound",
+    "category": "history",
+    "question": "Which animal, a symbol of imperial power, makes this sound?",
+    "audioUrl": "/audio/animals/eagle.ogg",
+    "correctAnswer": "Eagle",
+    "acceptableAnswers": [
+      "Eagle",
+      "Bald eagle",
+      "Golden eagle"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_his_2",
+    "type": "animal_sound",
+    "category": "history",
+    "question": "Which animal, associated with Russia as a national symbol, makes this sound?",
+    "audioUrl": "/audio/animals/bear.ogg",
+    "correctAnswer": "Bear",
+    "acceptableAnswers": [
+      "Bear",
+      "Brown bear",
+      "Grizzly bear"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_his_3",
+    "type": "animal_sound",
+    "category": "history",
+    "question": "Which animal, a symbol of British royalty, makes this sound?",
+    "audioUrl": "/audio/animals/lion.ogg",
+    "correctAnswer": "Lion",
+    "acceptableAnswers": [
+      "Lion"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_his_4",
+    "type": "animal_sound",
+    "category": "history",
+    "question": "Which animal, sacred in ancient Egypt, makes this sound?",
+    "audioUrl": "/audio/animals/cat.ogg",
+    "correctAnswer": "Cat",
+    "acceptableAnswers": [
+      "Cat",
+      "Domestic cat"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_his_5",
+    "type": "animal_sound",
+    "category": "history",
+    "question": "Which animal, used in ancient warfare and exploration, makes this sound?",
+    "audioUrl": "/audio/animals/horse.ogg",
+    "correctAnswer": "Horse",
+    "acceptableAnswers": [
+      "Horse",
+      "Stallion",
+      "Mare"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "cw_his_1",
+    "type": "closest_wins",
+    "category": "history",
+    "question": "In what year did World War II end?",
+    "correctAnswer": 1945,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "World War II ended in 1945 — Germany surrendered on 8 May (V-E Day) and Japan surrendered on 2 September (V-J Day) after the atomic bombings of Hiroshima and Nagasaki."
+  },
+  {
+    "id": "cw_his_2",
+    "type": "closest_wins",
+    "category": "history",
+    "question": "In what year was the Magna Carta signed?",
+    "correctAnswer": 1215,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "The Magna Carta was signed by King John of England on 15 June 1215. It is one of the most important legal documents in history, limiting the power of the monarch."
+  },
+  {
+    "id": "cw_his_3",
+    "type": "closest_wins",
+    "category": "history",
+    "question": "In what year did Christopher Columbus first reach the Americas?",
+    "correctAnswer": 1492,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Christopher Columbus first landed in the Bahamas on 12 October 1492, opening the era of sustained contact between Europe and the Americas."
+  }
 ]

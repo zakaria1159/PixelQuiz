@@ -479,16 +479,6 @@ export function SharedGameView({
               borderBottom: '1px solid rgba(255,255,255,0.05)',
             }}
           >
-            {isImageGuessQuestion(question) && question.imageUrl && (
-              <div className="text-center mb-3">
-                <img
-                  src={question.imageUrl}
-                  alt="Question image"
-                  style={{ maxHeight: '140px', maxWidth: '100%', margin: '0 auto', borderRadius: '12px' }}
-                />
-              </div>
-            )}
-
             {isFillBlankQuestion(question) ? (
               <p className="text-xl font-bold text-white text-center leading-relaxed">
                 {question.question.split('___').map((part, i, arr) => (
@@ -551,6 +541,15 @@ export function SharedGameView({
             {/* Text input types (music_guess, animal_sound, clue_chain have their own blocks) */}
             {requiresTextInput(question) && !isMusicGuessQuestion(question) && !isAnimalSoundQuestion(question) && !isClueChainQuestion(question) && (
               <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', paddingTop: '8px', gap: '8px' }}>
+                {isImageGuessQuestion(question) && question.imageUrl && (
+                  <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+                    <img
+                      src={question.imageUrl}
+                      alt="Question image"
+                      style={{ maxHeight: '100%', maxWidth: '100%', borderRadius: '12px', objectFit: 'contain' }}
+                    />
+                  </div>
+                )}
                 <input
                   type="text"
                   value={answerText}

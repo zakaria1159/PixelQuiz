@@ -1,0 +1,1264 @@
+[
+  {
+    "id": "bk_mc1",
+    "type": "multiple_choice",
+    "category": "books",
+    "question": "Qui a écrit 'Orgueil et Préjugés' ?",
+    "options": [
+      "Charlotte Brontë",
+      "Jane Austen",
+      "George Eliot",
+      "Virginia Woolf"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Jane Austen a publié 'Orgueil et Préjugés' en 1813. Le roman suit Elizabeth Bennet et Mr. Darcy dans l'une des romances les plus célèbres de la littérature."
+  },
+  {
+    "id": "bk_mc2",
+    "type": "multiple_choice",
+    "category": "books",
+    "question": "Quel roman commence par 'Appelez-moi Ismaël' ?",
+    "options": [
+      "Le Vieil Homme et la Mer",
+      "Billy Budd",
+      "Moby-Dick",
+      "Lord Jim"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "'Moby-Dick' (1851) d'Herman Melville s'ouvre sur cette ligne emblématique. Ismaël est le narrateur qui rejoint le funeste voyage du Pequod."
+  },
+  {
+    "id": "bk_mc3",
+    "type": "multiple_choice",
+    "category": "books",
+    "question": "Dans quel roman apparaît l'avocat Atticus Finch ?",
+    "options": [
+      "Des Souris et des Hommes",
+      "Les Raisins de la colère",
+      "Ne tirez pas sur l'oiseau moqueur",
+      "Homme invisible"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Atticus Finch est le protagoniste de 'Ne tirez pas sur l'oiseau moqueur' (1960) de Harper Lee, un avocat veuf qui défend un homme noir faussement accusé de viol dans l'Alabama des années 1930."
+  },
+  {
+    "id": "bk_mc4",
+    "type": "multiple_choice",
+    "category": "books",
+    "question": "Qui a écrit 'Cent ans de solitude' ?",
+    "options": [
+      "Pablo Neruda",
+      "Mario Vargas Llosa",
+      "Jorge Luis Borges",
+      "Gabriel García Márquez"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Gabriel García Márquez a publié 'Cien años de soledad' en 1967. Le roman retrace sept générations de la famille Buendía et est l'œuvre fondatrice du réalisme magique. Il a reçu le prix Nobel en 1982."
+  },
+  {
+    "id": "bk_mc5",
+    "type": "multiple_choice",
+    "category": "books",
+    "question": "Quel roman dystopique met en scène le Parti totalitaire dirigé par Big Brother ?",
+    "options": [
+      "Le Meilleur des mondes",
+      "Nous",
+      "Fahrenheit 451",
+      "1984"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "'1984' de George Orwell (1949) a introduit des concepts comme Big Brother, la doublepensée et la novlangue. Orwell l'a écrit alors qu'il était gravement malade."
+  },
+  {
+    "id": "bk_mc6",
+    "type": "multiple_choice",
+    "category": "books",
+    "question": "Dans quelle pièce de Shakespeare apparaît la prophétie des sorcières 'Feu brûle et chaudron bout' ?",
+    "options": [
+      "Le Roi Lear",
+      "Hamlet",
+      "Macbeth",
+      "Othello"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Les Trois Sorcières prononcent ces mots dans 'Macbeth' (vers 1606) en remuant leur chaudron. Leurs prophéties poussent Macbeth vers ses ambitions meurtrières."
+  },
+  {
+    "id": "bk_mc7",
+    "type": "multiple_choice",
+    "category": "books",
+    "question": "Qui est l'auteur d''À la recherche du temps perdu' ?",
+    "options": [
+      "Gustave Flaubert",
+      "Émile Zola",
+      "Marcel Proust",
+      "Albert Camus"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Marcel Proust a écrit ce roman en sept volumes (1913–1927), considéré comme l'une des plus grandes œuvres de la littérature mondiale. Il est célèbre pour l'épisode de la madeleine."
+  },
+  {
+    "id": "bk_mc8",
+    "type": "multiple_choice",
+    "category": "books",
+    "question": "Dans quel pays se déroule 'Crime et Châtiment' de Dostoïevski ?",
+    "options": [
+      "Pologne",
+      "Russie",
+      "Ukraine",
+      "Allemagne"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "'Crime et Châtiment' (1866) se déroule à Saint-Pétersbourg, en Russie. Le roman suit l'étudiant Raskolnikov qui assassine une prêteuse sur gages et lutte contre la culpabilité."
+  },
+  {
+    "id": "bk_mc9",
+    "type": "multiple_choice",
+    "category": "books",
+    "question": "Quel est le nom du narrateur dans 'Gatsby le Magnifique' de F. Scott Fitzgerald ?",
+    "options": [
+      "Tom Buchanan",
+      "Jay Gatsby",
+      "Nick Carraway",
+      "Jordan Baker"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Nick Carraway est le narrateur de 'Gatsby le Magnifique' (1925). Il est le voisin de Gatsby et le cousin de Daisy Buchanan."
+  },
+  {
+    "id": "bk_mc10",
+    "type": "multiple_choice",
+    "category": "books",
+    "question": "Quel auteur a créé le détective Hercule Poirot ?",
+    "options": [
+      "Dorothy L. Sayers",
+      "Agatha Christie",
+      "Arthur Conan Doyle",
+      "P.D. James"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Agatha Christie a introduit Hercule Poirot dans 'La Mystérieuse Affaire de Styles' (1920). Le détective belge apparaît dans 33 romans et 54 nouvelles."
+  },
+  {
+    "id": "bk_tf1",
+    "type": "true_false",
+    "category": "books",
+    "question": "J.R.R. Tolkien a écrit 'Les Chroniques de Narnia'.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "'Les Chroniques de Narnia' a été écrit par C.S. Lewis, l'ami proche de Tolkien. Tolkien a écrit 'Le Seigneur des Anneaux' et 'Le Hobbit'."
+  },
+  {
+    "id": "bk_tf2",
+    "type": "true_false",
+    "category": "books",
+    "question": "'Don Quichotte' de Miguel de Cervantes est considéré comme le premier roman moderne.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "'Don Quichotte' (1605–1615) est fréquemment cité comme le premier roman moderne grâce à sa narration autoréférentielle et ses personnages complexes."
+  },
+  {
+    "id": "bk_tf3",
+    "type": "true_false",
+    "category": "books",
+    "question": "Emily Brontë a écrit 'Jane Eyre'.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "'Jane Eyre' (1847) a été écrit par Charlotte Brontë, pas par sa sœur Emily. Emily Brontë a écrit 'Les Hauts de Hurlevent', publié la même année."
+  },
+  {
+    "id": "bk_tf4",
+    "type": "true_false",
+    "category": "books",
+    "question": "Franz Kafka a publié 'Le Procès' et 'Le Château' de son vivant.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "Kafka a demandé à son ami Max Brod de brûler ses manuscrits inédits après sa mort. Brod l'a défié et a publié 'Le Procès' (1925) et 'Le Château' (1926) à titre posthume."
+  },
+  {
+    "id": "bk_tf5",
+    "type": "true_false",
+    "category": "books",
+    "question": "Ernest Hemingway a reçu le prix Nobel de littérature.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Hemingway a reçu le prix Nobel de littérature en 1954, notamment pour 'Le Vieil Homme et la Mer' (1952)."
+  },
+  {
+    "id": "bk_fb1",
+    "type": "fill_blank",
+    "category": "books",
+    "question": "'C'était le meilleur des temps, c'était le pire des temps' ouvre '___ ___' de Charles Dickens.",
+    "correctAnswer": "Le Conte de deux villes",
+    "acceptableAnswers": [
+      "le conte de deux villes",
+      "conte de deux villes",
+      "a tale of two cities"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 18,
+    "explanation": "Cette ouverture de 'Le Conte de deux villes' (1859) contraste la vie à Londres et Paris avant et pendant la Révolution française."
+  },
+  {
+    "id": "bk_fb2",
+    "type": "fill_blank",
+    "category": "books",
+    "question": "La nouvelle de Franz Kafka dans laquelle un homme se réveille transformé en insecte géant s'appelle 'La ___'.",
+    "correctAnswer": "Métamorphose",
+    "acceptableAnswers": [
+      "métamorphose",
+      "metamorphose",
+      "la métamorphose"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "'La Métamorphose' (Die Verwandlung, 1915) s'ouvre sur Gregor Samsa qui se découvre transformé. C'est l'une des œuvres les plus étudiées de la littérature du 20e siècle."
+  },
+  {
+    "id": "bk_fb3",
+    "type": "fill_blank",
+    "category": "books",
+    "question": "L'auteur de 'La Divine Comédie', poème épique situé en Enfer, au Purgatoire et au Paradis, est ___.",
+    "correctAnswer": "Dante",
+    "acceptableAnswers": [
+      "dante",
+      "dante alighieri"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Dante Alighieri a écrit 'La Divina Commedia' (vers 1308–1320). Les trois parties (Enfer, Purgatoire, Paradis) suivent Dante guidé par Virgile puis Béatrice."
+  },
+  {
+    "id": "bk_fb4",
+    "type": "fill_blank",
+    "category": "books",
+    "question": "Dans 'Roméo et Juliette', les deux familles ennemies sont les Montaigu et les ___.",
+    "correctAnswer": "Capulet",
+    "acceptableAnswers": [
+      "capulet",
+      "capulets"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "La tragédie de Shakespeare (vers 1594–1596) place les amoureux maudits dans le contexte d'une amère querelle entre les familles Montaigu et Capulet de Vérone."
+  },
+  {
+    "id": "bk_fb5",
+    "type": "fill_blank",
+    "category": "books",
+    "question": "Le roman '___ ___' de George Orwell se déroule dans une ferme où des cochons mènent une révolution contre les humains.",
+    "correctAnswer": "La Ferme des animaux",
+    "acceptableAnswers": [
+      "la ferme des animaux",
+      "ferme des animaux",
+      "animal farm"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "'La Ferme des animaux' (1945) est une novella allégorique satirisant l'Union soviétique sous Staline. Sa célèbre dernière ligne : 'Tous les animaux sont égaux, mais certains sont plus égaux que d'autres.'"
+  },
+  {
+    "id": "bk_rk1",
+    "type": "ranking",
+    "category": "books",
+    "question": "Classez ces romans classiques par année de publication (du plus ancien au plus récent) :",
+    "items": [
+      "1984",
+      "Moby-Dick",
+      "Don Quichotte"
+    ],
+    "correctOrder": [
+      2,
+      1,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Don Quichotte (1605) → Moby-Dick (1851) → 1984 (1949)"
+  },
+  {
+    "id": "bk_rk2",
+    "type": "ranking",
+    "category": "books",
+    "question": "Classez ces auteurs par année de naissance (du plus ancien au plus récent) :",
+    "items": [
+      "Virginia Woolf",
+      "William Shakespeare",
+      "Léon Tolstoï"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Shakespeare (1564) → Tolstoï (1828) → Virginia Woolf (1882)"
+  },
+  {
+    "id": "bk_rk3",
+    "type": "ranking",
+    "category": "books",
+    "question": "Classez ces romans de Dickens par année de publication (du plus ancien au plus récent) :",
+    "items": [
+      "De grandes espérances",
+      "Oliver Twist",
+      "Le Conte de deux villes"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Oliver Twist (1837–39) → Le Conte de deux villes (1859) → De grandes espérances (1860–61)"
+  },
+  {
+    "id": "bk_rk4",
+    "type": "ranking",
+    "category": "books",
+    "question": "Classez ces lauréats du prix Nobel de littérature dans l'ordre où ils l'ont reçu (du plus ancien au plus récent) :",
+    "items": [
+      "Toni Morrison",
+      "Ernest Hemingway",
+      "Albert Camus"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Ernest Hemingway (1954) → Albert Camus (1957) → Toni Morrison (1993)"
+  },
+  {
+    "id": "bk_rk5",
+    "type": "ranking",
+    "category": "books",
+    "question": "Classez ces pièces de Shakespeare par ordre alphabétique (A à Z) :",
+    "items": [
+      "Othello",
+      "Hamlet",
+      "Macbeth"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "allowPartialCredit": true,
+    "explanation": "Hamlet → Macbeth → Othello (ordre alphabétique)"
+  },
+  {
+    "id": "bk_cw1",
+    "type": "closest_wins",
+    "category": "books",
+    "question": "En quelle année 'Don Quichotte' (Partie 1) a-t-il été publié pour la première fois ?",
+    "correctAnswer": 1605,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "La Partie 1 de 'Don Quichotte' a été publiée en 1605 par Miguel de Cervantes. La Partie 2 a suivi en 1615."
+  },
+  {
+    "id": "bk_cw2",
+    "type": "closest_wins",
+    "category": "books",
+    "question": "Combien de pièces Shakespeare est-il crédité d'avoir écrites ?",
+    "correctAnswer": 37,
+    "unit": "pièces",
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Shakespeare est généralement crédité de 37 pièces. Il a également écrit 154 sonnets et plusieurs longs poèmes."
+  },
+  {
+    "id": "bk_cw3",
+    "type": "closest_wins",
+    "category": "books",
+    "question": "En quelle année 'Orgueil et Préjugés' a-t-il été publié pour la première fois ?",
+    "correctAnswer": 1813,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "'Orgueil et Préjugés' a été publié le 28 janvier 1813. Jane Austen l'avait écrit en 1796–97 sous le titre 'Premières impressions'."
+  },
+  {
+    "id": "bk_cw4",
+    "type": "closest_wins",
+    "category": "books",
+    "question": "Approximativement combien de mots contient 'À la recherche du temps perdu' de Marcel Proust ?",
+    "correctAnswer": 1500000,
+    "unit": "mots",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Avec environ 1,5 million de mots, 'À la recherche du temps perdu' détient le record Guinness du roman le plus long jamais publié."
+  },
+  {
+    "id": "bk_cw5",
+    "type": "closest_wins",
+    "category": "books",
+    "question": "En quelle année Léon Tolstoï a-t-il publié 'Guerre et Paix' ?",
+    "correctAnswer": 1869,
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "'Guerre et Paix' a été sérialisé de 1865 à 1867 et publié en livre complet en 1869. Le roman couvre l'invasion de la Russie par Napoléon."
+  },
+  {
+    "id": "bk_sb1",
+    "type": "speed_buzz",
+    "category": "books",
+    "question": "Qui a écrit 'L'Attrape-cœurs' ?",
+    "options": [
+      "Jack Kerouac",
+      "J.D. Salinger",
+      "John Updike",
+      "Philip Roth"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "J.D. Salinger a publié 'L'Attrape-cœurs' en 1951. Le narrateur Holden Caulfield est devenu une icône de l'aliénation et de la rébellion adolescente."
+  },
+  {
+    "id": "bk_sb2",
+    "type": "speed_buzz",
+    "category": "books",
+    "question": "Quel roman met en scène le personnage de Robinson Crusoé ?",
+    "options": [
+      "Les Voyages de Gulliver",
+      "L'Île au trésor",
+      "Robinson Crusoé",
+      "Le Robinson suisse"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "'Robinson Crusoé' (1719) de Daniel Defoe est considéré comme l'un des premiers romans anglais. Crusoé est naufragé sur une île tropicale pendant 28 ans."
+  },
+  {
+    "id": "bk_sb3",
+    "type": "speed_buzz",
+    "category": "books",
+    "question": "Quel est le nom du monstre dans 'Frankenstein' de Mary Shelley ?",
+    "options": [
+      "Frankenstein",
+      "La Créature",
+      "Igor",
+      "Victor"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Le monstre n'est jamais nommé dans le roman — il est appelé 'la créature' ou 'le monstre'. Frankenstein est le nom de son créateur, Victor Frankenstein."
+  },
+  {
+    "id": "bk_sb4",
+    "type": "speed_buzz",
+    "category": "books",
+    "question": "Quel auteur a écrit 'L'Alchimiste' ?",
+    "options": [
+      "Isabel Allende",
+      "Paulo Coelho",
+      "Jorge Amado",
+      "Julio Cortázar"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "'L'Alchimiste' (O Alquimista, 1988) de Paulo Coelho s'est vendu à plus de 65 millions d'exemplaires dans le monde."
+  },
+  {
+    "id": "bk_sb5",
+    "type": "speed_buzz",
+    "category": "books",
+    "question": "Dans le roman de Dumas, qui sont les 'Trois Mousquetaires' ?",
+    "options": [
+      "Athos, Porthos, Aramis",
+      "D'Artagnan, Porthos, Aramis",
+      "Athos, D'Artagnan, Porthos",
+      "Athos, Porthos, Richelieu"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Les trois mousquetaires sont Athos, Porthos et Aramis. D'Artagnan est le jeune Gascon qui les rejoint — ce qui fait quatre en tout, d'où 'tous pour un, un pour tous'."
+  },
+  {
+    "id": "bk_ft1",
+    "type": "free_text",
+    "category": "books",
+    "question": "Qui a écrit 'Crime et Châtiment' ?",
+    "correctAnswer": "Fyodor Dostoïevski",
+    "acceptableAnswers": [
+      "dostoievski",
+      "dostoïevski",
+      "fyodor dostoïevski",
+      "dostoyevsky",
+      "dostoevsky"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Fiodor Dostoïevski a publié 'Crime et Châtiment' en 1866. Avec 'L'Idiot', 'Les Démons' et 'Les Frères Karamazov', c'est l'un de ses quatre grands romans."
+  },
+  {
+    "id": "bk_ft2",
+    "type": "free_text",
+    "category": "books",
+    "question": "Quel est le nom de la baleine dans 'Moby-Dick' d'Herman Melville ?",
+    "correctAnswer": "Moby Dick",
+    "acceptableAnswers": [
+      "moby dick",
+      "moby-dick",
+      "moby"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Moby Dick est l'énorme cachalot blanc chassé obsessionnellement par le capitaine Achab, qui avait perdu sa jambe à cause de la baleine."
+  },
+  {
+    "id": "bk_ft3",
+    "type": "free_text",
+    "category": "books",
+    "question": "Quel auteur a écrit 'Madame Bovary' ?",
+    "correctAnswer": "Gustave Flaubert",
+    "acceptableAnswers": [
+      "flaubert",
+      "gustave flaubert"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "'Madame Bovary' (1857) de Gustave Flaubert suit Emma Bovary, femme d'un médecin de province, qui cherche à fuir sa vie à travers des aventures romantiques. Sa publication a conduit à un procès pour obscénité que Flaubert a gagné."
+  },
+  {
+    "id": "bk_ft4",
+    "type": "free_text",
+    "category": "books",
+    "question": "Nommez l'auteur du 'Procès' et de 'La Métamorphose'.",
+    "correctAnswer": "Franz Kafka",
+    "acceptableAnswers": [
+      "kafka",
+      "franz kafka"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Franz Kafka (1883–1924) a écrit ces deux œuvres. Son nom est entré dans la langue courante — 'kafkaïen' décrit des situations bureaucratiques absurdes et cauchemardesque."
+  },
+  {
+    "id": "bk_ft5",
+    "type": "free_text",
+    "category": "books",
+    "question": "Quel roman de Virginia Woolf suit une seule journée dans la vie de Clarissa Dalloway ?",
+    "correctAnswer": "Mrs Dalloway",
+    "acceptableAnswers": [
+      "mrs dalloway",
+      "mrs. dalloway",
+      "madame dalloway"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "'Mrs Dalloway' (1925) se déroule en une seule journée de juin dans le Londres d'après-guerre, suivant Clarissa Dalloway qui prépare une soirée. C'est un jalon du roman de conscience."
+  },
+  {
+    "id": "cc_bk1",
+    "type": "clue_chain",
+    "category": "books",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis un romancier russe né en 1821 qui a vécu un emprisonnement en Sibérie pour activités politiques",
+      "J'ai écrit un roman dans lequel un étudiant nommé Raskolnikov assassine une prêteuse sur gages et lutte avec sa conscience",
+      "Mes autres grandes œuvres comprennent 'L'Idiot', 'Les Démons' et 'Les Frères Karamazov'",
+      "Je suis souvent cité aux côtés de Tolstoï comme l'un des deux plus grands romanciers russes"
+    ],
+    "correctAnswer": "Fyodor Dostoïevski",
+    "acceptableAnswers": [
+      "dostoievski",
+      "dostoïevski",
+      "fyodor dostoïevski",
+      "dostoevsky"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60,
+    "explanation": "Dostoïevski (1821–1881) a été une figure transformatrice de la littérature mondiale, explorant la psychologie, la souffrance et la morale."
+  },
+  {
+    "id": "cc_bk2",
+    "type": "clue_chain",
+    "category": "books",
+    "question": "Quel roman suis-je ?",
+    "clues": [
+      "J'ai été publié en 1851 par un auteur américain et n'ai pas eu de succès commercial de son vivant",
+      "Ma ligne d'ouverture est 'Appelez-moi Ismaël'",
+      "Je suis le récit de la chasse obsessionnelle d'un cachalot blanc par le capitaine Achab, qui a perdu sa jambe",
+      "Je suis aujourd'hui considéré comme le Grand Roman Américain"
+    ],
+    "correctAnswer": "Moby-Dick",
+    "acceptableAnswers": [
+      "moby dick",
+      "moby-dick"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60,
+    "explanation": "'Moby-Dick' (1851) d'Herman Melville s'est vendu à moins de 4 000 exemplaires de son vivant. Il a été redécouvert dans les années 1920."
+  },
+  {
+    "id": "cc_bk3",
+    "type": "clue_chain",
+    "category": "books",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis un romancier et journaliste colombien qui a reçu le prix Nobel de littérature en 1982",
+      "J'ai été le pionnier du réalisme magique, mêlant éléments fantastiques et vie quotidienne",
+      "Mon chef-d'œuvre suit sept générations de la famille Buendía dans la ville fictive de Macondo",
+      "Ce roman s'appelle 'Cent ans de solitude'"
+    ],
+    "correctAnswer": "Gabriel García Márquez",
+    "acceptableAnswers": [
+      "garcia marquez",
+      "gabriel garcia marquez",
+      "gabo"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60,
+    "explanation": "García Márquez (1927–2014) est l'un des auteurs les plus importants du 20e siècle. Il a également écrit 'L'Amour aux temps du choléra' (1985)."
+  },
+  {
+    "id": "cc_bk4",
+    "type": "clue_chain",
+    "category": "books",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis un romancier anglais né en 1903 qui a travaillé pour la BBC et combattu pendant la guerre civile espagnole",
+      "J'ai écrit une novella satirique dans laquelle des animaux de ferme renversent leur fermier humain, pour être opprimés par des cochons",
+      "J'ai également écrit un roman dystopique dans un futur totalitaire gouverné par une figure appelée Big Brother",
+      "Mon vrai nom de famille était Blair — j'ai choisi un pseudonyme pour sonner plus anglais"
+    ],
+    "correctAnswer": "George Orwell",
+    "acceptableAnswers": [
+      "orwell",
+      "george orwell"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60,
+    "explanation": "Eric Arthur Blair (1903–1950) a choisi le pseudonyme George Orwell. 'La Ferme des animaux' (1945) et '1984' (1949) restent parmi les romans politiques les plus influents jamais écrits."
+  },
+  {
+    "id": "cc_bk5",
+    "type": "clue_chain",
+    "category": "books",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis un auteur français né en 1913 en Algérie, associé à la philosophie de l'absurde",
+      "J'ai écrit un roman dans lequel un homme nommé Meursault tue un Arabe sur une plage et ne ressent aucun remords",
+      "J'ai reçu le prix Nobel de littérature en 1957 à 44 ans — l'un des plus jeunes lauréats",
+      "Je suis mort dans un accident de voiture en 1960. Mon roman 'L'Étranger' est mon œuvre la plus célèbre"
+    ],
+    "correctAnswer": "Albert Camus",
+    "acceptableAnswers": [
+      "camus",
+      "albert camus"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60,
+    "explanation": "Albert Camus (1913–1960) a développé la philosophie de l'absurde. Ses autres œuvres clés sont 'La Peste' et 'Le Mythe de Sisyphe'."
+  },
+  {
+    "id": "as_bk_1",
+    "type": "animal_sound",
+    "category": "books",
+    "question": "Quel animal, Bourriquet de Winnie l'Ourson, émet ce son ?",
+    "audioUrl": "/audio/animals/donkey.ogg",
+    "correctAnswer": "Donkey",
+    "acceptableAnswers": [
+      "Donkey",
+      "Ass",
+      "Burro"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_bk_2",
+    "type": "animal_sound",
+    "category": "books",
+    "question": "Quel animal, du conte des Trois Billy Bouc Gruff, émet ce son ?",
+    "audioUrl": "/audio/animals/goat.ogg",
+    "correctAnswer": "Goat",
+    "acceptableAnswers": [
+      "Goat",
+      "Billy goat"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_bk_3",
+    "type": "animal_sound",
+    "category": "books",
+    "question": "Quel oiseau, sujet du poème le plus célèbre d'Edgar Allan Poe, émet ce son ?",
+    "audioUrl": "/audio/animals/crow.ogg",
+    "correctAnswer": "Crow",
+    "acceptableAnswers": [
+      "Crow",
+      "Raven",
+      "Common crow"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_bk_4",
+    "type": "animal_sound",
+    "category": "books",
+    "question": "Quel reptile, apparaissant dans Le Livre de la Jungle de Kipling, émet ce sifflement ?",
+    "audioUrl": "/audio/animals/snake.ogg",
+    "correctAnswer": "Snake",
+    "acceptableAnswers": [
+      "Snake",
+      "Python",
+      "Kaa"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_bk_5",
+    "type": "animal_sound",
+    "category": "books",
+    "question": "Quel palmipède, du livre 'Make Way for Ducklings', émet ce son ?",
+    "audioUrl": "/audio/animals/duck.ogg",
+    "correctAnswer": "Duck",
+    "acceptableAnswers": [
+      "Duck",
+      "Mallard duck"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "fg_bk_1",
+    "type": "flag_guess",
+    "category": "books",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "ru",
+    "correctAnswer": "Russia",
+    "acceptableAnswers": [
+      "Russia"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "La Russie est la patrie de quelques-uns des plus grands écrivains de la littérature : Tolstoï (Guerre et Paix, Anna Karénine), Dostoïevski (Crime et Châtiment) et Tchekhov."
+  },
+  {
+    "id": "fg_bk_2",
+    "type": "flag_guess",
+    "category": "books",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "co",
+    "correctAnswer": "Colombia",
+    "acceptableAnswers": [
+      "Colombia"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "La Colombie est le pays natal de Gabriel García Márquez, lauréat du Prix Nobel et auteur de Cent ans de solitude, l'œuvre fondatrice du réalisme magique."
+  },
+  {
+    "id": "fg_bk_3",
+    "type": "flag_guess",
+    "category": "books",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "gr",
+    "correctAnswer": "Greece",
+    "acceptableAnswers": [
+      "Greece"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "La Grèce antique nous a donné l'Iliade et l'Odyssée d'Homère, les tragédies de Sophocle, la philosophie de Platon et d'Aristote — le fondement de la tradition littéraire occidentale."
+  },
+  {
+    "id": "fg_bk_4",
+    "type": "flag_guess",
+    "category": "books",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "dk",
+    "correctAnswer": "Denmark",
+    "acceptableAnswers": [
+      "Denmark"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Le Danemark est le pays natal de Hans Christian Andersen, qui a écrit La Petite Sirène, Poucette, Le Vilain Petit Canard et des centaines d'autres contes bien-aimés."
+  },
+  {
+    "id": "fg_bk_5",
+    "type": "flag_guess",
+    "category": "books",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "ar",
+    "correctAnswer": "Argentina",
+    "acceptableAnswers": [
+      "Argentina"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "L'Argentine est la patrie de Jorge Luis Borges, l'un des auteurs les plus influents du XXe siècle, connu pour ses nouvelles labyrinthiques mêlant réalité et fantaisie."
+  },
+  {
+    "id": "ig_bk_1",
+    "type": "image_guess",
+    "category": "books",
+    "question": "Qui est cet auteur célèbre ?",
+    "imageUrl": "/quiz-images/ernest-hemingway.jpg",
+    "correctAnswer": "Ernest Hemingway",
+    "acceptableAnswers": [
+      "ernest hemingway",
+      "hemingway"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Ernest Hemingway (1899–1961) a remporté le Prix Nobel de Littérature en 1954 et est connu pour Le Vieil Homme et la Mer, L'Adieu aux armes et Le Soleil se lève aussi."
+  },
+  {
+    "id": "ig_bk_2",
+    "type": "image_guess",
+    "category": "books",
+    "question": "Qui est cet auteur célèbre ?",
+    "imageUrl": "/quiz-images/virginia-woolf.jpg",
+    "correctAnswer": "Virginia Woolf",
+    "acceptableAnswers": [
+      "virginia woolf",
+      "woolf"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Virginia Woolf (1882–1941) était une romancière et essayiste moderniste pionnière, surtout connue pour Mrs Dalloway, La Promenade au phare et l'essai Une chambre à soi."
+  },
+  {
+    "id": "ig_bk_3",
+    "type": "image_guess",
+    "category": "books",
+    "question": "Qui est cet auteur célèbre ?",
+    "imageUrl": "/quiz-images/leo-tolstoy.jpg",
+    "correctAnswer": "Leo Tolstoy",
+    "acceptableAnswers": [
+      "leo tolstoy",
+      "tolstoy",
+      "lev tolstoy"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Léon Tolstoï (1828–1910) est largement considéré comme l'un des plus grands romanciers de tous les temps, surtout connu pour Guerre et Paix (1869) et Anna Karénine (1877)."
+  },
+  {
+    "id": "ig_bk_4",
+    "type": "image_guess",
+    "category": "books",
+    "question": "Quelle est cette célèbre couverture de livre ?",
+    "imageUrl": "/quiz-images/great-gatsby-cover.jpg",
+    "correctAnswer": "The Great Gatsby",
+    "acceptableAnswers": [
+      "the great gatsby",
+      "great gatsby"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "La couverture originale de Gatsby le Magnifique (1925) par Francis Cugat représente un visage désincorporé sur un paysage nocturne — peinte avant que Fitzgerald ait terminé le roman."
+  },
+  {
+    "id": "ig_bk_5",
+    "type": "image_guess",
+    "category": "books",
+    "question": "Qui est cet auteur célèbre ?",
+    "imageUrl": "/quiz-images/jane-austen-portrait.jpg",
+    "correctAnswer": "Jane Austen",
+    "acceptableAnswers": [
+      "jane austen",
+      "austen"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Jane Austen (1775–1817) a écrit Orgueil et Préjugés, Raison et Sentiments, Emma et d'autres romans qui restent parmi les plus aimés de la littérature anglaise."
+  },
+  {
+    "id": "pr_bk_1",
+    "type": "pixel_reveal",
+    "category": "books",
+    "question": "Qui est cet auteur célèbre ?",
+    "imageUrl": "/quiz-images/pixel/books-oscar-wilde.jpg",
+    "correctAnswer": "Oscar Wilde",
+    "acceptableAnswers": [
+      "oscar wilde",
+      "wilde"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Oscar Wilde (1854–1900) était un écrivain irlandais célèbre pour son esprit, Le Portrait de Dorian Gray, L'Importance d'être Constant et son tragique emprisonnement."
+  },
+  {
+    "id": "pr_bk_2",
+    "type": "pixel_reveal",
+    "category": "books",
+    "question": "Qui est cet auteur célèbre ?",
+    "imageUrl": "/quiz-images/pixel/books-shakespeare.jpg",
+    "correctAnswer": "William Shakespeare",
+    "acceptableAnswers": [
+      "william shakespeare",
+      "shakespeare"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "William Shakespeare (1564–1616) est largement considéré comme le plus grand écrivain de langue anglaise. Ses 37 pièces comprennent Hamlet, Macbeth, Othello et Roméo et Juliette."
+  },
+  {
+    "id": "pr_bk_3",
+    "type": "pixel_reveal",
+    "category": "books",
+    "question": "Qui est cet auteur célèbre ?",
+    "imageUrl": "/quiz-images/pixel/books-charles-dickens.jpg",
+    "correctAnswer": "Charles Dickens",
+    "acceptableAnswers": [
+      "charles dickens",
+      "dickens"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Charles Dickens (1812–1870) est l'un des plus grands romanciers de l'ère victorienne, connu pour Oliver Twist, Le Conte de deux villes et Un chant de Noël."
+  },
+  {
+    "id": "pr_bk_4",
+    "type": "pixel_reveal",
+    "category": "books",
+    "question": "Qui est cet auteur célèbre ?",
+    "imageUrl": "/quiz-images/pixel/books-victor-hugo.jpg",
+    "correctAnswer": "Victor Hugo",
+    "acceptableAnswers": [
+      "victor hugo",
+      "hugo"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Victor Hugo (1802–1885) est le plus grand romancier français, surtout connu pour Les Misérables (1862) et Notre-Dame de Paris (1831)."
+  },
+  {
+    "id": "pr_bk_5",
+    "type": "pixel_reveal",
+    "category": "books",
+    "question": "Qui est cet auteur célèbre ?",
+    "imageUrl": "/quiz-images/pixel/books-jrr-tolkien.jpg",
+    "correctAnswer": "J.R.R. Tolkien",
+    "acceptableAnswers": [
+      "j.r.r. tolkien",
+      "tolkien",
+      "jrr tolkien"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "J.R.R. Tolkien (1892–1973) a créé la Terre du Milieu dans Le Hobbit (1937) et Le Seigneur des Anneaux (1954–55), posant les bases de la littérature fantastique moderne."
+  },
+  {
+    "id": "bk2_mc1",
+    "type": "multiple_choice",
+    "category": "books",
+    "question": "Dans quelle pièce de Shakespeare apparaît le personnage Iago ?",
+    "options": [
+      "Hamlet",
+      "Le Roi Lear",
+      "Othello",
+      "Macbeth"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Iago est le villain manipulateur d'Othello. Il provoque la chute d'Othello en lui faisant croire que sa femme Desdémone lui a été infidèle."
+  },
+  {
+    "id": "bk2_mc2",
+    "type": "multiple_choice",
+    "category": "books",
+    "question": "Dans quel roman de Victor Hugo apparaît Jean Valjean ?",
+    "options": [
+      "Notre-Dame de Paris",
+      "Les Misérables",
+      "Quatre-vingt-treize",
+      "L'Homme qui rit"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Jean Valjean est le protagoniste des Misérables (1862), un homme qui a purgé 19 ans de prison pour avoir volé du pain, puis s'est réhabilité mais est implacablement poursuivi par l'inspecteur Javert."
+  },
+  {
+    "id": "bk2_tf1",
+    "type": "true_false",
+    "category": "books",
+    "question": "Le roman 'Guerre et Paix' de Léon Tolstoï fait plus de 1 000 pages.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Guerre et Paix est l'un des romans les plus longs jamais écrits, comptant généralement environ 1 200 pages dans une traduction anglaise standard, avec environ 580 000 mots."
+  },
+  {
+    "id": "bk2_tf2",
+    "type": "true_false",
+    "category": "books",
+    "question": "Mary Shelley a écrit 'Frankenstein' à l'âge de 18 ans.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Mary Shelley a commencé à écrire Frankenstein en 1816 à l'âge de 18 ans lors d'un été pluvieux à la Villa Diodati sur le lac de Genève, dans le cadre d'un concours d'histoires de fantômes avec Percy Shelley et Lord Byron."
+  },
+  {
+    "id": "bk2_tf3",
+    "type": "true_false",
+    "category": "books",
+    "question": "Le roman '1984' a été écrit par George Orwell en 1984.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Malgré son titre, '1984' a été écrit et publié en 1949. Le titre a été inspiré par l'inversion des deux derniers chiffres de 1948, l'année où Orwell l'a terminé."
+  },
+  {
+    "id": "bk2_fb1",
+    "type": "fill_blank",
+    "category": "books",
+    "question": "Le détective littéraire Sherlock Holmes habite au ___ Baker Street à Londres.",
+    "correctAnswer": "221B",
+    "acceptableAnswers": [
+      "221b",
+      "221B"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Le 221B Baker Street est l'adresse fictive de Sherlock Holmes, créé par Arthur Conan Doyle en 1887. Un musée à cette adresse existe désormais à Londres."
+  },
+  {
+    "id": "bk2_fb2",
+    "type": "fill_blank",
+    "category": "books",
+    "question": "L'auteur des 'Misérables' et de 'Notre-Dame de Paris' est Victor ___.",
+    "correctAnswer": "Hugo",
+    "acceptableAnswers": [
+      "hugo"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Victor Hugo (1802–1885) est le romancier le plus célèbre de France. Il était aussi poète, dramaturge et homme politique."
+  },
+  {
+    "id": "bk2_fb3",
+    "type": "fill_blank",
+    "category": "books",
+    "question": "Dans 'Moby Dick', le navire qui chasse la baleine blanche s'appelle le ___.",
+    "correctAnswer": "Pequod",
+    "acceptableAnswers": [
+      "pequod"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Le Pequod est le baleinier du capitaine Achab, nommé d'après la tribu amérindienne des Pequots. Il est finalement détruit par Moby Dick, seul Ismaël survivant."
+  },
+  {
+    "id": "bk2_rk1",
+    "type": "ranking",
+    "category": "books",
+    "question": "Classez ces lauréats du Prix Nobel de Littérature par ordre alphabétique de nom de famille (A à Z) :",
+    "items": [
+      "Gabriel García Márquez",
+      "Albert Camus",
+      "Toni Morrison"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Ordre alphabétique par nom de famille : Camus → García Márquez → Morrison"
+  },
+  {
+    "id": "bk2_rk2",
+    "type": "ranking",
+    "category": "books",
+    "question": "Classez ces romans par ordre alphabétique de titre (A à Z) :",
+    "items": [
+      "Orgueil et Préjugés",
+      "Moby Dick",
+      "Crime et Châtiment"
+    ],
+    "correctOrder": [
+      2,
+      1,
+      0
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "allowPartialCredit": true,
+    "explanation": "Ordre alphabétique : Crime et Châtiment → Moby Dick → Orgueil et Préjugés"
+  },
+  {
+    "id": "bk2_rk3",
+    "type": "ranking",
+    "category": "books",
+    "question": "Classez ces genres littéraires du plus ancien au plus récent comme formes établies :",
+    "items": [
+      "Science-fiction",
+      "Poésie épique",
+      "Roman"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Poésie épique (Grèce antique) → Roman (XVIIe siècle) → Science-fiction (XIXe siècle)"
+  },
+  {
+    "id": "bk2_ft1",
+    "type": "free_text",
+    "category": "books",
+    "question": "Quel est le nom du détective fictif créé par Arthur Conan Doyle ?",
+    "correctAnswer": "Sherlock Holmes",
+    "acceptableAnswers": [
+      "sherlock holmes",
+      "holmes",
+      "sherlock"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Sherlock Holmes est apparu pour la première fois dans Une étude en rouge (1887). Il vit au 221B Baker Street avec son compagnon le Dr Watson et est célèbre pour son raisonnement déductif."
+  },
+  {
+    "id": "bk2_ft2",
+    "type": "free_text",
+    "category": "books",
+    "question": "Nommez l'auteur des 'Misérables'.",
+    "correctAnswer": "Victor Hugo",
+    "acceptableAnswers": [
+      "victor hugo",
+      "hugo"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Victor Hugo (1802–1885) a publié Les Misérables en 1862. Ce fut immédiatement un best-seller et il reste l'un des romans les plus lus de l'histoire."
+  },
+  {
+    "id": "bk2_cc1",
+    "type": "clue_chain",
+    "category": "books",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis un poète et dramaturge irlandais né à Dublin en 1854, célèbre pour mon esprit et mes épigrammes",
+      "J'ai été emprisonné à la prison de Reading en 1895 pour 'outrage aux mœurs', ce qui a détruit ma carrière",
+      "J'ai écrit l'unique roman gothique 'Le Portrait de Dorian Gray' et la pièce 'L'Importance d'être Constant'",
+      "Ma citation la plus célèbre : 'Je peux résister à tout sauf à la tentation'"
+    ],
+    "correctAnswer": "Oscar Wilde",
+    "acceptableAnswers": [
+      "oscar wilde",
+      "wilde"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60,
+    "explanation": "Le génie et la chute d'Oscar Wilde en font l'une des figures les plus tragiques de la littérature. Il est mort à Paris en 1900 à l'âge de 46 ans, sans le sou."
+  },
+  {
+    "id": "bk2_cc2",
+    "type": "clue_chain",
+    "category": "books",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis un auteur français qui a écrit l'un des livres pour enfants les plus aimés au monde en 1943 en vivant à New York",
+      "Le narrateur de mon livre rencontre un jeune garçon tombé d'un astéroïde appelé B-612",
+      "Le garçon visite six autres planètes avant d'atterrir sur Terre dans le désert du Sahara",
+      "Mon livre le plus célèbre porte le nom de ce garçon aux cheveux dorés avec une écharpe"
+    ],
+    "correctAnswer": "Antoine de Saint-Exupéry",
+    "acceptableAnswers": [
+      "saint-exupery",
+      "antoine de saint-exupery",
+      "saint exupery"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60,
+    "explanation": "Antoine de Saint-Exupéry (1900–1944) a écrit 'Le Petit Prince', traduit en plus de 300 langues et l'un des livres les plus vendus de tous les temps."
+  }
+]

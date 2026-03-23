@@ -86,8 +86,8 @@ export default function PixelRevealImage({ src, pixelSize, className }: PixelRev
   return (
     <canvas
       ref={canvasRef}
-      width={480}
-      height={320}
+      width={360}
+      height={480}
       className={className}
       style={{ imageRendering: 'pixelated' }}
     />

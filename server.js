@@ -561,7 +561,8 @@ function getCorrectAnswerDisplayText(question) {
   }
 }
 
-// Helper function to get random questions — guarantees one question per type
+const THEMED_CATEGORY_IDS = ['harry_potter', 'football']
+
 function shuffle(arr) {
   const a = [...arr]
   for (let i = a.length - 1; i > 0; i--) {
@@ -571,20 +572,62 @@ function shuffle(arr) {
   return a
 }
 
+// Round-robin interleave: picks one item from each bucket in turn
+function roundRobin(buckets) {
+  const queues = buckets.map(b => [...b])
+  const result = []
+  while (queues.some(q => q.length > 0)) {
+    for (const q of queues) {
+      if (q.length > 0) result.push(q.shift())
+    }
+  }
+  return result
+}
+
 function getRandomQuestions(settings = {}) {
   const { categories = [], types = [], questionCount = 10, lang = 'en' } = settings
 
-  // Use lang-specific pool, fall back to English if empty
-  let base = (questionsByLang[lang] && questionsByLang[lang].length > 0)
+  const base = (questionsByLang[lang] && questionsByLang[lang].length > 0)
     ? questionsByLang[lang]
     : questionsByLang.en
+
+  // Determine which categories were requested
+  const isThemed = categories.length > 0 && categories.every(c => THEMED_CATEGORY_IDS.includes(c))
 
   let pool = base
   if (categories.length > 0) pool = pool.filter(q => categories.includes(q.category))
   if (types.length > 0) pool = pool.filter(q => types.includes(q.type))
-  if (pool.length === 0) pool = base // fallback if filters yield nothing
+  if (pool.length === 0) pool = base
 
-  return shuffle(pool).slice(0, Math.min(questionCount, pool.length))
+  if (isThemed) {
+    // Universe mode: balance by type only (category is already fixed)
+    const byType = {}
+    for (const q of pool) {
+      if (!byType[q.type]) byType[q.type] = []
+      byType[q.type].push(q)
+    }
+    const shuffledBuckets = shuffle(Object.keys(byType)).map(t => shuffle(byType[t]))
+    return shuffle(roundRobin(shuffledBuckets).slice(0, questionCount))
+  }
+
+  // General mode: balance by type first, then by category within each type
+  const byType = {}
+  for (const q of pool) {
+    if (!byType[q.type]) byType[q.type] = []
+    byType[q.type].push(q)
+  }
+
+  const typeBuckets = shuffle(Object.keys(byType)).map(type => {
+    const byCategory = {}
+    for (const q of byType[type]) {
+      if (!byCategory[q.category]) byCategory[q.category] = []
+      byCategory[q.category].push(q)
+    }
+    const catBuckets = shuffle(Object.keys(byCategory)).map(c => shuffle(byCategory[c]))
+    return roundRobin(catBuckets)
+  })
+
+  return shuffle(roundRobin(typeBuckets).slice(0, questionCount))
 }
 
 const app = express()

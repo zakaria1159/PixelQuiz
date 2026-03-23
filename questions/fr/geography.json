@@ -1,87 +1,1169 @@
 [
-  { "id": "fg1",  "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "jp", "correctAnswer": "Japan", "acceptableAnswers": ["Japan"], "difficulty": "easy", "timeLimit": 20, "explanation": "Le drapeau du Japon — un cercle rouge sur fond blanc, symbolisant le soleil levant." },
-  { "id": "fg2",  "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "br", "correctAnswer": "Brazil", "acceptableAnswers": ["Brasil"], "difficulty": "easy", "timeLimit": 20, "explanation": "Le drapeau du Brésil présente un champ vert, un losange jaune et un globe bleu." },
-  { "id": "fg3",  "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "ca", "correctAnswer": "Canada", "acceptableAnswers": [], "difficulty": "easy", "timeLimit": 20, "explanation": "Le drapeau du Canada arbore une feuille d'érable rouge sur fond blanc." },
-  { "id": "fg4",  "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "au", "correctAnswer": "Australia", "acceptableAnswers": ["Aussie"], "difficulty": "easy", "timeLimit": 20, "explanation": "Le drapeau de l'Australie présente l'Union Jack, une grande étoile et la Croix du Sud." },
-  { "id": "fg5",  "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "us", "correctAnswer": "United States", "acceptableAnswers": ["America", "United States of America", "USA"], "difficulty": "easy", "timeLimit": 20, "explanation": "50 étoiles pour 50 États, 13 bandes pour les colonies d'origine." },
-  { "id": "fg6",  "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "ng", "correctAnswer": "Nigeria", "acceptableAnswers": [], "difficulty": "medium", "timeLimit": 20, "explanation": "Le drapeau du Nigeria présente des bandes verticales vert-blanc-vert." },
-  { "id": "fg7",  "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "no", "correctAnswer": "Norway", "acceptableAnswers": ["Norge"], "difficulty": "medium", "timeLimit": 20, "explanation": "Le drapeau de la Norvège : fond rouge avec une croix bleue bordée de blanc." },
-  { "id": "fg9",  "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "bh", "correctAnswer": "Bahrain", "acceptableAnswers": [], "difficulty": "medium", "timeLimit": 20, "explanation": "Le drapeau de Bahreïn présente des sections blanches et rouges séparées par un bord dentelé." },
-  { "id": "fg10", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "np", "correctAnswer": "Nepal", "acceptableAnswers": [], "difficulty": "medium", "timeLimit": 20, "explanation": "Le Népal est le seul pays au monde avec un drapeau non rectangulaire — sa forme en double fanion est unique au monde." },
-  { "id": "fg11", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "ch", "correctAnswer": "Switzerland", "acceptableAnswers": ["Swiss"], "difficulty": "easy", "timeLimit": 20, "explanation": "Le drapeau de la Suisse — une croix blanche sur fond carré rouge." },
-  { "id": "fg12", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "za", "correctAnswer": "South Africa", "acceptableAnswers": [], "difficulty": "medium", "timeLimit": 20, "explanation": "Le drapeau de l'Afrique du Sud comporte six couleurs — le drapeau national le plus coloré au monde." },
-  { "id": "fg13", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "tr", "correctAnswer": "Turkey", "acceptableAnswers": ["Türkiye"], "difficulty": "easy", "timeLimit": 20, "explanation": "Le drapeau de la Turquie présente un croissant et une étoile blancs sur fond rouge." },
-  { "id": "fg14", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "mx", "correctAnswer": "Mexico", "acceptableAnswers": [], "difficulty": "easy", "timeLimit": 20, "explanation": "Le drapeau du Mexique présente des bandes verticales verte, blanche et rouge avec les armoiries nationales." },
-  { "id": "fg15", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "sa", "correctAnswer": "Saudi Arabia", "acceptableAnswers": [], "difficulty": "medium", "timeLimit": 20, "explanation": "Le drapeau vert de l'Arabie saoudite arbore la Shahada (déclaration de foi islamique) et une épée." },
-  { "id": "fg16", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "jo", "correctAnswer": "Jordan", "acceptableAnswers": [], "difficulty": "hard", "timeLimit": 25, "explanation": "Le drapeau de la Jordanie comporte trois bandes horizontales (noire, blanche, verte) avec un triangle rouge et une petite étoile blanche — facile à confondre avec la Palestine." },
-  { "id": "fg17", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "ps", "correctAnswer": "Palestine", "acceptableAnswers": ["Palestinian Territories"], "difficulty": "hard", "timeLimit": 25, "explanation": "Le drapeau de la Palestine comporte trois bandes horizontales (noire, blanche, verte) avec un triangle rouge — presque identique à celui de la Jordanie mais sans l'étoile." },
-  { "id": "fg18", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "sy", "correctAnswer": "Syria", "acceptableAnswers": [], "difficulty": "hard", "timeLimit": 25, "explanation": "Le drapeau de la Syrie présente des bandes horizontales rouge, blanche et noire avec deux étoiles vertes — il fait partie du schéma de couleurs panarab partagé par plusieurs pays voisins." },
-  { "id": "fg19", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "td", "correctAnswer": "Chad", "acceptableAnswers": [], "difficulty": "hard", "timeLimit": 25, "explanation": "Le drapeau du Tchad (bandes verticales bleue, jaune, rouge) est presque identique à celui de la Roumanie — la seule différence est la nuance exacte de bleu." },
-  { "id": "fg20", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "mc", "correctAnswer": "Monaco", "acceptableAnswers": [], "difficulty": "hard", "timeLimit": 25, "explanation": "Le drapeau de Monaco (rouge sur blanc) est presque identique à celui de l'Indonésie — la différence réside uniquement dans les proportions." },
-  { "id": "fg21", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "iq", "correctAnswer": "Iraq", "acceptableAnswers": [], "difficulty": "hard", "timeLimit": 25, "explanation": "Le drapeau de l'Irak présente des bandes rouge, blanche et noire avec un texte arabe au centre — il fait partie de la palette panarab partagée avec la Syrie, l'Égypte et le Yémen." },
-  { "id": "fg22", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "ie", "correctAnswer": "Ireland", "acceptableAnswers": ["Republic of Ireland", "Eire"], "difficulty": "hard", "timeLimit": 25, "explanation": "Le drapeau de l'Irlande (bandes verticales verte, blanche, orange) est l'image miroir de celui de la Côte d'Ivoire (orange, blanc, vert) — facile de les confondre." },
-  { "id": "fg23", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "ci", "correctAnswer": "Ivory Coast", "acceptableAnswers": ["Côte d'Ivoire", "Cote d'Ivoire"], "difficulty": "hard", "timeLimit": 25, "explanation": "Le drapeau de la Côte d'Ivoire (orange, blanc, vert) est l'inverse de celui de l'Irlande (vert, blanc, orange) — l'une des paires de drapeaux les plus souvent confondues." },
-  { "id": "fg24", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "ro", "correctAnswer": "Romania", "acceptableAnswers": [], "difficulty": "hard", "timeLimit": 25, "explanation": "Le drapeau de la Roumanie (bandes verticales bleue, jaune, rouge) est presque identique à celui du Tchad — la différence réside dans la nuance de bleu." },
-  { "id": "fg25", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "id", "correctAnswer": "Indonesia", "acceptableAnswers": [], "difficulty": "hard", "timeLimit": 25, "explanation": "Le drapeau de l'Indonésie (rouge sur blanc) est presque identique à celui de Monaco — la différence réside uniquement dans les proportions du drapeau." },
-  { "id": "fg26", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "nz", "correctAnswer": "New Zealand", "acceptableAnswers": ["Aotearoa"], "difficulty": "hard", "timeLimit": 25, "explanation": "Le drapeau de la Nouvelle-Zélande ressemble presque identiquement à celui de l'Australie — même Union Jack et même Croix du Sud, mais avec une croix rouge plus simple sans contour blanc." },
-  { "id": "fg27", "type": "flag_guess", "category": "geography", "question": "À quel pays appartient ce drapeau ?", "countryCode": "ye", "correctAnswer": "Yemen", "acceptableAnswers": [], "difficulty": "hard", "timeLimit": 25, "explanation": "Le drapeau du Yémen est simplement trois bandes horizontales — rouge, blanche, noire — sans emblème, ce qui le rend facile à confondre avec la Syrie, l'Égypte ou l'Irak." },
-
-  { "id": "geo_mc1", "type": "multiple_choice", "category": "geography", "question": "Quel est le plus grand pays du monde par sa superficie ?", "options": ["Chine", "États-Unis", "Canada", "Russie"], "correctAnswer": 3, "difficulty": "easy", "timeLimit": 15, "explanation": "La Russie couvre environ 17,1 millions de km², soit presque le double du deuxième plus grand pays." },
-  { "id": "geo_mc2", "type": "multiple_choice", "category": "geography", "question": "Quel fleuve est le plus long au monde ?", "options": ["Amazone", "Mississippi", "Nil", "Yangtsé"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "Le Nil est généralement considéré comme le fleuve le plus long du monde, avec environ 6 650 km." },
-  { "id": "geo_mc3", "type": "multiple_choice", "category": "geography", "question": "Quel continent compte le plus de pays ?", "options": ["Asie", "Europe", "Afrique", "Amérique du Sud"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "L'Afrique compte 54 pays souverains reconnus." },
-  { "id": "geo_mc4", "type": "multiple_choice", "category": "geography", "question": "Quel est le plus grand océan du monde ?", "options": ["Océan Atlantique", "Océan Indien", "Océan Arctique", "Océan Pacifique"], "correctAnswer": 3, "difficulty": "easy", "timeLimit": 12, "explanation": "L'océan Pacifique couvre plus de 165 millions de km², soit environ un tiers de la surface totale de la Terre." },
-  { "id": "geo_mc5", "type": "multiple_choice", "category": "geography", "question": "Quel est le plus petit pays du monde par sa superficie ?", "options": ["Monaco", "Saint-Marin", "Vatican", "Liechtenstein"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "La Cité du Vatican ne couvre que 0,44 km², ce qui en fait le plus petit pays du monde." },
-
-  { "id": "geo_tf1", "type": "true_false", "category": "geography", "question": "L'Amazone traverse le Brésil.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 12, "explanation": "L'Amazone coule principalement à travers le Brésil, bien qu'il passe aussi par le Pérou et la Colombie." },
-  { "id": "geo_tf2", "type": "true_false", "category": "geography", "question": "L'Australie est à la fois un pays et un continent.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 10, "explanation": "L'Australie a la particularité d'être à la fois une nation souveraine et son propre continent." },
-  { "id": "geo_tf3", "type": "true_false", "category": "geography", "question": "Le Sahara est le plus grand désert du monde.", "options": ["Vrai", "Faux"], "correctAnswer": 1, "difficulty": "hard", "timeLimit": 15, "explanation": "L'Antarctique est techniquement le plus grand désert du monde (désert froid). Le Sahara est le plus grand désert chaud." },
-  { "id": "geo_tf4", "type": "true_false", "category": "geography", "question": "La Nouvelle-Zélande se situe dans l'hémisphère nord.", "options": ["Vrai", "Faux"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 12, "explanation": "La Nouvelle-Zélande est située dans l'hémisphère sud, au sud-est de l'Australie." },
-  { "id": "geo_tf5", "type": "true_false", "category": "geography", "question": "La mer Morte est le point le plus bas de la surface terrestre.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 15, "explanation": "Le littoral de la mer Morte est à environ 430 mètres sous le niveau de la mer, ce qui en fait le point le plus bas de la surface terrestre." },
-
-  { "id": "geo_fb1", "type": "fill_blank", "category": "geography", "question": "La capitale du Japon est ___.", "correctAnswer": "Tokyo", "difficulty": "easy", "timeLimit": 12, "explanation": "Tokyo est la capitale du Japon depuis 1869, quand l'Empereur y a déménagé depuis Kyoto." },
-  { "id": "geo_fb2", "type": "fill_blank", "category": "geography", "question": "La ___ Barrière de Corail est un récif corallien célèbre situé au large de l'Australie.", "correctAnswer": "Barrier Reef", "acceptableAnswers": ["barrier reef", "great barrier reef"], "difficulty": "easy", "timeLimit": 15, "explanation": "La Grande Barrière de Corail est le plus grand système de récifs coralliens du monde, s'étendant sur plus de 2 300 km." },
-  { "id": "geo_fb3", "type": "fill_blank", "category": "geography", "question": "Le mont ___ est la plus haute montagne du monde.", "correctAnswer": "Everest", "difficulty": "easy", "timeLimit": 12, "explanation": "Le mont Everest, dans l'Himalaya, culmine à 8 849 mètres au-dessus du niveau de la mer." },
-  { "id": "geo_fb4", "type": "fill_blank", "category": "geography", "question": "Le canal de ___ relie les océans Atlantique et Pacifique.", "correctAnswer": "Panama", "difficulty": "easy", "timeLimit": 15, "explanation": "Le canal de Panama, ouvert en 1914, permet aux navires de traverser entre l'Atlantique et le Pacifique via le Panama." },
-  { "id": "geo_fb5", "type": "fill_blank", "category": "geography", "question": "L'___ est la plus grande forêt tropicale du monde, située en Amérique du Sud.", "correctAnswer": "Amazon", "acceptableAnswers": ["amazon", "amazon rainforest"], "difficulty": "easy", "timeLimit": 15, "explanation": "La forêt amazonienne couvre environ 5,5 millions de km² sur neuf pays, principalement le Brésil." },
-
-  { "id": "geo_rk1", "type": "ranking", "category": "geography", "question": "Classez ces pays par population (du moins peuplé au plus peuplé) :", "items": ["China", "United States", "India"], "correctOrder": [1, 0, 2], "difficulty": "hard", "timeLimit": 25, "allowPartialCredit": true, "explanation": "États-Unis (~335M) → Chine (~1,4 Md) → Inde (~1,44 Md)" },
-  { "id": "geo_rk2", "type": "ranking", "category": "geography", "question": "Classez ces continents par superficie (du plus petit au plus grand) :", "items": ["Africa", "Europe", "Asia"], "correctOrder": [1, 0, 2], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Europe (~10,5M km²) → Afrique (~30,4M km²) → Asie (~44,6M km²)" },
-  { "id": "geo_rk3", "type": "ranking", "category": "geography", "question": "Classez ces fleuves par longueur (du plus court au plus long) :", "items": ["Nile", "Amazon", "Mississippi"], "correctOrder": [2, 1, 0], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "Mississippi (~6 275 km) → Amazone (~6 400 km) → Nil (~6 650 km)" },
-  { "id": "geo_rk4", "type": "ranking", "category": "geography", "question": "Classez ces montagnes par hauteur (de la moins haute à la plus haute) :", "items": ["Mont Blanc", "Kilimanjaro", "Mount Everest"], "correctOrder": [0, 1, 2], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Mont Blanc (4 808m) → Kilimandjaro (5 895m) → Mont Everest (8 849m)" },
-  { "id": "geo_rk5", "type": "ranking", "category": "geography", "question": "Classez ces pays par superficie (du plus petit au plus grand) :", "items": ["Russia", "Canada", "United States"], "correctOrder": [2, 1, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "États-Unis (~9,8M km²) → Canada (~10M km²) → Russie (~17,1M km²)" },
-
-  { "id": "geo_cw1", "type": "closest_wins", "category": "geography", "question": "Quelle est la population de l'Australie ? (en millions)", "correctAnswer": 26, "unit": "million d'habitants", "difficulty": "medium", "timeLimit": 20, "explanation": "La population de l'Australie est d'environ 26 millions d'habitants." },
-  { "id": "geo_cw2", "type": "closest_wins", "category": "geography", "question": "Combien de pays y a-t-il dans le monde ?", "correctAnswer": 195, "unit": "pays", "difficulty": "medium", "timeLimit": 20, "explanation": "Il y a 195 pays — 193 membres de l'ONU plus la Cité du Vatican et la Palestine." },
-  { "id": "geo_cw3", "type": "closest_wins", "category": "geography", "question": "Quelle est la hauteur du mont Everest en mètres ?", "correctAnswer": 8849, "unit": "mètres", "difficulty": "medium", "timeLimit": 20, "explanation": "Le mont Everest culmine à 8 849 mètres au-dessus du niveau de la mer, selon la remesure de 2020." },
-  { "id": "geo_cw4", "type": "closest_wins", "category": "geography", "question": "Combien de fuseaux horaires la Russie couvre-t-elle ?", "correctAnswer": 11, "unit": "fuseaux horaires", "difficulty": "hard", "timeLimit": 20, "explanation": "La Russie couvre 11 fuseaux horaires, plus que tout autre pays au monde." },
-  { "id": "geo_cw5", "type": "closest_wins", "category": "geography", "question": "Quelle est la longueur de la Grande Muraille de Chine en kilomètres ?", "correctAnswer": 21196, "unit": "km", "difficulty": "hard", "timeLimit": 20, "explanation": "La Grande Muraille de Chine s'étend sur environ 21 196 km lorsque toutes ses sections sont additionnées." },
-
-  { "id": "geo_sb1", "type": "speed_buzz", "category": "geography", "question": "Quelle est la capitale du Brésil ?", "options": ["São Paulo", "Rio de Janeiro", "Brasília", "Salvador"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 12, "explanation": "Brasília est devenue la capitale du Brésil en 1960, remplaçant Rio de Janeiro." },
-  { "id": "geo_sb2", "type": "speed_buzz", "category": "geography", "question": "Quel pays possède le plus grand nombre de lacs naturels au monde ?", "options": ["Russie", "États-Unis", "Finlande", "Canada"], "correctAnswer": 3, "difficulty": "hard", "timeLimit": 15, "explanation": "Le Canada abrite plus de 60 % des lacs d'eau douce du monde — davantage que tout autre pays." },
-  { "id": "geo_sb3", "type": "speed_buzz", "category": "geography", "question": "Sur quel continent se trouve le désert du Sahara ?", "options": ["Asie", "Afrique", "Amérique du Sud", "Australie"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 10, "explanation": "Le désert du Sahara s'étend à travers l'Afrique du Nord, couvrant environ 9 millions de km²." },
-  { "id": "geo_sb4", "type": "speed_buzz", "category": "geography", "question": "Quelle est la plus longue chaîne de montagnes du monde ?", "options": ["Himalaya", "Rocheuses", "Andes", "Alpes"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "Les Andes s'étendent sur environ 7 000 km le long de la côte ouest de l'Amérique du Sud." },
-  { "id": "geo_sb5", "type": "speed_buzz", "category": "geography", "question": "Quelle ville est surnommée « la Ville Lumière » ?", "options": ["Rome", "Londres", "New York", "Paris"], "correctAnswer": 3, "difficulty": "easy", "timeLimit": 10, "explanation": "Paris a gagné le surnom de « Ville Lumière » pour son rôle dans le Siècle des Lumières et l'adoption précoce de l'éclairage au gaz dans ses rues." },
-
-  { "id": "ft1", "type": "free_text", "category": "geography", "question": "Quelle est la capitale de la France ?", "correctAnswer": "Paris", "acceptableAnswers": ["paris france"], "caseSensitive": false, "difficulty": "easy", "timeLimit": 12, "explanation": "Paris est la capitale de la France depuis 987 après J.-C." },
-  { "id": "geo_ft1", "type": "free_text", "category": "geography", "question": "Quelle est la capitale de l'Australie ?", "correctAnswer": "Canberra", "acceptableAnswers": [], "caseSensitive": false, "difficulty": "medium", "timeLimit": 15, "explanation": "Beaucoup de gens supposent Sydney ou Melbourne, mais Canberra est la capitale depuis 1913." },
-  { "id": "geo_ft2", "type": "free_text", "category": "geography", "question": "Quelle est la capitale du Canada ?", "correctAnswer": "Ottawa", "acceptableAnswers": [], "caseSensitive": false, "difficulty": "medium", "timeLimit": 15, "explanation": "Ottawa, et non Toronto ou Vancouver, est la capitale du Canada." },
-  { "id": "geo_ft3", "type": "free_text", "category": "geography", "question": "Quel est le nom du plus grand océan du monde ?", "correctAnswer": "Pacific Ocean", "acceptableAnswers": ["pacific", "pacific ocean"], "caseSensitive": false, "difficulty": "easy", "timeLimit": 12, "explanation": "L'océan Pacifique couvre plus de 165 millions de km², soit plus que toutes les terres émergées de la Terre réunies." },
-  { "id": "geo_ft4", "type": "free_text", "category": "geography", "question": "Quel pays africain est le plus peuplé ?", "correctAnswer": "Nigeria", "acceptableAnswers": ["nigeria"], "caseSensitive": false, "difficulty": "medium", "timeLimit": 15, "explanation": "Le Nigeria compte plus de 220 millions d'habitants, ce qui en fait le pays le plus peuplé d'Afrique." },
-
-  { "id": "ig1",  "type": "image_guess", "category": "geography", "question": "Quel est ce monument célèbre ?", "imageUrl": "/quiz-images/eiffel-tower.jpg", "correctAnswer": "Eiffel Tower", "acceptableAnswers": ["eiffel", "tour eiffel"], "caseSensitive": false, "difficulty": "easy", "timeLimit": 20, "explanation": "La tour Eiffel a été construite en 1889 à Paris, France, conçue par Gustave Eiffel pour l'Exposition universelle." },
-  { "id": "ig2",  "type": "image_guess", "category": "geography", "question": "Quel est ce monument célèbre ?", "imageUrl": "/quiz-images/colosseum.jpg", "correctAnswer": "Colosseum", "acceptableAnswers": ["coliseum", "colosseo", "the colosseum"], "caseSensitive": false, "difficulty": "easy", "timeLimit": 20, "explanation": "Le Colisée de Rome, en Italie, est le plus grand amphithéâtre jamais construit, achevé en 80 après J.-C. et pouvant accueillir jusqu'à 80 000 spectateurs." },
-  { "id": "ig3",  "type": "image_guess", "category": "geography", "question": "Quel est ce monument célèbre ?", "imageUrl": "/quiz-images/taj-mahal.jpg", "correctAnswer": "Taj Mahal", "acceptableAnswers": ["taj mahal", "the taj mahal"], "caseSensitive": false, "difficulty": "easy", "timeLimit": 20, "explanation": "Le Taj Mahal à Agra, en Inde, a été construit par l'empereur moghol Shah Jahan en mémoire de son épouse Mumtaz Mahal. Achevé en 1653, c'est un site du patrimoine mondial de l'UNESCO." },
-  { "id": "ig4",  "type": "image_guess", "category": "geography", "question": "Quel est ce monument célèbre ?", "imageUrl": "/quiz-images/machu-picchu.jpg", "correctAnswer": "Machu Picchu", "acceptableAnswers": ["machu picchu", "machu pichu"], "caseSensitive": false, "difficulty": "medium", "timeLimit": 20, "explanation": "Le Machu Picchu est une citadelle inca du XVe siècle au Pérou, construite à 2 430 m d'altitude. Elle était inconnue du monde extérieur jusqu'à sa redécouverte par Hiram Bingham en 1911." },
-  { "id": "ig5",  "type": "image_guess", "category": "geography", "question": "Quel est ce monument célèbre ?", "imageUrl": "/quiz-images/sydney-opera-house.jpg", "correctAnswer": "Sydney Opera House", "acceptableAnswers": ["sydney opera", "opera house"], "caseSensitive": false, "difficulty": "easy", "timeLimit": 20, "explanation": "L'Opéra de Sydney en Australie, conçu par l'architecte danois Jørn Utzon, a ouvert ses portes en 1973 et est inscrit au patrimoine mondial de l'UNESCO." },
-  { "id": "ig6",  "type": "image_guess", "category": "geography", "question": "Quel est ce monument célèbre ?", "imageUrl": "/quiz-images/great-wall.jpg", "correctAnswer": "Great Wall of China", "acceptableAnswers": ["great wall", "the great wall", "great wall of china"], "caseSensitive": false, "difficulty": "easy", "timeLimit": 20, "explanation": "La Grande Muraille de Chine s'étend sur plus de 21 000 km et a été construite sur plusieurs siècles pour protéger les États chinois des invasions du nord. Sa construction a commencé dès le VIIe siècle avant J.-C." },
-  { "id": "ig7",  "type": "image_guess", "category": "geography", "question": "Quel est ce monument célèbre ?", "imageUrl": "/quiz-images/sagrada-familia.jpg", "correctAnswer": "Sagrada Família", "acceptableAnswers": ["sagrada familia", "sagrada família", "la sagrada familia"], "caseSensitive": false, "difficulty": "medium", "timeLimit": 20, "explanation": "La Sagrada Família à Barcelone, en Espagne, est une basilique inachevée conçue par Antoni Gaudí. Sa construction a débuté en 1882 et est toujours en cours, avec un achèvement prévu vers 2026." },
-  { "id": "ig8",  "type": "image_guess", "category": "geography", "question": "Quel est ce monument célèbre ?", "imageUrl": "/quiz-images/statue-of-liberty.jpg", "correctAnswer": "Statue of Liberty", "acceptableAnswers": ["statue of liberty", "liberty statue", "lady liberty"], "caseSensitive": false, "difficulty": "easy", "timeLimit": 20, "explanation": "La Statue de la Liberté sur l'île de la Liberté, à New York, était un cadeau de la France aux États-Unis. Conçue par Frédéric Auguste Bartholdi, elle a été inaugurée le 28 octobre 1886." },
-  { "id": "ig9",  "type": "image_guess", "category": "geography", "question": "Quel est ce monument célèbre ?", "imageUrl": "/quiz-images/burj-khalifa.jpg", "correctAnswer": "Burj Khalifa", "acceptableAnswers": ["burj khalifa", "burj", "khalifa tower"], "caseSensitive": false, "difficulty": "medium", "timeLimit": 20, "explanation": "Le Burj Khalifa à Dubaï, aux Émirats arabes unis, s'élève à 828 m — le plus haut bâtiment du monde depuis 2010. Son nom rend hommage à feu le président des EAU, le cheikh Khalifa bin Zayed Al Nahyan." },
-  { "id": "ig10", "type": "image_guess", "category": "geography", "question": "Quel est ce monument célèbre ?", "imageUrl": "/quiz-images/big-ben.jpg", "correctAnswer": "Big Ben", "acceptableAnswers": ["big ben", "elizabeth tower", "westminster clock tower", "palace of westminster"], "caseSensitive": false, "difficulty": "easy", "timeLimit": 20, "explanation": "Big Ben est le surnom de la Grande Cloche de la tour Elizabeth au Palais de Westminster, à Londres. La tour a été rebaptisée tour Elizabeth en 2012 pour honorer le jubilé de diamant de la reine Élisabeth II." },
-
-  { "id": "cc_geo1", "type": "clue_chain", "category": "geography", "question": "Quel pays suis-je ?", "clues": ["Je suis le plus grand pays du monde par superficie, couvrant 11 fuseaux horaires", "Mon Transsibérien est la plus longue ligne ferroviaire du monde avec plus de 9 000 km", "Ma capitale, Moscou, est située sur la rivière Moskva", "Je partage des frontières avec 14 pays — plus que tout autre nation sur Terre"], "correctAnswer": "Russia", "acceptableAnswers": ["russia", "russian federation"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_geo2", "type": "clue_chain", "category": "geography", "question": "Quel pays suis-je ?", "clues": ["Je suis le seul pays qui est aussi un continent à lui tout seul", "J'abrite le plus grand système de récifs coralliens du monde", "Mon intérieur est connu sous le nom d'« Outback » et est l'une des régions les plus arides du monde", "Ma capitale est Canberra, même si beaucoup supposent Sydney ou Melbourne"], "correctAnswer": "Australia", "acceptableAnswers": ["australia", "aussie"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_geo3", "type": "clue_chain", "category": "geography", "question": "Quel pays suis-je ?", "clues": ["Je suis un pays d'Amérique du Sud dont le nom signifie « l'équateur » en espagnol", "Je suis l'un des deux seuls pays d'Amérique du Sud qui ne partage pas de frontière avec le Brésil", "J'abrite les îles Galápagos, qui ont inspiré la théorie de l'évolution de Charles Darwin", "Ma capitale est Quito, l'une des plus hautes capitales du monde à 2 850 mètres d'altitude"], "correctAnswer": "Ecuador", "acceptableAnswers": ["ecuador"], "difficulty": "hard", "timeLimit": 60 },
-  { "id": "cc_geo4", "type": "clue_chain", "category": "geography", "question": "Quelle ville suis-je ?", "clues": ["Je suis la ville la plus visitée du monde, accueillant plus de 40 millions de touristes par an", "Je suis traversée par la Seine et j'ai été fondée il y a plus de 2 000 ans par les Romains", "Mon monument le plus célèbre était jugé horrible par beaucoup quand il a été construit en 1889", "Je suis la capitale de la France et j'abrite le Louvre, le plus grand musée d'art au monde"], "correctAnswer": "Paris", "acceptableAnswers": ["paris"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_geo5", "type": "clue_chain", "category": "geography", "question": "Quel pays suis-je ?", "clues": ["Je suis une nation insulaire dans l'Atlantique Nord, connue pour mes volcans et mes geysers", "Malgré mon nom, je suis en réalité assez verte — environ 11 % de ma superficie est couverte de forêts", "Je suis le pays le moins densément peuplé d'Europe", "Ma capitale, Reykjavik, est la capitale nationale la plus septentrionale du monde"], "correctAnswer": "Iceland", "acceptableAnswers": ["iceland"], "difficulty": "medium", "timeLimit": 60 }
+  {
+    "id": "fg1",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "jp",
+    "correctAnswer": "Japan",
+    "acceptableAnswers": [
+      "Japan"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Le drapeau du Japon — un cercle rouge sur fond blanc, symbolisant le soleil levant."
+  },
+  {
+    "id": "fg2",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "br",
+    "correctAnswer": "Brazil",
+    "acceptableAnswers": [
+      "Brasil"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Le drapeau du Brésil présente un champ vert, un losange jaune et un globe bleu."
+  },
+  {
+    "id": "fg3",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "ca",
+    "correctAnswer": "Canada",
+    "acceptableAnswers": [],
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Le drapeau du Canada arbore une feuille d'érable rouge sur fond blanc."
+  },
+  {
+    "id": "fg4",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "au",
+    "correctAnswer": "Australia",
+    "acceptableAnswers": [
+      "Aussie"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Le drapeau de l'Australie présente l'Union Jack, une grande étoile et la Croix du Sud."
+  },
+  {
+    "id": "fg5",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "us",
+    "correctAnswer": "United States",
+    "acceptableAnswers": [
+      "America",
+      "United States of America",
+      "USA"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "50 étoiles pour 50 États, 13 bandes pour les colonies d'origine."
+  },
+  {
+    "id": "fg6",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "ng",
+    "correctAnswer": "Nigeria",
+    "acceptableAnswers": [],
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Le drapeau du Nigeria présente des bandes verticales vert-blanc-vert."
+  },
+  {
+    "id": "fg7",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "no",
+    "correctAnswer": "Norway",
+    "acceptableAnswers": [
+      "Norge"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Le drapeau de la Norvège : fond rouge avec une croix bleue bordée de blanc."
+  },
+  {
+    "id": "fg9",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "bh",
+    "correctAnswer": "Bahrain",
+    "acceptableAnswers": [],
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Le drapeau de Bahreïn présente des sections blanches et rouges séparées par un bord dentelé."
+  },
+  {
+    "id": "fg10",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "np",
+    "correctAnswer": "Nepal",
+    "acceptableAnswers": [],
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Le Népal est le seul pays au monde avec un drapeau non rectangulaire — sa forme en double fanion est unique au monde."
+  },
+  {
+    "id": "fg11",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "ch",
+    "correctAnswer": "Switzerland",
+    "acceptableAnswers": [
+      "Swiss"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Le drapeau de la Suisse — une croix blanche sur fond carré rouge."
+  },
+  {
+    "id": "fg12",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "za",
+    "correctAnswer": "South Africa",
+    "acceptableAnswers": [],
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Le drapeau de l'Afrique du Sud comporte six couleurs — le drapeau national le plus coloré au monde."
+  },
+  {
+    "id": "fg13",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "tr",
+    "correctAnswer": "Turkey",
+    "acceptableAnswers": [
+      "Türkiye"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Le drapeau de la Turquie présente un croissant et une étoile blancs sur fond rouge."
+  },
+  {
+    "id": "fg14",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "mx",
+    "correctAnswer": "Mexico",
+    "acceptableAnswers": [],
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Le drapeau du Mexique présente des bandes verticales verte, blanche et rouge avec les armoiries nationales."
+  },
+  {
+    "id": "fg15",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "sa",
+    "correctAnswer": "Saudi Arabia",
+    "acceptableAnswers": [],
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Le drapeau vert de l'Arabie saoudite arbore la Shahada (déclaration de foi islamique) et une épée."
+  },
+  {
+    "id": "fg16",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "jo",
+    "correctAnswer": "Jordan",
+    "acceptableAnswers": [],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "explanation": "Le drapeau de la Jordanie comporte trois bandes horizontales (noire, blanche, verte) avec un triangle rouge et une petite étoile blanche — facile à confondre avec la Palestine."
+  },
+  {
+    "id": "fg17",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "ps",
+    "correctAnswer": "Palestine",
+    "acceptableAnswers": [
+      "Palestinian Territories"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "explanation": "Le drapeau de la Palestine comporte trois bandes horizontales (noire, blanche, verte) avec un triangle rouge — presque identique à celui de la Jordanie mais sans l'étoile."
+  },
+  {
+    "id": "fg18",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "sy",
+    "correctAnswer": "Syria",
+    "acceptableAnswers": [],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "explanation": "Le drapeau de la Syrie présente des bandes horizontales rouge, blanche et noire avec deux étoiles vertes — il fait partie du schéma de couleurs panarab partagé par plusieurs pays voisins."
+  },
+  {
+    "id": "fg19",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "td",
+    "correctAnswer": "Chad",
+    "acceptableAnswers": [],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "explanation": "Le drapeau du Tchad (bandes verticales bleue, jaune, rouge) est presque identique à celui de la Roumanie — la seule différence est la nuance exacte de bleu."
+  },
+  {
+    "id": "fg20",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "mc",
+    "correctAnswer": "Monaco",
+    "acceptableAnswers": [],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "explanation": "Le drapeau de Monaco (rouge sur blanc) est presque identique à celui de l'Indonésie — la différence réside uniquement dans les proportions."
+  },
+  {
+    "id": "fg21",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "iq",
+    "correctAnswer": "Iraq",
+    "acceptableAnswers": [],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "explanation": "Le drapeau de l'Irak présente des bandes rouge, blanche et noire avec un texte arabe au centre — il fait partie de la palette panarab partagée avec la Syrie, l'Égypte et le Yémen."
+  },
+  {
+    "id": "fg22",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "ie",
+    "correctAnswer": "Ireland",
+    "acceptableAnswers": [
+      "Republic of Ireland",
+      "Eire"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "explanation": "Le drapeau de l'Irlande (bandes verticales verte, blanche, orange) est l'image miroir de celui de la Côte d'Ivoire (orange, blanc, vert) — facile de les confondre."
+  },
+  {
+    "id": "fg23",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "ci",
+    "correctAnswer": "Ivory Coast",
+    "acceptableAnswers": [
+      "Côte d'Ivoire",
+      "Cote d'Ivoire"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "explanation": "Le drapeau de la Côte d'Ivoire (orange, blanc, vert) est l'inverse de celui de l'Irlande (vert, blanc, orange) — l'une des paires de drapeaux les plus souvent confondues."
+  },
+  {
+    "id": "fg24",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "ro",
+    "correctAnswer": "Romania",
+    "acceptableAnswers": [],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "explanation": "Le drapeau de la Roumanie (bandes verticales bleue, jaune, rouge) est presque identique à celui du Tchad — la différence réside dans la nuance de bleu."
+  },
+  {
+    "id": "fg25",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "id",
+    "correctAnswer": "Indonesia",
+    "acceptableAnswers": [],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "explanation": "Le drapeau de l'Indonésie (rouge sur blanc) est presque identique à celui de Monaco — la différence réside uniquement dans les proportions du drapeau."
+  },
+  {
+    "id": "fg26",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "nz",
+    "correctAnswer": "New Zealand",
+    "acceptableAnswers": [
+      "Aotearoa"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "explanation": "Le drapeau de la Nouvelle-Zélande ressemble presque identiquement à celui de l'Australie — même Union Jack et même Croix du Sud, mais avec une croix rouge plus simple sans contour blanc."
+  },
+  {
+    "id": "fg27",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "ye",
+    "correctAnswer": "Yemen",
+    "acceptableAnswers": [],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "explanation": "Le drapeau du Yémen est simplement trois bandes horizontales — rouge, blanche, noire — sans emblème, ce qui le rend facile à confondre avec la Syrie, l'Égypte ou l'Irak."
+  },
+  {
+    "id": "geo_mc1",
+    "type": "multiple_choice",
+    "category": "geography",
+    "question": "Quel est le plus grand pays du monde par sa superficie ?",
+    "options": [
+      "Chine",
+      "États-Unis",
+      "Canada",
+      "Russie"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "La Russie couvre environ 17,1 millions de km², soit presque le double du deuxième plus grand pays."
+  },
+  {
+    "id": "geo_mc2",
+    "type": "multiple_choice",
+    "category": "geography",
+    "question": "Quel fleuve est le plus long au monde ?",
+    "options": [
+      "Amazone",
+      "Mississippi",
+      "Nil",
+      "Yangtsé"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Le Nil est généralement considéré comme le fleuve le plus long du monde, avec environ 6 650 km."
+  },
+  {
+    "id": "geo_mc3",
+    "type": "multiple_choice",
+    "category": "geography",
+    "question": "Quel continent compte le plus de pays ?",
+    "options": [
+      "Asie",
+      "Europe",
+      "Afrique",
+      "Amérique du Sud"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "L'Afrique compte 54 pays souverains reconnus."
+  },
+  {
+    "id": "geo_mc4",
+    "type": "multiple_choice",
+    "category": "geography",
+    "question": "Quel est le plus grand océan du monde ?",
+    "options": [
+      "Océan Atlantique",
+      "Océan Indien",
+      "Océan Arctique",
+      "Océan Pacifique"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "L'océan Pacifique couvre plus de 165 millions de km², soit environ un tiers de la surface totale de la Terre."
+  },
+  {
+    "id": "geo_mc5",
+    "type": "multiple_choice",
+    "category": "geography",
+    "question": "Quel est le plus petit pays du monde par sa superficie ?",
+    "options": [
+      "Monaco",
+      "Saint-Marin",
+      "Vatican",
+      "Liechtenstein"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "La Cité du Vatican ne couvre que 0,44 km², ce qui en fait le plus petit pays du monde."
+  },
+  {
+    "id": "geo_tf1",
+    "type": "true_false",
+    "category": "geography",
+    "question": "L'Amazone traverse le Brésil.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "L'Amazone coule principalement à travers le Brésil, bien qu'il passe aussi par le Pérou et la Colombie."
+  },
+  {
+    "id": "geo_tf2",
+    "type": "true_false",
+    "category": "geography",
+    "question": "L'Australie est à la fois un pays et un continent.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "L'Australie a la particularité d'être à la fois une nation souveraine et son propre continent."
+  },
+  {
+    "id": "geo_tf3",
+    "type": "true_false",
+    "category": "geography",
+    "question": "Le Sahara est le plus grand désert du monde.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "L'Antarctique est techniquement le plus grand désert du monde (désert froid). Le Sahara est le plus grand désert chaud."
+  },
+  {
+    "id": "geo_tf4",
+    "type": "true_false",
+    "category": "geography",
+    "question": "La Nouvelle-Zélande se situe dans l'hémisphère nord.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "La Nouvelle-Zélande est située dans l'hémisphère sud, au sud-est de l'Australie."
+  },
+  {
+    "id": "geo_tf5",
+    "type": "true_false",
+    "category": "geography",
+    "question": "La mer Morte est le point le plus bas de la surface terrestre.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Le littoral de la mer Morte est à environ 430 mètres sous le niveau de la mer, ce qui en fait le point le plus bas de la surface terrestre."
+  },
+  {
+    "id": "geo_fb1",
+    "type": "fill_blank",
+    "category": "geography",
+    "question": "La capitale du Japon est ___.",
+    "correctAnswer": "Tokyo",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Tokyo est la capitale du Japon depuis 1869, quand l'Empereur y a déménagé depuis Kyoto."
+  },
+  {
+    "id": "geo_fb2",
+    "type": "fill_blank",
+    "category": "geography",
+    "question": "La ___ Barrière de Corail est un récif corallien célèbre situé au large de l'Australie.",
+    "correctAnswer": "Barrier Reef",
+    "acceptableAnswers": [
+      "barrier reef",
+      "great barrier reef"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "La Grande Barrière de Corail est le plus grand système de récifs coralliens du monde, s'étendant sur plus de 2 300 km."
+  },
+  {
+    "id": "geo_fb3",
+    "type": "fill_blank",
+    "category": "geography",
+    "question": "Le mont ___ est la plus haute montagne du monde.",
+    "correctAnswer": "Everest",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Le mont Everest, dans l'Himalaya, culmine à 8 849 mètres au-dessus du niveau de la mer."
+  },
+  {
+    "id": "geo_fb4",
+    "type": "fill_blank",
+    "category": "geography",
+    "question": "Le canal de ___ relie les océans Atlantique et Pacifique.",
+    "correctAnswer": "Panama",
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Le canal de Panama, ouvert en 1914, permet aux navires de traverser entre l'Atlantique et le Pacifique via le Panama."
+  },
+  {
+    "id": "geo_fb5",
+    "type": "fill_blank",
+    "category": "geography",
+    "question": "L'___ est la plus grande forêt tropicale du monde, située en Amérique du Sud.",
+    "correctAnswer": "Amazon",
+    "acceptableAnswers": [
+      "amazon",
+      "amazon rainforest"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "La forêt amazonienne couvre environ 5,5 millions de km² sur neuf pays, principalement le Brésil."
+  },
+  {
+    "id": "geo_rk1",
+    "type": "ranking",
+    "category": "geography",
+    "question": "Classez ces pays par population (du moins peuplé au plus peuplé) :",
+    "items": [
+      "China",
+      "United States",
+      "India"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "États-Unis (~335M) → Chine (~1,4 Md) → Inde (~1,44 Md)"
+  },
+  {
+    "id": "geo_rk2",
+    "type": "ranking",
+    "category": "geography",
+    "question": "Classez ces continents par superficie (du plus petit au plus grand) :",
+    "items": [
+      "Africa",
+      "Europe",
+      "Asia"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Europe (~10,5M km²) → Afrique (~30,4M km²) → Asie (~44,6M km²)"
+  },
+  {
+    "id": "geo_rk3",
+    "type": "ranking",
+    "category": "geography",
+    "question": "Classez ces fleuves par longueur (du plus court au plus long) :",
+    "items": [
+      "Nile",
+      "Amazon",
+      "Mississippi"
+    ],
+    "correctOrder": [
+      2,
+      1,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Mississippi (~6 275 km) → Amazone (~6 400 km) → Nil (~6 650 km)"
+  },
+  {
+    "id": "geo_rk4",
+    "type": "ranking",
+    "category": "geography",
+    "question": "Classez ces montagnes par hauteur (de la moins haute à la plus haute) :",
+    "items": [
+      "Mont Blanc",
+      "Kilimanjaro",
+      "Mount Everest"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Mont Blanc (4 808m) → Kilimandjaro (5 895m) → Mont Everest (8 849m)"
+  },
+  {
+    "id": "geo_rk5",
+    "type": "ranking",
+    "category": "geography",
+    "question": "Classez ces pays par superficie (du plus petit au plus grand) :",
+    "items": [
+      "Russia",
+      "Canada",
+      "United States"
+    ],
+    "correctOrder": [
+      2,
+      1,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "États-Unis (~9,8M km²) → Canada (~10M km²) → Russie (~17,1M km²)"
+  },
+  {
+    "id": "geo_cw1",
+    "type": "closest_wins",
+    "category": "geography",
+    "question": "Quelle est la population de l'Australie ? (en millions)",
+    "correctAnswer": 26,
+    "unit": "million d'habitants",
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "La population de l'Australie est d'environ 26 millions d'habitants."
+  },
+  {
+    "id": "geo_cw2",
+    "type": "closest_wins",
+    "category": "geography",
+    "question": "Combien de pays y a-t-il dans le monde ?",
+    "correctAnswer": 195,
+    "unit": "pays",
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Il y a 195 pays — 193 membres de l'ONU plus la Cité du Vatican et la Palestine."
+  },
+  {
+    "id": "geo_cw3",
+    "type": "closest_wins",
+    "category": "geography",
+    "question": "Quelle est la hauteur du mont Everest en mètres ?",
+    "correctAnswer": 8849,
+    "unit": "mètres",
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Le mont Everest culmine à 8 849 mètres au-dessus du niveau de la mer, selon la remesure de 2020."
+  },
+  {
+    "id": "geo_cw4",
+    "type": "closest_wins",
+    "category": "geography",
+    "question": "Combien de fuseaux horaires la Russie couvre-t-elle ?",
+    "correctAnswer": 11,
+    "unit": "fuseaux horaires",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "La Russie couvre 11 fuseaux horaires, plus que tout autre pays au monde."
+  },
+  {
+    "id": "geo_cw5",
+    "type": "closest_wins",
+    "category": "geography",
+    "question": "Quelle est la longueur de la Grande Muraille de Chine en kilomètres ?",
+    "correctAnswer": 21196,
+    "unit": "km",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "La Grande Muraille de Chine s'étend sur environ 21 196 km lorsque toutes ses sections sont additionnées."
+  },
+  {
+    "id": "geo_sb1",
+    "type": "speed_buzz",
+    "category": "geography",
+    "question": "Quelle est la capitale du Brésil ?",
+    "options": [
+      "São Paulo",
+      "Rio de Janeiro",
+      "Brasília",
+      "Salvador"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Brasília est devenue la capitale du Brésil en 1960, remplaçant Rio de Janeiro."
+  },
+  {
+    "id": "geo_sb2",
+    "type": "speed_buzz",
+    "category": "geography",
+    "question": "Quel pays possède le plus grand nombre de lacs naturels au monde ?",
+    "options": [
+      "Russie",
+      "États-Unis",
+      "Finlande",
+      "Canada"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "Le Canada abrite plus de 60 % des lacs d'eau douce du monde — davantage que tout autre pays."
+  },
+  {
+    "id": "geo_sb3",
+    "type": "speed_buzz",
+    "category": "geography",
+    "question": "Sur quel continent se trouve le désert du Sahara ?",
+    "options": [
+      "Asie",
+      "Afrique",
+      "Amérique du Sud",
+      "Australie"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Le désert du Sahara s'étend à travers l'Afrique du Nord, couvrant environ 9 millions de km²."
+  },
+  {
+    "id": "geo_sb4",
+    "type": "speed_buzz",
+    "category": "geography",
+    "question": "Quelle est la plus longue chaîne de montagnes du monde ?",
+    "options": [
+      "Himalaya",
+      "Rocheuses",
+      "Andes",
+      "Alpes"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Les Andes s'étendent sur environ 7 000 km le long de la côte ouest de l'Amérique du Sud."
+  },
+  {
+    "id": "geo_sb5",
+    "type": "speed_buzz",
+    "category": "geography",
+    "question": "Quelle ville est surnommée « la Ville Lumière » ?",
+    "options": [
+      "Rome",
+      "Londres",
+      "New York",
+      "Paris"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Paris a gagné le surnom de « Ville Lumière » pour son rôle dans le Siècle des Lumières et l'adoption précoce de l'éclairage au gaz dans ses rues."
+  },
+  {
+    "id": "ft1",
+    "type": "free_text",
+    "category": "geography",
+    "question": "Quelle est la capitale de la France ?",
+    "correctAnswer": "Paris",
+    "acceptableAnswers": [
+      "paris france"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Paris est la capitale de la France depuis 987 après J.-C."
+  },
+  {
+    "id": "geo_ft1",
+    "type": "free_text",
+    "category": "geography",
+    "question": "Quelle est la capitale de l'Australie ?",
+    "correctAnswer": "Canberra",
+    "acceptableAnswers": [],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Beaucoup de gens supposent Sydney ou Melbourne, mais Canberra est la capitale depuis 1913."
+  },
+  {
+    "id": "geo_ft2",
+    "type": "free_text",
+    "category": "geography",
+    "question": "Quelle est la capitale du Canada ?",
+    "correctAnswer": "Ottawa",
+    "acceptableAnswers": [],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Ottawa, et non Toronto ou Vancouver, est la capitale du Canada."
+  },
+  {
+    "id": "geo_ft3",
+    "type": "free_text",
+    "category": "geography",
+    "question": "Quel est le nom du plus grand océan du monde ?",
+    "correctAnswer": "Pacific Ocean",
+    "acceptableAnswers": [
+      "pacific",
+      "pacific ocean"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "L'océan Pacifique couvre plus de 165 millions de km², soit plus que toutes les terres émergées de la Terre réunies."
+  },
+  {
+    "id": "geo_ft4",
+    "type": "free_text",
+    "category": "geography",
+    "question": "Quel pays africain est le plus peuplé ?",
+    "correctAnswer": "Nigeria",
+    "acceptableAnswers": [
+      "nigeria"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Le Nigeria compte plus de 220 millions d'habitants, ce qui en fait le pays le plus peuplé d'Afrique."
+  },
+  {
+    "id": "ig1",
+    "type": "image_guess",
+    "category": "geography",
+    "question": "Quel est ce monument célèbre ?",
+    "imageUrl": "/quiz-images/eiffel-tower.jpg",
+    "correctAnswer": "Eiffel Tower",
+    "acceptableAnswers": [
+      "eiffel",
+      "tour eiffel"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "La tour Eiffel a été construite en 1889 à Paris, France, conçue par Gustave Eiffel pour l'Exposition universelle."
+  },
+  {
+    "id": "ig2",
+    "type": "image_guess",
+    "category": "geography",
+    "question": "Quel est ce monument célèbre ?",
+    "imageUrl": "/quiz-images/colosseum.jpg",
+    "correctAnswer": "Colosseum",
+    "acceptableAnswers": [
+      "coliseum",
+      "colosseo",
+      "the colosseum"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Le Colisée de Rome, en Italie, est le plus grand amphithéâtre jamais construit, achevé en 80 après J.-C. et pouvant accueillir jusqu'à 80 000 spectateurs."
+  },
+  {
+    "id": "ig3",
+    "type": "image_guess",
+    "category": "geography",
+    "question": "Quel est ce monument célèbre ?",
+    "imageUrl": "/quiz-images/taj-mahal.jpg",
+    "correctAnswer": "Taj Mahal",
+    "acceptableAnswers": [
+      "taj mahal",
+      "the taj mahal"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Le Taj Mahal à Agra, en Inde, a été construit par l'empereur moghol Shah Jahan en mémoire de son épouse Mumtaz Mahal. Achevé en 1653, c'est un site du patrimoine mondial de l'UNESCO."
+  },
+  {
+    "id": "ig4",
+    "type": "image_guess",
+    "category": "geography",
+    "question": "Quel est ce monument célèbre ?",
+    "imageUrl": "/quiz-images/machu-picchu.jpg",
+    "correctAnswer": "Machu Picchu",
+    "acceptableAnswers": [
+      "machu picchu",
+      "machu pichu"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Le Machu Picchu est une citadelle inca du XVe siècle au Pérou, construite à 2 430 m d'altitude. Elle était inconnue du monde extérieur jusqu'à sa redécouverte par Hiram Bingham en 1911."
+  },
+  {
+    "id": "ig5",
+    "type": "image_guess",
+    "category": "geography",
+    "question": "Quel est ce monument célèbre ?",
+    "imageUrl": "/quiz-images/sydney-opera-house.jpg",
+    "correctAnswer": "Sydney Opera House",
+    "acceptableAnswers": [
+      "sydney opera",
+      "opera house"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "L'Opéra de Sydney en Australie, conçu par l'architecte danois Jørn Utzon, a ouvert ses portes en 1973 et est inscrit au patrimoine mondial de l'UNESCO."
+  },
+  {
+    "id": "ig6",
+    "type": "image_guess",
+    "category": "geography",
+    "question": "Quel est ce monument célèbre ?",
+    "imageUrl": "/quiz-images/great-wall.jpg",
+    "correctAnswer": "Great Wall of China",
+    "acceptableAnswers": [
+      "great wall",
+      "the great wall",
+      "great wall of china"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "La Grande Muraille de Chine s'étend sur plus de 21 000 km et a été construite sur plusieurs siècles pour protéger les États chinois des invasions du nord. Sa construction a commencé dès le VIIe siècle avant J.-C."
+  },
+  {
+    "id": "ig7",
+    "type": "image_guess",
+    "category": "geography",
+    "question": "Quel est ce monument célèbre ?",
+    "imageUrl": "/quiz-images/sagrada-familia.jpg",
+    "correctAnswer": "Sagrada Família",
+    "acceptableAnswers": [
+      "sagrada familia",
+      "sagrada família",
+      "la sagrada familia"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "La Sagrada Família à Barcelone, en Espagne, est une basilique inachevée conçue par Antoni Gaudí. Sa construction a débuté en 1882 et est toujours en cours, avec un achèvement prévu vers 2026."
+  },
+  {
+    "id": "ig8",
+    "type": "image_guess",
+    "category": "geography",
+    "question": "Quel est ce monument célèbre ?",
+    "imageUrl": "/quiz-images/statue-of-liberty.jpg",
+    "correctAnswer": "Statue of Liberty",
+    "acceptableAnswers": [
+      "statue of liberty",
+      "liberty statue",
+      "lady liberty"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "La Statue de la Liberté sur l'île de la Liberté, à New York, était un cadeau de la France aux États-Unis. Conçue par Frédéric Auguste Bartholdi, elle a été inaugurée le 28 octobre 1886."
+  },
+  {
+    "id": "ig9",
+    "type": "image_guess",
+    "category": "geography",
+    "question": "Quel est ce monument célèbre ?",
+    "imageUrl": "/quiz-images/burj-khalifa.jpg",
+    "correctAnswer": "Burj Khalifa",
+    "acceptableAnswers": [
+      "burj khalifa",
+      "burj",
+      "khalifa tower"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Le Burj Khalifa à Dubaï, aux Émirats arabes unis, s'élève à 828 m — le plus haut bâtiment du monde depuis 2010. Son nom rend hommage à feu le président des EAU, le cheikh Khalifa bin Zayed Al Nahyan."
+  },
+  {
+    "id": "ig10",
+    "type": "image_guess",
+    "category": "geography",
+    "question": "Quel est ce monument célèbre ?",
+    "imageUrl": "/quiz-images/big-ben.jpg",
+    "correctAnswer": "Big Ben",
+    "acceptableAnswers": [
+      "big ben",
+      "elizabeth tower",
+      "westminster clock tower",
+      "palace of westminster"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Big Ben est le surnom de la Grande Cloche de la tour Elizabeth au Palais de Westminster, à Londres. La tour a été rebaptisée tour Elizabeth en 2012 pour honorer le jubilé de diamant de la reine Élisabeth II."
+  },
+  {
+    "id": "cc_geo1",
+    "type": "clue_chain",
+    "category": "geography",
+    "question": "Quel pays suis-je ?",
+    "clues": [
+      "Je suis le plus grand pays du monde par superficie, couvrant 11 fuseaux horaires",
+      "Mon Transsibérien est la plus longue ligne ferroviaire du monde avec plus de 9 000 km",
+      "Ma capitale, Moscou, est située sur la rivière Moskva",
+      "Je partage des frontières avec 14 pays — plus que tout autre nation sur Terre"
+    ],
+    "correctAnswer": "Russia",
+    "acceptableAnswers": [
+      "russia",
+      "russian federation"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_geo2",
+    "type": "clue_chain",
+    "category": "geography",
+    "question": "Quel pays suis-je ?",
+    "clues": [
+      "Je suis le seul pays qui est aussi un continent à lui tout seul",
+      "J'abrite le plus grand système de récifs coralliens du monde",
+      "Mon intérieur est connu sous le nom d'« Outback » et est l'une des régions les plus arides du monde",
+      "Ma capitale est Canberra, même si beaucoup supposent Sydney ou Melbourne"
+    ],
+    "correctAnswer": "Australia",
+    "acceptableAnswers": [
+      "australia",
+      "aussie"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_geo3",
+    "type": "clue_chain",
+    "category": "geography",
+    "question": "Quel pays suis-je ?",
+    "clues": [
+      "Je suis un pays d'Amérique du Sud dont le nom signifie « l'équateur » en espagnol",
+      "Je suis l'un des deux seuls pays d'Amérique du Sud qui ne partage pas de frontière avec le Brésil",
+      "J'abrite les îles Galápagos, qui ont inspiré la théorie de l'évolution de Charles Darwin",
+      "Ma capitale est Quito, l'une des plus hautes capitales du monde à 2 850 mètres d'altitude"
+    ],
+    "correctAnswer": "Ecuador",
+    "acceptableAnswers": [
+      "ecuador"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_geo4",
+    "type": "clue_chain",
+    "category": "geography",
+    "question": "Quelle ville suis-je ?",
+    "clues": [
+      "Je suis la ville la plus visitée du monde, accueillant plus de 40 millions de touristes par an",
+      "Je suis traversée par la Seine et j'ai été fondée il y a plus de 2 000 ans par les Romains",
+      "Mon monument le plus célèbre était jugé horrible par beaucoup quand il a été construit en 1889",
+      "Je suis la capitale de la France et j'abrite le Louvre, le plus grand musée d'art au monde"
+    ],
+    "correctAnswer": "Paris",
+    "acceptableAnswers": [
+      "paris"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_geo5",
+    "type": "clue_chain",
+    "category": "geography",
+    "question": "Quel pays suis-je ?",
+    "clues": [
+      "Je suis une nation insulaire dans l'Atlantique Nord, connue pour mes volcans et mes geysers",
+      "Malgré mon nom, je suis en réalité assez verte — environ 11 % de ma superficie est couverte de forêts",
+      "Je suis le pays le moins densément peuplé d'Europe",
+      "Ma capitale, Reykjavik, est la capitale nationale la plus septentrionale du monde"
+    ],
+    "correctAnswer": "Iceland",
+    "acceptableAnswers": [
+      "iceland"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "fg_geo_1",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "de",
+    "correctAnswer": "Germany",
+    "acceptableAnswers": [
+      "Germany"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Le drapeau allemand présente trois bandes horizontales égales noir, rouge et or — les couleurs du mouvement libéral du XIXe siècle."
+  },
+  {
+    "id": "fg_geo_2",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "fr",
+    "correctAnswer": "France",
+    "acceptableAnswers": [
+      "France"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Le Tricolore français présente des bandes verticales bleue, blanche et rouge, adopté après la Révolution de 1789."
+  },
+  {
+    "id": "fg_geo_3",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "gb",
+    "correctAnswer": "United Kingdom",
+    "acceptableAnswers": [
+      "United Kingdom",
+      "UK",
+      "Great Britain",
+      "Britain",
+      "England"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "L'Union Jack combine les croix de Saint-Georges (Angleterre), Saint-André (Écosse) et Saint-Patrick (Irlande)."
+  },
+  {
+    "id": "fg_geo_4",
+    "type": "flag_guess",
+    "category": "geography",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "in",
+    "correctAnswer": "India",
+    "acceptableAnswers": [
+      "India"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Le Tiranga indien présente des bandes safran, blanche et verte, avec la roue Ashoka Chakra (24 rayons) en bleu marine au centre."
+  }
 ]

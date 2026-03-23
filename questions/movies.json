@@ -1,52 +1,1189 @@
 [
-  { "id": "rk1", "type": "ranking", "category": "movies", "question": "Rank the Lord of the Rings movies in release order (oldest first):", "items": ["The Fellowship of the Ring", "The Two Towers", "The Return of the King"], "correctOrder": [0, 1, 2], "difficulty": "easy", "timeLimit": 20, "allowPartialCredit": true, "explanation": "Fellowship (2001) → Two Towers (2002) → Return of the King (2003)." },
-  { "id": "fb1", "type": "fill_blank", "category": "movies", "question": "May the ___ be with you.", "correctAnswer": "Force", "difficulty": "easy", "timeLimit": 15, "explanation": "Iconic line from Star Wars." },
-  { "id": "pr2", "type": "pixel_reveal", "category": "movies", "question": "Who is this celebrity?", "imageUrl": "/quiz-images/chaplin.jpg", "correctAnswer": "Charlie Chaplin", "acceptableAnswers": ["chaplin", "charles chaplin"], "caseSensitive": false, "difficulty": "medium", "timeLimit": 25, "explanation": "Charlie Chaplin was a legendary comedian and filmmaker of the silent film era." },
-
-  { "id": "mv_mc1", "type": "multiple_choice", "category": "movies", "question": "Which movie has won the most Academy Awards?", "options": ["Titanic", "Ben-Hur", "The Lord of the Rings: The Return of the King", "All of the above (tied at 11)"], "correctAnswer": 3, "difficulty": "hard", "timeLimit": 20, "explanation": "Ben-Hur (1959), Titanic (1997) and Return of the King (2003) all won 11 Oscars." },
-  { "id": "mv_mc2", "type": "multiple_choice", "category": "movies", "question": "Which film studio produced the Toy Story franchise?", "options": ["DreamWorks", "Disney", "Pixar", "Universal"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 15, "explanation": "Toy Story was produced by Pixar Animation Studios (now owned by Disney)." },
-  { "id": "mv_mc3", "type": "multiple_choice", "category": "movies", "question": "What is the highest-grossing film of all time (not adjusted for inflation)?", "options": ["Avengers: Endgame", "Titanic", "Avatar", "Star Wars: The Force Awakens"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 20, "explanation": "Avatar (2009, rereleased 2022) holds the record at over $2.9 billion." },
-  { "id": "mv_mc4", "type": "multiple_choice", "category": "movies", "question": "Which actor played Iron Man in the Marvel Cinematic Universe?", "options": ["Chris Evans", "Chris Hemsworth", "Robert Downey Jr.", "Mark Ruffalo"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 12, "explanation": "Robert Downey Jr. played Tony Stark / Iron Man from 2008 to 2019." },
-  { "id": "mv_mc5", "type": "multiple_choice", "category": "movies", "question": "Who directed The Dark Knight (2008)?", "options": ["Tim Burton", "Zack Snyder", "Christopher Nolan", "J.J. Abrams"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 15, "explanation": "Christopher Nolan directed The Dark Knight, widely considered one of the greatest superhero films ever made." },
-
-  { "id": "mv_tf1", "type": "true_false", "category": "movies", "question": "James Cameron directed both Titanic and Avatar.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 12, "explanation": "James Cameron directed Titanic (1997) and Avatar (2009)." },
-  { "id": "mv_tf2", "type": "true_false", "category": "movies", "question": "The voice of Darth Vader was provided by the actor who played him on screen.", "options": ["True", "False"], "correctAnswer": 1, "difficulty": "medium", "timeLimit": 15, "explanation": "David Prowse wore the suit, but James Earl Jones provided Darth Vader's iconic voice." },
-  { "id": "mv_tf3", "type": "true_false", "category": "movies", "question": "Parasite (2019) was the first non-English language film to win Best Picture at the Oscars.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 15, "explanation": "Parasite, directed by Bong Joon-ho, made history as the first non-English film to win the Academy Award for Best Picture." },
-  { "id": "mv_tf4", "type": "true_false", "category": "movies", "question": "Leonardo DiCaprio's first Academy Award win was for The Revenant.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 15, "explanation": "DiCaprio won his first Oscar for Best Actor for The Revenant (2015) after several nominations." },
-  { "id": "mv_tf5", "type": "true_false", "category": "movies", "question": "Stanley Kubrick directed Jurassic Park.", "options": ["True", "False"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 12, "explanation": "Jurassic Park (1993) was directed by Steven Spielberg, not Stanley Kubrick." },
-
-  { "id": "mv_fb1", "type": "fill_blank", "category": "movies", "question": "\"You can't handle the ___!\"", "correctAnswer": "truth", "difficulty": "easy", "timeLimit": 15, "explanation": "Jack Nicholson's famous line from A Few Good Men (1992)." },
-  { "id": "mv_fb2", "type": "fill_blank", "category": "movies", "question": "\"I'll be ___\"", "correctAnswer": "back", "difficulty": "easy", "timeLimit": 12, "explanation": "The Terminator's most famous line, first said in The Terminator (1984)." },
-  { "id": "mv_fb3", "type": "fill_blank", "category": "movies", "question": "\"Here's looking at you, ___\"", "correctAnswer": "kid", "difficulty": "medium", "timeLimit": 15, "explanation": "Humphrey Bogart's iconic line to Ingrid Bergman in Casablanca (1942)." },
-  { "id": "mv_fb4", "type": "fill_blank", "category": "movies", "question": "\"To infinity and ___!\"", "correctAnswer": "beyond", "difficulty": "easy", "timeLimit": 10, "explanation": "Buzz Lightyear's catchphrase from the Toy Story franchise." },
-  { "id": "mv_fb5", "type": "fill_blank", "category": "movies", "question": "\"Why so ___?\"", "correctAnswer": "serious", "difficulty": "easy", "timeLimit": 10, "explanation": "The Joker's menacing line in The Dark Knight (2008), played by Heath Ledger." },
-
-  { "id": "mv_rk1", "type": "ranking", "category": "movies", "question": "Rank these Marvel films in release order (oldest first):", "items": ["Black Panther", "Iron Man", "Avengers: Endgame"], "correctOrder": [1, 0, 2], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Iron Man (2008) → Black Panther (2018) → Avengers: Endgame (2019)" },
-  { "id": "mv_rk2", "type": "ranking", "category": "movies", "question": "Rank these films by box office gross, highest first:", "items": ["The Dark Knight", "Avatar", "Titanic"], "correctOrder": [1, 2, 0], "difficulty": "hard", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Avatar (~$2.9B) → Titanic (~$2.2B) → The Dark Knight (~$1.0B)" },
-  { "id": "mv_rk3", "type": "ranking", "category": "movies", "question": "Rank these classic films by release year (oldest first):", "items": ["Pulp Fiction", "The Godfather", "Fight Club"], "correctOrder": [1, 0, 2], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "The Godfather (1972) → Pulp Fiction (1994) → Fight Club (1999)" },
-  { "id": "mv_rk4", "type": "ranking", "category": "movies", "question": "Rank these Disney animated films by release year (oldest first):", "items": ["Frozen", "The Little Mermaid", "Beauty and the Beast"], "correctOrder": [1, 2, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "The Little Mermaid (1989) → Beauty and the Beast (1991) → Frozen (2013)" },
-
-  { "id": "mv_cw1", "type": "closest_wins", "category": "movies", "question": "In what year was the first Star Wars film released?", "correctAnswer": 1977, "difficulty": "medium", "timeLimit": 15, "explanation": "Star Wars: A New Hope was released on May 25, 1977." },
-  { "id": "mv_cw2", "type": "closest_wins", "category": "movies", "question": "How many Academy Awards did Titanic win?", "correctAnswer": 11, "difficulty": "medium", "timeLimit": 15, "explanation": "Titanic won 11 Oscars at the 1998 Academy Awards, tying the record with Ben-Hur and Return of the King." },
-  { "id": "mv_cw3", "type": "closest_wins", "category": "movies", "question": "In what year was Jurassic Park released?", "correctAnswer": 1993, "difficulty": "easy", "timeLimit": 15, "explanation": "Jurassic Park, directed by Steven Spielberg, was released on June 11, 1993." },
-  { "id": "mv_cw4", "type": "closest_wins", "category": "movies", "question": "How long is Avengers: Endgame in minutes?", "correctAnswer": 181, "difficulty": "hard", "timeLimit": 20, "explanation": "Avengers: Endgame runs for 181 minutes (3 hours and 1 minute), making it the longest Marvel film." },
-  { "id": "mv_cw5", "type": "closest_wins", "category": "movies", "question": "In what year was The Godfather released?", "correctAnswer": 1972, "difficulty": "medium", "timeLimit": 15, "explanation": "The Godfather, directed by Francis Ford Coppola, was released on March 24, 1972." },
-
-  { "id": "mv_sb1", "type": "speed_buzz", "category": "movies", "question": "In Finding Nemo, what type of fish is Nemo?", "options": ["Goldfish", "Clownfish", "Swordfish", "Blowfish"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 10, "explanation": "Nemo is a clownfish — specifically an ocellaris clownfish, also known as a false percula clownfish." },
-  { "id": "mv_sb2", "type": "speed_buzz", "category": "movies", "question": "Which actress played Katniss Everdeen in The Hunger Games?", "options": ["Emma Watson", "Shailene Woodley", "Jennifer Lawrence", "Kristen Stewart"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 10, "explanation": "Jennifer Lawrence starred as Katniss Everdeen across all four Hunger Games films." },
-  { "id": "mv_sb3", "type": "speed_buzz", "category": "movies", "question": "What is the name of the toy cowboy in Toy Story?", "options": ["Buzz", "Woody", "Rex", "Hamm"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 8, "explanation": "Woody Pride is Andy's cowboy doll and the main protagonist of the Toy Story franchise." },
-  { "id": "mv_sb4", "type": "speed_buzz", "category": "movies", "question": "In which city is Home Alone primarily set?", "options": ["New York", "Boston", "Chicago", "Detroit"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 12, "explanation": "Home Alone (1990) is set in a suburb of Chicago, Illinois." },
-  { "id": "mv_sb5", "type": "speed_buzz", "category": "movies", "question": "Which film features the line 'You talkin' to me?'", "options": ["Goodfellas", "Taxi Driver", "The Godfather", "Scarface"], "correctAnswer": 1, "difficulty": "medium", "timeLimit": 12, "explanation": "Robert De Niro improvised the iconic 'You talkin' to me?' monologue in Taxi Driver (1976)." },
-
-  { "id": "mv_ft1", "type": "free_text", "category": "movies", "question": "Name the actor who plays Captain Jack Sparrow in Pirates of the Caribbean.", "correctAnswer": "Johnny Depp", "acceptableAnswers": ["depp", "johnny depp"], "difficulty": "easy", "timeLimit": 15, "explanation": "Johnny Depp's eccentric portrayal of Captain Jack Sparrow became one of cinema's most iconic characters." },
-  { "id": "mv_ft2", "type": "free_text", "category": "movies", "question": "What substance does the DeLorean time machine need to travel through time in Back to the Future?", "correctAnswer": "plutonium", "acceptableAnswers": ["plutonium", "1.21 gigawatts", "gigawatts"], "difficulty": "medium", "timeLimit": 20, "explanation": "The DeLorean's flux capacitor requires 1.21 gigawatts of power, originally generated by plutonium." },
-  { "id": "mv_ft3", "type": "free_text", "category": "movies", "question": "Who directed Pulp Fiction?", "correctAnswer": "Quentin Tarantino", "acceptableAnswers": ["tarantino", "quentin tarantino"], "difficulty": "easy", "timeLimit": 15, "explanation": "Quentin Tarantino wrote and directed Pulp Fiction (1994), which won the Palme d'Or at Cannes." },
-  { "id": "mv_ft4", "type": "free_text", "category": "movies", "question": "In The Silence of the Lambs, what is the name of the imprisoned cannibal psychiatrist?", "correctAnswer": "Hannibal Lecter", "acceptableAnswers": ["hannibal lecter", "hannibal", "dr lecter"], "difficulty": "easy", "timeLimit": 15, "explanation": "Anthony Hopkins won the Academy Award for Best Actor for his chilling portrayal of Dr. Hannibal Lecter." },
-  { "id": "mv_ft5", "type": "free_text", "category": "movies", "question": "What is the name of the sled in Citizen Kane?", "correctAnswer": "Rosebud", "acceptableAnswers": ["rosebud"], "difficulty": "hard", "timeLimit": 20, "explanation": "'Rosebud' is the dying word of Charles Foster Kane and the central mystery of Orson Welles' Citizen Kane (1941)." },
-
-  { "id": "cc_mv1", "type": "clue_chain", "category": "movies", "question": "Which film am I?", "clues": ["Released in 1994, I am set largely in the southern United States and span several decades", "My main character has an IQ of 75 but inadvertently shapes major historical events", "I contain the iconic line: 'Life is like a box of chocolates — you never know what you're gonna get'", "Tom Hanks plays the title character, a man who runs across America"], "correctAnswer": "Forrest Gump", "acceptableAnswers": ["forrest gump"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_mv2", "type": "clue_chain", "category": "movies", "question": "Which film am I?", "clues": ["I am the highest-grossing animated film of all time when adjusted for inflation", "I was released by Disney in 1994 and is based loosely on Shakespeare's Hamlet", "My villain locks away his nephew to seize the throne of a kingdom in Africa", "My soundtrack includes 'Hakuna Matata' and 'Circle of Life'"], "correctAnswer": "The Lion King", "acceptableAnswers": ["lion king"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_mv3", "type": "clue_chain", "category": "movies", "question": "Which film am I?", "clues": ["I was directed by Christopher Nolan and released in 2010", "I explore the idea of entering people's dreams to steal information", "The spinning top is a key symbol throughout the film", "Leonardo DiCaprio leads a team to plant an idea inside a CEO's mind"], "correctAnswer": "Inception", "acceptableAnswers": ["inception"], "difficulty": "medium", "timeLimit": 60 },
-  { "id": "cc_mv4", "type": "clue_chain", "category": "movies", "question": "Which film am I?", "clues": ["I was released in 1999 and became a cultural phenomenon about reality and simulation", "My protagonist discovers he is living inside a computer program", "He is offered a choice between a red pill and a blue pill", "Keanu Reeves plays a hacker named Neo"], "correctAnswer": "The Matrix", "acceptableAnswers": ["the matrix", "matrix"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_mv5", "type": "clue_chain", "category": "movies", "question": "Which film am I?", "clues": ["I am a 1994 crime film directed by Quentin Tarantino", "My non-linear narrative follows several interconnected stories in Los Angeles", "John Travolta and Samuel L. Jackson play two hitmen", "A famous scene involves a dance contest at a 1950s-themed restaurant"], "correctAnswer": "Pulp Fiction", "acceptableAnswers": ["pulp fiction"], "difficulty": "medium", "timeLimit": 60 }
+  {
+    "id": "rk1",
+    "type": "ranking",
+    "category": "movies",
+    "question": "Rank the Lord of the Rings movies in release order (oldest first):",
+    "items": [
+      "The Fellowship of the Ring",
+      "The Two Towers",
+      "The Return of the King"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "allowPartialCredit": true,
+    "explanation": "Fellowship (2001) → Two Towers (2002) → Return of the King (2003)."
+  },
+  {
+    "id": "fb1",
+    "type": "fill_blank",
+    "category": "movies",
+    "question": "May the ___ be with you.",
+    "correctAnswer": "Force",
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Iconic line from Star Wars."
+  },
+  {
+    "id": "pr2",
+    "type": "pixel_reveal",
+    "category": "movies",
+    "question": "Who is this celebrity?",
+    "imageUrl": "/quiz-images/chaplin.jpg",
+    "correctAnswer": "Charlie Chaplin",
+    "acceptableAnswers": [
+      "chaplin",
+      "charles chaplin"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Charlie Chaplin was a legendary comedian and filmmaker of the silent film era."
+  },
+  {
+    "id": "mv_mc1",
+    "type": "multiple_choice",
+    "category": "movies",
+    "question": "Which movie has won the most Academy Awards?",
+    "options": [
+      "Titanic",
+      "Ben-Hur",
+      "The Lord of the Rings: The Return of the King",
+      "All of the above (tied at 11)"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Ben-Hur (1959), Titanic (1997) and Return of the King (2003) all won 11 Oscars."
+  },
+  {
+    "id": "mv_mc2",
+    "type": "multiple_choice",
+    "category": "movies",
+    "question": "Which film studio produced the Toy Story franchise?",
+    "options": [
+      "DreamWorks",
+      "Disney",
+      "Pixar",
+      "Universal"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Toy Story was produced by Pixar Animation Studios (now owned by Disney)."
+  },
+  {
+    "id": "mv_mc3",
+    "type": "multiple_choice",
+    "category": "movies",
+    "question": "What is the highest-grossing film of all time (not adjusted for inflation)?",
+    "options": [
+      "Avengers: Endgame",
+      "Titanic",
+      "Avatar",
+      "Star Wars: The Force Awakens"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Avatar (2009, rereleased 2022) holds the record at over $2.9 billion."
+  },
+  {
+    "id": "mv_mc4",
+    "type": "multiple_choice",
+    "category": "movies",
+    "question": "Which actor played Iron Man in the Marvel Cinematic Universe?",
+    "options": [
+      "Chris Evans",
+      "Chris Hemsworth",
+      "Robert Downey Jr.",
+      "Mark Ruffalo"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Robert Downey Jr. played Tony Stark / Iron Man from 2008 to 2019."
+  },
+  {
+    "id": "mv_mc5",
+    "type": "multiple_choice",
+    "category": "movies",
+    "question": "Who directed The Dark Knight (2008)?",
+    "options": [
+      "Tim Burton",
+      "Zack Snyder",
+      "Christopher Nolan",
+      "J.J. Abrams"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Christopher Nolan directed The Dark Knight, widely considered one of the greatest superhero films ever made."
+  },
+  {
+    "id": "mv_tf1",
+    "type": "true_false",
+    "category": "movies",
+    "question": "James Cameron directed both Titanic and Avatar.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "James Cameron directed Titanic (1997) and Avatar (2009)."
+  },
+  {
+    "id": "mv_tf2",
+    "type": "true_false",
+    "category": "movies",
+    "question": "The voice of Darth Vader was provided by the actor who played him on screen.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "David Prowse wore the suit, but James Earl Jones provided Darth Vader's iconic voice."
+  },
+  {
+    "id": "mv_tf3",
+    "type": "true_false",
+    "category": "movies",
+    "question": "Parasite (2019) was the first non-English language film to win Best Picture at the Oscars.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Parasite, directed by Bong Joon-ho, made history as the first non-English film to win the Academy Award for Best Picture."
+  },
+  {
+    "id": "mv_tf4",
+    "type": "true_false",
+    "category": "movies",
+    "question": "Leonardo DiCaprio's first Academy Award win was for The Revenant.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "DiCaprio won his first Oscar for Best Actor for The Revenant (2015) after several nominations."
+  },
+  {
+    "id": "mv_tf5",
+    "type": "true_false",
+    "category": "movies",
+    "question": "Stanley Kubrick directed Jurassic Park.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Jurassic Park (1993) was directed by Steven Spielberg, not Stanley Kubrick."
+  },
+  {
+    "id": "mv_fb1",
+    "type": "fill_blank",
+    "category": "movies",
+    "question": "\"You can't handle the ___!\"",
+    "correctAnswer": "truth",
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Jack Nicholson's famous line from A Few Good Men (1992)."
+  },
+  {
+    "id": "mv_fb2",
+    "type": "fill_blank",
+    "category": "movies",
+    "question": "\"I'll be ___\"",
+    "correctAnswer": "back",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "The Terminator's most famous line, first said in The Terminator (1984)."
+  },
+  {
+    "id": "mv_fb3",
+    "type": "fill_blank",
+    "category": "movies",
+    "question": "\"Here's looking at you, ___\"",
+    "correctAnswer": "kid",
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Humphrey Bogart's iconic line to Ingrid Bergman in Casablanca (1942)."
+  },
+  {
+    "id": "mv_fb4",
+    "type": "fill_blank",
+    "category": "movies",
+    "question": "\"To infinity and ___!\"",
+    "correctAnswer": "beyond",
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Buzz Lightyear's catchphrase from the Toy Story franchise."
+  },
+  {
+    "id": "mv_fb5",
+    "type": "fill_blank",
+    "category": "movies",
+    "question": "\"Why so ___?\"",
+    "correctAnswer": "serious",
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "The Joker's menacing line in The Dark Knight (2008), played by Heath Ledger."
+  },
+  {
+    "id": "mv_rk1",
+    "type": "ranking",
+    "category": "movies",
+    "question": "Rank these Marvel films in release order (oldest first):",
+    "items": [
+      "Black Panther",
+      "Iron Man",
+      "Avengers: Endgame"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Iron Man (2008) → Black Panther (2018) → Avengers: Endgame (2019)"
+  },
+  {
+    "id": "mv_rk2",
+    "type": "ranking",
+    "category": "movies",
+    "question": "Rank these films by box office gross, highest first:",
+    "items": [
+      "The Dark Knight",
+      "Avatar",
+      "Titanic"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Avatar (~$2.9B) → Titanic (~$2.2B) → The Dark Knight (~$1.0B)"
+  },
+  {
+    "id": "mv_rk3",
+    "type": "ranking",
+    "category": "movies",
+    "question": "Rank these classic films by release year (oldest first):",
+    "items": [
+      "Pulp Fiction",
+      "The Godfather",
+      "Fight Club"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "The Godfather (1972) → Pulp Fiction (1994) → Fight Club (1999)"
+  },
+  {
+    "id": "mv_rk4",
+    "type": "ranking",
+    "category": "movies",
+    "question": "Rank these Disney animated films by release year (oldest first):",
+    "items": [
+      "Frozen",
+      "The Little Mermaid",
+      "Beauty and the Beast"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "The Little Mermaid (1989) → Beauty and the Beast (1991) → Frozen (2013)"
+  },
+  {
+    "id": "mv_cw1",
+    "type": "closest_wins",
+    "category": "movies",
+    "question": "In what year was the first Star Wars film released?",
+    "correctAnswer": 1977,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Star Wars: A New Hope was released on May 25, 1977."
+  },
+  {
+    "id": "mv_cw2",
+    "type": "closest_wins",
+    "category": "movies",
+    "question": "How many Academy Awards did Titanic win?",
+    "correctAnswer": 11,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Titanic won 11 Oscars at the 1998 Academy Awards, tying the record with Ben-Hur and Return of the King."
+  },
+  {
+    "id": "mv_cw3",
+    "type": "closest_wins",
+    "category": "movies",
+    "question": "In what year was Jurassic Park released?",
+    "correctAnswer": 1993,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Jurassic Park, directed by Steven Spielberg, was released on June 11, 1993."
+  },
+  {
+    "id": "mv_cw4",
+    "type": "closest_wins",
+    "category": "movies",
+    "question": "How long is Avengers: Endgame in minutes?",
+    "correctAnswer": 181,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Avengers: Endgame runs for 181 minutes (3 hours and 1 minute), making it the longest Marvel film."
+  },
+  {
+    "id": "mv_cw5",
+    "type": "closest_wins",
+    "category": "movies",
+    "question": "In what year was The Godfather released?",
+    "correctAnswer": 1972,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "The Godfather, directed by Francis Ford Coppola, was released on March 24, 1972."
+  },
+  {
+    "id": "mv_sb1",
+    "type": "speed_buzz",
+    "category": "movies",
+    "question": "In Finding Nemo, what type of fish is Nemo?",
+    "options": [
+      "Goldfish",
+      "Clownfish",
+      "Swordfish",
+      "Blowfish"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Nemo is a clownfish — specifically an ocellaris clownfish, also known as a false percula clownfish."
+  },
+  {
+    "id": "mv_sb2",
+    "type": "speed_buzz",
+    "category": "movies",
+    "question": "Which actress played Katniss Everdeen in The Hunger Games?",
+    "options": [
+      "Emma Watson",
+      "Shailene Woodley",
+      "Jennifer Lawrence",
+      "Kristen Stewart"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Jennifer Lawrence starred as Katniss Everdeen across all four Hunger Games films."
+  },
+  {
+    "id": "mv_sb3",
+    "type": "speed_buzz",
+    "category": "movies",
+    "question": "What is the name of the toy cowboy in Toy Story?",
+    "options": [
+      "Buzz",
+      "Woody",
+      "Rex",
+      "Hamm"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 8,
+    "explanation": "Woody Pride is Andy's cowboy doll and the main protagonist of the Toy Story franchise."
+  },
+  {
+    "id": "mv_sb4",
+    "type": "speed_buzz",
+    "category": "movies",
+    "question": "In which city is Home Alone primarily set?",
+    "options": [
+      "New York",
+      "Boston",
+      "Chicago",
+      "Detroit"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Home Alone (1990) is set in a suburb of Chicago, Illinois."
+  },
+  {
+    "id": "mv_sb5",
+    "type": "speed_buzz",
+    "category": "movies",
+    "question": "Which film features the line 'You talkin' to me?'",
+    "options": [
+      "Goodfellas",
+      "Taxi Driver",
+      "The Godfather",
+      "Scarface"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Robert De Niro improvised the iconic 'You talkin' to me?' monologue in Taxi Driver (1976)."
+  },
+  {
+    "id": "mv_ft1",
+    "type": "free_text",
+    "category": "movies",
+    "question": "Name the actor who plays Captain Jack Sparrow in Pirates of the Caribbean.",
+    "correctAnswer": "Johnny Depp",
+    "acceptableAnswers": [
+      "depp",
+      "johnny depp"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Johnny Depp's eccentric portrayal of Captain Jack Sparrow became one of cinema's most iconic characters."
+  },
+  {
+    "id": "mv_ft2",
+    "type": "free_text",
+    "category": "movies",
+    "question": "What substance does the DeLorean time machine need to travel through time in Back to the Future?",
+    "correctAnswer": "plutonium",
+    "acceptableAnswers": [
+      "plutonium",
+      "1.21 gigawatts",
+      "gigawatts"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "The DeLorean's flux capacitor requires 1.21 gigawatts of power, originally generated by plutonium."
+  },
+  {
+    "id": "mv_ft3",
+    "type": "free_text",
+    "category": "movies",
+    "question": "Who directed Pulp Fiction?",
+    "correctAnswer": "Quentin Tarantino",
+    "acceptableAnswers": [
+      "tarantino",
+      "quentin tarantino"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Quentin Tarantino wrote and directed Pulp Fiction (1994), which won the Palme d'Or at Cannes."
+  },
+  {
+    "id": "mv_ft4",
+    "type": "free_text",
+    "category": "movies",
+    "question": "In The Silence of the Lambs, what is the name of the imprisoned cannibal psychiatrist?",
+    "correctAnswer": "Hannibal Lecter",
+    "acceptableAnswers": [
+      "hannibal lecter",
+      "hannibal",
+      "dr lecter"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Anthony Hopkins won the Academy Award for Best Actor for his chilling portrayal of Dr. Hannibal Lecter."
+  },
+  {
+    "id": "mv_ft5",
+    "type": "free_text",
+    "category": "movies",
+    "question": "What is the name of the sled in Citizen Kane?",
+    "correctAnswer": "Rosebud",
+    "acceptableAnswers": [
+      "rosebud"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "'Rosebud' is the dying word of Charles Foster Kane and the central mystery of Orson Welles' Citizen Kane (1941)."
+  },
+  {
+    "id": "cc_mv1",
+    "type": "clue_chain",
+    "category": "movies",
+    "question": "Which film am I?",
+    "clues": [
+      "Released in 1994, I am set largely in the southern United States and span several decades",
+      "My main character has an IQ of 75 but inadvertently shapes major historical events",
+      "I contain the iconic line: 'Life is like a box of chocolates — you never know what you're gonna get'",
+      "Tom Hanks plays the title character, a man who runs across America"
+    ],
+    "correctAnswer": "Forrest Gump",
+    "acceptableAnswers": [
+      "forrest gump"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_mv2",
+    "type": "clue_chain",
+    "category": "movies",
+    "question": "Which film am I?",
+    "clues": [
+      "I am the highest-grossing animated film of all time when adjusted for inflation",
+      "I was released by Disney in 1994 and is based loosely on Shakespeare's Hamlet",
+      "My villain locks away his nephew to seize the throne of a kingdom in Africa",
+      "My soundtrack includes 'Hakuna Matata' and 'Circle of Life'"
+    ],
+    "correctAnswer": "The Lion King",
+    "acceptableAnswers": [
+      "lion king"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_mv3",
+    "type": "clue_chain",
+    "category": "movies",
+    "question": "Which film am I?",
+    "clues": [
+      "I was directed by Christopher Nolan and released in 2010",
+      "I explore the idea of entering people's dreams to steal information",
+      "The spinning top is a key symbol throughout the film",
+      "Leonardo DiCaprio leads a team to plant an idea inside a CEO's mind"
+    ],
+    "correctAnswer": "Inception",
+    "acceptableAnswers": [
+      "inception"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_mv4",
+    "type": "clue_chain",
+    "category": "movies",
+    "question": "Which film am I?",
+    "clues": [
+      "I was released in 1999 and became a cultural phenomenon about reality and simulation",
+      "My protagonist discovers he is living inside a computer program",
+      "He is offered a choice between a red pill and a blue pill",
+      "Keanu Reeves plays a hacker named Neo"
+    ],
+    "correctAnswer": "The Matrix",
+    "acceptableAnswers": [
+      "the matrix",
+      "matrix"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_mv5",
+    "type": "clue_chain",
+    "category": "movies",
+    "question": "Which film am I?",
+    "clues": [
+      "I am a 1994 crime film directed by Quentin Tarantino",
+      "My non-linear narrative follows several interconnected stories in Los Angeles",
+      "John Travolta and Samuel L. Jackson play two hitmen",
+      "A famous scene involves a dance contest at a 1950s-themed restaurant"
+    ],
+    "correctAnswer": "Pulp Fiction",
+    "acceptableAnswers": [
+      "pulp fiction"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "mg_mov_1",
+    "type": "music_guess",
+    "category": "movies",
+    "question": "Name this famous movie song",
+    "deezerQuery": "my heart will go on celine dion titanic",
+    "correctAnswer": "My Heart Will Go On",
+    "acceptableAnswers": [],
+    "artist": "Celine Dion",
+    "songTitle": "My Heart Will Go On",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mov_2",
+    "type": "music_guess",
+    "category": "movies",
+    "question": "Name this famous movie song",
+    "deezerQuery": "i will always love you whitney houston bodyguard",
+    "correctAnswer": "I Will Always Love You",
+    "acceptableAnswers": [],
+    "artist": "Whitney Houston",
+    "songTitle": "I Will Always Love You",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mov_3",
+    "type": "music_guess",
+    "category": "movies",
+    "question": "Name this Disney movie song",
+    "deezerQuery": "let it go idina menzel frozen",
+    "correctAnswer": "Let It Go",
+    "acceptableAnswers": [],
+    "artist": "Idina Menzel",
+    "songTitle": "Let It Go",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mov_4",
+    "type": "music_guess",
+    "category": "movies",
+    "question": "Name this Disney movie song",
+    "deezerQuery": "circle of life elton john lion king",
+    "correctAnswer": "Circle of Life",
+    "acceptableAnswers": [],
+    "artist": "Elton John",
+    "songTitle": "Circle of Life",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mov_5",
+    "type": "music_guess",
+    "category": "movies",
+    "question": "Name this famous movie song",
+    "deezerQuery": "footloose kenny loggins",
+    "correctAnswer": "Footloose",
+    "acceptableAnswers": [],
+    "artist": "Kenny Loggins",
+    "songTitle": "Footloose",
+    "difficulty": "medium",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mov_6",
+    "type": "music_guess",
+    "category": "movies",
+    "question": "Name this famous movie song",
+    "deezerQuery": "dont you forget about me simple minds breakfast club",
+    "correctAnswer": "Don't You (Forget About Me)",
+    "acceptableAnswers": [],
+    "artist": "Simple Minds",
+    "songTitle": "Don't You (Forget About Me)",
+    "difficulty": "medium",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mov_7",
+    "type": "music_guess",
+    "category": "movies",
+    "question": "Name this famous movie song",
+    "deezerQuery": "ghostbusters theme ray parker jr",
+    "correctAnswer": "Ghostbusters",
+    "acceptableAnswers": [],
+    "artist": "Ray Parker Jr.",
+    "songTitle": "Ghostbusters",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mov_8",
+    "type": "music_guess",
+    "category": "movies",
+    "question": "Name this famous movie song",
+    "deezerQuery": "time of my life dirty dancing bill medley jennifer warnes",
+    "correctAnswer": "(I've Had) The Time of My Life",
+    "acceptableAnswers": [],
+    "artist": "Bill Medley & Jennifer Warnes",
+    "songTitle": "(I've Had) The Time of My Life",
+    "difficulty": "medium",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mov_9",
+    "type": "music_guess",
+    "category": "movies",
+    "question": "Name this famous movie song",
+    "deezerQuery": "stayin alive bee gees saturday night fever",
+    "correctAnswer": "Stayin' Alive",
+    "acceptableAnswers": [],
+    "artist": "Bee Gees",
+    "songTitle": "Stayin' Alive",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mov_10",
+    "type": "music_guess",
+    "category": "movies",
+    "question": "Name this Disney movie song",
+    "deezerQuery": "a whole new world aladdin brad kane lea salonga",
+    "correctAnswer": "A Whole New World",
+    "acceptableAnswers": [],
+    "artist": "Brad Kane & Lea Salonga",
+    "songTitle": "A Whole New World",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "ig_mov_1",
+    "type": "image_guess",
+    "category": "movies",
+    "question": "What movie is this iconic scene from?",
+    "imageUrl": "/quiz-images/titanic-scene.jpg",
+    "correctAnswer": "Titanic",
+    "acceptableAnswers": [
+      "titanic"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Titanic (1997) directed by James Cameron starred Leonardo DiCaprio and Kate Winslet. It won 11 Academy Awards and was the first film to gross $1 billion worldwide."
+  },
+  {
+    "id": "ig_mov_2",
+    "type": "image_guess",
+    "category": "movies",
+    "question": "What movie is this iconic scene from?",
+    "imageUrl": "/quiz-images/jurassic-park-scene.jpg",
+    "correctAnswer": "Jurassic Park",
+    "acceptableAnswers": [
+      "jurassic park"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Jurassic Park (1993) directed by Steven Spielberg revolutionised CGI in cinema and remains one of the most influential science fiction films ever made."
+  },
+  {
+    "id": "ig_mov_3",
+    "type": "image_guess",
+    "category": "movies",
+    "question": "What movie is this scene from?",
+    "imageUrl": "/quiz-images/the-dark-knight-joker.jpg",
+    "correctAnswer": "The Dark Knight",
+    "acceptableAnswers": [
+      "the dark knight",
+      "dark knight",
+      "batman dark knight"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "The Dark Knight (2008) directed by Christopher Nolan features Heath Ledger's iconic portrayal of the Joker, for which he posthumously won the Academy Award for Best Supporting Actor."
+  },
+  {
+    "id": "ig_mov_4",
+    "type": "image_guess",
+    "category": "movies",
+    "question": "What movie is this scene from?",
+    "imageUrl": "/quiz-images/the-godfather-scene.jpg",
+    "correctAnswer": "The Godfather",
+    "acceptableAnswers": [
+      "the godfather",
+      "godfather"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "The Godfather (1972) directed by Francis Ford Coppola is widely regarded as one of the greatest films ever made and was the highest-grossing film of its year."
+  },
+  {
+    "id": "ig_mov_5",
+    "type": "image_guess",
+    "category": "movies",
+    "question": "What movie is this scene from?",
+    "imageUrl": "/quiz-images/pulp-fiction-scene.jpg",
+    "correctAnswer": "Pulp Fiction",
+    "acceptableAnswers": [
+      "pulp fiction"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Pulp Fiction (1994) directed by Quentin Tarantino won the Palme d'Or at Cannes and revitalised independent cinema in the 1990s."
+  },
+  {
+    "id": "ig_mov_6",
+    "type": "image_guess",
+    "category": "movies",
+    "question": "Who is this iconic movie character?",
+    "imageUrl": "/quiz-images/darth-vader.jpg",
+    "correctAnswer": "Darth Vader",
+    "acceptableAnswers": [
+      "darth vader",
+      "vader",
+      "anakin skywalker"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Darth Vader is the main antagonist of the original Star Wars trilogy (1977–1983), voiced by James Earl Jones and physically portrayed by David Prowse."
+  },
+  {
+    "id": "ig_mov_7",
+    "type": "image_guess",
+    "category": "movies",
+    "question": "What movie is this scene from?",
+    "imageUrl": "/quiz-images/schindlers-list-scene.jpg",
+    "correctAnswer": "Schindler's List",
+    "acceptableAnswers": [
+      "schindlers list",
+      "schindler's list"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Schindler's List (1993) directed by Steven Spielberg tells the true story of Oskar Schindler, who saved over 1,000 Jewish lives during the Holocaust. It won seven Academy Awards."
+  },
+  {
+    "id": "ig_mov_8",
+    "type": "image_guess",
+    "category": "movies",
+    "question": "What movie is this scene from?",
+    "imageUrl": "/quiz-images/forrest-gump-bench.jpg",
+    "correctAnswer": "Forrest Gump",
+    "acceptableAnswers": [
+      "forrest gump"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Forrest Gump (1994) starring Tom Hanks won six Academy Awards including Best Picture. The bench scene features the iconic line: 'Life is like a box of chocolates'."
+  },
+  {
+    "id": "ig_mov_9",
+    "type": "image_guess",
+    "category": "movies",
+    "question": "What movie is this scene from?",
+    "imageUrl": "/quiz-images/inception-scene.jpg",
+    "correctAnswer": "Inception",
+    "acceptableAnswers": [
+      "inception"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Inception (2010) directed by Christopher Nolan follows a thief who can enter people's dreams. The folding city scene became one of cinema's most iconic visual effects moments."
+  },
+  {
+    "id": "ig_mov_10",
+    "type": "image_guess",
+    "category": "movies",
+    "question": "What movie is this scene from?",
+    "imageUrl": "/quiz-images/avengers-endgame.jpg",
+    "correctAnswer": "Avengers: Endgame",
+    "acceptableAnswers": [
+      "avengers endgame",
+      "endgame",
+      "avengers"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Avengers: Endgame (2019) is the highest-grossing film of all time at $2.79 billion. It concludes the Infinity Saga of the Marvel Cinematic Universe."
+  },
+  {
+    "id": "ig_mov_11",
+    "type": "image_guess",
+    "category": "movies",
+    "question": "What movie is this scene from?",
+    "imageUrl": "/quiz-images/home-alone-scene.jpg",
+    "correctAnswer": "Home Alone",
+    "acceptableAnswers": [
+      "home alone"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Home Alone (1990) starring Macaulay Culkin as Kevin McCallister is one of the highest-grossing comedy films of all time."
+  },
+  {
+    "id": "ig_mov_12",
+    "type": "image_guess",
+    "category": "movies",
+    "question": "Who is this famous movie villain?",
+    "imageUrl": "/quiz-images/hannibal-lecter.jpg",
+    "correctAnswer": "Hannibal Lecter",
+    "acceptableAnswers": [
+      "hannibal lecter",
+      "hannibal",
+      "anthony hopkins"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Hannibal Lecter, played by Anthony Hopkins in The Silence of the Lambs (1991), is often cited as cinema's greatest villain. Hopkins won the Oscar for his performance despite only 16 minutes of screen time."
+  },
+  {
+    "id": "pr_mov_1",
+    "type": "pixel_reveal",
+    "category": "movies",
+    "question": "Who is this legendary actor?",
+    "imageUrl": "/quiz-images/pixel/movies-meryl-streep.jpg",
+    "correctAnswer": "Meryl Streep",
+    "acceptableAnswers": [
+      "meryl streep",
+      "streep"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Meryl Streep holds the record for the most Academy Award nominations (21) of any actor, winning three times. She is widely considered the greatest living actress."
+  },
+  {
+    "id": "pr_mov_2",
+    "type": "pixel_reveal",
+    "category": "movies",
+    "question": "Who is this Hollywood star?",
+    "imageUrl": "/quiz-images/pixel/movies-leonardo-dicaprio.jpg",
+    "correctAnswer": "Leonardo DiCaprio",
+    "acceptableAnswers": [
+      "leonardo dicaprio",
+      "dicaprio",
+      "leo dicaprio"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Leonardo DiCaprio has starred in Titanic, The Revenant (for which he finally won the Oscar), Inception, The Wolf of Wall Street and many other acclaimed films."
+  },
+  {
+    "id": "pr_mov_3",
+    "type": "pixel_reveal",
+    "category": "movies",
+    "question": "Who is this Hollywood icon?",
+    "imageUrl": "/quiz-images/pixel/movies-audrey-hepburn.jpg",
+    "correctAnswer": "Audrey Hepburn",
+    "acceptableAnswers": [
+      "audrey hepburn",
+      "hepburn"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Audrey Hepburn (1929–1993) is one of the greatest screen legends in Hollywood history, best known for Breakfast at Tiffany's (1961) and Roman Holiday (1953)."
+  },
+  {
+    "id": "pr_mov_4",
+    "type": "pixel_reveal",
+    "category": "movies",
+    "question": "Who is this Hollywood star?",
+    "imageUrl": "/quiz-images/pixel/movies-tom-hanks.jpg",
+    "correctAnswer": "Tom Hanks",
+    "acceptableAnswers": [
+      "tom hanks",
+      "hanks"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Tom Hanks is the only man to win back-to-back Best Actor Oscars (Philadelphia 1993, Forrest Gump 1994) and is one of Hollywood's most beloved actors."
+  },
+  {
+    "id": "pr_mov_5",
+    "type": "pixel_reveal",
+    "category": "movies",
+    "question": "Who is this cinema legend?",
+    "imageUrl": "/quiz-images/pixel/movies-marilyn-monroe.jpg",
+    "correctAnswer": "Marilyn Monroe",
+    "acceptableAnswers": [
+      "marilyn monroe",
+      "monroe",
+      "norma jean"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Marilyn Monroe (1926–1962) is one of the most iconic figures in popular culture and is widely considered the original Hollywood sex symbol."
+  },
+  {
+    "id": "pr_mov_6",
+    "type": "pixel_reveal",
+    "category": "movies",
+    "question": "Who is this action movie star?",
+    "imageUrl": "/quiz-images/pixel/movies-arnold-schwarzenegger.jpg",
+    "correctAnswer": "Arnold Schwarzenegger",
+    "acceptableAnswers": [
+      "arnold schwarzenegger",
+      "schwarzenegger",
+      "arnie"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Arnold Schwarzenegger starred in The Terminator (1984), Total Recall (1990) and Predator (1987) before becoming Governor of California (2003–2011)."
+  },
+  {
+    "id": "pr_mov_7",
+    "type": "pixel_reveal",
+    "category": "movies",
+    "question": "Who is this legendary director?",
+    "imageUrl": "/quiz-images/pixel/movies-steven-spielberg.jpg",
+    "correctAnswer": "Steven Spielberg",
+    "acceptableAnswers": [
+      "steven spielberg",
+      "spielberg"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Steven Spielberg has directed some of the highest-grossing films of all time, including Jaws, E.T., Indiana Jones, Jurassic Park and Schindler's List."
+  },
+  {
+    "id": "pr_mov_8",
+    "type": "pixel_reveal",
+    "category": "movies",
+    "question": "Who is this Hollywood star?",
+    "imageUrl": "/quiz-images/pixel/movies-brad-pitt.jpg",
+    "correctAnswer": "Brad Pitt",
+    "acceptableAnswers": [
+      "brad pitt",
+      "pitt"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Brad Pitt has starred in Fight Club, Seven, Ocean's Eleven, Inglourious Basterds and many other acclaimed films, winning the Academy Award for Best Supporting Actor for Once Upon a Time in Hollywood."
+  },
+  {
+    "id": "pr_mov_9",
+    "type": "pixel_reveal",
+    "category": "movies",
+    "question": "Who is this legendary actress?",
+    "imageUrl": "/quiz-images/pixel/movies-cate-blanchett.jpg",
+    "correctAnswer": "Cate Blanchett",
+    "acceptableAnswers": [
+      "cate blanchett",
+      "blanchett"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Cate Blanchett has won two Academy Awards and is beloved for her roles in Elizabeth, The Lord of the Rings, Blue Jasmine and Tár."
+  },
+  {
+    "id": "pr_mov_10",
+    "type": "pixel_reveal",
+    "category": "movies",
+    "question": "Who is this action star?",
+    "imageUrl": "/quiz-images/pixel/movies-bruce-lee.jpg",
+    "correctAnswer": "Bruce Lee",
+    "acceptableAnswers": [
+      "bruce lee",
+      "lee jun-fan"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Bruce Lee (1940–1973) revolutionised martial arts films and became one of the most iconic figures of 20th-century popular culture, influencing generations of fighters and filmmakers."
+  },
+  {
+    "id": "fg_mov_1",
+    "type": "flag_guess",
+    "category": "movies",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "it",
+    "correctAnswer": "Italy",
+    "acceptableAnswers": [
+      "Italy"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Italy is the home of Federico Fellini, Sergio Leone and the setting of The Godfather. Its cinema tradition gave the world spaghetti westerns and neo-realism."
+  },
+  {
+    "id": "fg_mov_2",
+    "type": "flag_guess",
+    "category": "movies",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "fr",
+    "correctAnswer": "France",
+    "acceptableAnswers": [
+      "France"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "France is home to the Cannes Film Festival and the French New Wave movement, producing filmmakers like Godard and Truffaut who revolutionised cinema."
+  },
+  {
+    "id": "fg_mov_3",
+    "type": "flag_guess",
+    "category": "movies",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "kr",
+    "correctAnswer": "South Korea",
+    "acceptableAnswers": [
+      "South Korea",
+      "Korea"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "South Korea made history when Parasite (2019, dir. Bong Joon-ho) became the first non-English-language film to win the Academy Award for Best Picture."
+  },
+  {
+    "id": "as_mov_1",
+    "type": "animal_sound",
+    "category": "movies",
+    "question": "Which bird, famous for its appearance in Pixar films, makes this sound?",
+    "audioUrl": "/audio/animals/seagull.ogg",
+    "correctAnswer": "Seagull",
+    "acceptableAnswers": [
+      "Seagull",
+      "Gull",
+      "Herring gull"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_mov_2",
+    "type": "animal_sound",
+    "category": "movies",
+    "question": "Which large North American animal makes this sound?",
+    "audioUrl": "/audio/animals/moose.ogg",
+    "correctAnswer": "Moose",
+    "acceptableAnswers": [
+      "Moose",
+      "Elk"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_mov_3",
+    "type": "animal_sound",
+    "category": "movies",
+    "question": "Which bird, associated with Thanksgiving and several movie scenes, makes this sound?",
+    "audioUrl": "/audio/animals/turkey.ogg",
+    "correctAnswer": "Turkey",
+    "acceptableAnswers": [
+      "Turkey",
+      "Wild turkey"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  }
 ]

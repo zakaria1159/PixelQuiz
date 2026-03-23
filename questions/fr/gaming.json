@@ -1,49 +1,1232 @@
 [
-  { "id": "gm_mc1", "type": "multiple_choice", "category": "gaming", "question": "Quelle franchise de jeux vidéo met en scène un plombier nommé Mario ?", "options": ["Sega", "Nintendo", "Sony", "Atari"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 12, "explanation": "Mario est la mascotte de Nintendo, créée par Shigeru Miyamoto en 1981." },
-  { "id": "gm_mc2", "type": "multiple_choice", "category": "gaming", "question": "Quel est le jeu vidéo le plus vendu de tous les temps ?", "options": ["Minecraft", "Tetris", "Grand Theft Auto V", "Wii Sports"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 20, "explanation": "Minecraft a vendu plus de 300 millions d'exemplaires sur toutes les plateformes." },
-  { "id": "gm_mc3", "type": "multiple_choice", "category": "gaming", "question": "Quel jeu a popularisé le genre 'Battle Royale' ?", "options": ["Fortnite", "PUBG", "Warzone", "Apex Legends"], "correctAnswer": 1, "difficulty": "medium", "timeLimit": 15, "explanation": "PUBG (PlayerUnknown's Battlegrounds) a popularisé le genre battle royale lors de son lancement en 2017." },
-  { "id": "gm_mc4", "type": "multiple_choice", "category": "gaming", "question": "En quelle année la première PlayStation est-elle sortie au Japon ?", "options": ["1992", "1994", "1996", "1998"], "correctAnswer": 1, "difficulty": "hard", "timeLimit": 20, "explanation": "Sony a lancé la première PlayStation au Japon le 3 décembre 1994." },
-  { "id": "gm_mc5", "type": "multiple_choice", "category": "gaming", "question": "Quel est le nom de l'ennemi principal de Link dans The Legend of Zelda ?", "options": ["Bowser", "Ganondorf", "Sephiroth", "Ridley"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 12, "explanation": "Ganondorf (ou Ganon) est le grand méchant de la plupart des jeux The Legend of Zelda." },
-
-  { "id": "gm_tf1", "type": "true_false", "category": "gaming", "question": "Fortnite est un jeu gratuit.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 10, "explanation": "Fortnite Battle Royale est gratuit depuis sa sortie en 2017." },
-  { "id": "gm_tf2", "type": "true_false", "category": "gaming", "question": "Le Pac-Man original est sorti dans les années 1980.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 12, "explanation": "Pac-Man a été lancé par Namco au Japon en mai 1980." },
-  { "id": "gm_tf3", "type": "true_false", "category": "gaming", "question": "Steam est développé par Microsoft.", "options": ["Vrai", "Faux"], "correctAnswer": 1, "difficulty": "medium", "timeLimit": 12, "explanation": "Steam est développé et exploité par Valve Corporation, et non par Microsoft." },
-  { "id": "gm_tf4", "type": "true_false", "category": "gaming", "question": "La Nintendo Switch peut être jouée à la fois comme console de salon et comme console portable.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 10, "explanation": "La Nintendo Switch est une console hybride — elle se branche sur un téléviseur ou se détache pour jouer en mode portable." },
-  { "id": "gm_tf5", "type": "true_false", "category": "gaming", "question": "Sonic the Hedgehog est un personnage Nintendo.", "options": ["Vrai", "Faux"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 10, "explanation": "Sonic est la mascotte de Sega, créée pour rivaliser avec Mario de Nintendo." },
-
-  { "id": "gm_fb1", "type": "fill_blank", "category": "gaming", "question": "\"C'est dangereux d'aller seul ! Prends ___ !\"", "correctAnswer": "ça", "acceptableAnswers": ["ca", "ceci", "this"], "difficulty": "medium", "timeLimit": 20, "explanation": "Célèbre réplique de The Legend of Zelda (1986) — le vieux sage offre une épée à Link." },
-  { "id": "gm_fb2", "type": "fill_blank", "category": "gaming", "question": "Dans Among Us, les joueurs votent pour ___ les imposteurs suspectés.", "correctAnswer": "éjecter", "acceptableAnswers": ["ejecter", "éliminer", "eliminer", "expulser"], "difficulty": "easy", "timeLimit": 15, "explanation": "Les joueurs votent pour éjecter les membres d'équipage qu'ils soupçonnent d'être des imposteurs." },
-  { "id": "gm_fb3", "type": "fill_blank", "category": "gaming", "question": "Dans Minecraft, il faut une pioche en ___ pour miner des diamants.", "correctAnswer": "fer", "acceptableAnswers": ["fer", "diamant", "netherite"], "difficulty": "medium", "timeLimit": 15, "explanation": "Il faut au minimum une pioche en fer pour extraire du minerai de diamant dans Minecraft." },
-  { "id": "gm_fb4", "type": "fill_blank", "category": "gaming", "question": "Le personnage principal de la série Halo s'appelle Master ___.", "correctAnswer": "Chief", "acceptableAnswers": ["chief"], "difficulty": "easy", "timeLimit": 12, "explanation": "Master Chief (John-117) est le protagoniste de la franchise Halo développée par Bungie/343 Industries." },
-  { "id": "gm_fb5", "type": "fill_blank", "category": "gaming", "question": "Aux échecs, la pièce la plus puissante est ___.", "correctAnswer": "la dame", "acceptableAnswers": ["dame", "la dame", "reine", "la reine", "queen"], "difficulty": "easy", "timeLimit": 15, "explanation": "La dame (ou reine) est la pièce la plus puissante aux échecs, capable de se déplacer dans toutes les directions." },
-
-  { "id": "gm_rk1", "type": "ranking", "category": "gaming", "question": "Classez ces consoles de jeux par année de sortie (de la plus ancienne à la plus récente) :", "items": ["PlayStation 4", "Nintendo 64", "Xbox 360"], "correctOrder": [1, 2, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Nintendo 64 (1996) → Xbox 360 (2005) → PlayStation 4 (2013)" },
-  { "id": "gm_rk2", "type": "ranking", "category": "gaming", "question": "Classez ces jeux vidéo par année de sortie (du plus ancien au plus récent) :", "items": ["The Witcher 3", "Half-Life", "Red Dead Redemption 2"], "correctOrder": [1, 0, 2], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "Half-Life (1998) → The Witcher 3 (2015) → Red Dead Redemption 2 (2018)" },
-  { "id": "gm_rk3", "type": "ranking", "category": "gaming", "question": "Classez ces entreprises de jeux vidéo par année de fondation (de la plus ancienne à la plus récente) :", "items": ["Activision", "Nintendo", "Valve"], "correctOrder": [1, 0, 2], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "Nintendo (1889) → Activision (1979) → Valve (1996)" },
-  { "id": "gm_rk4", "type": "ranking", "category": "gaming", "question": "Classez ces jeux Battle Royale par année de sortie (du plus ancien au plus récent) :", "items": ["Fortnite", "PUBG", "Apex Legends"], "correctOrder": [1, 0, 2], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "PUBG (mars 2017) → Fortnite (juillet 2017) → Apex Legends (février 2019)" },
-  { "id": "gm_rk5", "type": "ranking", "category": "gaming", "question": "Classez ces jeux Mario par année de sortie (du plus ancien au plus récent) :", "items": ["Super Mario Odyssey", "Super Mario 64", "Super Mario World"], "correctOrder": [2, 1, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Super Mario World (1990) → Super Mario 64 (1996) → Super Mario Odyssey (2017)" },
-
-  { "id": "gm_cw1", "type": "closest_wins", "category": "gaming", "question": "En quelle année le premier jeu Call of Duty est-il sorti ?", "correctAnswer": 2003, "difficulty": "medium", "timeLimit": 20, "explanation": "Le premier Call of Duty est sorti le 29 octobre 2003 sur PC." },
-  { "id": "gm_cw2", "type": "closest_wins", "category": "gaming", "question": "Combien d'exemplaires Minecraft a-t-il vendus sur toutes les plateformes (en millions) ?", "correctAnswer": 300, "unit": "millions d'exemplaires", "difficulty": "hard", "timeLimit": 20, "explanation": "Minecraft a dépassé les 300 millions d'exemplaires vendus sur toutes les plateformes, ce qui en fait le jeu le plus vendu de l'histoire." },
-  { "id": "gm_cw3", "type": "closest_wins", "category": "gaming", "question": "En quelle année la Game Boy originale est-elle sortie au Japon ?", "correctAnswer": 1989, "difficulty": "medium", "timeLimit": 20, "explanation": "La Nintendo Game Boy originale est sortie au Japon le 21 avril 1989." },
-  { "id": "gm_cw4", "type": "closest_wins", "category": "gaming", "question": "En quelle année Pokémon Rouge et Bleu sont-ils sortis pour la première fois au Japon ?", "correctAnswer": 1996, "difficulty": "medium", "timeLimit": 20, "explanation": "Pokémon Rouge et Vert sont sortis au Japon le 27 février 1996. Bleu a suivi plus tard la même année." },
-  { "id": "gm_cw5", "type": "closest_wins", "category": "gaming", "question": "Combien de Pokémon existaient dans le Pokédex original de la Génération 1 ?", "correctAnswer": 151, "difficulty": "medium", "timeLimit": 15, "explanation": "La Génération 1 introduisait 151 Pokémon, de Bulbizarre (#001) à Mew (#151)." },
-
-  { "id": "gm_sb1", "type": "speed_buzz", "category": "gaming", "question": "Quelle entreprise a fabriqué la console Xbox ?", "options": ["Sony", "Nintendo", "Microsoft", "Sega"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 10, "explanation": "Microsoft a lancé la première Xbox en 2001." },
-  { "id": "gm_sb2", "type": "speed_buzz", "category": "gaming", "question": "De quelle couleur est le fantôme Blinky dans le Pac-Man original ?", "options": ["Rose", "Bleu", "Orange", "Rouge"], "correctAnswer": 3, "difficulty": "medium", "timeLimit": 12, "explanation": "Blinky est le fantôme rouge de Pac-Man, connu pour suivre directement le joueur." },
-  { "id": "gm_sb3", "type": "speed_buzz", "category": "gaming", "question": "Dans quel jeu trouve-t-on le célèbre 'Code Konami' ?", "options": ["Sonic the Hedgehog", "Contra", "Street Fighter", "Mega Man"], "correctAnswer": 1, "difficulty": "hard", "timeLimit": 15, "explanation": "Le Code Konami (↑↑↓↓←→←→BA) est devenu célèbre dans Contra (1988) pour donner 30 vies." },
-  { "id": "gm_sb4", "type": "speed_buzz", "category": "gaming", "question": "Sur quelle plateforme se joue le tournoi annuel 'The International' de Dota 2 ?", "options": ["PlayStation", "Xbox", "PC", "Nintendo Switch"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "Dota 2 et The International sont exclusifs au PC, organisés par Valve." },
-  { "id": "gm_sb5", "type": "speed_buzz", "category": "gaming", "question": "Quel jeu présente la mascotte Vault Boy ?", "options": ["The Elder Scrolls", "Fallout", "Borderlands", "BioShock"], "correctAnswer": 1, "difficulty": "medium", "timeLimit": 12, "explanation": "Le Vault Boy est la mascotte de la série Fallout, présente sur les avantages et le matériel promotionnel." },
-
-  { "id": "gm_ft1", "type": "free_text", "category": "gaming", "question": "Quel est le nom de la princesse que Mario sauve dans la plupart de ses jeux ?", "correctAnswer": "Princess Peach", "acceptableAnswers": ["peach", "princess peach", "la princesse peach"], "difficulty": "easy", "timeLimit": 12, "explanation": "La Princesse Peach est la dirigeante du Royaume Champignon et la principale motivation de Mario dans la plupart des jeux." },
-  { "id": "gm_ft2", "type": "free_text", "category": "gaming", "question": "Quel est le nom du jeu de survie en monde ouvert développé par Mojang ?", "correctAnswer": "Minecraft", "acceptableAnswers": ["minecraft"], "difficulty": "easy", "timeLimit": 12, "explanation": "Minecraft a été créé par Markus 'Notch' Persson et publié par Mojang en 2011." },
-  { "id": "gm_ft3", "type": "free_text", "category": "gaming", "question": "Quel est le nom de la monnaie utilisée dans les jeux The Legend of Zelda ?", "correctAnswer": "Rubis", "acceptableAnswers": ["rubis", "rupees", "rupee"], "difficulty": "medium", "timeLimit": 15, "explanation": "Les Rubis sont la monnaie dans la plupart des jeux Zelda, souvent trouvés dans l'herbe ou dans des coffres." },
-  { "id": "gm_ft4", "type": "free_text", "category": "gaming", "question": "Dans quel jeu vidéo apparaît le personnage 'Master Chief' ?", "correctAnswer": "Halo", "acceptableAnswers": ["halo", "halo combat evolved"], "difficulty": "easy", "timeLimit": 12, "explanation": "Master Chief (John-117) est le protagoniste de la franchise Halo, apparu pour la première fois dans Halo: Combat Evolved (2001)." },
-  { "id": "gm_ft5", "type": "free_text", "category": "gaming", "question": "Quel studio a développé The Last of Us ?", "correctAnswer": "Naughty Dog", "acceptableAnswers": ["naughty dog"], "difficulty": "medium", "timeLimit": 15, "explanation": "Naughty Dog, un studio first-party de Sony, a développé The Last of Us, sorti en 2013 sur PlayStation 3." },
-
-  { "id": "cc_gm1", "type": "clue_chain", "category": "gaming", "question": "Quel jeu vidéo suis-je ?", "clues": ["Je suis sorti en 2011 et j'ai vendu plus de 300 millions d'exemplaires sur toutes les plateformes", "Les joueurs peuvent miner, fabriquer et construire dans un monde généré de façon procédurale, composé de blocs", "J'ai deux modes principaux : Survie, où vous collectez des ressources, et Créatif, où vous construisez librement", "J'ai été créé par Markus 'Notch' Persson et racheté plus tard par Microsoft pour 2,5 milliards de dollars"], "correctAnswer": "Minecraft", "acceptableAnswers": ["minecraft"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_gm2", "type": "clue_chain", "category": "gaming", "question": "Qui suis-je ?", "clues": ["Je suis un personnage fictif créé par Nintendo en 1981", "Je m'appelais à l'origine 'Jumpman' et j'apparaissais dans Donkey Kong", "Je porte une salopette rouge et une casquette rouge avec la lettre M", "Je suis un plombier italien qui sauve la Princesse Peach"], "correctAnswer": "Mario", "acceptableAnswers": ["mario", "super mario"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_gm3", "type": "clue_chain", "category": "gaming", "question": "Quelle série de jeux vidéo suis-je ?", "clues": ["Je suis une série d'action-aventure en monde ouvert se déroulant dans des villes fictives inspirées de vraies villes américaines", "Je suis connu pour mon contenu controversé et ma satire de la culture américaine", "Mon cinquième opus, sorti en 2013, est devenu l'un des produits de divertissement les plus lucratifs de l'histoire", "Mon nom fait référence au crime de vol de voiture"], "correctAnswer": "Grand Theft Auto", "acceptableAnswers": ["grand theft auto", "gta"], "difficulty": "medium", "timeLimit": 60 },
-  { "id": "cc_gm4", "type": "clue_chain", "category": "gaming", "question": "Quel jeu vidéo suis-je ?", "clues": ["Je suis sorti en 2015 et je se déroule dans un vaste monde ouvert de dark fantasy", "Les joueurs font des choix qui mènent à plusieurs fins — aucune issue n'est vraiment 'bonne'", "Je présente d'immenses monstres comme des Griffons, des Basilics, et un puissant antagoniste connu sous le nom de la Traque Sauvage", "Geralt de Riv, un chasseur de monstres appelé un Sorceleur, est mon protagoniste"], "correctAnswer": "The Witcher 3: Wild Hunt", "acceptableAnswers": ["the witcher 3", "witcher 3", "le sorceleur 3", "witcher"], "difficulty": "medium", "timeLimit": 60 },
-  { "id": "cc_gm5", "type": "clue_chain", "category": "gaming", "question": "Quel jeu vidéo suis-je ?", "clues": ["Je suis un jeu de lancement de la Nintendo Switch en 2017, se déroulant dans un immense monde ouvert", "Pour la première fois dans la série, les joueurs peuvent escalader presque toutes les surfaces et planer avec un parapente", "Je propose 120 Sanctuaires et un antagoniste nommé Ganon le Fléau", "Link doit reconquérir le royaume d'Hyrule et sauver la Princesse Zelda"], "correctAnswer": "The Legend of Zelda: Breath of the Wild", "acceptableAnswers": ["breath of the wild", "botw", "zelda breath of the wild"], "difficulty": "medium", "timeLimit": 60 }
+  {
+    "id": "gm_mc1",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Quelle franchise de jeux vidéo met en scène un plombier nommé Mario ?",
+    "options": [
+      "Sega",
+      "Nintendo",
+      "Sony",
+      "Atari"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Mario est la mascotte de Nintendo, créée par Shigeru Miyamoto en 1981."
+  },
+  {
+    "id": "gm_mc2",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Quel est le jeu vidéo le plus vendu de tous les temps ?",
+    "options": [
+      "Minecraft",
+      "Tetris",
+      "Grand Theft Auto V",
+      "Wii Sports"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Minecraft a vendu plus de 300 millions d'exemplaires sur toutes les plateformes."
+  },
+  {
+    "id": "gm_mc3",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Quel jeu a popularisé le genre 'Battle Royale' ?",
+    "options": [
+      "Fortnite",
+      "PUBG",
+      "Warzone",
+      "Apex Legends"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "PUBG (PlayerUnknown's Battlegrounds) a popularisé le genre battle royale lors de son lancement en 2017."
+  },
+  {
+    "id": "gm_mc4",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "En quelle année la première PlayStation est-elle sortie au Japon ?",
+    "options": [
+      "1992",
+      "1994",
+      "1996",
+      "1998"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Sony a lancé la première PlayStation au Japon le 3 décembre 1994."
+  },
+  {
+    "id": "gm_mc5",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Quel est le nom de l'ennemi principal de Link dans The Legend of Zelda ?",
+    "options": [
+      "Bowser",
+      "Ganondorf",
+      "Sephiroth",
+      "Ridley"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Ganondorf (ou Ganon) est le grand méchant de la plupart des jeux The Legend of Zelda."
+  },
+  {
+    "id": "gm_tf1",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "Fortnite est un jeu gratuit.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Fortnite Battle Royale est gratuit depuis sa sortie en 2017."
+  },
+  {
+    "id": "gm_tf2",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "Le Pac-Man original est sorti dans les années 1980.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Pac-Man a été lancé par Namco au Japon en mai 1980."
+  },
+  {
+    "id": "gm_tf3",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "Steam est développé par Microsoft.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Steam est développé et exploité par Valve Corporation, et non par Microsoft."
+  },
+  {
+    "id": "gm_tf4",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "La Nintendo Switch peut être jouée à la fois comme console de salon et comme console portable.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "La Nintendo Switch est une console hybride — elle se branche sur un téléviseur ou se détache pour jouer en mode portable."
+  },
+  {
+    "id": "gm_tf5",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "Sonic the Hedgehog est un personnage Nintendo.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Sonic est la mascotte de Sega, créée pour rivaliser avec Mario de Nintendo."
+  },
+  {
+    "id": "gm_fb1",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "\"C'est dangereux d'aller seul ! Prends ___ !\"",
+    "correctAnswer": "ça",
+    "acceptableAnswers": [
+      "ca",
+      "ceci",
+      "this"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Célèbre réplique de The Legend of Zelda (1986) — le vieux sage offre une épée à Link."
+  },
+  {
+    "id": "gm_fb2",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "Dans Among Us, les joueurs votent pour ___ les imposteurs suspectés.",
+    "correctAnswer": "éjecter",
+    "acceptableAnswers": [
+      "ejecter",
+      "éliminer",
+      "eliminer",
+      "expulser"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Les joueurs votent pour éjecter les membres d'équipage qu'ils soupçonnent d'être des imposteurs."
+  },
+  {
+    "id": "gm_fb3",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "Dans Minecraft, il faut une pioche en ___ pour miner des diamants.",
+    "correctAnswer": "fer",
+    "acceptableAnswers": [
+      "fer",
+      "diamant",
+      "netherite"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Il faut au minimum une pioche en fer pour extraire du minerai de diamant dans Minecraft."
+  },
+  {
+    "id": "gm_fb4",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "Le personnage principal de la série Halo s'appelle Master ___.",
+    "correctAnswer": "Chief",
+    "acceptableAnswers": [
+      "chief"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Master Chief (John-117) est le protagoniste de la franchise Halo développée par Bungie/343 Industries."
+  },
+  {
+    "id": "gm_fb5",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "Aux échecs, la pièce la plus puissante est ___.",
+    "correctAnswer": "la dame",
+    "acceptableAnswers": [
+      "dame",
+      "la dame",
+      "reine",
+      "la reine",
+      "queen"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "La dame (ou reine) est la pièce la plus puissante aux échecs, capable de se déplacer dans toutes les directions."
+  },
+  {
+    "id": "gm_rk1",
+    "type": "ranking",
+    "category": "gaming",
+    "question": "Classez ces consoles de jeux par année de sortie (de la plus ancienne à la plus récente) :",
+    "items": [
+      "PlayStation 4",
+      "Nintendo 64",
+      "Xbox 360"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Nintendo 64 (1996) → Xbox 360 (2005) → PlayStation 4 (2013)"
+  },
+  {
+    "id": "gm_rk2",
+    "type": "ranking",
+    "category": "gaming",
+    "question": "Classez ces jeux vidéo par année de sortie (du plus ancien au plus récent) :",
+    "items": [
+      "The Witcher 3",
+      "Half-Life",
+      "Red Dead Redemption 2"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Half-Life (1998) → The Witcher 3 (2015) → Red Dead Redemption 2 (2018)"
+  },
+  {
+    "id": "gm_rk3",
+    "type": "ranking",
+    "category": "gaming",
+    "question": "Classez ces entreprises de jeux vidéo par année de fondation (de la plus ancienne à la plus récente) :",
+    "items": [
+      "Activision",
+      "Nintendo",
+      "Valve"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Nintendo (1889) → Activision (1979) → Valve (1996)"
+  },
+  {
+    "id": "gm_rk4",
+    "type": "ranking",
+    "category": "gaming",
+    "question": "Classez ces jeux Battle Royale par année de sortie (du plus ancien au plus récent) :",
+    "items": [
+      "Fortnite",
+      "PUBG",
+      "Apex Legends"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "PUBG (mars 2017) → Fortnite (juillet 2017) → Apex Legends (février 2019)"
+  },
+  {
+    "id": "gm_rk5",
+    "type": "ranking",
+    "category": "gaming",
+    "question": "Classez ces jeux Mario par année de sortie (du plus ancien au plus récent) :",
+    "items": [
+      "Super Mario Odyssey",
+      "Super Mario 64",
+      "Super Mario World"
+    ],
+    "correctOrder": [
+      2,
+      1,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Super Mario World (1990) → Super Mario 64 (1996) → Super Mario Odyssey (2017)"
+  },
+  {
+    "id": "gm_cw1",
+    "type": "closest_wins",
+    "category": "gaming",
+    "question": "En quelle année le premier jeu Call of Duty est-il sorti ?",
+    "correctAnswer": 2003,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Le premier Call of Duty est sorti le 29 octobre 2003 sur PC."
+  },
+  {
+    "id": "gm_cw2",
+    "type": "closest_wins",
+    "category": "gaming",
+    "question": "Combien d'exemplaires Minecraft a-t-il vendus sur toutes les plateformes (en millions) ?",
+    "correctAnswer": 300,
+    "unit": "millions d'exemplaires",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Minecraft a dépassé les 300 millions d'exemplaires vendus sur toutes les plateformes, ce qui en fait le jeu le plus vendu de l'histoire."
+  },
+  {
+    "id": "gm_cw3",
+    "type": "closest_wins",
+    "category": "gaming",
+    "question": "En quelle année la Game Boy originale est-elle sortie au Japon ?",
+    "correctAnswer": 1989,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "La Nintendo Game Boy originale est sortie au Japon le 21 avril 1989."
+  },
+  {
+    "id": "gm_cw4",
+    "type": "closest_wins",
+    "category": "gaming",
+    "question": "En quelle année Pokémon Rouge et Bleu sont-ils sortis pour la première fois au Japon ?",
+    "correctAnswer": 1996,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Pokémon Rouge et Vert sont sortis au Japon le 27 février 1996. Bleu a suivi plus tard la même année."
+  },
+  {
+    "id": "gm_cw5",
+    "type": "closest_wins",
+    "category": "gaming",
+    "question": "Combien de Pokémon existaient dans le Pokédex original de la Génération 1 ?",
+    "correctAnswer": 151,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "La Génération 1 introduisait 151 Pokémon, de Bulbizarre (#001) à Mew (#151)."
+  },
+  {
+    "id": "gm_sb1",
+    "type": "speed_buzz",
+    "category": "gaming",
+    "question": "Quelle entreprise a fabriqué la console Xbox ?",
+    "options": [
+      "Sony",
+      "Nintendo",
+      "Microsoft",
+      "Sega"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Microsoft a lancé la première Xbox en 2001."
+  },
+  {
+    "id": "gm_sb2",
+    "type": "speed_buzz",
+    "category": "gaming",
+    "question": "De quelle couleur est le fantôme Blinky dans le Pac-Man original ?",
+    "options": [
+      "Rose",
+      "Bleu",
+      "Orange",
+      "Rouge"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Blinky est le fantôme rouge de Pac-Man, connu pour suivre directement le joueur."
+  },
+  {
+    "id": "gm_sb3",
+    "type": "speed_buzz",
+    "category": "gaming",
+    "question": "Dans quel jeu trouve-t-on le célèbre 'Code Konami' ?",
+    "options": [
+      "Sonic the Hedgehog",
+      "Contra",
+      "Street Fighter",
+      "Mega Man"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "Le Code Konami (↑↑↓↓←→←→BA) est devenu célèbre dans Contra (1988) pour donner 30 vies."
+  },
+  {
+    "id": "gm_sb4",
+    "type": "speed_buzz",
+    "category": "gaming",
+    "question": "Sur quelle plateforme se joue le tournoi annuel 'The International' de Dota 2 ?",
+    "options": [
+      "PlayStation",
+      "Xbox",
+      "PC",
+      "Nintendo Switch"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Dota 2 et The International sont exclusifs au PC, organisés par Valve."
+  },
+  {
+    "id": "gm_sb5",
+    "type": "speed_buzz",
+    "category": "gaming",
+    "question": "Quel jeu présente la mascotte Vault Boy ?",
+    "options": [
+      "The Elder Scrolls",
+      "Fallout",
+      "Borderlands",
+      "BioShock"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Le Vault Boy est la mascotte de la série Fallout, présente sur les avantages et le matériel promotionnel."
+  },
+  {
+    "id": "gm_ft1",
+    "type": "free_text",
+    "category": "gaming",
+    "question": "Quel est le nom de la princesse que Mario sauve dans la plupart de ses jeux ?",
+    "correctAnswer": "Princess Peach",
+    "acceptableAnswers": [
+      "peach",
+      "princess peach",
+      "la princesse peach"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "La Princesse Peach est la dirigeante du Royaume Champignon et la principale motivation de Mario dans la plupart des jeux."
+  },
+  {
+    "id": "gm_ft2",
+    "type": "free_text",
+    "category": "gaming",
+    "question": "Quel est le nom du jeu de survie en monde ouvert développé par Mojang ?",
+    "correctAnswer": "Minecraft",
+    "acceptableAnswers": [
+      "minecraft"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Minecraft a été créé par Markus 'Notch' Persson et publié par Mojang en 2011."
+  },
+  {
+    "id": "gm_ft3",
+    "type": "free_text",
+    "category": "gaming",
+    "question": "Quel est le nom de la monnaie utilisée dans les jeux The Legend of Zelda ?",
+    "correctAnswer": "Rubis",
+    "acceptableAnswers": [
+      "rubis",
+      "rupees",
+      "rupee"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Les Rubis sont la monnaie dans la plupart des jeux Zelda, souvent trouvés dans l'herbe ou dans des coffres."
+  },
+  {
+    "id": "gm_ft4",
+    "type": "free_text",
+    "category": "gaming",
+    "question": "Dans quel jeu vidéo apparaît le personnage 'Master Chief' ?",
+    "correctAnswer": "Halo",
+    "acceptableAnswers": [
+      "halo",
+      "halo combat evolved"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Master Chief (John-117) est le protagoniste de la franchise Halo, apparu pour la première fois dans Halo: Combat Evolved (2001)."
+  },
+  {
+    "id": "gm_ft5",
+    "type": "free_text",
+    "category": "gaming",
+    "question": "Quel studio a développé The Last of Us ?",
+    "correctAnswer": "Naughty Dog",
+    "acceptableAnswers": [
+      "naughty dog"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Naughty Dog, un studio first-party de Sony, a développé The Last of Us, sorti en 2013 sur PlayStation 3."
+  },
+  {
+    "id": "cc_gm1",
+    "type": "clue_chain",
+    "category": "gaming",
+    "question": "Quel jeu vidéo suis-je ?",
+    "clues": [
+      "Je suis sorti en 2011 et j'ai vendu plus de 300 millions d'exemplaires sur toutes les plateformes",
+      "Les joueurs peuvent miner, fabriquer et construire dans un monde généré de façon procédurale, composé de blocs",
+      "J'ai deux modes principaux : Survie, où vous collectez des ressources, et Créatif, où vous construisez librement",
+      "J'ai été créé par Markus 'Notch' Persson et racheté plus tard par Microsoft pour 2,5 milliards de dollars"
+    ],
+    "correctAnswer": "Minecraft",
+    "acceptableAnswers": [
+      "minecraft"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_gm2",
+    "type": "clue_chain",
+    "category": "gaming",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis un personnage fictif créé par Nintendo en 1981",
+      "Je m'appelais à l'origine 'Jumpman' et j'apparaissais dans Donkey Kong",
+      "Je porte une salopette rouge et une casquette rouge avec la lettre M",
+      "Je suis un plombier italien qui sauve la Princesse Peach"
+    ],
+    "correctAnswer": "Mario",
+    "acceptableAnswers": [
+      "mario",
+      "super mario"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_gm3",
+    "type": "clue_chain",
+    "category": "gaming",
+    "question": "Quelle série de jeux vidéo suis-je ?",
+    "clues": [
+      "Je suis une série d'action-aventure en monde ouvert se déroulant dans des villes fictives inspirées de vraies villes américaines",
+      "Je suis connu pour mon contenu controversé et ma satire de la culture américaine",
+      "Mon cinquième opus, sorti en 2013, est devenu l'un des produits de divertissement les plus lucratifs de l'histoire",
+      "Mon nom fait référence au crime de vol de voiture"
+    ],
+    "correctAnswer": "Grand Theft Auto",
+    "acceptableAnswers": [
+      "grand theft auto",
+      "gta"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_gm4",
+    "type": "clue_chain",
+    "category": "gaming",
+    "question": "Quel jeu vidéo suis-je ?",
+    "clues": [
+      "Je suis sorti en 2015 et je se déroule dans un vaste monde ouvert de dark fantasy",
+      "Les joueurs font des choix qui mènent à plusieurs fins — aucune issue n'est vraiment 'bonne'",
+      "Je présente d'immenses monstres comme des Griffons, des Basilics, et un puissant antagoniste connu sous le nom de la Traque Sauvage",
+      "Geralt de Riv, un chasseur de monstres appelé un Sorceleur, est mon protagoniste"
+    ],
+    "correctAnswer": "The Witcher 3: Wild Hunt",
+    "acceptableAnswers": [
+      "the witcher 3",
+      "witcher 3",
+      "le sorceleur 3",
+      "witcher"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_gm5",
+    "type": "clue_chain",
+    "category": "gaming",
+    "question": "Quel jeu vidéo suis-je ?",
+    "clues": [
+      "Je suis un jeu de lancement de la Nintendo Switch en 2017, se déroulant dans un immense monde ouvert",
+      "Pour la première fois dans la série, les joueurs peuvent escalader presque toutes les surfaces et planer avec un parapente",
+      "Je propose 120 Sanctuaires et un antagoniste nommé Ganon le Fléau",
+      "Link doit reconquérir le royaume d'Hyrule et sauver la Princesse Zelda"
+    ],
+    "correctAnswer": "The Legend of Zelda: Breath of the Wild",
+    "acceptableAnswers": [
+      "breath of the wild",
+      "botw",
+      "zelda breath of the wild"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "pr_gam_1",
+    "type": "pixel_reveal",
+    "category": "gaming",
+    "question": "Quel personnage de jeu vidéo est-ce ?",
+    "imageUrl": "/quiz-images/pixel/gaming-mario.jpg",
+    "correctAnswer": "Mario",
+    "acceptableAnswers": [
+      "mario",
+      "super mario",
+      "it's-a me mario"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Mario, l'iconique plombier de Nintendo, est apparu pour la première fois dans Donkey Kong (1981) sous le nom de 'Jumpman' et a depuis joué dans plus de 200 jeux, faisant de lui le personnage de jeu vidéo le plus reconnu."
+  },
+  {
+    "id": "pr_gam_2",
+    "type": "pixel_reveal",
+    "category": "gaming",
+    "question": "Quel personnage de jeu vidéo est-ce ?",
+    "imageUrl": "/quiz-images/pixel/gaming-link.jpg",
+    "correctAnswer": "Link",
+    "acceptableAnswers": [
+      "link",
+      "zelda link"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Link est le protagoniste de la série Legend of Zelda de Nintendo. Il est souvent confondu avec Zelda, qui est en réalité la princesse qu'il sauve."
+  },
+  {
+    "id": "pr_gam_3",
+    "type": "pixel_reveal",
+    "category": "gaming",
+    "question": "Quel personnage de jeu vidéo est-ce ?",
+    "imageUrl": "/quiz-images/pixel/gaming-master-chief.jpg",
+    "correctAnswer": "Master Chief",
+    "acceptableAnswers": [
+      "master chief",
+      "spartan 117",
+      "john 117"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Master Chief (John-117) est le protagoniste de la franchise Halo de Microsoft, l'une des séries de jeux vidéo exclusifs Xbox les plus vendues."
+  },
+  {
+    "id": "pr_gam_4",
+    "type": "pixel_reveal",
+    "category": "gaming",
+    "question": "Quel personnage de jeu vidéo est-ce ?",
+    "imageUrl": "/quiz-images/pixel/gaming-pikachu.jpg",
+    "correctAnswer": "Pikachu",
+    "acceptableAnswers": [
+      "pikachu",
+      "pika pika"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Pikachu est la mascotte de Pokémon et le Pokémon le plus reconnaissable. Il est apparu pour la première fois dans Pokémon Rouge et Bleu (1996) et est le partenaire de Sacha dans l'anime."
+  },
+  {
+    "id": "pr_gam_5",
+    "type": "pixel_reveal",
+    "category": "gaming",
+    "question": "Quel personnage de jeu vidéo est-ce ?",
+    "imageUrl": "/quiz-images/pixel/gaming-lara-croft.jpg",
+    "correctAnswer": "Lara Croft",
+    "acceptableAnswers": [
+      "lara croft",
+      "lara",
+      "tomb raider"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Lara Croft est l'archéologue protagoniste de la série Tomb Raider de Core Design/Crystal Dynamics, apparue pour la première fois en 1996."
+  },
+  {
+    "id": "pr_gam_6",
+    "type": "pixel_reveal",
+    "category": "gaming",
+    "question": "Quel personnage de jeu vidéo est-ce ?",
+    "imageUrl": "/quiz-images/pixel/gaming-sonic.jpg",
+    "correctAnswer": "Sonic the Hedgehog",
+    "acceptableAnswers": [
+      "sonic",
+      "sonic the hedgehog"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Sonic le Hérisson est la mascotte de Sega, introduite en 1991 comme rival de Mario de Nintendo. Connu pour sa vitesse supersonique et son attitude."
+  },
+  {
+    "id": "pr_gam_7",
+    "type": "pixel_reveal",
+    "category": "gaming",
+    "question": "Quel personnage de jeu vidéo est-ce ?",
+    "imageUrl": "/quiz-images/pixel/gaming-kratos.jpg",
+    "correctAnswer": "Kratos",
+    "acceptableAnswers": [
+      "kratos",
+      "ghost of sparta"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Kratos est le protagoniste de la série God of War de Sony, un guerrier spartiate qui combat des dieux. Le reboot de 2018 l'a réimaginé dans la mythologie nordique."
+  },
+  {
+    "id": "pr_gam_8",
+    "type": "pixel_reveal",
+    "category": "gaming",
+    "question": "Quel personnage de jeu vidéo est-ce ?",
+    "imageUrl": "/quiz-images/pixel/gaming-geralt.jpg",
+    "correctAnswer": "Geralt of Rivia",
+    "acceptableAnswers": [
+      "geralt",
+      "geralt of rivia",
+      "the witcher"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Geralt de Riv est le protagoniste de la série The Witcher de CD Projekt Red, basée sur les romans de fantasy polonais d'Andrzej Sapkowski."
+  },
+  {
+    "id": "pr_gam_9",
+    "type": "pixel_reveal",
+    "category": "gaming",
+    "question": "Quel personnage de jeu vidéo est-ce ?",
+    "imageUrl": "/quiz-images/pixel/gaming-pacman.jpg",
+    "correctAnswer": "Pac-Man",
+    "acceptableAnswers": [
+      "pac-man",
+      "pacman",
+      "pac man"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Pac-Man (1980, Namco) est l'un des jeux d'arcade les plus iconiques jamais créés. Le personnage est un cercle qui mange des points tout en étant pourchassé par quatre fantômes colorés."
+  },
+  {
+    "id": "pr_gam_10",
+    "type": "pixel_reveal",
+    "category": "gaming",
+    "question": "Quel personnage de jeu vidéo est-ce ?",
+    "imageUrl": "/quiz-images/pixel/gaming-cloud-strife.jpg",
+    "correctAnswer": "Cloud Strife",
+    "acceptableAnswers": [
+      "cloud strife",
+      "cloud",
+      "cloud ff7"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Cloud Strife est le protagoniste de Final Fantasy VII (1997), le RPG le plus célébré de Square Enix. Il manie l'emblématique Buster Sword."
+  },
+  {
+    "id": "pr_gam_11",
+    "type": "pixel_reveal",
+    "category": "gaming",
+    "question": "Quel personnage de jeu vidéo est-ce ?",
+    "imageUrl": "/quiz-images/pixel/gaming-samus-aran.jpg",
+    "correctAnswer": "Samus Aran",
+    "acceptableAnswers": [
+      "samus aran",
+      "samus",
+      "metroid"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Samus Aran est la chasseuse de primes protagoniste de la série Metroid de Nintendo (1986). L'une des premières protagonistes féminines du jeu vidéo."
+  },
+  {
+    "id": "pr_gam_12",
+    "type": "pixel_reveal",
+    "category": "gaming",
+    "question": "Quel personnage de jeu vidéo est-ce ?",
+    "imageUrl": "/quiz-images/pixel/gaming-solid-snake.jpg",
+    "correctAnswer": "Solid Snake",
+    "acceptableAnswers": [
+      "solid snake",
+      "snake",
+      "david"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Solid Snake est le protagoniste de la série Metal Gear de Konami, créée par Hideo Kojima. Célèbre pour ses missions d'infiltration et le son d'alerte iconique '!'."
+  },
+  {
+    "id": "pr_gam_13",
+    "type": "pixel_reveal",
+    "category": "gaming",
+    "question": "Quel personnage de jeu vidéo est-ce ?",
+    "imageUrl": "/quiz-images/pixel/gaming-banjo-kazooie.jpg",
+    "correctAnswer": "Banjo-Kazooie",
+    "acceptableAnswers": [
+      "banjo",
+      "kazooie",
+      "banjo kazooie",
+      "banjo-kazooie"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Banjo-Kazooie est un duo ours-oiseau du jeu de plateforme 3D Rare de 1998 sur Nintendo 64, largement considéré comme l'un des plus grands jeux de son époque."
+  },
+  {
+    "id": "pr_gam_14",
+    "type": "pixel_reveal",
+    "category": "gaming",
+    "question": "Quel personnage de jeu vidéo est-ce ?",
+    "imageUrl": "/quiz-images/pixel/gaming-ryu.jpg",
+    "correctAnswer": "Ryu",
+    "acceptableAnswers": [
+      "ryu",
+      "street fighter ryu"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Ryu est le protagoniste iconique de la série Street Fighter de Capcom (1987), connu pour ses mouvements emblématiques Hadouken et Shoryuken."
+  },
+  {
+    "id": "pr_gam_15",
+    "type": "pixel_reveal",
+    "category": "gaming",
+    "question": "Quel personnage de jeu vidéo est-ce ?",
+    "imageUrl": "/quiz-images/pixel/gaming-donkey-kong.jpg",
+    "correctAnswer": "Donkey Kong",
+    "acceptableAnswers": [
+      "donkey kong",
+      "dk"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Donkey Kong est le grand gorille de Nintendo, apparu comme méchant dans le jeu d'arcade de 1981. Il est ensuite devenu le héros de sa propre série de plateformers."
+  },
+  {
+    "id": "as_gam_1",
+    "type": "animal_sound",
+    "category": "gaming",
+    "question": "Quel animal, mascotte d'une célèbre entreprise de jeux, émet ce son ?",
+    "audioUrl": "/audio/animals/hedgehog.ogg",
+    "correctAnswer": "Hedgehog",
+    "acceptableAnswers": [
+      "Hedgehog",
+      "European hedgehog"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_gam_2",
+    "type": "animal_sound",
+    "category": "gaming",
+    "question": "Quel primate émet ce son ?",
+    "audioUrl": "/audio/animals/chimpanzee.ogg",
+    "correctAnswer": "Chimpanzee",
+    "acceptableAnswers": [
+      "Chimpanzee",
+      "Chimp",
+      "Monkey"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_gam_3",
+    "type": "animal_sound",
+    "category": "gaming",
+    "question": "Quel marsupial émet ce son ?",
+    "audioUrl": "/audio/animals/kangaroo.ogg",
+    "correctAnswer": "Kangaroo",
+    "acceptableAnswers": [
+      "Kangaroo",
+      "Red kangaroo"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_gam_4",
+    "type": "animal_sound",
+    "category": "gaming",
+    "question": "Quel petit mammifère africain émet ce son ?",
+    "audioUrl": "/audio/animals/meerkat.ogg",
+    "correctAnswer": "Meerkat",
+    "acceptableAnswers": [
+      "Meerkat",
+      "Suricate"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_gam_5",
+    "type": "animal_sound",
+    "category": "gaming",
+    "question": "Quel rongeur émet ce son ?",
+    "audioUrl": "/audio/animals/capybara.ogg",
+    "correctAnswer": "Capybara",
+    "acceptableAnswers": [
+      "Capybara"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_gam_6",
+    "type": "animal_sound",
+    "category": "gaming",
+    "question": "Quel lézard émet ce sifflement ?",
+    "audioUrl": "/audio/animals/iguana.ogg",
+    "correctAnswer": "Iguana",
+    "acceptableAnswers": [
+      "Iguana",
+      "Green iguana"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_gam_7",
+    "type": "animal_sound",
+    "category": "gaming",
+    "question": "Quel serpent venimeux émet ce bruit de hochet ?",
+    "audioUrl": "/audio/animals/rattlesnake.ogg",
+    "correctAnswer": "Rattlesnake",
+    "acceptableAnswers": [
+      "Rattlesnake",
+      "Diamondback rattlesnake"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_gam_8",
+    "type": "animal_sound",
+    "category": "gaming",
+    "question": "Quel primate nocturne émet cet appel ?",
+    "audioUrl": "/audio/animals/lemur.ogg",
+    "correctAnswer": "Lemur",
+    "acceptableAnswers": [
+      "Lemur",
+      "Ring-tailed lemur"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_gam_9",
+    "type": "animal_sound",
+    "category": "gaming",
+    "question": "Quel animal émet ce son ?",
+    "audioUrl": "/audio/animals/fox.ogg",
+    "correctAnswer": "Fox",
+    "acceptableAnswers": [
+      "Fox",
+      "Red fox"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_gam_10",
+    "type": "animal_sound",
+    "category": "gaming",
+    "question": "Quel rongeur émet ce couinement ?",
+    "audioUrl": "/audio/animals/rat.ogg",
+    "correctAnswer": "Rat",
+    "acceptableAnswers": [
+      "Rat",
+      "Brown rat",
+      "House rat"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "mg_gam_1",
+    "type": "music_guess",
+    "category": "gaming",
+    "question": "Nommez ce thème de jeu vidéo iconique",
+    "deezerQuery": "super mario bros theme nintendo",
+    "correctAnswer": "Super Mario Bros Theme",
+    "acceptableAnswers": [],
+    "artist": "Koji Kondo",
+    "songTitle": "Super Mario Bros. Theme",
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "mg_gam_2",
+    "type": "music_guess",
+    "category": "gaming",
+    "question": "Nommez ce thème de jeu vidéo iconique",
+    "deezerQuery": "tetris theme korobeiniki",
+    "correctAnswer": "Tetris Theme",
+    "acceptableAnswers": [],
+    "artist": "Traditional / Hirokazu Tanaka",
+    "songTitle": "Tetris Theme (Korobeiniki)",
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "mg_gam_3",
+    "type": "music_guess",
+    "category": "gaming",
+    "question": "Nommez ce thème de jeu vidéo",
+    "deezerQuery": "legend of zelda main theme nintendo",
+    "correctAnswer": "Legend of Zelda Theme",
+    "acceptableAnswers": [],
+    "artist": "Koji Kondo",
+    "songTitle": "The Legend of Zelda Main Theme",
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "mg_gam_4",
+    "type": "music_guess",
+    "category": "gaming",
+    "question": "Nommez ce thème Pokémon",
+    "deezerQuery": "pokemon main theme gotta catch em all",
+    "correctAnswer": "Pokémon Theme",
+    "acceptableAnswers": [],
+    "artist": "Jason Paige",
+    "songTitle": "Pokémon Theme (Gotta Catch 'Em All)",
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "mg_gam_5",
+    "type": "music_guess",
+    "category": "gaming",
+    "question": "Nommez ce thème de jeu vidéo",
+    "deezerQuery": "final fantasy prelude theme nobuo uematsu",
+    "correctAnswer": "Final Fantasy Prelude",
+    "acceptableAnswers": [],
+    "artist": "Nobuo Uematsu",
+    "songTitle": "Final Fantasy Prelude",
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "ig_gam_1",
+    "type": "image_guess",
+    "category": "gaming",
+    "question": "Quel jeu vidéo est montré dans cette capture d'écran ?",
+    "imageUrl": "/quiz-images/minecraft-scene.jpg",
+    "correctAnswer": "Minecraft",
+    "acceptableAnswers": [
+      "minecraft"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Minecraft, créé par Markus 'Notch' Persson et sorti en 2011, est le jeu vidéo le plus vendu de tous les temps avec plus de 238 millions d'exemplaires vendus."
+  },
+  {
+    "id": "ig_gam_2",
+    "type": "image_guess",
+    "category": "gaming",
+    "question": "Quelle est cette manette de jeu vidéo ?",
+    "imageUrl": "/quiz-images/nintendo-switch.jpg",
+    "correctAnswer": "Nintendo Switch",
+    "acceptableAnswers": [
+      "nintendo switch",
+      "switch"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "La Nintendo Switch, sortie en 2017, est une console hybride salon/portable. Elle a vendu plus de 140 millions d'unités dans le monde, en faisant la console de salon la plus vendue de Nintendo."
+  },
+  {
+    "id": "ig_gam_3",
+    "type": "image_guess",
+    "category": "gaming",
+    "question": "Quelle est cette célèbre carte de jeu vidéo ?",
+    "imageUrl": "/quiz-images/fortnite-island.jpg",
+    "correctAnswer": "Fortnite",
+    "acceptableAnswers": [
+      "fortnite",
+      "fortnite island",
+      "fortnite map"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Fortnite, sorti par Epic Games en 2017, a popularisé le genre battle royale et a attiré plus de 350 millions de joueurs inscrits dans le monde."
+  },
+  {
+    "id": "fg_gam_1",
+    "type": "flag_guess",
+    "category": "gaming",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "jp",
+    "correctAnswer": "Japan",
+    "acceptableAnswers": [
+      "Japan"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Le Japon abrite Nintendo, Sony PlayStation, Capcom, Konami, Square Enix et Bandai Namco — sans doute la nation la plus influente du jeu vidéo au monde."
+  },
+  {
+    "id": "fg_gam_2",
+    "type": "flag_guess",
+    "category": "gaming",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "kr",
+    "correctAnswer": "South Korea",
+    "acceptableAnswers": [
+      "South Korea",
+      "Korea"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "La Corée du Sud est la capitale mondiale des esports, avec les meilleures équipes et joueurs de StarCraft, League of Legends et Overwatch."
+  },
+  {
+    "id": "fg_gam_3",
+    "type": "flag_guess",
+    "category": "gaming",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "se",
+    "correctAnswer": "Sweden",
+    "acceptableAnswers": [
+      "Sweden"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "La Suède surpasse sa taille dans le gaming, produisant Minecraft (Mojang), Battlefield (DICE), Candy Crush (King) et plusieurs grandes organisations d'esports."
+  },
+  {
+    "id": "fg_gam_4",
+    "type": "flag_guess",
+    "category": "gaming",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "fi",
+    "correctAnswer": "Finland",
+    "acceptableAnswers": [
+      "Finland"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "La Finlande abrite Rovio (Angry Birds) et Supercell (Clash of Clans, Brawl Stars), deux des sociétés de jeux mobiles les plus prospères au monde."
+  },
+  {
+    "id": "fg_gam_5",
+    "type": "flag_guess",
+    "category": "gaming",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "fr",
+    "correctAnswer": "France",
+    "acceptableAnswers": [
+      "France"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "La France abrite Ubisoft (Assassin's Creed, Far Cry, Watch Dogs) et Infogrames, faisant d'elle l'un des principaux pôles de développement de jeux vidéo en Europe."
+  },
+  {
+    "id": "fg_gam_6",
+    "type": "flag_guess",
+    "category": "gaming",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "cn",
+    "correctAnswer": "China",
+    "acceptableAnswers": [
+      "China"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "La Chine est le plus grand marché du jeu vidéo au monde par revenu et abrite Tencent, la plus grande entreprise de jeux au monde, qui détient des participations dans Riot Games, Epic et Supercell."
+  },
+  {
+    "id": "fg_gam_7",
+    "type": "flag_guess",
+    "category": "gaming",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "us",
+    "correctAnswer": "United States",
+    "acceptableAnswers": [
+      "United States",
+      "USA",
+      "United States of America",
+      "America"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Les États-Unis abritent les grands studios Blizzard, EA, Rockstar Games, Naughty Dog et Bungie, et organisent des événements comme l'E3 et The Game Awards."
+  }
 ]

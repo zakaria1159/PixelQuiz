@@ -19,6 +19,7 @@ const CATEGORIES = [
   { id: 'gaming',      label: 'Gaming',      emoji: '🎮' },
   { id: 'history',     label: 'History',     emoji: '📜' },
   { id: 'streaming',   label: 'Streaming',   emoji: '📺' },
+  { id: 'books',       label: 'Books',       emoji: '📚' },
 ]
 
 const THEMED_CATEGORIES = [
@@ -138,9 +139,16 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
   }, [])
 
   const toggleCategory = (id: string) => {
-    const next = selectedCategories.includes(id)
-      ? selectedCategories.filter(c => c !== id)
-      : [...selectedCategories, id]
+    const isThemed = ALL_THEMED_CATEGORY_IDS.includes(id)
+    const wasSelected = selectedCategories.includes(id)
+    let next: string[]
+    if (wasSelected) {
+      next = selectedCategories.filter(c => c !== id)
+    } else {
+      // Selecting a themed universe clears general categories, and vice versa
+      const clearIds = isThemed ? ALL_GENERAL_CATEGORY_IDS : ALL_THEMED_CATEGORY_IDS
+      next = [...selectedCategories.filter(c => !clearIds.includes(c)), id]
+    }
     setSelectedCategories(next)
     emit(next, selectedTypes, questionCount, lang)
   }
@@ -287,6 +295,11 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
           onSelectAll={() => { setSelectedCategories(ALL_THEMED_CATEGORY_IDS); emit(ALL_THEMED_CATEGORY_IDS, selectedTypes, questionCount, lang) }}
           accentColor='rgba(251,191,36'
         />
+        {selectedCategories.some(c => ALL_THEMED_CATEGORY_IDS.includes(c)) && (
+          <p style={{ fontSize: '10px', color: '#78716c', marginTop: '8px', textAlign: 'center' }}>
+            All questions will come from the selected universe
+          </p>
+        )}
       </div>
 
       {/* Divider */}

@@ -1,58 +1,1155 @@
 [
-  { "id": "mg1", "type": "music_guess", "category": "music", "question": "Nommez cette chanson", "deezerQuery": "bohemian rhapsody queen", "correctAnswer": "Bohemian Rhapsody", "acceptableAnswers": [], "artist": "Queen", "songTitle": "Bohemian Rhapsody", "difficulty": "easy", "timeLimit": 30 },
-  { "id": "mg2", "type": "music_guess", "category": "music", "question": "Nommez cette chanson", "deezerQuery": "billie jean michael jackson", "correctAnswer": "Billie Jean", "acceptableAnswers": [], "artist": "Michael Jackson", "songTitle": "Billie Jean", "difficulty": "easy", "timeLimit": 30 },
-  { "id": "mg3", "type": "music_guess", "category": "music", "question": "Nommez cette chanson", "deezerQuery": "shape of you ed sheeran", "correctAnswer": "Shape of You", "acceptableAnswers": [], "artist": "Ed Sheeran", "songTitle": "Shape of You", "difficulty": "easy", "timeLimit": 30 },
-  { "id": "mg4", "type": "music_guess", "category": "music", "question": "Nommez cette chanson", "deezerQuery": "blinding lights the weeknd", "correctAnswer": "Blinding Lights", "acceptableAnswers": [], "artist": "The Weeknd", "songTitle": "Blinding Lights", "difficulty": "medium", "timeLimit": 30 },
-  { "id": "mg5", "type": "music_guess", "category": "music", "question": "Nommez cette chanson", "deezerQuery": "hotel california eagles", "correctAnswer": "Hotel California", "acceptableAnswers": [], "artist": "Eagles", "songTitle": "Hotel California", "difficulty": "medium", "timeLimit": 30 },
-  { "id": "mg6", "type": "music_guess", "category": "music", "question": "Nommez cette chanson", "deezerQuery": "rolling in the deep adele", "correctAnswer": "Rolling in the Deep", "acceptableAnswers": [], "artist": "Adele", "songTitle": "Rolling in the Deep", "difficulty": "medium", "timeLimit": 30 },
-  { "id": "mg7", "type": "music_guess", "category": "music", "question": "Nommez cette chanson", "deezerQuery": "smells like teen spirit nirvana", "correctAnswer": "Smells Like Teen Spirit", "acceptableAnswers": [], "artist": "Nirvana", "songTitle": "Smells Like Teen Spirit", "difficulty": "hard", "timeLimit": 30 },
-  { "id": "mg8", "type": "music_guess", "category": "music", "question": "Nommez cette chanson", "deezerQuery": "sweet child o mine guns n roses", "correctAnswer": "Sweet Child O' Mine", "acceptableAnswers": ["Sweet Child O Mine"], "artist": "Guns N' Roses", "songTitle": "Sweet Child O' Mine", "difficulty": "hard", "timeLimit": 30 },
-
-  { "id": "mu_mc1", "type": "multiple_choice", "category": "music", "question": "Quel artiste a remporté le plus de Grammy Awards dans l'histoire ?", "options": ["Taylor Swift", "Beyoncé", "Georg Solti", "Quincy Jones"], "correctAnswer": 1, "difficulty": "hard", "timeLimit": 20, "explanation": "Beyoncé détient le record absolu avec 32 Grammy remportés." },
-  { "id": "mu_mc2", "type": "multiple_choice", "category": "music", "question": "Quel groupe a sorti l'album 'Dark Side of the Moon' ?", "options": ["Led Zeppelin", "Pink Floyd", "The Rolling Stones", "The Doors"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 15, "explanation": "Pink Floyd l'a sorti en 1973. Il a passé plus de 950 semaines dans les classements Billboard." },
-  { "id": "mu_mc3", "type": "multiple_choice", "category": "music", "question": "Quel est l'album le plus vendu de tous les temps ?", "options": ["Thriller – Michael Jackson", "Back in Black – AC/DC", "The Eagles: Their Greatest Hits", "Led Zeppelin IV"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 20, "explanation": "Thriller s'est vendu à environ 66 à 70 millions d'exemplaires dans le monde." },
-  { "id": "mu_mc4", "type": "multiple_choice", "category": "music", "question": "Dans quelle décennie le hip-hop est-il apparu en tant que genre musical ?", "options": ["Années 1960", "Années 1970", "Années 1980", "Années 1990"], "correctAnswer": 1, "difficulty": "medium", "timeLimit": 15, "explanation": "Le hip-hop est né dans le South Bronx, à New York, au début des années 1970." },
-  { "id": "mu_mc5", "type": "multiple_choice", "category": "music", "question": "Quel groupe avait une célèbre rivalité avec les Beatles dans les années 1960 ?", "options": ["Led Zeppelin", "The Who", "The Rolling Stones", "The Kinks"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "Les Beatles et les Rolling Stones entretenaient une célèbre rivalité amicale qui a défini le rock britannique des années 1960." },
-
-  { "id": "mu_tf1", "type": "true_false", "category": "music", "question": "Les Beatles ont vendu plus de disques que n'importe quel autre artiste musical.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 12, "explanation": "Les Beatles ont vendu environ 600 millions de disques dans le monde." },
-  { "id": "mu_tf2", "type": "true_false", "category": "music", "question": "Elvis Presley a écrit la plupart de ses propres tubes.", "options": ["Vrai", "Faux"], "correctAnswer": 1, "difficulty": "medium", "timeLimit": 12, "explanation": "Elvis écrivait rarement ses propres chansons — il était avant tout un interprète des œuvres d'autres compositeurs." },
-  { "id": "mu_tf3", "type": "true_false", "category": "music", "question": "Michael Jackson était membre des Jackson 5 avant de débuter sa carrière solo.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 12, "explanation": "Michael Jackson s'est produit avec ses frères dans les Jackson 5 dès l'âge de 8 ans avant de lancer sa carrière solo." },
-  { "id": "mu_tf4", "type": "true_false", "category": "music", "question": "Mozart a composé sa première pièce musicale à l'âge de 5 ans.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 15, "explanation": "Mozart a commencé à composer à 5 ans et se produisait devant des familles royales à travers l'Europe dès l'âge de 6 ans." },
-  { "id": "mu_tf5", "type": "true_false", "category": "music", "question": "L'album '21' d'Adele tire son nom d'un lieu.", "options": ["Vrai", "Faux"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 12, "explanation": "Adele a nommé ses albums d'après son âge au moment de l'enregistrement : '19', '21', '25', '30'." },
-
-  { "id": "mu_fb1", "type": "fill_blank", "category": "music", "question": "\"We Will, We Will ___ You\"", "correctAnswer": "Rock", "difficulty": "easy", "timeLimit": 15, "explanation": "Classique hymne de Queen sorti en 1977." },
-  { "id": "mu_fb2", "type": "fill_blank", "category": "music", "question": "\"Hello from the other ___\"", "correctAnswer": "side", "difficulty": "easy", "timeLimit": 15, "explanation": "Première ligne du titre 'Hello' d'Adele (2015)." },
-  { "id": "mu_fb3", "type": "fill_blank", "category": "music", "question": "\"I Will Always Love ___\"", "correctAnswer": "You", "difficulty": "easy", "timeLimit": 12, "explanation": "Écrite et enregistrée à l'origine par Dolly Parton en 1973, reprise célèbrement par Whitney Houston." },
-  { "id": "mu_fb4", "type": "fill_blank", "category": "music", "question": "\"Just a small town girl, living in a ___ world\" — Journey", "correctAnswer": "lonely", "difficulty": "medium", "timeLimit": 15, "explanation": "Paroles d'ouverture de 'Don't Stop Believin'' (1981) de Journey, l'un des singles les plus vendus de tous les temps." },
-  { "id": "mu_fb5", "type": "fill_blank", "category": "music", "question": "\"Is this the real life? Is this just ___?\" — Queen", "correctAnswer": "fantasy", "difficulty": "easy", "timeLimit": 12, "explanation": "Paroles d'ouverture de Bohemian Rhapsody (1975) de Queen." },
-
-  { "id": "mu_rk1", "type": "ranking", "category": "music", "question": "Classez ces albums par année de sortie (du plus ancien au plus récent) :", "items": ["Thriller – Michael Jackson", "Dark Side of the Moon – Pink Floyd", "Back in Black – AC/DC"], "correctOrder": [1, 2, 0], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "Dark Side of the Moon (1973) → Back in Black (1980) → Thriller (1982)" },
-  { "id": "mu_rk2", "type": "ranking", "category": "music", "question": "Classez ces artistes par année de naissance (du plus ancien au plus récent) :", "items": ["Beyoncé", "Elvis Presley", "Ed Sheeran"], "correctOrder": [1, 0, 2], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Elvis Presley (1935) → Beyoncé (1981) → Ed Sheeran (1991)" },
-  { "id": "mu_rk3", "type": "ranking", "category": "music", "question": "Classez ces services de streaming musical par année de lancement (du plus ancien au plus récent) :", "items": ["Apple Music", "Spotify", "Tidal"], "correctOrder": [1, 2, 0], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "Spotify (2008) → Tidal (2014) → Apple Music (2015)" },
-  { "id": "mu_rk4", "type": "ranking", "category": "music", "question": "Classez ces albums de Taylor Swift par année de sortie (du plus ancien au plus récent) :", "items": ["1989", "Speak Now", "Midnights"], "correctOrder": [1, 0, 2], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Speak Now (2010) → 1989 (2014) → Midnights (2022)" },
-  { "id": "mu_rk5", "type": "ranking", "category": "music", "question": "Classez ces genres musicaux par date d'apparition approximative (du plus ancien au plus récent) :", "items": ["Hip-hop", "Jazz", "Punk rock"], "correctOrder": [1, 2, 0], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "Jazz (années 1900) → Punk rock (années 1970) → Hip-hop (années 1970, grand public dans les années 1980)" },
-
-  { "id": "mu_cw1", "type": "closest_wins", "category": "music", "question": "En quelle année Spotify a-t-il été lancé ?", "correctAnswer": 2008, "difficulty": "medium", "timeLimit": 20, "explanation": "Spotify a été lancé en octobre 2008 et est entré en bourse en 2018." },
-  { "id": "mu_cw2", "type": "closest_wins", "category": "music", "question": "En quelle année les Beatles se sont-ils officiellement séparés ?", "correctAnswer": 1970, "difficulty": "medium", "timeLimit": 15, "explanation": "Les Beatles se sont officiellement séparés en 1970. Paul McCartney a annoncé son départ en avril de cette année-là." },
-  { "id": "mu_cw3", "type": "closest_wins", "category": "music", "question": "Combien de singles numéro un Michael Jackson a-t-il eu aux États-Unis de son vivant ?", "correctAnswer": 13, "unit": "number ones", "difficulty": "hard", "timeLimit": 20, "explanation": "Michael Jackson a eu 13 singles numéro un au Billboard Hot 100 de son vivant." },
-  { "id": "mu_cw4", "type": "closest_wins", "category": "music", "question": "En quelle année la première cérémonie des Grammy Awards a-t-elle eu lieu ?", "correctAnswer": 1959, "difficulty": "hard", "timeLimit": 20, "explanation": "La première cérémonie des Grammy Awards s'est tenue le 4 mai 1959 au Beverly Hilton Hotel en Californie." },
-  { "id": "mu_cw5", "type": "closest_wins", "category": "music", "question": "Combien d'exemplaires Thriller a-t-il vendu dans le monde environ (en millions) ?", "correctAnswer": 66, "unit": "million copies", "difficulty": "hard", "timeLimit": 20, "explanation": "Thriller s'est vendu à environ 66 à 70 millions d'exemplaires dans le monde, ce qui en fait l'album le plus vendu de tous les temps." },
-
-  { "id": "mu_sb1", "type": "speed_buzz", "category": "music", "question": "Quelle ville est largement considérée comme le berceau du jazz ?", "options": ["Chicago", "Nashville", "La Nouvelle-Orléans", "Memphis"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "Le jazz est né à La Nouvelle-Orléans à la fin du XIXe et au début du XXe siècle." },
-  { "id": "mu_sb2", "type": "speed_buzz", "category": "music", "question": "Quel artiste est connu sous le nom de « Roi de la Pop » ?", "options": ["Prince", "David Bowie", "Michael Jackson", "Elvis Presley"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 10, "explanation": "Michael Jackson a gagné le titre de « Roi de la Pop » pour son influence mondiale sur la musique, la danse et la mode." },
-  { "id": "mu_sb3", "type": "speed_buzz", "category": "music", "question": "Combien de membres comptaient les Beatles ?", "options": ["3", "4", "5", "6"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 10, "explanation": "Les Beatles comptaient quatre membres : John Lennon, Paul McCartney, George Harrison et Ringo Starr." },
-  { "id": "mu_sb4", "type": "speed_buzz", "category": "music", "question": "Quel instrument joue un violoniste ?", "options": ["Un instrument à vent", "Un instrument à cordes", "Un instrument à percussion", "Un instrument à clavier"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 10, "explanation": "Le violon est un instrument à cordes — le musicien fait glisser un archet sur les cordes ou les pince." },
-  { "id": "mu_sb5", "type": "speed_buzz", "category": "music", "question": "De quelle ville américaine Eminem est-il originaire ?", "options": ["Chicago", "Atlanta", "Los Angeles", "Detroit"], "correctAnswer": 3, "difficulty": "medium", "timeLimit": 12, "explanation": "Eminem (Marshall Mathers) est né et a grandi à Detroit, dans le Michigan." },
-
-  { "id": "mu_ft1", "type": "free_text", "category": "music", "question": "Qui a chanté 'Rolling in the Deep' ?", "correctAnswer": "Adele", "acceptableAnswers": ["adele"], "difficulty": "easy", "timeLimit": 12, "explanation": "Adele a sorti 'Rolling in the Deep' en 2010 — il est devenu l'un des singles les plus vendus de tous les temps." },
-  { "id": "mu_ft2", "type": "free_text", "category": "music", "question": "De quel groupe Freddie Mercury était-il le chanteur principal ?", "correctAnswer": "Queen", "acceptableAnswers": ["queen"], "difficulty": "easy", "timeLimit": 12, "explanation": "Freddie Mercury était le chanteur principal du groupe de rock britannique Queen, formé à Londres en 1970." },
-  { "id": "mu_ft3", "type": "free_text", "category": "music", "question": "Nommez l'artiste canadien derrière 'Starboy' et 'Save Your Tears'.", "correctAnswer": "The Weeknd", "acceptableAnswers": ["the weeknd", "weeknd", "abel tesfaye"], "difficulty": "easy", "timeLimit": 15, "explanation": "The Weeknd (Abel Tesfaye) est un chanteur canadien connu pour ses tubes R&B comme Blinding Lights et Save Your Tears." },
-  { "id": "mu_ft4", "type": "free_text", "category": "music", "question": "Quel rappeur se prénomme en réalité Shawn Carter ?", "correctAnswer": "Jay-Z", "acceptableAnswers": ["jay-z", "jay z", "jayz"], "difficulty": "medium", "timeLimit": 15, "explanation": "Jay-Z (Shawn Corey Carter) est l'un des artistes musicaux les plus vendus de tous les temps avec plus de 100 millions de disques écoulés." },
-  { "id": "mu_ft5", "type": "free_text", "category": "music", "question": "Quel instrument est associé au musicien Elton John ?", "correctAnswer": "piano", "acceptableAnswers": ["piano", "keyboard"], "difficulty": "easy", "timeLimit": 12, "explanation": "Elton John est réputé pour son jeu de piano — il a appris à jouer à l'oreille à l'âge de 3 ans et a obtenu une bourse à la Royal Academy of Music à 11 ans." },
-
-  { "id": "cc_mu1", "type": "clue_chain", "category": "music", "question": "Qui suis-je ?", "clues": ["Je suis né à Liverpool, en Angleterre, le 9 octobre 1940", "Je suis un membre fondateur du groupe le plus populaire de l'histoire", "J'ai écrit 'Imagine', l'un des singles les plus vendus de tous les temps", "J'ai été abattu devant mon appartement de New York en décembre 1980"], "correctAnswer": "John Lennon", "acceptableAnswers": ["john lennon", "lennon"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_mu2", "type": "clue_chain", "category": "music", "question": "Quelle chanson suis-je ?", "clues": ["J'ai été sorti en 1975 et dure presque 6 minutes — une durée inhabituellement longue pour un single pop", "Je mélange rock, opéra et ballade en une seule chanson sans refrain qui se répète", "Mon personnage principal est un jeune homme qui vient de « tuer un homme » et le confesse à sa mère", "J'ai été interprété par Queen et suis considéré comme l'une des plus grandes chansons jamais enregistrées"], "correctAnswer": "Bohemian Rhapsody", "acceptableAnswers": ["bohemian rhapsody"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_mu3", "type": "clue_chain", "category": "music", "question": "Qui suis-je ?", "clues": ["Je suis née à la Barbade en 1988 et je me suis installée aux États-Unis adolescente", "Mon premier single 'Pon de Replay' est sorti quand j'avais seulement 16 ans", "J'ai eu huit albums numéro un et des tubes comme 'Umbrella' et 'We Found Love'", "Je suis aussi une femme d'affaires accomplie, connue pour ma marque de cosmétiques Fenty Beauty"], "correctAnswer": "Rihanna", "acceptableAnswers": ["rihanna"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_mu4", "type": "clue_chain", "category": "music", "question": "Qui suis-je ?", "clues": ["Je suis né à Stratford, en Ontario, au Canada en 1994 et j'ai été découvert sur YouTube à l'âge de 12 ans", "Mon manager Scooter Braun et mon mentor Usher ont lancé ma carrière chez Island Records", "Mon premier single 'Baby' était la vidéo YouTube la plus regardée en 2010", "J'ai épousé Hailey Baldwin en 2018 et j'ai depuis sorti les albums 'Changes' et 'Justice'"], "correctAnswer": "Justin Bieber", "acceptableAnswers": ["justin bieber", "bieber"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_mu5", "type": "clue_chain", "category": "music", "question": "Quel album suis-je ?", "clues": ["J'ai été sorti en 1982 et je suis devenu l'album le plus vendu de tous les temps", "J'ai été produit par Quincy Jones et enregistré aux Westlake Recording Studios à Los Angeles", "Je contiens les titres 'Beat It', 'Billie Jean' et 'Wanna Be Startin' Somethin'", "Ma pochette montre une veste de costume blanche et mon titre est un seul mot effrayant"], "correctAnswer": "Thriller", "acceptableAnswers": ["thriller"], "difficulty": "medium", "timeLimit": 60 }
+  {
+    "id": "mg1",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "bohemian rhapsody queen",
+    "correctAnswer": "Bohemian Rhapsody",
+    "acceptableAnswers": [],
+    "artist": "Queen",
+    "songTitle": "Bohemian Rhapsody",
+    "difficulty": "easy",
+    "timeLimit": 30
+  },
+  {
+    "id": "mg2",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "billie jean michael jackson",
+    "correctAnswer": "Billie Jean",
+    "acceptableAnswers": [],
+    "artist": "Michael Jackson",
+    "songTitle": "Billie Jean",
+    "difficulty": "easy",
+    "timeLimit": 30
+  },
+  {
+    "id": "mg3",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "shape of you ed sheeran",
+    "correctAnswer": "Shape of You",
+    "acceptableAnswers": [],
+    "artist": "Ed Sheeran",
+    "songTitle": "Shape of You",
+    "difficulty": "easy",
+    "timeLimit": 30
+  },
+  {
+    "id": "mg4",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "blinding lights the weeknd",
+    "correctAnswer": "Blinding Lights",
+    "acceptableAnswers": [],
+    "artist": "The Weeknd",
+    "songTitle": "Blinding Lights",
+    "difficulty": "medium",
+    "timeLimit": 30
+  },
+  {
+    "id": "mg5",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "hotel california eagles",
+    "correctAnswer": "Hotel California",
+    "acceptableAnswers": [],
+    "artist": "Eagles",
+    "songTitle": "Hotel California",
+    "difficulty": "medium",
+    "timeLimit": 30
+  },
+  {
+    "id": "mg6",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "rolling in the deep adele",
+    "correctAnswer": "Rolling in the Deep",
+    "acceptableAnswers": [],
+    "artist": "Adele",
+    "songTitle": "Rolling in the Deep",
+    "difficulty": "medium",
+    "timeLimit": 30
+  },
+  {
+    "id": "mg7",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "smells like teen spirit nirvana",
+    "correctAnswer": "Smells Like Teen Spirit",
+    "acceptableAnswers": [],
+    "artist": "Nirvana",
+    "songTitle": "Smells Like Teen Spirit",
+    "difficulty": "hard",
+    "timeLimit": 30
+  },
+  {
+    "id": "mg8",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "sweet child o mine guns n roses",
+    "correctAnswer": "Sweet Child O' Mine",
+    "acceptableAnswers": [
+      "Sweet Child O Mine"
+    ],
+    "artist": "Guns N' Roses",
+    "songTitle": "Sweet Child O' Mine",
+    "difficulty": "hard",
+    "timeLimit": 30
+  },
+  {
+    "id": "mu_mc1",
+    "type": "multiple_choice",
+    "category": "music",
+    "question": "Quel artiste a remporté le plus de Grammy Awards dans l'histoire ?",
+    "options": [
+      "Taylor Swift",
+      "Beyoncé",
+      "Georg Solti",
+      "Quincy Jones"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Beyoncé détient le record absolu avec 32 Grammy remportés."
+  },
+  {
+    "id": "mu_mc2",
+    "type": "multiple_choice",
+    "category": "music",
+    "question": "Quel groupe a sorti l'album 'Dark Side of the Moon' ?",
+    "options": [
+      "Led Zeppelin",
+      "Pink Floyd",
+      "The Rolling Stones",
+      "The Doors"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Pink Floyd l'a sorti en 1973. Il a passé plus de 950 semaines dans les classements Billboard."
+  },
+  {
+    "id": "mu_mc3",
+    "type": "multiple_choice",
+    "category": "music",
+    "question": "Quel est l'album le plus vendu de tous les temps ?",
+    "options": [
+      "Thriller – Michael Jackson",
+      "Back in Black – AC/DC",
+      "The Eagles: Their Greatest Hits",
+      "Led Zeppelin IV"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Thriller s'est vendu à environ 66 à 70 millions d'exemplaires dans le monde."
+  },
+  {
+    "id": "mu_mc4",
+    "type": "multiple_choice",
+    "category": "music",
+    "question": "Dans quelle décennie le hip-hop est-il apparu en tant que genre musical ?",
+    "options": [
+      "Années 1960",
+      "Années 1970",
+      "Années 1980",
+      "Années 1990"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Le hip-hop est né dans le South Bronx, à New York, au début des années 1970."
+  },
+  {
+    "id": "mu_mc5",
+    "type": "multiple_choice",
+    "category": "music",
+    "question": "Quel groupe avait une célèbre rivalité avec les Beatles dans les années 1960 ?",
+    "options": [
+      "Led Zeppelin",
+      "The Who",
+      "The Rolling Stones",
+      "The Kinks"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Les Beatles et les Rolling Stones entretenaient une célèbre rivalité amicale qui a défini le rock britannique des années 1960."
+  },
+  {
+    "id": "mu_tf1",
+    "type": "true_false",
+    "category": "music",
+    "question": "Les Beatles ont vendu plus de disques que n'importe quel autre artiste musical.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Les Beatles ont vendu environ 600 millions de disques dans le monde."
+  },
+  {
+    "id": "mu_tf2",
+    "type": "true_false",
+    "category": "music",
+    "question": "Elvis Presley a écrit la plupart de ses propres tubes.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Elvis écrivait rarement ses propres chansons — il était avant tout un interprète des œuvres d'autres compositeurs."
+  },
+  {
+    "id": "mu_tf3",
+    "type": "true_false",
+    "category": "music",
+    "question": "Michael Jackson était membre des Jackson 5 avant de débuter sa carrière solo.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Michael Jackson s'est produit avec ses frères dans les Jackson 5 dès l'âge de 8 ans avant de lancer sa carrière solo."
+  },
+  {
+    "id": "mu_tf4",
+    "type": "true_false",
+    "category": "music",
+    "question": "Mozart a composé sa première pièce musicale à l'âge de 5 ans.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Mozart a commencé à composer à 5 ans et se produisait devant des familles royales à travers l'Europe dès l'âge de 6 ans."
+  },
+  {
+    "id": "mu_tf5",
+    "type": "true_false",
+    "category": "music",
+    "question": "L'album '21' d'Adele tire son nom d'un lieu.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Adele a nommé ses albums d'après son âge au moment de l'enregistrement : '19', '21', '25', '30'."
+  },
+  {
+    "id": "mu_fb1",
+    "type": "fill_blank",
+    "category": "music",
+    "question": "\"We Will, We Will ___ You\"",
+    "correctAnswer": "Rock",
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Classique hymne de Queen sorti en 1977."
+  },
+  {
+    "id": "mu_fb2",
+    "type": "fill_blank",
+    "category": "music",
+    "question": "\"Hello from the other ___\"",
+    "correctAnswer": "side",
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Première ligne du titre 'Hello' d'Adele (2015)."
+  },
+  {
+    "id": "mu_fb3",
+    "type": "fill_blank",
+    "category": "music",
+    "question": "\"I Will Always Love ___\"",
+    "correctAnswer": "You",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Écrite et enregistrée à l'origine par Dolly Parton en 1973, reprise célèbrement par Whitney Houston."
+  },
+  {
+    "id": "mu_fb4",
+    "type": "fill_blank",
+    "category": "music",
+    "question": "\"Just a small town girl, living in a ___ world\" — Journey",
+    "correctAnswer": "lonely",
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Paroles d'ouverture de 'Don't Stop Believin'' (1981) de Journey, l'un des singles les plus vendus de tous les temps."
+  },
+  {
+    "id": "mu_fb5",
+    "type": "fill_blank",
+    "category": "music",
+    "question": "\"Is this the real life? Is this just ___?\" — Queen",
+    "correctAnswer": "fantasy",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Paroles d'ouverture de Bohemian Rhapsody (1975) de Queen."
+  },
+  {
+    "id": "mu_rk1",
+    "type": "ranking",
+    "category": "music",
+    "question": "Classez ces albums par année de sortie (du plus ancien au plus récent) :",
+    "items": [
+      "Thriller – Michael Jackson",
+      "Dark Side of the Moon – Pink Floyd",
+      "Back in Black – AC/DC"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Dark Side of the Moon (1973) → Back in Black (1980) → Thriller (1982)"
+  },
+  {
+    "id": "mu_rk2",
+    "type": "ranking",
+    "category": "music",
+    "question": "Classez ces artistes par année de naissance (du plus ancien au plus récent) :",
+    "items": [
+      "Beyoncé",
+      "Elvis Presley",
+      "Ed Sheeran"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Elvis Presley (1935) → Beyoncé (1981) → Ed Sheeran (1991)"
+  },
+  {
+    "id": "mu_rk3",
+    "type": "ranking",
+    "category": "music",
+    "question": "Classez ces services de streaming musical par année de lancement (du plus ancien au plus récent) :",
+    "items": [
+      "Apple Music",
+      "Spotify",
+      "Tidal"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Spotify (2008) → Tidal (2014) → Apple Music (2015)"
+  },
+  {
+    "id": "mu_rk4",
+    "type": "ranking",
+    "category": "music",
+    "question": "Classez ces albums de Taylor Swift par année de sortie (du plus ancien au plus récent) :",
+    "items": [
+      "1989",
+      "Speak Now",
+      "Midnights"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Speak Now (2010) → 1989 (2014) → Midnights (2022)"
+  },
+  {
+    "id": "mu_rk5",
+    "type": "ranking",
+    "category": "music",
+    "question": "Classez ces genres musicaux par date d'apparition approximative (du plus ancien au plus récent) :",
+    "items": [
+      "Hip-hop",
+      "Jazz",
+      "Punk rock"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Jazz (années 1900) → Punk rock (années 1970) → Hip-hop (années 1970, grand public dans les années 1980)"
+  },
+  {
+    "id": "mu_cw1",
+    "type": "closest_wins",
+    "category": "music",
+    "question": "En quelle année Spotify a-t-il été lancé ?",
+    "correctAnswer": 2008,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Spotify a été lancé en octobre 2008 et est entré en bourse en 2018."
+  },
+  {
+    "id": "mu_cw2",
+    "type": "closest_wins",
+    "category": "music",
+    "question": "En quelle année les Beatles se sont-ils officiellement séparés ?",
+    "correctAnswer": 1970,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Les Beatles se sont officiellement séparés en 1970. Paul McCartney a annoncé son départ en avril de cette année-là."
+  },
+  {
+    "id": "mu_cw3",
+    "type": "closest_wins",
+    "category": "music",
+    "question": "Combien de singles numéro un Michael Jackson a-t-il eu aux États-Unis de son vivant ?",
+    "correctAnswer": 13,
+    "unit": "number ones",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Michael Jackson a eu 13 singles numéro un au Billboard Hot 100 de son vivant."
+  },
+  {
+    "id": "mu_cw4",
+    "type": "closest_wins",
+    "category": "music",
+    "question": "En quelle année la première cérémonie des Grammy Awards a-t-elle eu lieu ?",
+    "correctAnswer": 1959,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "La première cérémonie des Grammy Awards s'est tenue le 4 mai 1959 au Beverly Hilton Hotel en Californie."
+  },
+  {
+    "id": "mu_cw5",
+    "type": "closest_wins",
+    "category": "music",
+    "question": "Combien d'exemplaires Thriller a-t-il vendu dans le monde environ (en millions) ?",
+    "correctAnswer": 66,
+    "unit": "million copies",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Thriller s'est vendu à environ 66 à 70 millions d'exemplaires dans le monde, ce qui en fait l'album le plus vendu de tous les temps."
+  },
+  {
+    "id": "mu_sb1",
+    "type": "speed_buzz",
+    "category": "music",
+    "question": "Quelle ville est largement considérée comme le berceau du jazz ?",
+    "options": [
+      "Chicago",
+      "Nashville",
+      "La Nouvelle-Orléans",
+      "Memphis"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Le jazz est né à La Nouvelle-Orléans à la fin du XIXe et au début du XXe siècle."
+  },
+  {
+    "id": "mu_sb2",
+    "type": "speed_buzz",
+    "category": "music",
+    "question": "Quel artiste est connu sous le nom de « Roi de la Pop » ?",
+    "options": [
+      "Prince",
+      "David Bowie",
+      "Michael Jackson",
+      "Elvis Presley"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Michael Jackson a gagné le titre de « Roi de la Pop » pour son influence mondiale sur la musique, la danse et la mode."
+  },
+  {
+    "id": "mu_sb3",
+    "type": "speed_buzz",
+    "category": "music",
+    "question": "Combien de membres comptaient les Beatles ?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Les Beatles comptaient quatre membres : John Lennon, Paul McCartney, George Harrison et Ringo Starr."
+  },
+  {
+    "id": "mu_sb4",
+    "type": "speed_buzz",
+    "category": "music",
+    "question": "Quel instrument joue un violoniste ?",
+    "options": [
+      "Un instrument à vent",
+      "Un instrument à cordes",
+      "Un instrument à percussion",
+      "Un instrument à clavier"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Le violon est un instrument à cordes — le musicien fait glisser un archet sur les cordes ou les pince."
+  },
+  {
+    "id": "mu_sb5",
+    "type": "speed_buzz",
+    "category": "music",
+    "question": "De quelle ville américaine Eminem est-il originaire ?",
+    "options": [
+      "Chicago",
+      "Atlanta",
+      "Los Angeles",
+      "Detroit"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Eminem (Marshall Mathers) est né et a grandi à Detroit, dans le Michigan."
+  },
+  {
+    "id": "mu_ft1",
+    "type": "free_text",
+    "category": "music",
+    "question": "Qui a chanté 'Rolling in the Deep' ?",
+    "correctAnswer": "Adele",
+    "acceptableAnswers": [
+      "adele"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Adele a sorti 'Rolling in the Deep' en 2010 — il est devenu l'un des singles les plus vendus de tous les temps."
+  },
+  {
+    "id": "mu_ft2",
+    "type": "free_text",
+    "category": "music",
+    "question": "De quel groupe Freddie Mercury était-il le chanteur principal ?",
+    "correctAnswer": "Queen",
+    "acceptableAnswers": [
+      "queen"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Freddie Mercury était le chanteur principal du groupe de rock britannique Queen, formé à Londres en 1970."
+  },
+  {
+    "id": "mu_ft3",
+    "type": "free_text",
+    "category": "music",
+    "question": "Nommez l'artiste canadien derrière 'Starboy' et 'Save Your Tears'.",
+    "correctAnswer": "The Weeknd",
+    "acceptableAnswers": [
+      "the weeknd",
+      "weeknd",
+      "abel tesfaye"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "The Weeknd (Abel Tesfaye) est un chanteur canadien connu pour ses tubes R&B comme Blinding Lights et Save Your Tears."
+  },
+  {
+    "id": "mu_ft4",
+    "type": "free_text",
+    "category": "music",
+    "question": "Quel rappeur se prénomme en réalité Shawn Carter ?",
+    "correctAnswer": "Jay-Z",
+    "acceptableAnswers": [
+      "jay-z",
+      "jay z",
+      "jayz"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Jay-Z (Shawn Corey Carter) est l'un des artistes musicaux les plus vendus de tous les temps avec plus de 100 millions de disques écoulés."
+  },
+  {
+    "id": "mu_ft5",
+    "type": "free_text",
+    "category": "music",
+    "question": "Quel instrument est associé au musicien Elton John ?",
+    "correctAnswer": "piano",
+    "acceptableAnswers": [
+      "piano",
+      "keyboard"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Elton John est réputé pour son jeu de piano — il a appris à jouer à l'oreille à l'âge de 3 ans et a obtenu une bourse à la Royal Academy of Music à 11 ans."
+  },
+  {
+    "id": "cc_mu1",
+    "type": "clue_chain",
+    "category": "music",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis né à Liverpool, en Angleterre, le 9 octobre 1940",
+      "Je suis un membre fondateur du groupe le plus populaire de l'histoire",
+      "J'ai écrit 'Imagine', l'un des singles les plus vendus de tous les temps",
+      "J'ai été abattu devant mon appartement de New York en décembre 1980"
+    ],
+    "correctAnswer": "John Lennon",
+    "acceptableAnswers": [
+      "john lennon",
+      "lennon"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_mu2",
+    "type": "clue_chain",
+    "category": "music",
+    "question": "Quelle chanson suis-je ?",
+    "clues": [
+      "J'ai été sorti en 1975 et dure presque 6 minutes — une durée inhabituellement longue pour un single pop",
+      "Je mélange rock, opéra et ballade en une seule chanson sans refrain qui se répète",
+      "Mon personnage principal est un jeune homme qui vient de « tuer un homme » et le confesse à sa mère",
+      "J'ai été interprété par Queen et suis considéré comme l'une des plus grandes chansons jamais enregistrées"
+    ],
+    "correctAnswer": "Bohemian Rhapsody",
+    "acceptableAnswers": [
+      "bohemian rhapsody"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_mu3",
+    "type": "clue_chain",
+    "category": "music",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis née à la Barbade en 1988 et je me suis installée aux États-Unis adolescente",
+      "Mon premier single 'Pon de Replay' est sorti quand j'avais seulement 16 ans",
+      "J'ai eu huit albums numéro un et des tubes comme 'Umbrella' et 'We Found Love'",
+      "Je suis aussi une femme d'affaires accomplie, connue pour ma marque de cosmétiques Fenty Beauty"
+    ],
+    "correctAnswer": "Rihanna",
+    "acceptableAnswers": [
+      "rihanna"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_mu4",
+    "type": "clue_chain",
+    "category": "music",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis né à Stratford, en Ontario, au Canada en 1994 et j'ai été découvert sur YouTube à l'âge de 12 ans",
+      "Mon manager Scooter Braun et mon mentor Usher ont lancé ma carrière chez Island Records",
+      "Mon premier single 'Baby' était la vidéo YouTube la plus regardée en 2010",
+      "J'ai épousé Hailey Baldwin en 2018 et j'ai depuis sorti les albums 'Changes' et 'Justice'"
+    ],
+    "correctAnswer": "Justin Bieber",
+    "acceptableAnswers": [
+      "justin bieber",
+      "bieber"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_mu5",
+    "type": "clue_chain",
+    "category": "music",
+    "question": "Quel album suis-je ?",
+    "clues": [
+      "J'ai été sorti en 1982 et je suis devenu l'album le plus vendu de tous les temps",
+      "J'ai été produit par Quincy Jones et enregistré aux Westlake Recording Studios à Los Angeles",
+      "Je contiens les titres 'Beat It', 'Billie Jean' et 'Wanna Be Startin' Somethin'",
+      "Ma pochette montre une veste de costume blanche et mon titre est un seul mot effrayant"
+    ],
+    "correctAnswer": "Thriller",
+    "acceptableAnswers": [
+      "thriller"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "mg_mus_1",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "yesterday the beatles",
+    "correctAnswer": "Yesterday",
+    "acceptableAnswers": [],
+    "artist": "The Beatles",
+    "songTitle": "Yesterday",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_2",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "imagine john lennon",
+    "correctAnswer": "Imagine",
+    "acceptableAnswers": [],
+    "artist": "John Lennon",
+    "songTitle": "Imagine",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_3",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "dont stop me now queen",
+    "correctAnswer": "Don't Stop Me Now",
+    "acceptableAnswers": [],
+    "artist": "Queen",
+    "songTitle": "Don't Stop Me Now",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_4",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "stairway to heaven led zeppelin",
+    "correctAnswer": "Stairway to Heaven",
+    "acceptableAnswers": [],
+    "artist": "Led Zeppelin",
+    "songTitle": "Stairway to Heaven",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_5",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "purple rain prince",
+    "correctAnswer": "Purple Rain",
+    "acceptableAnswers": [],
+    "artist": "Prince",
+    "songTitle": "Purple Rain",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_6",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "respect aretha franklin",
+    "correctAnswer": "Respect",
+    "acceptableAnswers": [],
+    "artist": "Aretha Franklin",
+    "songTitle": "Respect",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_7",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "superstition stevie wonder",
+    "correctAnswer": "Superstition",
+    "acceptableAnswers": [],
+    "artist": "Stevie Wonder",
+    "songTitle": "Superstition",
+    "difficulty": "medium",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_8",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "lose yourself eminem",
+    "correctAnswer": "Lose Yourself",
+    "acceptableAnswers": [],
+    "artist": "Eminem",
+    "songTitle": "Lose Yourself",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_9",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "no woman no cry bob marley",
+    "correctAnswer": "No Woman No Cry",
+    "acceptableAnswers": [],
+    "artist": "Bob Marley",
+    "songTitle": "No Woman, No Cry",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_10",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "waterloo abba",
+    "correctAnswer": "Waterloo",
+    "acceptableAnswers": [],
+    "artist": "ABBA",
+    "songTitle": "Waterloo",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_11",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "take on me a-ha",
+    "correctAnswer": "Take On Me",
+    "acceptableAnswers": [],
+    "artist": "A-ha",
+    "songTitle": "Take On Me",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_12",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "africa toto",
+    "correctAnswer": "Africa",
+    "acceptableAnswers": [],
+    "artist": "Toto",
+    "songTitle": "Africa",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_13",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "mr brightside the killers",
+    "correctAnswer": "Mr. Brightside",
+    "acceptableAnswers": [],
+    "artist": "The Killers",
+    "songTitle": "Mr. Brightside",
+    "difficulty": "medium",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_14",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "born to run bruce springsteen",
+    "correctAnswer": "Born to Run",
+    "acceptableAnswers": [],
+    "artist": "Bruce Springsteen",
+    "songTitle": "Born to Run",
+    "difficulty": "medium",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_15",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "johnny b goode chuck berry",
+    "correctAnswer": "Johnny B. Goode",
+    "acceptableAnswers": [],
+    "artist": "Chuck Berry",
+    "songTitle": "Johnny B. Goode",
+    "difficulty": "medium",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_16",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "somebody that i used to know gotye",
+    "correctAnswer": "Somebody That I Used to Know",
+    "acceptableAnswers": [],
+    "artist": "Gotye ft. Kimbra",
+    "songTitle": "Somebody That I Used to Know",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_17",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "born this way lady gaga",
+    "correctAnswer": "Born This Way",
+    "acceptableAnswers": [],
+    "artist": "Lady Gaga",
+    "songTitle": "Born This Way",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_18",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "happy pharrell williams",
+    "correctAnswer": "Happy",
+    "acceptableAnswers": [],
+    "artist": "Pharrell Williams",
+    "songTitle": "Happy",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_19",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "uptown funk mark ronson bruno mars",
+    "correctAnswer": "Uptown Funk",
+    "acceptableAnswers": [],
+    "artist": "Mark Ronson ft. Bruno Mars",
+    "songTitle": "Uptown Funk",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_20",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "thriller michael jackson",
+    "correctAnswer": "Thriller",
+    "acceptableAnswers": [],
+    "artist": "Michael Jackson",
+    "songTitle": "Thriller",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_21",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "whats going on marvin gaye",
+    "correctAnswer": "What's Going On",
+    "acceptableAnswers": [],
+    "artist": "Marvin Gaye",
+    "songTitle": "What's Going On",
+    "difficulty": "medium",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_mus_22",
+    "type": "music_guess",
+    "category": "music",
+    "question": "Nommez cette chanson",
+    "deezerQuery": "like a prayer madonna",
+    "correctAnswer": "Like a Prayer",
+    "acceptableAnswers": [],
+    "artist": "Madonna",
+    "songTitle": "Like a Prayer",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "pr_mus_1",
+    "type": "pixel_reveal",
+    "category": "music",
+    "question": "Qui est cette légende de la musique ?",
+    "imageUrl": "/quiz-images/pixel/music-elvis.jpg",
+    "correctAnswer": "Elvis Presley",
+    "acceptableAnswers": [
+      "elvis presley",
+      "elvis",
+      "the king"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Elvis Presley (1935–1977), surnommé « Le Roi du Rock and Roll », est l'un des artistes musicaux les plus vendus de tous les temps avec plus d'un milliard de disques vendus."
+  },
+  {
+    "id": "pr_mus_2",
+    "type": "pixel_reveal",
+    "category": "music",
+    "question": "Qui est cette icône du rock ?",
+    "imageUrl": "/quiz-images/pixel/music-david-bowie.jpg",
+    "correctAnswer": "David Bowie",
+    "acceptableAnswers": [
+      "david bowie",
+      "bowie",
+      "ziggy stardust"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "David Bowie (1947–2016) était un musicien pionnier et une icône culturelle, connu pour ses alter egos (Ziggy Stardust, Aladdin Sane) et sa musique traversant les genres."
+  },
+  {
+    "id": "pr_mus_3",
+    "type": "pixel_reveal",
+    "category": "music",
+    "question": "Qui est cette icône de la pop ?",
+    "imageUrl": "/quiz-images/pixel/music-madonna.jpg",
+    "correctAnswer": "Madonna",
+    "acceptableAnswers": [
+      "madonna",
+      "madonna ciccone"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Madonna est l'artiste musicale féminine la plus vendue de tous les temps, avec plus de 300 millions de disques vendus dans le monde et une carrière couvrant cinq décennies."
+  },
+  {
+    "id": "pr_mus_4",
+    "type": "pixel_reveal",
+    "category": "music",
+    "question": "Qui est cette légende du rock ?",
+    "imageUrl": "/quiz-images/pixel/music-freddie-mercury.jpg",
+    "correctAnswer": "Freddie Mercury",
+    "acceptableAnswers": [
+      "freddie mercury",
+      "freddie",
+      "mercury"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Freddie Mercury (1946–1991) était le chanteur principal de Queen et est considéré comme l'un des plus grands chanteurs de l'histoire du rock."
+  },
+  {
+    "id": "pr_mus_5",
+    "type": "pixel_reveal",
+    "category": "music",
+    "question": "Qui est cette icône de la musique ?",
+    "imageUrl": "/quiz-images/pixel/music-michael-jackson.jpg",
+    "correctAnswer": "Michael Jackson",
+    "acceptableAnswers": [
+      "michael jackson",
+      "mj",
+      "the king of pop"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Michael Jackson (1958–2009), surnommé « Le Roi de la Pop », est l'artiste musical le plus vendu de tous les temps, avec des albums comme Thriller (1982) vendus à plus de 70 millions d'exemplaires."
+  },
+  {
+    "id": "pr_mus_6",
+    "type": "pixel_reveal",
+    "category": "music",
+    "question": "Qui est cette légende du hip-hop ?",
+    "imageUrl": "/quiz-images/pixel/music-tupac.jpg",
+    "correctAnswer": "Tupac Shakur",
+    "acceptableAnswers": [
+      "tupac shakur",
+      "tupac",
+      "2pac"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Tupac Shakur (1971–1996) est l'un des rappeurs les plus vendus de tous les temps. Tué par balle à Las Vegas à 25 ans, ses sorties posthumes figurent encore dans les charts des décennies plus tard."
+  },
+  {
+    "id": "pr_mus_7",
+    "type": "pixel_reveal",
+    "category": "music",
+    "question": "Qui est cette superstar de la musique ?",
+    "imageUrl": "/quiz-images/pixel/music-beyonce.jpg",
+    "correctAnswer": "Beyoncé",
+    "acceptableAnswers": [
+      "beyonce",
+      "beyoncé",
+      "queen bey"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Beyoncé est l'une des artistes musicales les plus vendues de tous les temps, avec 32 Grammy Awards — le plus grand nombre pour un artiste dans l'histoire des Grammy."
+  },
+  {
+    "id": "pr_mus_8",
+    "type": "pixel_reveal",
+    "category": "music",
+    "question": "Qui est cette légende du rock ?",
+    "imageUrl": "/quiz-images/pixel/music-jimi-hendrix.jpg",
+    "correctAnswer": "Jimi Hendrix",
+    "acceptableAnswers": [
+      "jimi hendrix",
+      "hendrix"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Jimi Hendrix (1942–1970) est largement considéré comme le plus grand guitariste électrique de l'histoire. Il est décédé à 27 ans, rejoignant le « Club des 27 »."
+  },
+  {
+    "id": "ig_mus_1",
+    "type": "image_guess",
+    "category": "music",
+    "question": "Quelle est cette célèbre pochette d'album ?",
+    "imageUrl": "/quiz-images/abbey-road-album.jpg",
+    "correctAnswer": "Abbey Road",
+    "acceptableAnswers": [
+      "abbey road",
+      "abbey road beatles"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Abbey Road (1969) est le 11e album studio des Beatles, avec la célèbre pochette montrant les quatre membres du groupe traversant un passage piéton devant les studios Abbey Road à Londres."
+  },
+  {
+    "id": "ig_mus_2",
+    "type": "image_guess",
+    "category": "music",
+    "question": "Quelle est cette célèbre pochette d'album ?",
+    "imageUrl": "/quiz-images/thriller-album.jpg",
+    "correctAnswer": "Thriller",
+    "acceptableAnswers": [
+      "thriller",
+      "thriller album",
+      "michael jackson thriller"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Thriller (1982) de Michael Jackson est l'album le plus vendu de tous les temps, avec environ 70 millions d'exemplaires vendus dans le monde."
+  }
 ]

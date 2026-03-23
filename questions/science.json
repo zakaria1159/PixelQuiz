@@ -1,64 +1,1226 @@
 [
-  { "id": "as1",  "type": "animal_sound", "category": "science", "question": "Which animal makes this sound?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Barking_of_a_dog.ogg",              "correctAnswer": "Dog",      "acceptableAnswers": ["Dog", "Beagle", "Hound", "Puppy"],               "difficulty": "easy",   "timeLimit": 20 },
-  { "id": "as2",  "type": "animal_sound", "category": "science", "question": "Which animal makes this sound?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Meow_domestic_cat.ogg",             "correctAnswer": "Cat",      "acceptableAnswers": ["Cat", "Kitten", "Kitty"],                        "difficulty": "easy",   "timeLimit": 20 },
-  { "id": "as3",  "type": "animal_sound", "category": "science", "question": "Which animal makes this sound?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Single_Cow_Moo.ogg",              "correctAnswer": "Cow",      "acceptableAnswers": ["Cow", "Bull", "Cattle", "Calf"],                 "difficulty": "easy",   "timeLimit": 20 },
-  { "id": "as4",  "type": "animal_sound", "category": "science", "question": "Which animal makes this sound?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Rooster_crowing.ogg",             "correctAnswer": "Rooster",  "acceptableAnswers": ["Rooster", "Chicken", "Cockerel", "Cock"],        "difficulty": "easy",   "timeLimit": 20 },
-  { "id": "as5",  "type": "animal_sound", "category": "science", "question": "Which animal makes this sound?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Wiehern.ogg",                    "correctAnswer": "Horse",    "acceptableAnswers": ["Horse", "Mare", "Stallion", "Pony"],             "difficulty": "easy",   "timeLimit": 20 },
-  { "id": "as6",  "type": "animal_sound", "category": "science", "question": "Which animal makes this sound?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Mudchute_pig_1.ogg",              "correctAnswer": "Pig",      "acceptableAnswers": ["Pig", "Hog", "Boar", "Swine", "Piglet"],        "difficulty": "medium", "timeLimit": 20 },
-  { "id": "as7",  "type": "animal_sound", "category": "science", "question": "Which animal makes this sound?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Wolf_howls.ogg",                 "correctAnswer": "Wolf",     "acceptableAnswers": ["Wolf", "Wolves", "Grey Wolf"],                   "difficulty": "medium", "timeLimit": 20 },
-  { "id": "as8",  "type": "animal_sound", "category": "science", "question": "Which animal makes this sound?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Single_Frog_Croak.oga",          "correctAnswer": "Frog",     "acceptableAnswers": ["Frog", "Toad"],                                  "difficulty": "medium", "timeLimit": 20 },
-  { "id": "as9",  "type": "animal_sound", "category": "science", "question": "Which animal makes this sound?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Strix_aluco_-_Tawny_Owl_XC563348.mp3", "correctAnswer": "Owl",  "acceptableAnswers": ["Owl", "Tawny Owl"],                              "difficulty": "hard",   "timeLimit": 20 },
-  { "id": "as10", "type": "animal_sound", "category": "science", "question": "Which animal makes this sound?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Elephant_voice_-_trumpeting.ogg", "correctAnswer": "Elephant", "acceptableAnswers": ["Elephant"],                                      "difficulty": "hard",   "timeLimit": 20 },
-
-  { "id": "pr1",  "type": "pixel_reveal", "category": "science", "question": "Who is this person?", "imageUrl": "/quiz-images/einstein.jpg", "correctAnswer": "Albert Einstein", "acceptableAnswers": ["einstein"], "caseSensitive": false, "difficulty": "medium", "timeLimit": 25, "explanation": "Albert Einstein developed the theory of relativity and won the Nobel Prize in Physics in 1921." },
-  { "id": "ig2",  "type": "image_guess",  "category": "science", "question": "Name this animal.", "imageUrl": "/quiz-images/penguin.jpg", "correctAnswer": "Penguin", "acceptableAnswers": ["penguins", "chinstrap penguin"], "caseSensitive": false, "difficulty": "easy", "timeLimit": 15, "explanation": "Penguins are flightless birds that live primarily in the Southern Hemisphere." },
-
-  { "id": "sci_mc1", "type": "multiple_choice", "category": "science", "question": "What is the speed of light in a vacuum (approximately)?", "options": ["300,000 km/s", "150,000 km/s", "3,000 km/s", "1,000,000 km/s"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 15, "explanation": "Light travels at approximately 299,792 km/s in a vacuum." },
-  { "id": "sci_mc2", "type": "multiple_choice", "category": "science", "question": "How many bones are in the adult human body?", "options": ["196", "206", "216", "226"], "correctAnswer": 1, "difficulty": "medium", "timeLimit": 15, "explanation": "The adult human body has 206 bones. Babies are born with around 270-300." },
-  { "id": "sci_mc3", "type": "multiple_choice", "category": "science", "question": "What is the most abundant gas in Earth's atmosphere?", "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Argon"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 15, "explanation": "Nitrogen makes up about 78% of Earth's atmosphere." },
-  { "id": "sci_mc4", "type": "multiple_choice", "category": "science", "question": "What is the powerhouse of the cell?", "options": ["Nucleus", "Ribosome", "Mitochondria", "Golgi apparatus"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 12, "explanation": "The mitochondria generate most of the cell's supply of ATP, used as a source of chemical energy." },
-  { "id": "sci_mc5", "type": "multiple_choice", "category": "science", "question": "Which planet in our solar system has the most moons?", "options": ["Jupiter", "Saturn", "Uranus", "Neptune"], "correctAnswer": 1, "difficulty": "hard", "timeLimit": 20, "explanation": "Saturn overtook Jupiter in 2023 with 146 confirmed moons, the most of any planet." },
-
-  { "id": "sci_tf1", "type": "true_false", "category": "science", "question": "Humans share about 98% of their DNA with chimpanzees.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 15, "explanation": "Humans and chimpanzees share approximately 98.7% of their DNA." },
-  { "id": "sci_tf2", "type": "true_false", "category": "science", "question": "Lightning never strikes the same place twice.", "options": ["True", "False"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 12, "explanation": "Lightning frequently strikes the same place — the Empire State Building is struck about 20–25 times per year." },
-  { "id": "sci_tf3", "type": "true_false", "category": "science", "question": "Diamonds are made of carbon.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 12, "explanation": "Diamonds are pure carbon atoms arranged in a crystal lattice — the same element as graphite, just differently structured." },
-  { "id": "sci_tf4", "type": "true_false", "category": "science", "question": "The Sun is a star.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 10, "explanation": "The Sun is a medium-sized star at the centre of our solar system, about 4.6 billion years old." },
-  { "id": "sci_tf5", "type": "true_false", "category": "science", "question": "Sound travels faster than light.", "options": ["True", "False"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 10, "explanation": "Light travels at ~300,000 km/s. Sound travels at ~0.343 km/s in air — nearly a million times slower." },
-
-  { "id": "sci_fb1", "type": "fill_blank", "category": "science", "question": "The chemical symbol for water is ___.", "correctAnswer": "H2O", "acceptableAnswers": ["h2o", "H₂O"], "difficulty": "easy", "timeLimit": 12, "explanation": "Water (H₂O) consists of two hydrogen atoms bonded to one oxygen atom." },
-  { "id": "sci_fb2", "type": "fill_blank", "category": "science", "question": "The force that keeps planets in orbit around the Sun is called ___.", "correctAnswer": "gravity", "acceptableAnswers": ["gravity", "gravitation", "gravitational force"], "difficulty": "easy", "timeLimit": 15, "explanation": "Gravity is the attractive force between masses. Newton described it; Einstein later refined it with general relativity." },
-  { "id": "sci_fb3", "type": "fill_blank", "category": "science", "question": "The table of chemical elements organised by atomic number is called the ___ table.", "correctAnswer": "periodic", "difficulty": "easy", "timeLimit": 12, "explanation": "Dmitri Mendeleev created the first periodic table in 1869, organising elements by atomic weight and properties." },
-  { "id": "sci_fb4", "type": "fill_blank", "category": "science", "question": "The process by which plants use sunlight to produce food is called ___.", "correctAnswer": "photosynthesis", "difficulty": "easy", "timeLimit": 15, "explanation": "Photosynthesis converts CO₂ and water into glucose and oxygen using sunlight energy in chloroplasts." },
-  { "id": "sci_fb5", "type": "fill_blank", "category": "science", "question": "DNA stands for ___ acid.", "correctAnswer": "deoxyribonucleic", "acceptableAnswers": ["deoxyribonucleic"], "difficulty": "hard", "timeLimit": 20, "explanation": "DNA (deoxyribonucleic acid) carries the genetic instructions for the development of all known living organisms." },
-
-  { "id": "rk2",  "type": "ranking", "category": "science", "question": "Rank these planets by size (smallest first):", "items": ["Earth", "Jupiter", "Mars"], "correctOrder": [2, 0, 1], "difficulty": "medium", "timeLimit": 20, "allowPartialCredit": true, "explanation": "Mars (smallest) → Earth → Jupiter (largest)." },
-  { "id": "sci_rk1", "type": "ranking", "category": "science", "question": "Rank these planets by distance from the Sun (closest first):", "items": ["Mars", "Mercury", "Venus"], "correctOrder": [1, 2, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Mercury → Venus → Mars in order of distance from the Sun." },
-  { "id": "sci_rk2", "type": "ranking", "category": "science", "question": "Rank these scientists by birth year (oldest first):", "items": ["Albert Einstein", "Isaac Newton", "Marie Curie"], "correctOrder": [1, 2, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Isaac Newton (1643) → Marie Curie (1867) → Albert Einstein (1879)" },
-  { "id": "sci_rk3", "type": "ranking", "category": "science", "question": "Rank these elements by atomic number (lowest first):", "items": ["Gold", "Carbon", "Oxygen"], "correctOrder": [1, 2, 0], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "Carbon (6) → Oxygen (8) → Gold (79)" },
-  { "id": "sci_rk4", "type": "ranking", "category": "science", "question": "Rank these animals by average lifespan (shortest first):", "items": ["Greenland Shark", "Human", "Mayfly"], "correctOrder": [2, 1, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Mayfly (~1 day) → Human (~80 years) → Greenland Shark (~400 years)" },
-  { "id": "sci_rk5", "type": "ranking", "category": "science", "question": "Rank these inventions by year (oldest first):", "items": ["Internet", "Telephone", "Steam Engine"], "correctOrder": [2, 1, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Steam Engine (1698) → Telephone (1876) → Internet (1969/1991)" },
-
-  { "id": "sci_cw1", "type": "closest_wins", "category": "science", "question": "How many moons does Jupiter have?", "correctAnswer": 95, "unit": "moons", "difficulty": "hard", "timeLimit": 20, "explanation": "As of 2023, Jupiter has 95 confirmed moons — the most of any planet in our solar system." },
-  { "id": "sci_cw2", "type": "closest_wins", "category": "science", "question": "What is the boiling point of water in degrees Celsius?", "correctAnswer": 100, "unit": "°C", "difficulty": "easy", "timeLimit": 12, "explanation": "Water boils at 100°C (212°F) at standard atmospheric pressure (sea level)." },
-  { "id": "sci_cw3", "type": "closest_wins", "category": "science", "question": "How many elements are on the periodic table?", "correctAnswer": 118, "unit": "elements", "difficulty": "medium", "timeLimit": 15, "explanation": "The periodic table currently contains 118 confirmed elements, up to oganesson (Og)." },
-  { "id": "sci_cw4", "type": "closest_wins", "category": "science", "question": "How many chromosomes does a typical human have?", "correctAnswer": 46, "unit": "chromosomes", "difficulty": "medium", "timeLimit": 15, "explanation": "Humans typically have 46 chromosomes arranged in 23 pairs." },
-  { "id": "sci_cw5", "type": "closest_wins", "category": "science", "question": "Approximately how old is the universe in billions of years?", "correctAnswer": 13.8, "unit": "billion years", "difficulty": "hard", "timeLimit": 20, "explanation": "The universe is estimated to be approximately 13.8 billion years old, based on cosmic microwave background measurements." },
-
-  { "id": "sb1",  "type": "speed_buzz", "category": "science", "question": "Which planet is closest to the Sun?", "options": ["Venus", "Earth", "Mars", "Mercury"], "correctAnswer": 3, "difficulty": "easy", "timeLimit": 12, "explanation": "Mercury is the closest planet to the Sun." },
-  { "id": "sb2",  "type": "speed_buzz", "category": "science", "question": "What is the chemical symbol for Gold?", "options": ["Go", "Gd", "Au", "Ag"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "Au comes from the Latin word 'Aurum'." },
-  { "id": "sci_sb1", "type": "speed_buzz", "category": "science", "question": "What gas do plants absorb during photosynthesis?", "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 12, "explanation": "Plants absorb carbon dioxide (CO₂) and release oxygen (O₂) during photosynthesis." },
-  { "id": "sci_sb2", "type": "speed_buzz", "category": "science", "question": "How many hearts does an octopus have?", "options": ["1", "2", "3", "4"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "Octopuses have three hearts — two pump blood to the gills, and one pumps it to the rest of the body." },
-  { "id": "sci_sb3", "type": "speed_buzz", "category": "science", "question": "What is the hardest natural substance on Earth?", "options": ["Gold", "Iron", "Diamond", "Quartz"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 12, "explanation": "Diamond scores 10 on the Mohs hardness scale — the highest of any natural material." },
-
-  { "id": "sci_ft1", "type": "free_text", "category": "science", "question": "What is the name of the force that keeps us on the ground?", "correctAnswer": "gravity", "acceptableAnswers": ["gravity", "gravitation"], "difficulty": "easy", "timeLimit": 12, "explanation": "Gravity is the attractive force between objects with mass. On Earth, it pulls us toward the planet's centre." },
-  { "id": "sci_ft2", "type": "free_text", "category": "science", "question": "What organ pumps blood around the human body?", "correctAnswer": "heart", "acceptableAnswers": ["heart", "the heart"], "difficulty": "easy", "timeLimit": 10, "explanation": "The human heart beats about 100,000 times per day, pumping approximately 5 litres of blood per minute." },
-  { "id": "sci_ft3", "type": "free_text", "category": "science", "question": "What is the closest star to Earth (other than the Sun)?", "correctAnswer": "Proxima Centauri", "acceptableAnswers": ["proxima centauri", "proxima"], "difficulty": "hard", "timeLimit": 20, "explanation": "Proxima Centauri is about 4.24 light-years away and is part of the Alpha Centauri star system." },
-  { "id": "sci_ft4", "type": "free_text", "category": "science", "question": "What is the name of the layer of gas surrounding Earth?", "correctAnswer": "atmosphere", "acceptableAnswers": ["atmosphere", "the atmosphere"], "difficulty": "easy", "timeLimit": 12, "explanation": "Earth's atmosphere is a layer of gases held by gravity, protecting life from solar radiation and enabling weather." },
-  { "id": "sci_ft5", "type": "free_text", "category": "science", "question": "What is the chemical symbol for iron?", "correctAnswer": "Fe", "acceptableAnswers": ["fe"], "difficulty": "medium", "timeLimit": 15, "explanation": "Fe comes from the Latin word 'ferrum', meaning iron. Iron's atomic number is 26." },
-
-  { "id": "cc_sci1", "type": "clue_chain", "category": "science", "question": "What element am I?", "clues": ["I am the heaviest naturally occurring element on Earth", "I was discovered in 1789 by Martin Heinrich Klaproth and named after the planet Uranus", "I am radioactive, with an atomic number of 92", "I am the primary fuel used in nuclear power plants worldwide"], "correctAnswer": "Uranium", "acceptableAnswers": ["uranium"], "difficulty": "medium", "timeLimit": 60 },
-  { "id": "cc_sci2", "type": "clue_chain", "category": "science", "question": "Which animal am I?", "clues": ["I am the largest animal that has ever existed on Earth", "I communicate with sounds that can travel hundreds of kilometres through the ocean", "I breathe air and must surface regularly — I can hold my breath for up to 90 minutes", "My heart is the size of a small car and I can grow up to 30 metres long"], "correctAnswer": "Blue Whale", "acceptableAnswers": ["blue whale", "whale"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_sci3", "type": "clue_chain", "category": "science", "question": "Who am I?", "clues": ["Born in 1879, I failed my university entrance exam on the first attempt", "I worked as a patent clerk in Bern, Switzerland while developing my most famous theories", "In 1905 — my 'miracle year' — I published four groundbreaking papers that changed physics", "My most famous equation, E=mc², is recognised worldwide"], "correctAnswer": "Albert Einstein", "acceptableAnswers": ["einstein"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_sci4", "type": "clue_chain", "category": "science", "question": "What am I?", "clues": ["I am a force that acts between charged particles — opposite charges attract, like charges repel", "I am responsible for holding atoms together and allowing chemical bonds to form", "I am transmitted by particles called photons", "James Clerk Maxwell unified me with magnetism into a single theory in the 19th century"], "correctAnswer": "Electromagnetism", "acceptableAnswers": ["electromagnetism", "electromagnetic force", "electricity"], "difficulty": "hard", "timeLimit": 60 },
-  { "id": "cc_sci5", "type": "clue_chain", "category": "science", "question": "Who am I?", "clues": ["I was born in 1867 in Warsaw, then part of the Russian Empire", "I was the first woman to win a Nobel Prize, and the only person to win in two different sciences", "I discovered the elements polonium and radium", "I conducted pioneering research on radioactivity, a term I coined"], "correctAnswer": "Marie Curie", "acceptableAnswers": ["marie curie", "curie"], "difficulty": "easy", "timeLimit": 60 }
+  {
+    "id": "as1",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Barking_of_a_dog.ogg",
+    "correctAnswer": "Dog",
+    "acceptableAnswers": [
+      "Dog",
+      "Beagle",
+      "Hound",
+      "Puppy"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as2",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Meow_domestic_cat.ogg",
+    "correctAnswer": "Cat",
+    "acceptableAnswers": [
+      "Cat",
+      "Kitten",
+      "Kitty"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as3",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Single_Cow_Moo.ogg",
+    "correctAnswer": "Cow",
+    "acceptableAnswers": [
+      "Cow",
+      "Bull",
+      "Cattle",
+      "Calf"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as4",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Rooster_crowing.ogg",
+    "correctAnswer": "Rooster",
+    "acceptableAnswers": [
+      "Rooster",
+      "Chicken",
+      "Cockerel",
+      "Cock"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as5",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Wiehern.ogg",
+    "correctAnswer": "Horse",
+    "acceptableAnswers": [
+      "Horse",
+      "Mare",
+      "Stallion",
+      "Pony"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as6",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Mudchute_pig_1.ogg",
+    "correctAnswer": "Pig",
+    "acceptableAnswers": [
+      "Pig",
+      "Hog",
+      "Boar",
+      "Swine",
+      "Piglet"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as7",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Wolf_howls.ogg",
+    "correctAnswer": "Wolf",
+    "acceptableAnswers": [
+      "Wolf",
+      "Wolves",
+      "Grey Wolf"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as8",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Single_Frog_Croak.oga",
+    "correctAnswer": "Frog",
+    "acceptableAnswers": [
+      "Frog",
+      "Toad"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as9",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Strix_aluco_-_Tawny_Owl_XC563348.mp3",
+    "correctAnswer": "Owl",
+    "acceptableAnswers": [
+      "Owl",
+      "Tawny Owl"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20
+  },
+  {
+    "id": "as10",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Elephant_voice_-_trumpeting.ogg",
+    "correctAnswer": "Elephant",
+    "acceptableAnswers": [
+      "Elephant"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20
+  },
+  {
+    "id": "pr1",
+    "type": "pixel_reveal",
+    "category": "science",
+    "question": "Who is this person?",
+    "imageUrl": "/quiz-images/einstein.jpg",
+    "correctAnswer": "Albert Einstein",
+    "acceptableAnswers": [
+      "einstein"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Albert Einstein developed the theory of relativity and won the Nobel Prize in Physics in 1921."
+  },
+  {
+    "id": "ig2",
+    "type": "image_guess",
+    "category": "science",
+    "question": "Name this animal.",
+    "imageUrl": "/quiz-images/penguin.jpg",
+    "correctAnswer": "Penguin",
+    "acceptableAnswers": [
+      "penguins",
+      "chinstrap penguin"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Penguins are flightless birds that live primarily in the Southern Hemisphere."
+  },
+  {
+    "id": "sci_mc1",
+    "type": "multiple_choice",
+    "category": "science",
+    "question": "What is the speed of light in a vacuum (approximately)?",
+    "options": [
+      "300,000 km/s",
+      "150,000 km/s",
+      "3,000 km/s",
+      "1,000,000 km/s"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Light travels at approximately 299,792 km/s in a vacuum."
+  },
+  {
+    "id": "sci_mc2",
+    "type": "multiple_choice",
+    "category": "science",
+    "question": "How many bones are in the adult human body?",
+    "options": [
+      "196",
+      "206",
+      "216",
+      "226"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "The adult human body has 206 bones. Babies are born with around 270-300."
+  },
+  {
+    "id": "sci_mc3",
+    "type": "multiple_choice",
+    "category": "science",
+    "question": "What is the most abundant gas in Earth's atmosphere?",
+    "options": [
+      "Oxygen",
+      "Carbon Dioxide",
+      "Nitrogen",
+      "Argon"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Nitrogen makes up about 78% of Earth's atmosphere."
+  },
+  {
+    "id": "sci_mc4",
+    "type": "multiple_choice",
+    "category": "science",
+    "question": "What is the powerhouse of the cell?",
+    "options": [
+      "Nucleus",
+      "Ribosome",
+      "Mitochondria",
+      "Golgi apparatus"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "The mitochondria generate most of the cell's supply of ATP, used as a source of chemical energy."
+  },
+  {
+    "id": "sci_mc5",
+    "type": "multiple_choice",
+    "category": "science",
+    "question": "Which planet in our solar system has the most moons?",
+    "options": [
+      "Jupiter",
+      "Saturn",
+      "Uranus",
+      "Neptune"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Saturn overtook Jupiter in 2023 with 146 confirmed moons, the most of any planet."
+  },
+  {
+    "id": "sci_tf1",
+    "type": "true_false",
+    "category": "science",
+    "question": "Humans share about 98% of their DNA with chimpanzees.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Humans and chimpanzees share approximately 98.7% of their DNA."
+  },
+  {
+    "id": "sci_tf2",
+    "type": "true_false",
+    "category": "science",
+    "question": "Lightning never strikes the same place twice.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Lightning frequently strikes the same place — the Empire State Building is struck about 20–25 times per year."
+  },
+  {
+    "id": "sci_tf3",
+    "type": "true_false",
+    "category": "science",
+    "question": "Diamonds are made of carbon.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Diamonds are pure carbon atoms arranged in a crystal lattice — the same element as graphite, just differently structured."
+  },
+  {
+    "id": "sci_tf4",
+    "type": "true_false",
+    "category": "science",
+    "question": "The Sun is a star.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "The Sun is a medium-sized star at the centre of our solar system, about 4.6 billion years old."
+  },
+  {
+    "id": "sci_tf5",
+    "type": "true_false",
+    "category": "science",
+    "question": "Sound travels faster than light.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Light travels at ~300,000 km/s. Sound travels at ~0.343 km/s in air — nearly a million times slower."
+  },
+  {
+    "id": "sci_fb1",
+    "type": "fill_blank",
+    "category": "science",
+    "question": "The chemical symbol for water is ___.",
+    "correctAnswer": "H2O",
+    "acceptableAnswers": [
+      "h2o",
+      "H₂O"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Water (H₂O) consists of two hydrogen atoms bonded to one oxygen atom."
+  },
+  {
+    "id": "sci_fb2",
+    "type": "fill_blank",
+    "category": "science",
+    "question": "The force that keeps planets in orbit around the Sun is called ___.",
+    "correctAnswer": "gravity",
+    "acceptableAnswers": [
+      "gravity",
+      "gravitation",
+      "gravitational force"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Gravity is the attractive force between masses. Newton described it; Einstein later refined it with general relativity."
+  },
+  {
+    "id": "sci_fb3",
+    "type": "fill_blank",
+    "category": "science",
+    "question": "The table of chemical elements organised by atomic number is called the ___ table.",
+    "correctAnswer": "periodic",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Dmitri Mendeleev created the first periodic table in 1869, organising elements by atomic weight and properties."
+  },
+  {
+    "id": "sci_fb4",
+    "type": "fill_blank",
+    "category": "science",
+    "question": "The process by which plants use sunlight to produce food is called ___.",
+    "correctAnswer": "photosynthesis",
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Photosynthesis converts CO₂ and water into glucose and oxygen using sunlight energy in chloroplasts."
+  },
+  {
+    "id": "sci_fb5",
+    "type": "fill_blank",
+    "category": "science",
+    "question": "DNA stands for ___ acid.",
+    "correctAnswer": "deoxyribonucleic",
+    "acceptableAnswers": [
+      "deoxyribonucleic"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "DNA (deoxyribonucleic acid) carries the genetic instructions for the development of all known living organisms."
+  },
+  {
+    "id": "rk2",
+    "type": "ranking",
+    "category": "science",
+    "question": "Rank these planets by size (smallest first):",
+    "items": [
+      "Earth",
+      "Jupiter",
+      "Mars"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      1
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "allowPartialCredit": true,
+    "explanation": "Mars (smallest) → Earth → Jupiter (largest)."
+  },
+  {
+    "id": "sci_rk1",
+    "type": "ranking",
+    "category": "science",
+    "question": "Rank these planets by distance from the Sun (closest first):",
+    "items": [
+      "Mars",
+      "Mercury",
+      "Venus"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Mercury → Venus → Mars in order of distance from the Sun."
+  },
+  {
+    "id": "sci_rk2",
+    "type": "ranking",
+    "category": "science",
+    "question": "Rank these scientists by birth year (oldest first):",
+    "items": [
+      "Albert Einstein",
+      "Isaac Newton",
+      "Marie Curie"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Isaac Newton (1643) → Marie Curie (1867) → Albert Einstein (1879)"
+  },
+  {
+    "id": "sci_rk3",
+    "type": "ranking",
+    "category": "science",
+    "question": "Rank these elements by atomic number (lowest first):",
+    "items": [
+      "Gold",
+      "Carbon",
+      "Oxygen"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Carbon (6) → Oxygen (8) → Gold (79)"
+  },
+  {
+    "id": "sci_rk4",
+    "type": "ranking",
+    "category": "science",
+    "question": "Rank these animals by average lifespan (shortest first):",
+    "items": [
+      "Greenland Shark",
+      "Human",
+      "Mayfly"
+    ],
+    "correctOrder": [
+      2,
+      1,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Mayfly (~1 day) → Human (~80 years) → Greenland Shark (~400 years)"
+  },
+  {
+    "id": "sci_rk5",
+    "type": "ranking",
+    "category": "science",
+    "question": "Rank these inventions by year (oldest first):",
+    "items": [
+      "Internet",
+      "Telephone",
+      "Steam Engine"
+    ],
+    "correctOrder": [
+      2,
+      1,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Steam Engine (1698) → Telephone (1876) → Internet (1969/1991)"
+  },
+  {
+    "id": "sci_cw1",
+    "type": "closest_wins",
+    "category": "science",
+    "question": "How many moons does Jupiter have?",
+    "correctAnswer": 95,
+    "unit": "moons",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "As of 2023, Jupiter has 95 confirmed moons — the most of any planet in our solar system."
+  },
+  {
+    "id": "sci_cw2",
+    "type": "closest_wins",
+    "category": "science",
+    "question": "What is the boiling point of water in degrees Celsius?",
+    "correctAnswer": 100,
+    "unit": "°C",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Water boils at 100°C (212°F) at standard atmospheric pressure (sea level)."
+  },
+  {
+    "id": "sci_cw3",
+    "type": "closest_wins",
+    "category": "science",
+    "question": "How many elements are on the periodic table?",
+    "correctAnswer": 118,
+    "unit": "elements",
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "The periodic table currently contains 118 confirmed elements, up to oganesson (Og)."
+  },
+  {
+    "id": "sci_cw4",
+    "type": "closest_wins",
+    "category": "science",
+    "question": "How many chromosomes does a typical human have?",
+    "correctAnswer": 46,
+    "unit": "chromosomes",
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Humans typically have 46 chromosomes arranged in 23 pairs."
+  },
+  {
+    "id": "sci_cw5",
+    "type": "closest_wins",
+    "category": "science",
+    "question": "Approximately how old is the universe in billions of years?",
+    "correctAnswer": 13.8,
+    "unit": "billion years",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "The universe is estimated to be approximately 13.8 billion years old, based on cosmic microwave background measurements."
+  },
+  {
+    "id": "sb1",
+    "type": "speed_buzz",
+    "category": "science",
+    "question": "Which planet is closest to the Sun?",
+    "options": [
+      "Venus",
+      "Earth",
+      "Mars",
+      "Mercury"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Mercury is the closest planet to the Sun."
+  },
+  {
+    "id": "sb2",
+    "type": "speed_buzz",
+    "category": "science",
+    "question": "What is the chemical symbol for Gold?",
+    "options": [
+      "Go",
+      "Gd",
+      "Au",
+      "Ag"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Au comes from the Latin word 'Aurum'."
+  },
+  {
+    "id": "sci_sb1",
+    "type": "speed_buzz",
+    "category": "science",
+    "question": "What gas do plants absorb during photosynthesis?",
+    "options": [
+      "Oxygen",
+      "Carbon Dioxide",
+      "Nitrogen",
+      "Hydrogen"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Plants absorb carbon dioxide (CO₂) and release oxygen (O₂) during photosynthesis."
+  },
+  {
+    "id": "sci_sb2",
+    "type": "speed_buzz",
+    "category": "science",
+    "question": "How many hearts does an octopus have?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Octopuses have three hearts — two pump blood to the gills, and one pumps it to the rest of the body."
+  },
+  {
+    "id": "sci_sb3",
+    "type": "speed_buzz",
+    "category": "science",
+    "question": "What is the hardest natural substance on Earth?",
+    "options": [
+      "Gold",
+      "Iron",
+      "Diamond",
+      "Quartz"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Diamond scores 10 on the Mohs hardness scale — the highest of any natural material."
+  },
+  {
+    "id": "sci_ft1",
+    "type": "free_text",
+    "category": "science",
+    "question": "What is the name of the force that keeps us on the ground?",
+    "correctAnswer": "gravity",
+    "acceptableAnswers": [
+      "gravity",
+      "gravitation"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Gravity is the attractive force between objects with mass. On Earth, it pulls us toward the planet's centre."
+  },
+  {
+    "id": "sci_ft2",
+    "type": "free_text",
+    "category": "science",
+    "question": "What organ pumps blood around the human body?",
+    "correctAnswer": "heart",
+    "acceptableAnswers": [
+      "heart",
+      "the heart"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "The human heart beats about 100,000 times per day, pumping approximately 5 litres of blood per minute."
+  },
+  {
+    "id": "sci_ft3",
+    "type": "free_text",
+    "category": "science",
+    "question": "What is the closest star to Earth (other than the Sun)?",
+    "correctAnswer": "Proxima Centauri",
+    "acceptableAnswers": [
+      "proxima centauri",
+      "proxima"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Proxima Centauri is about 4.24 light-years away and is part of the Alpha Centauri star system."
+  },
+  {
+    "id": "sci_ft4",
+    "type": "free_text",
+    "category": "science",
+    "question": "What is the name of the layer of gas surrounding Earth?",
+    "correctAnswer": "atmosphere",
+    "acceptableAnswers": [
+      "atmosphere",
+      "the atmosphere"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Earth's atmosphere is a layer of gases held by gravity, protecting life from solar radiation and enabling weather."
+  },
+  {
+    "id": "sci_ft5",
+    "type": "free_text",
+    "category": "science",
+    "question": "What is the chemical symbol for iron?",
+    "correctAnswer": "Fe",
+    "acceptableAnswers": [
+      "fe"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Fe comes from the Latin word 'ferrum', meaning iron. Iron's atomic number is 26."
+  },
+  {
+    "id": "cc_sci1",
+    "type": "clue_chain",
+    "category": "science",
+    "question": "What element am I?",
+    "clues": [
+      "I am the heaviest naturally occurring element on Earth",
+      "I was discovered in 1789 by Martin Heinrich Klaproth and named after the planet Uranus",
+      "I am radioactive, with an atomic number of 92",
+      "I am the primary fuel used in nuclear power plants worldwide"
+    ],
+    "correctAnswer": "Uranium",
+    "acceptableAnswers": [
+      "uranium"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_sci2",
+    "type": "clue_chain",
+    "category": "science",
+    "question": "Which animal am I?",
+    "clues": [
+      "I am the largest animal that has ever existed on Earth",
+      "I communicate with sounds that can travel hundreds of kilometres through the ocean",
+      "I breathe air and must surface regularly — I can hold my breath for up to 90 minutes",
+      "My heart is the size of a small car and I can grow up to 30 metres long"
+    ],
+    "correctAnswer": "Blue Whale",
+    "acceptableAnswers": [
+      "blue whale",
+      "whale"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_sci3",
+    "type": "clue_chain",
+    "category": "science",
+    "question": "Who am I?",
+    "clues": [
+      "Born in 1879, I failed my university entrance exam on the first attempt",
+      "I worked as a patent clerk in Bern, Switzerland while developing my most famous theories",
+      "In 1905 — my 'miracle year' — I published four groundbreaking papers that changed physics",
+      "My most famous equation, E=mc², is recognised worldwide"
+    ],
+    "correctAnswer": "Albert Einstein",
+    "acceptableAnswers": [
+      "einstein"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_sci4",
+    "type": "clue_chain",
+    "category": "science",
+    "question": "What am I?",
+    "clues": [
+      "I am a force that acts between charged particles — opposite charges attract, like charges repel",
+      "I am responsible for holding atoms together and allowing chemical bonds to form",
+      "I am transmitted by particles called photons",
+      "James Clerk Maxwell unified me with magnetism into a single theory in the 19th century"
+    ],
+    "correctAnswer": "Electromagnetism",
+    "acceptableAnswers": [
+      "electromagnetism",
+      "electromagnetic force",
+      "electricity"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_sci5",
+    "type": "clue_chain",
+    "category": "science",
+    "question": "Who am I?",
+    "clues": [
+      "I was born in 1867 in Warsaw, then part of the Russian Empire",
+      "I was the first woman to win a Nobel Prize, and the only person to win in two different sciences",
+      "I discovered the elements polonium and radium",
+      "I conducted pioneering research on radioactivity, a term I coined"
+    ],
+    "correctAnswer": "Marie Curie",
+    "acceptableAnswers": [
+      "marie curie",
+      "curie"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "as_sci_1",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "/audio/animals/lion.ogg",
+    "correctAnswer": "Lion",
+    "acceptableAnswers": [
+      "Lion",
+      "Male lion"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_2",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "/audio/animals/dolphin.ogg",
+    "correctAnswer": "Dolphin",
+    "acceptableAnswers": [
+      "Dolphin",
+      "Bottlenose dolphin"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_3",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "/audio/animals/eagle.ogg",
+    "correctAnswer": "Eagle",
+    "acceptableAnswers": [
+      "Eagle",
+      "Bald eagle",
+      "Golden eagle"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_4",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which insect makes this buzzing sound?",
+    "audioUrl": "/audio/animals/bee.ogg",
+    "correctAnswer": "Bee",
+    "acceptableAnswers": [
+      "Bee",
+      "Honeybee",
+      "Bumblebee"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_5",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "/audio/animals/bear.ogg",
+    "correctAnswer": "Bear",
+    "acceptableAnswers": [
+      "Bear",
+      "Grizzly bear",
+      "Brown bear"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_6",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which great ape makes this sound?",
+    "audioUrl": "/audio/animals/gorilla.ogg",
+    "correctAnswer": "Gorilla",
+    "acceptableAnswers": [
+      "Gorilla",
+      "Western gorilla"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_7",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which marine mammal produces this call?",
+    "audioUrl": "/audio/animals/whale.ogg",
+    "correctAnswer": "Whale",
+    "acceptableAnswers": [
+      "Whale",
+      "Humpback whale",
+      "Blue whale"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_8",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which reptile makes this sound?",
+    "audioUrl": "/audio/animals/crocodile.ogg",
+    "correctAnswer": "Crocodile",
+    "acceptableAnswers": [
+      "Crocodile",
+      "Alligator",
+      "Crocodilian"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_9",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which nocturnal flying mammal makes this sound?",
+    "audioUrl": "/audio/animals/bat.ogg",
+    "correctAnswer": "Bat",
+    "acceptableAnswers": [
+      "Bat",
+      "Fruit bat",
+      "Vampire bat"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_10",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which insect makes this chirping sound?",
+    "audioUrl": "/audio/animals/cricket.ogg",
+    "correctAnswer": "Cricket",
+    "acceptableAnswers": [
+      "Cricket",
+      "Field cricket"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_11",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which big cat makes this sound?",
+    "audioUrl": "/audio/animals/tiger.ogg",
+    "correctAnswer": "Tiger",
+    "acceptableAnswers": [
+      "Tiger",
+      "Bengal tiger",
+      "Siberian tiger"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_12",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which large African animal makes this sound?",
+    "audioUrl": "/audio/animals/rhinoceros.ogg",
+    "correctAnswer": "Rhinoceros",
+    "acceptableAnswers": [
+      "Rhinoceros",
+      "Rhino",
+      "White rhino",
+      "Black rhino"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_13",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which semi-aquatic African animal makes this sound?",
+    "audioUrl": "/audio/animals/hippo.ogg",
+    "correctAnswer": "Hippopotamus",
+    "acceptableAnswers": [
+      "Hippopotamus",
+      "Hippo"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_14",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which marine mammal makes this barking sound?",
+    "audioUrl": "/audio/animals/seal.ogg",
+    "correctAnswer": "Seal",
+    "acceptableAnswers": [
+      "Seal",
+      "Sea lion",
+      "Harbor seal"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_15",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which colourful bird makes this sound?",
+    "audioUrl": "/audio/animals/parrot.ogg",
+    "correctAnswer": "Parrot",
+    "acceptableAnswers": [
+      "Parrot",
+      "Macaw",
+      "African grey"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_16",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which bird known for its spectacular tail makes this sound?",
+    "audioUrl": "/audio/animals/peacock.ogg",
+    "correctAnswer": "Peacock",
+    "acceptableAnswers": [
+      "Peacock",
+      "Peafowl",
+      "Indian peafowl"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_17",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which hoofed forest animal makes this sound?",
+    "audioUrl": "/audio/animals/deer.ogg",
+    "correctAnswer": "Deer",
+    "acceptableAnswers": [
+      "Deer",
+      "Stag",
+      "Elk",
+      "Red deer"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_18",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which desert mammal makes this gurgling sound?",
+    "audioUrl": "/audio/animals/camel.ogg",
+    "correctAnswer": "Camel",
+    "acceptableAnswers": [
+      "Camel",
+      "Dromedary",
+      "Bactrian camel"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_19",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which nocturnal North American mammal makes this chattering sound?",
+    "audioUrl": "/audio/animals/raccoon.ogg",
+    "correctAnswer": "Raccoon",
+    "acceptableAnswers": [
+      "Raccoon"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_20",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Which small rodent makes this chittering sound?",
+    "audioUrl": "/audio/animals/squirrel.ogg",
+    "correctAnswer": "Squirrel",
+    "acceptableAnswers": [
+      "Squirrel",
+      "Gray squirrel",
+      "Red squirrel"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "ig_sci_1",
+    "type": "image_guess",
+    "category": "science",
+    "question": "What is this famous scientific model?",
+    "imageUrl": "/quiz-images/dna-double-helix.jpg",
+    "correctAnswer": "DNA Double Helix",
+    "acceptableAnswers": [
+      "dna",
+      "dna double helix",
+      "double helix"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "The DNA double helix structure was discovered by Watson and Crick in 1953, using X-ray diffraction data from Rosalind Franklin. It encodes the genetic information of all life on Earth."
+  },
+  {
+    "id": "ig_sci_2",
+    "type": "image_guess",
+    "category": "science",
+    "question": "What is this scientific instrument?",
+    "imageUrl": "/quiz-images/hubble-space-telescope.jpg",
+    "correctAnswer": "Hubble Space Telescope",
+    "acceptableAnswers": [
+      "hubble",
+      "hubble space telescope",
+      "hubble telescope"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "The Hubble Space Telescope, launched in 1990, orbits Earth at 570 km altitude and has captured some of the deepest images of the universe ever taken."
+  },
+  {
+    "id": "ig_sci_3",
+    "type": "image_guess",
+    "category": "science",
+    "question": "What planet is this?",
+    "imageUrl": "/quiz-images/saturn.jpg",
+    "correctAnswer": "Saturn",
+    "acceptableAnswers": [
+      "saturn"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Saturn is the sixth planet from the Sun and is famous for its spectacular ring system, composed mainly of ice and rock fragments. It is the second largest planet in our Solar System."
+  },
+  {
+    "id": "ig_sci_4",
+    "type": "image_guess",
+    "category": "science",
+    "question": "What cell type is shown here?",
+    "imageUrl": "/quiz-images/neuron.jpg",
+    "correctAnswer": "Neuron",
+    "acceptableAnswers": [
+      "neuron",
+      "nerve cell",
+      "brain cell"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Neurons are the fundamental units of the brain and nervous system. The human brain contains approximately 86 billion neurons connected by trillions of synapses."
+  },
+  {
+    "id": "ig_sci_5",
+    "type": "image_guess",
+    "category": "science",
+    "question": "What famous scientific formula is written here?",
+    "imageUrl": "/quiz-images/e-mc2.jpg",
+    "correctAnswer": "E=mc²",
+    "acceptableAnswers": [
+      "e=mc2",
+      "e=mc²",
+      "mass energy equivalence"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Einstein's mass-energy equivalence formula (E=mc²) from his 1905 Special Theory of Relativity shows that mass and energy are interchangeable, with c being the speed of light."
+  },
+  {
+    "id": "pr_sci_1",
+    "type": "pixel_reveal",
+    "category": "science",
+    "question": "Who is this scientist?",
+    "imageUrl": "/quiz-images/pixel/science-marie-curie.jpg",
+    "correctAnswer": "Marie Curie",
+    "acceptableAnswers": [
+      "marie curie",
+      "curie",
+      "maria sklodowska"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Marie Curie was a physicist and chemist who conducted pioneering research on radioactivity. She was the first woman to win a Nobel Prize and the only person to win Nobel Prizes in two sciences."
+  },
+  {
+    "id": "pr_sci_2",
+    "type": "pixel_reveal",
+    "category": "science",
+    "question": "Who is this scientist?",
+    "imageUrl": "/quiz-images/pixel/science-darwin.jpg",
+    "correctAnswer": "Charles Darwin",
+    "acceptableAnswers": [
+      "charles darwin",
+      "darwin"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Charles Darwin (1809–1882) developed the theory of evolution by natural selection, published in 'On the Origin of Species' in 1859."
+  }
 ]

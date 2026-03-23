@@ -1,50 +1,1208 @@
 [
-  { "id": "mc1",    "type": "multiple_choice", "category": "streaming", "question": "Quelle plateforme de streaming est connue pour son logo violet ?", "options": ["YouTube", "Twitch", "TikTok", "Instagram"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 15, "explanation": "Twitch utilise le violet comme couleur principale de sa marque." },
-  { "id": "str_mc1", "type": "multiple_choice", "category": "streaming", "question": "Quelle plateforme rémunère les streamers via des « Bits » et des abonnements ?", "options": ["YouTube", "Twitch", "TikTok", "Instagram"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 15, "explanation": "La monnaie virtuelle « Bits » de Twitch permet aux spectateurs d'encourager et de soutenir les streamers." },
-  { "id": "str_mc2", "type": "multiple_choice", "category": "streaming", "question": "En quelle année YouTube a-t-il été lancé ?", "options": ["2003", "2005", "2007", "2009"], "correctAnswer": 1, "difficulty": "medium", "timeLimit": 15, "explanation": "YouTube a été lancé le 14 février 2005 et racheté par Google en 2006." },
-  { "id": "str_mc3", "type": "multiple_choice", "category": "streaming", "question": "Quel streamer est associé à l'expression « KEKW » ?", "options": ["xQc", "Pokimane", "El Risitas (l'origine)", "Shroud"], "correctAnswer": 2, "difficulty": "hard", "timeLimit": 20, "explanation": "KEKW est un emote Twitch inspiré d'un clip viral du comédien espagnol Juan Joya Borja (El Risitas)." },
-  { "id": "str_mc4", "type": "multiple_choice", "category": "streaming", "question": "Que signifie « W » dans le jargon du streaming et du jeu vidéo ?", "options": ["Wrong (Faux)", "Win (Victoire)", "Wait (Attends)", "Wild (Fou)"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 12, "explanation": "« W » signifie Win (victoire) — « That was a W » veut dire que c'était un succès." },
-  { "id": "str_mc5", "type": "multiple_choice", "category": "streaming", "question": "Quelle entreprise possède Twitch ?", "options": ["Google", "Meta", "Amazon", "Microsoft"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "Amazon a racheté Twitch en 2014 pour environ 970 millions de dollars." },
-
-  { "id": "str_tf1", "type": "true_false", "category": "streaming", "question": "Twitch s'appelait à l'origine Justin.tv.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 12, "explanation": "Twitch a été créé à partir de Justin.tv en 2011, avant d'être racheté par Amazon en 2014." },
-  { "id": "str_tf2", "type": "true_false", "category": "streaming", "question": "La vidéo YouTube la plus vue de tous les temps est « Baby Shark ».", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 12, "explanation": "Baby Shark de Pinkfong dépasse les 13 milliards de vues — la vidéo la plus regardée de YouTube." },
-  { "id": "str_tf3", "type": "true_false", "category": "streaming", "question": "Le vrai nom de MrBeast est Jimmy Donaldson.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 12, "explanation": "MrBeast (Jimmy Donaldson) est né le 7 mai 1998 au Kansas, aux États-Unis." },
-  { "id": "str_tf4", "type": "true_false", "category": "streaming", "question": "Les vidéos YouTube Shorts peuvent durer jusqu'à 3 minutes.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 15, "explanation": "Les YouTube Shorts ont été prolongés de 60 secondes à 3 minutes maximum en octobre 2024." },
-  { "id": "str_tf5", "type": "true_false", "category": "streaming", "question": "Pokimane est la streameuse la plus suivie sur Twitch.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 15, "explanation": "Pokimane (Imane Anys) est la streameuse la plus suivie sur Twitch avec plus de 9 millions d'abonnés." },
-
-  { "id": "str_fb1", "type": "fill_blank", "category": "streaming", "question": "Sur Twitch, un streamer passe en direct en cliquant sur ___ Stream.", "correctAnswer": "Start", "difficulty": "easy", "timeLimit": 15, "explanation": "Les streamers Twitch cliquent sur « Start Stream » (ou l'équivalent dans leur logiciel de streaming) pour passer en direct." },
-  { "id": "str_fb2", "type": "fill_blank", "category": "streaming", "question": "Le message Twitch chat « ___GG » est utilisé pour féliciter quelqu'un.", "correctAnswer": "EZ", "acceptableAnswers": ["ez"], "difficulty": "medium", "timeLimit": 15, "explanation": "EZGG signifie « easy game, good game » — utilisé (parfois de manière ironique) après une victoire." },
-  { "id": "str_fb3", "type": "fill_blank", "category": "streaming", "question": "L'emote « Pog___ » sur Twitch exprime l'excitation ou l'émerveillement.", "correctAnswer": "Champ", "acceptableAnswers": ["Champ", "champ"], "difficulty": "medium", "timeLimit": 15, "explanation": "PogChamp est un emote Twitch qui exprime un émerveillement enthousiaste, à l'origine basé sur le streamer Ryan « Gootecks » Gutierrez." },
-  { "id": "str_fb4", "type": "fill_blank", "category": "streaming", "question": "Le logiciel de streaming OBS signifie Open ___ Studio.", "correctAnswer": "Broadcaster", "acceptableAnswers": ["broadcaster", "broadcast"], "difficulty": "hard", "timeLimit": 20, "explanation": "OBS (Open Broadcaster Software) est un outil de streaming et d'enregistrement gratuit et open source très utilisé par les streamers." },
-  { "id": "str_fb5", "type": "fill_blank", "category": "streaming", "question": "Sur YouTube, un ___ est quelqu'un qui s'abonne et active la cloche pour recevoir des notifications.", "correctAnswer": "subscriber", "acceptableAnswers": ["subscriber", "sub"], "difficulty": "easy", "timeLimit": 12, "explanation": "Les abonnés peuvent activer la cloche pour recevoir des notifications dès que leur créateur préféré publie une nouvelle vidéo." },
-
-  { "id": "cw2",   "type": "closest_wins", "category": "streaming", "question": "Combien d'abonnés MrBeast a-t-il sur YouTube ? (en millions)", "correctAnswer": 340, "unit": "million subscribers", "difficulty": "medium", "timeLimit": 20, "explanation": "MrBeast a atteint 340 millions d'abonnés, ce qui fait de lui le créateur individuel le plus abonné sur YouTube." },
-  { "id": "str_cw1", "type": "closest_wins", "category": "streaming", "question": "En quelle année Twitch a-t-il été fondé ?", "correctAnswer": 2011, "difficulty": "medium", "timeLimit": 15, "explanation": "Twitch a été lancé en juin 2011 en tant que déclinaison de Justin.tv." },
-  { "id": "str_cw2", "type": "closest_wins", "category": "streaming", "question": "En quelle année YouTube a-t-il été racheté par Google ?", "correctAnswer": 2006, "difficulty": "medium", "timeLimit": 15, "explanation": "Google a racheté YouTube en octobre 2006 pour 1,65 milliard de dollars en actions." },
-  { "id": "str_cw3", "type": "closest_wins", "category": "streaming", "question": "Combien d'heures de vidéo sont mises en ligne sur YouTube chaque minute, environ ?", "correctAnswer": 500, "unit": "hours per minute", "difficulty": "hard", "timeLimit": 20, "explanation": "Depuis 2022, plus de 500 heures de vidéo sont mises en ligne sur YouTube chaque minute." },
-  { "id": "str_cw4", "type": "closest_wins", "category": "streaming", "question": "En quelle année Amazon a-t-il racheté Twitch ?", "correctAnswer": 2014, "difficulty": "medium", "timeLimit": 15, "explanation": "Amazon a racheté Twitch en août 2014 pour environ 970 millions de dollars." },
-
-  { "id": "str_sb1", "type": "speed_buzz", "category": "streaming", "question": "Que signifie « IRL » dans le monde du streaming ?", "options": ["In Real Life (Dans la vraie vie)", "Interactive Real Lobby", "Internet Radio Live", "In-game Recording Link"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 10, "explanation": "IRL signifie « In Real Life » (dans la vraie vie) — les streams IRL montrent la vie réelle d'un streamer plutôt qu'une partie de jeu." },
-  { "id": "str_sb2", "type": "speed_buzz", "category": "streaming", "question": "Quel streamer est connu comme « le streamer le plus banni de Twitch » ?", "options": ["Ninja", "Shroud", "Dr Disrespect", "xQc"], "correctAnswer": 2, "difficulty": "hard", "timeLimit": 15, "explanation": "Dr Disrespect a été définitivement banni de Twitch en 2020 dans des circonstances jamais officiellement révélées." },
-  { "id": "str_sb3", "type": "speed_buzz", "category": "streaming", "question": "De quelle couleur est le bouton « S'abonner » sur YouTube ?", "options": ["Bleu", "Rouge", "Blanc", "Gris"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 10, "explanation": "Le bouton d'abonnement YouTube est rouge — bien qu'il devienne gris une fois que vous êtes abonné." },
-  { "id": "str_sb4", "type": "speed_buzz", "category": "streaming", "question": "Quel jeu a atteint le pic d'audience le plus élevé jamais enregistré sur Twitch ?", "options": ["Fortnite", "League of Legends", "Grand Theft Auto V", "Valorant"], "correctAnswer": 2, "difficulty": "hard", "timeLimit": 15, "explanation": "Grand Theft Auto V (en particulier les serveurs de jeu de rôle GTA) a établi des records d'audience sur Twitch début 2021." },
-  { "id": "str_sb5", "type": "speed_buzz", "category": "streaming", "question": "Que signifie « sub » dans la culture du streaming ?", "options": ["Joueur remplaçant", "Abonné qui paye chaque mois", "Sous-titre", "Sous-compte"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 12, "explanation": "Un « sub » est un abonné qui paie un abonnement mensuel pour soutenir son streamer préféré, en échange d'emotes exclusifs et d'avantages." },
-
-  { "id": "str_ft1", "type": "free_text", "category": "streaming", "question": "Quel est le nom de la chaîne YouTube la plus abonnée de tous les temps ?", "correctAnswer": "MrBeast", "acceptableAnswers": ["mrbeast", "mr beast"], "difficulty": "easy", "timeLimit": 12, "explanation": "MrBeast (Jimmy Donaldson) est le créateur individuel le plus abonné sur YouTube avec plus de 340 millions d'abonnés." },
-  { "id": "str_ft2", "type": "free_text", "category": "streaming", "question": "Quel logiciel de streaming la plupart des streamers Twitch utilisent-ils pour passer en direct ?", "correctAnswer": "OBS", "acceptableAnswers": ["obs", "obs studio", "open broadcaster software"], "difficulty": "medium", "timeLimit": 15, "explanation": "OBS (Open Broadcaster Software) est l'outil de streaming gratuit le plus utilisé par les streamers Twitch et YouTube." },
-  { "id": "str_ft3", "type": "free_text", "category": "streaming", "question": "Quel est le nom de la monnaie virtuelle de Twitch utilisée pour encourager les streamers ?", "correctAnswer": "Bits", "acceptableAnswers": ["bits", "bit"], "difficulty": "easy", "timeLimit": 12, "explanation": "Les Bits sont la monnaie virtuelle de Twitch — les spectateurs en achètent pour faire des « Cheers » dans le chat d'un streamer." },
-  { "id": "str_ft4", "type": "free_text", "category": "streaming", "question": "Quelle plateforme Ninja a-t-il rejointe en quittant Twitch en 2019 dans le cadre d'un accord exclusif majeur ?", "correctAnswer": "Mixer", "acceptableAnswers": ["mixer"], "difficulty": "hard", "timeLimit": 20, "explanation": "Ninja a signé un accord exclusif avec Mixer de Microsoft en 2019, mais Mixer a fermé ses portes en 2020." },
-  { "id": "str_ft5", "type": "free_text", "category": "streaming", "question": "Que signifie « VOD » dans le contexte du streaming ?", "correctAnswer": "Video on Demand", "acceptableAnswers": ["video on demand", "vod"], "difficulty": "medium", "timeLimit": 15, "explanation": "VOD (Video on Demand / Vidéo à la demande) désigne les rediffusions enregistrées de streams que les spectateurs peuvent regarder à tout moment après la diffusion en direct." },
-
-  { "id": "str_rk1", "type": "ranking", "category": "streaming", "question": "Classez ces plateformes de streaming par année de lancement (la plus ancienne en premier) :", "items": ["Twitch", "YouTube", "TikTok"], "correctOrder": [1, 0, 2], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "YouTube (2005) → Twitch (2011) → TikTok (2016)" },
-  { "id": "str_rk2", "type": "ranking", "category": "streaming", "question": "Classez ces créateurs YouTube par nombre d'abonnés (du moins abonné au plus abonné) :", "items": ["MrBeast", "PewDiePie", "T-Series"], "correctOrder": [1, 0, 2], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "PewDiePie (~110 M) → MrBeast (~340 M) → T-Series (~280 M) — Note : T-Series est une chaîne, pas un créateur individuel" },
-  { "id": "str_rk3", "type": "ranking", "category": "streaming", "question": "Classez ces événements du streaming dans l'ordre chronologique (le plus ancien en premier) :", "items": ["Amazon acquires Twitch", "YouTube launches", "Twitch launches"], "correctOrder": [1, 2, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Lancement de YouTube (2005) → Lancement de Twitch (2011) → Rachat de Twitch par Amazon (2014)" },
-  { "id": "str_rk4", "type": "ranking", "category": "streaming", "question": "Classez ces niveaux d'abonnement Twitch par prix (du moins cher au plus cher) :", "items": ["Tier 3 ($24.99)", "Tier 1 ($4.99)", "Tier 2 ($9.99)"], "correctOrder": [1, 2, 0], "difficulty": "easy", "timeLimit": 20, "allowPartialCredit": true, "explanation": "Tier 1 (4,99 $) → Tier 2 (9,99 $) → Tier 3 (24,99 $)" },
-  { "id": "str_rk5", "type": "ranking", "category": "streaming", "question": "Classez ces jeux selon leur pic d'audience simultanée sur Twitch (du moins regardé au plus regardé) :", "items": ["Fortnite (launch hype, 2018)", "GTA V roleplay (2021)", "League of Legends Worlds (2020)"], "correctOrder": [2, 0, 1], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "LoL Worlds 2020 → Fortnite 2018 → GTA V RP 2021 (qui a établi les records absolus d'audience sur Twitch)" },
-
-  { "id": "cc_str1", "type": "clue_chain", "category": "streaming", "question": "Qui suis-je ?", "clues": ["Je suis né en 1998 au Kansas et j'ai commencé à publier des vidéos YouTube à l'âge de 13 ans", "Mes vidéos mettent souvent en scène des défis extrêmes, des donations de millions de dollars et des actes de générosité envers des inconnus", "Je suis le créateur individuel le plus abonné sur YouTube avec plus de 300 millions d'abonnés", "Mon nom associe « Monsieur » à un animal sauvage"], "correctAnswer": "MrBeast", "acceptableAnswers": ["mrbeast", "mr beast", "jimmy donaldson"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_str2", "type": "clue_chain", "category": "streaming", "question": "Quelle plateforme suis-je ?", "clues": ["J'ai été fondée en 2011 comme déclinaison d'un site de diffusion généraliste appelé Justin.tv", "Je me concentre principalement sur la diffusion en direct, notamment de jeux vidéo et d'esport", "En 2014, Amazon m'a rachetée pour près d'un milliard de dollars", "Ma couleur de marque principale est le violet et ma monnaie s'appelle les « Bits »"], "correctAnswer": "Twitch", "acceptableAnswers": ["twitch", "twitch.tv"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_str3", "type": "clue_chain", "category": "streaming", "question": "Qui suis-je ?", "clues": ["Mon vrai nom est Felix Kjellberg et je suis né en Suède en 1989", "J'ai lancé ma chaîne YouTube en 2010 avec des vidéos de commentaires de jeux vidéo", "J'ai été le YouTubeur le plus abonné au monde pendant de nombreuses années avant d'être dépassé par T-Series", "Ma communauté de fans s'appelle la « Bro Army » et mon nom est une combinaison de « pew » et d'un mot désignant une poule qui couve"], "correctAnswer": "PewDiePie", "acceptableAnswers": ["pewdiepie", "pewds", "felix kjellberg"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_str4", "type": "clue_chain", "category": "streaming", "question": "Qui suis-je ?", "clues": ["Je suis une streameuse et créatrice de contenu née au Maroc en 1996", "Je suis devenue célèbre sur Twitch en jouant à des jeux comme Fortnite et League of Legends", "Je suis la streameuse la plus suivie sur Twitch", "Mon vrai nom est Imane Anys et mon pseudo rime avec « Jo-kameen »"], "correctAnswer": "Pokimane", "acceptableAnswers": ["pokimane"], "difficulty": "medium", "timeLimit": 60 },
-  { "id": "cc_str5", "type": "clue_chain", "category": "streaming", "question": "Qui suis-je ?", "clues": ["Je suis né en 1991 dans l'Illinois et j'ai commencé à streamer en 2011", "J'étais connu pour mes streams Fortnite et j'ai contribué à populariser le jeu en 2018", "En 2019, j'ai signé un accord exclusif majeur pour streamer sur Mixer de Microsoft", "Mes cheveux sont souvent teints en bleu et mon vrai nom est Tyler Blevins"], "correctAnswer": "Ninja", "acceptableAnswers": ["ninja", "tyler blevins"], "difficulty": "medium", "timeLimit": 60 }
+  {
+    "id": "mc1",
+    "type": "multiple_choice",
+    "category": "streaming",
+    "question": "Quelle plateforme de streaming est connue pour son logo violet ?",
+    "options": [
+      "YouTube",
+      "Twitch",
+      "TikTok",
+      "Instagram"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Twitch utilise le violet comme couleur principale de sa marque."
+  },
+  {
+    "id": "str_mc1",
+    "type": "multiple_choice",
+    "category": "streaming",
+    "question": "Quelle plateforme rémunère les streamers via des « Bits » et des abonnements ?",
+    "options": [
+      "YouTube",
+      "Twitch",
+      "TikTok",
+      "Instagram"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "La monnaie virtuelle « Bits » de Twitch permet aux spectateurs d'encourager et de soutenir les streamers."
+  },
+  {
+    "id": "str_mc2",
+    "type": "multiple_choice",
+    "category": "streaming",
+    "question": "En quelle année YouTube a-t-il été lancé ?",
+    "options": [
+      "2003",
+      "2005",
+      "2007",
+      "2009"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "YouTube a été lancé le 14 février 2005 et racheté par Google en 2006."
+  },
+  {
+    "id": "str_mc3",
+    "type": "multiple_choice",
+    "category": "streaming",
+    "question": "Quel streamer est associé à l'expression « KEKW » ?",
+    "options": [
+      "xQc",
+      "Pokimane",
+      "El Risitas (l'origine)",
+      "Shroud"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "KEKW est un emote Twitch inspiré d'un clip viral du comédien espagnol Juan Joya Borja (El Risitas)."
+  },
+  {
+    "id": "str_mc4",
+    "type": "multiple_choice",
+    "category": "streaming",
+    "question": "Que signifie « W » dans le jargon du streaming et du jeu vidéo ?",
+    "options": [
+      "Wrong (Faux)",
+      "Win (Victoire)",
+      "Wait (Attends)",
+      "Wild (Fou)"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "« W » signifie Win (victoire) — « That was a W » veut dire que c'était un succès."
+  },
+  {
+    "id": "str_mc5",
+    "type": "multiple_choice",
+    "category": "streaming",
+    "question": "Quelle entreprise possède Twitch ?",
+    "options": [
+      "Google",
+      "Meta",
+      "Amazon",
+      "Microsoft"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Amazon a racheté Twitch en 2014 pour environ 970 millions de dollars."
+  },
+  {
+    "id": "str_tf1",
+    "type": "true_false",
+    "category": "streaming",
+    "question": "Twitch s'appelait à l'origine Justin.tv.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Twitch a été créé à partir de Justin.tv en 2011, avant d'être racheté par Amazon en 2014."
+  },
+  {
+    "id": "str_tf2",
+    "type": "true_false",
+    "category": "streaming",
+    "question": "La vidéo YouTube la plus vue de tous les temps est « Baby Shark ».",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Baby Shark de Pinkfong dépasse les 13 milliards de vues — la vidéo la plus regardée de YouTube."
+  },
+  {
+    "id": "str_tf3",
+    "type": "true_false",
+    "category": "streaming",
+    "question": "Le vrai nom de MrBeast est Jimmy Donaldson.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "MrBeast (Jimmy Donaldson) est né le 7 mai 1998 au Kansas, aux États-Unis."
+  },
+  {
+    "id": "str_tf4",
+    "type": "true_false",
+    "category": "streaming",
+    "question": "Les vidéos YouTube Shorts peuvent durer jusqu'à 3 minutes.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Les YouTube Shorts ont été prolongés de 60 secondes à 3 minutes maximum en octobre 2024."
+  },
+  {
+    "id": "str_tf5",
+    "type": "true_false",
+    "category": "streaming",
+    "question": "Pokimane est la streameuse la plus suivie sur Twitch.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Pokimane (Imane Anys) est la streameuse la plus suivie sur Twitch avec plus de 9 millions d'abonnés."
+  },
+  {
+    "id": "str_fb1",
+    "type": "fill_blank",
+    "category": "streaming",
+    "question": "Sur Twitch, un streamer passe en direct en cliquant sur ___ Stream.",
+    "correctAnswer": "Start",
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Les streamers Twitch cliquent sur « Start Stream » (ou l'équivalent dans leur logiciel de streaming) pour passer en direct."
+  },
+  {
+    "id": "str_fb2",
+    "type": "fill_blank",
+    "category": "streaming",
+    "question": "Le message Twitch chat « ___GG » est utilisé pour féliciter quelqu'un.",
+    "correctAnswer": "EZ",
+    "acceptableAnswers": [
+      "ez"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "EZGG signifie « easy game, good game » — utilisé (parfois de manière ironique) après une victoire."
+  },
+  {
+    "id": "str_fb3",
+    "type": "fill_blank",
+    "category": "streaming",
+    "question": "L'emote « Pog___ » sur Twitch exprime l'excitation ou l'émerveillement.",
+    "correctAnswer": "Champ",
+    "acceptableAnswers": [
+      "Champ",
+      "champ"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "PogChamp est un emote Twitch qui exprime un émerveillement enthousiaste, à l'origine basé sur le streamer Ryan « Gootecks » Gutierrez."
+  },
+  {
+    "id": "str_fb4",
+    "type": "fill_blank",
+    "category": "streaming",
+    "question": "Le logiciel de streaming OBS signifie Open ___ Studio.",
+    "correctAnswer": "Broadcaster",
+    "acceptableAnswers": [
+      "broadcaster",
+      "broadcast"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "OBS (Open Broadcaster Software) est un outil de streaming et d'enregistrement gratuit et open source très utilisé par les streamers."
+  },
+  {
+    "id": "str_fb5",
+    "type": "fill_blank",
+    "category": "streaming",
+    "question": "Sur YouTube, un ___ est quelqu'un qui s'abonne et active la cloche pour recevoir des notifications.",
+    "correctAnswer": "subscriber",
+    "acceptableAnswers": [
+      "subscriber",
+      "sub"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Les abonnés peuvent activer la cloche pour recevoir des notifications dès que leur créateur préféré publie une nouvelle vidéo."
+  },
+  {
+    "id": "cw2",
+    "type": "closest_wins",
+    "category": "streaming",
+    "question": "Combien d'abonnés MrBeast a-t-il sur YouTube ? (en millions)",
+    "correctAnswer": 340,
+    "unit": "million subscribers",
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "MrBeast a atteint 340 millions d'abonnés, ce qui fait de lui le créateur individuel le plus abonné sur YouTube."
+  },
+  {
+    "id": "str_cw1",
+    "type": "closest_wins",
+    "category": "streaming",
+    "question": "En quelle année Twitch a-t-il été fondé ?",
+    "correctAnswer": 2011,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Twitch a été lancé en juin 2011 en tant que déclinaison de Justin.tv."
+  },
+  {
+    "id": "str_cw2",
+    "type": "closest_wins",
+    "category": "streaming",
+    "question": "En quelle année YouTube a-t-il été racheté par Google ?",
+    "correctAnswer": 2006,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Google a racheté YouTube en octobre 2006 pour 1,65 milliard de dollars en actions."
+  },
+  {
+    "id": "str_cw3",
+    "type": "closest_wins",
+    "category": "streaming",
+    "question": "Combien d'heures de vidéo sont mises en ligne sur YouTube chaque minute, environ ?",
+    "correctAnswer": 500,
+    "unit": "hours per minute",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Depuis 2022, plus de 500 heures de vidéo sont mises en ligne sur YouTube chaque minute."
+  },
+  {
+    "id": "str_cw4",
+    "type": "closest_wins",
+    "category": "streaming",
+    "question": "En quelle année Amazon a-t-il racheté Twitch ?",
+    "correctAnswer": 2014,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Amazon a racheté Twitch en août 2014 pour environ 970 millions de dollars."
+  },
+  {
+    "id": "str_sb1",
+    "type": "speed_buzz",
+    "category": "streaming",
+    "question": "Que signifie « IRL » dans le monde du streaming ?",
+    "options": [
+      "In Real Life (Dans la vraie vie)",
+      "Interactive Real Lobby",
+      "Internet Radio Live",
+      "In-game Recording Link"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "IRL signifie « In Real Life » (dans la vraie vie) — les streams IRL montrent la vie réelle d'un streamer plutôt qu'une partie de jeu."
+  },
+  {
+    "id": "str_sb2",
+    "type": "speed_buzz",
+    "category": "streaming",
+    "question": "Quel streamer est connu comme « le streamer le plus banni de Twitch » ?",
+    "options": [
+      "Ninja",
+      "Shroud",
+      "Dr Disrespect",
+      "xQc"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "Dr Disrespect a été définitivement banni de Twitch en 2020 dans des circonstances jamais officiellement révélées."
+  },
+  {
+    "id": "str_sb3",
+    "type": "speed_buzz",
+    "category": "streaming",
+    "question": "De quelle couleur est le bouton « S'abonner » sur YouTube ?",
+    "options": [
+      "Bleu",
+      "Rouge",
+      "Blanc",
+      "Gris"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Le bouton d'abonnement YouTube est rouge — bien qu'il devienne gris une fois que vous êtes abonné."
+  },
+  {
+    "id": "str_sb4",
+    "type": "speed_buzz",
+    "category": "streaming",
+    "question": "Quel jeu a atteint le pic d'audience le plus élevé jamais enregistré sur Twitch ?",
+    "options": [
+      "Fortnite",
+      "League of Legends",
+      "Grand Theft Auto V",
+      "Valorant"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "Grand Theft Auto V (en particulier les serveurs de jeu de rôle GTA) a établi des records d'audience sur Twitch début 2021."
+  },
+  {
+    "id": "str_sb5",
+    "type": "speed_buzz",
+    "category": "streaming",
+    "question": "Que signifie « sub » dans la culture du streaming ?",
+    "options": [
+      "Joueur remplaçant",
+      "Abonné qui paye chaque mois",
+      "Sous-titre",
+      "Sous-compte"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Un « sub » est un abonné qui paie un abonnement mensuel pour soutenir son streamer préféré, en échange d'emotes exclusifs et d'avantages."
+  },
+  {
+    "id": "str_ft1",
+    "type": "free_text",
+    "category": "streaming",
+    "question": "Quel est le nom de la chaîne YouTube la plus abonnée de tous les temps ?",
+    "correctAnswer": "MrBeast",
+    "acceptableAnswers": [
+      "mrbeast",
+      "mr beast"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "MrBeast (Jimmy Donaldson) est le créateur individuel le plus abonné sur YouTube avec plus de 340 millions d'abonnés."
+  },
+  {
+    "id": "str_ft2",
+    "type": "free_text",
+    "category": "streaming",
+    "question": "Quel logiciel de streaming la plupart des streamers Twitch utilisent-ils pour passer en direct ?",
+    "correctAnswer": "OBS",
+    "acceptableAnswers": [
+      "obs",
+      "obs studio",
+      "open broadcaster software"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "OBS (Open Broadcaster Software) est l'outil de streaming gratuit le plus utilisé par les streamers Twitch et YouTube."
+  },
+  {
+    "id": "str_ft3",
+    "type": "free_text",
+    "category": "streaming",
+    "question": "Quel est le nom de la monnaie virtuelle de Twitch utilisée pour encourager les streamers ?",
+    "correctAnswer": "Bits",
+    "acceptableAnswers": [
+      "bits",
+      "bit"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Les Bits sont la monnaie virtuelle de Twitch — les spectateurs en achètent pour faire des « Cheers » dans le chat d'un streamer."
+  },
+  {
+    "id": "str_ft4",
+    "type": "free_text",
+    "category": "streaming",
+    "question": "Quelle plateforme Ninja a-t-il rejointe en quittant Twitch en 2019 dans le cadre d'un accord exclusif majeur ?",
+    "correctAnswer": "Mixer",
+    "acceptableAnswers": [
+      "mixer"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Ninja a signé un accord exclusif avec Mixer de Microsoft en 2019, mais Mixer a fermé ses portes en 2020."
+  },
+  {
+    "id": "str_ft5",
+    "type": "free_text",
+    "category": "streaming",
+    "question": "Que signifie « VOD » dans le contexte du streaming ?",
+    "correctAnswer": "Video on Demand",
+    "acceptableAnswers": [
+      "video on demand",
+      "vod"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "VOD (Video on Demand / Vidéo à la demande) désigne les rediffusions enregistrées de streams que les spectateurs peuvent regarder à tout moment après la diffusion en direct."
+  },
+  {
+    "id": "str_rk1",
+    "type": "ranking",
+    "category": "streaming",
+    "question": "Classez ces plateformes de streaming par année de lancement (la plus ancienne en premier) :",
+    "items": [
+      "Twitch",
+      "YouTube",
+      "TikTok"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "YouTube (2005) → Twitch (2011) → TikTok (2016)"
+  },
+  {
+    "id": "str_rk2",
+    "type": "ranking",
+    "category": "streaming",
+    "question": "Classez ces créateurs YouTube par nombre d'abonnés (du moins abonné au plus abonné) :",
+    "items": [
+      "MrBeast",
+      "PewDiePie",
+      "T-Series"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "PewDiePie (~110 M) → MrBeast (~340 M) → T-Series (~280 M) — Note : T-Series est une chaîne, pas un créateur individuel"
+  },
+  {
+    "id": "str_rk3",
+    "type": "ranking",
+    "category": "streaming",
+    "question": "Classez ces événements du streaming dans l'ordre chronologique (le plus ancien en premier) :",
+    "items": [
+      "Amazon acquires Twitch",
+      "YouTube launches",
+      "Twitch launches"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Lancement de YouTube (2005) → Lancement de Twitch (2011) → Rachat de Twitch par Amazon (2014)"
+  },
+  {
+    "id": "str_rk4",
+    "type": "ranking",
+    "category": "streaming",
+    "question": "Classez ces niveaux d'abonnement Twitch par prix (du moins cher au plus cher) :",
+    "items": [
+      "Tier 3 ($24.99)",
+      "Tier 1 ($4.99)",
+      "Tier 2 ($9.99)"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "allowPartialCredit": true,
+    "explanation": "Tier 1 (4,99 $) → Tier 2 (9,99 $) → Tier 3 (24,99 $)"
+  },
+  {
+    "id": "str_rk5",
+    "type": "ranking",
+    "category": "streaming",
+    "question": "Classez ces jeux selon leur pic d'audience simultanée sur Twitch (du moins regardé au plus regardé) :",
+    "items": [
+      "Fortnite (launch hype, 2018)",
+      "GTA V roleplay (2021)",
+      "League of Legends Worlds (2020)"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      1
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "LoL Worlds 2020 → Fortnite 2018 → GTA V RP 2021 (qui a établi les records absolus d'audience sur Twitch)"
+  },
+  {
+    "id": "cc_str1",
+    "type": "clue_chain",
+    "category": "streaming",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis né en 1998 au Kansas et j'ai commencé à publier des vidéos YouTube à l'âge de 13 ans",
+      "Mes vidéos mettent souvent en scène des défis extrêmes, des donations de millions de dollars et des actes de générosité envers des inconnus",
+      "Je suis le créateur individuel le plus abonné sur YouTube avec plus de 300 millions d'abonnés",
+      "Mon nom associe « Monsieur » à un animal sauvage"
+    ],
+    "correctAnswer": "MrBeast",
+    "acceptableAnswers": [
+      "mrbeast",
+      "mr beast",
+      "jimmy donaldson"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_str2",
+    "type": "clue_chain",
+    "category": "streaming",
+    "question": "Quelle plateforme suis-je ?",
+    "clues": [
+      "J'ai été fondée en 2011 comme déclinaison d'un site de diffusion généraliste appelé Justin.tv",
+      "Je me concentre principalement sur la diffusion en direct, notamment de jeux vidéo et d'esport",
+      "En 2014, Amazon m'a rachetée pour près d'un milliard de dollars",
+      "Ma couleur de marque principale est le violet et ma monnaie s'appelle les « Bits »"
+    ],
+    "correctAnswer": "Twitch",
+    "acceptableAnswers": [
+      "twitch",
+      "twitch.tv"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_str3",
+    "type": "clue_chain",
+    "category": "streaming",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Mon vrai nom est Felix Kjellberg et je suis né en Suède en 1989",
+      "J'ai lancé ma chaîne YouTube en 2010 avec des vidéos de commentaires de jeux vidéo",
+      "J'ai été le YouTubeur le plus abonné au monde pendant de nombreuses années avant d'être dépassé par T-Series",
+      "Ma communauté de fans s'appelle la « Bro Army » et mon nom est une combinaison de « pew » et d'un mot désignant une poule qui couve"
+    ],
+    "correctAnswer": "PewDiePie",
+    "acceptableAnswers": [
+      "pewdiepie",
+      "pewds",
+      "felix kjellberg"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_str4",
+    "type": "clue_chain",
+    "category": "streaming",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis une streameuse et créatrice de contenu née au Maroc en 1996",
+      "Je suis devenue célèbre sur Twitch en jouant à des jeux comme Fortnite et League of Legends",
+      "Je suis la streameuse la plus suivie sur Twitch",
+      "Mon vrai nom est Imane Anys et mon pseudo rime avec « Jo-kameen »"
+    ],
+    "correctAnswer": "Pokimane",
+    "acceptableAnswers": [
+      "pokimane"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_str5",
+    "type": "clue_chain",
+    "category": "streaming",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis né en 1991 dans l'Illinois et j'ai commencé à streamer en 2011",
+      "J'étais connu pour mes streams Fortnite et j'ai contribué à populariser le jeu en 2018",
+      "En 2019, j'ai signé un accord exclusif majeur pour streamer sur Mixer de Microsoft",
+      "Mes cheveux sont souvent teints en bleu et mon vrai nom est Tyler Blevins"
+    ],
+    "correctAnswer": "Ninja",
+    "acceptableAnswers": [
+      "ninja",
+      "tyler blevins"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "mg_str_1",
+    "type": "music_guess",
+    "category": "streaming",
+    "question": "Nommez ce générique de série TV",
+    "deezerQuery": "ill be there for you rembrandts friends theme",
+    "correctAnswer": "I'll Be There for You",
+    "acceptableAnswers": [],
+    "artist": "The Rembrandts",
+    "songTitle": "I'll Be There for You (Friends Theme)",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_str_2",
+    "type": "music_guess",
+    "category": "streaming",
+    "question": "Nommez ce générique de série TV",
+    "deezerQuery": "game of thrones main title ramin djawadi",
+    "correctAnswer": "Game of Thrones Theme",
+    "acceptableAnswers": [],
+    "artist": "Ramin Djawadi",
+    "songTitle": "Game of Thrones Main Title",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_str_3",
+    "type": "music_guess",
+    "category": "streaming",
+    "question": "Nommez le thème de cette série Netflix",
+    "deezerQuery": "stranger things theme kyle dixon michael stein",
+    "correctAnswer": "Stranger Things Theme",
+    "acceptableAnswers": [],
+    "artist": "Kyle Dixon & Michael Stein",
+    "songTitle": "Stranger Things Main Theme",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_str_4",
+    "type": "music_guess",
+    "category": "streaming",
+    "question": "Nommez le thème de cette série HBO",
+    "deezerQuery": "succession theme nicholas britell",
+    "correctAnswer": "Succession Theme",
+    "acceptableAnswers": [],
+    "artist": "Nicholas Britell",
+    "songTitle": "Succession Main Title",
+    "difficulty": "medium",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_str_5",
+    "type": "music_guess",
+    "category": "streaming",
+    "question": "Nommez cette chanson associée à une célèbre série TV",
+    "deezerQuery": "red right hand nick cave bad seeds",
+    "correctAnswer": "Red Right Hand",
+    "acceptableAnswers": [],
+    "artist": "Nick Cave & The Bad Seeds",
+    "songTitle": "Red Right Hand",
+    "difficulty": "medium",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_str_6",
+    "type": "music_guess",
+    "category": "streaming",
+    "question": "Nommez ce générique classique de série TV",
+    "deezerQuery": "addams family theme vic mizzy",
+    "correctAnswer": "The Addams Family Theme",
+    "acceptableAnswers": [],
+    "artist": "Vic Mizzy",
+    "songTitle": "The Addams Family Theme",
+    "difficulty": "medium",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_str_7",
+    "type": "music_guess",
+    "category": "streaming",
+    "question": "Nommez le thème de cette série Netflix",
+    "deezerQuery": "squid game pink soldiers jung jaeil",
+    "correctAnswer": "Pink Soldiers",
+    "acceptableAnswers": [],
+    "artist": "Jung Jaeil",
+    "songTitle": "Pink Soldiers (Squid Game)",
+    "difficulty": "medium",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_str_8",
+    "type": "music_guess",
+    "category": "streaming",
+    "question": "Nommez ce générique de série TV",
+    "deezerQuery": "breaking bad theme dave porter",
+    "correctAnswer": "Breaking Bad Theme",
+    "acceptableAnswers": [],
+    "artist": "Dave Porter",
+    "songTitle": "Breaking Bad Main Title Theme",
+    "difficulty": "medium",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_str_9",
+    "type": "music_guess",
+    "category": "streaming",
+    "question": "Nommez le thème de cette série Apple TV+",
+    "deezerQuery": "ted lasso theme",
+    "correctAnswer": "Ted Lasso Theme",
+    "acceptableAnswers": [],
+    "artist": "Tom Howe",
+    "songTitle": "Ted Lasso Main Title Theme",
+    "difficulty": "hard",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_str_10",
+    "type": "music_guess",
+    "category": "streaming",
+    "question": "Nommez ce générique de série HBO",
+    "deezerQuery": "the wire theme way down in the hole the blind boys",
+    "correctAnswer": "Way Down in the Hole",
+    "acceptableAnswers": [],
+    "artist": "The Blind Boys of Alabama",
+    "songTitle": "Way Down in the Hole (The Wire Theme)",
+    "difficulty": "hard",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_str_11",
+    "type": "music_guess",
+    "category": "streaming",
+    "question": "Nommez ce générique de série TV",
+    "deezerQuery": "better call saul theme little barrie",
+    "correctAnswer": "Better Call Saul Theme",
+    "acceptableAnswers": [],
+    "artist": "Little Barrie",
+    "songTitle": "Better Call Saul Theme",
+    "difficulty": "medium",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_str_12",
+    "type": "music_guess",
+    "category": "streaming",
+    "question": "Nommez ce générique de série HBO",
+    "deezerQuery": "the sopranos theme woke up this morning alabama 3",
+    "correctAnswer": "Woke Up This Morning",
+    "acceptableAnswers": [],
+    "artist": "Alabama 3",
+    "songTitle": "Woke Up This Morning (Sopranos Theme)",
+    "difficulty": "medium",
+    "timeLimit": 25
+  },
+  {
+    "id": "ig_str_1",
+    "type": "image_guess",
+    "category": "streaming",
+    "question": "De quelle série TV est tirée cette scène ?",
+    "imageUrl": "/quiz-images/breaking-bad-scene.jpg",
+    "correctAnswer": "Breaking Bad",
+    "acceptableAnswers": [
+      "breaking bad"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Breaking Bad (AMC, 2008–2013) suit la transformation du professeur de chimie Walter White en baron de la méthamphétamine 'Heisenberg'. Elle est largement considérée comme l'une des meilleures séries dramatiques jamais réalisées."
+  },
+  {
+    "id": "ig_str_2",
+    "type": "image_guess",
+    "category": "streaming",
+    "question": "De quelle série TV est tirée cette scène ?",
+    "imageUrl": "/quiz-images/game-of-thrones-scene.jpg",
+    "correctAnswer": "Game of Thrones",
+    "acceptableAnswers": [
+      "game of thrones",
+      "got"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Game of Thrones (HBO, 2011–2019) est basé sur les romans 'Le Trône de Fer' de George R.R. Martin et est devenu un phénomène culturel mondial."
+  },
+  {
+    "id": "ig_str_3",
+    "type": "image_guess",
+    "category": "streaming",
+    "question": "De quelle série Netflix est-ce ?",
+    "imageUrl": "/quiz-images/stranger-things-scene.jpg",
+    "correctAnswer": "Stranger Things",
+    "acceptableAnswers": [
+      "stranger things"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Stranger Things (Netflix, 2016–) se déroule dans les années 1980 et suit un groupe d'enfants qui rencontrent des forces surnaturelles dans leur petite ville de Hawkins, Indiana."
+  },
+  {
+    "id": "ig_str_4",
+    "type": "image_guess",
+    "category": "streaming",
+    "question": "De quelle série TV est-ce ?",
+    "imageUrl": "/quiz-images/the-office-scene.jpg",
+    "correctAnswer": "The Office",
+    "acceptableAnswers": [
+      "the office",
+      "the office us"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "The Office (NBC, 2005–2013) est une sitcom en style documentaire qui se déroule dans la succursale de Scranton de la société Dunder Mifflin."
+  },
+  {
+    "id": "ig_str_5",
+    "type": "image_guess",
+    "category": "streaming",
+    "question": "De quelle série Netflix est-ce ?",
+    "imageUrl": "/quiz-images/squid-game-scene.jpg",
+    "correctAnswer": "Squid Game",
+    "acceptableAnswers": [
+      "squid game"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Squid Game (Netflix, 2021) est un drame de survie sud-coréen qui est devenu la série la plus regardée de Netflix de tous les temps au cours de son premier mois."
+  },
+  {
+    "id": "ig_str_6",
+    "type": "image_guess",
+    "category": "streaming",
+    "question": "De quelle série TV est-ce ?",
+    "imageUrl": "/quiz-images/friends-scene.jpg",
+    "correctAnswer": "Friends",
+    "acceptableAnswers": [
+      "friends"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Friends (NBC, 1994–2004) a duré 10 saisons et suivait six amis vivant à New York. C'est l'une des sitcoms les plus regardées et aimées de tous les temps."
+  },
+  {
+    "id": "ig_str_7",
+    "type": "image_guess",
+    "category": "streaming",
+    "question": "De quelle série TV est-ce ?",
+    "imageUrl": "/quiz-images/the-crown-scene.jpg",
+    "correctAnswer": "The Crown",
+    "acceptableAnswers": [
+      "the crown"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "The Crown (Netflix, 2016–2023) met en scène le règne de la reine Élisabeth II sur six saisons, produit pour plus de 260 millions de dollars — la série TV la plus chère jamais réalisée à l'époque."
+  },
+  {
+    "id": "ig_str_8",
+    "type": "image_guess",
+    "category": "streaming",
+    "question": "De quelle série TV est-ce ?",
+    "imageUrl": "/quiz-images/chernobyl-scene.jpg",
+    "correctAnswer": "Chernobyl",
+    "acceptableAnswers": [
+      "chernobyl"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Tchernobyl (HBO, 2019) met en scène la catastrophe nucléaire de 1986 et sa dissimulation. Il est noté 9,4/10 sur IMDb, l'une des séries TV les mieux notées de tous les temps."
+  },
+  {
+    "id": "ig_str_9",
+    "type": "image_guess",
+    "category": "streaming",
+    "question": "De quelle série Netflix est-ce ?",
+    "imageUrl": "/quiz-images/wednesday-scene.jpg",
+    "correctAnswer": "Wednesday",
+    "acceptableAnswers": [
+      "wednesday",
+      "wednesday addams"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Wednesday (Netflix, 2022) suit Mercredi Addams à l'Académie Nevermore. Réalisée par Tim Burton, la série a battu plusieurs records d'audience Netflix."
+  },
+  {
+    "id": "ig_str_10",
+    "type": "image_guess",
+    "category": "streaming",
+    "question": "De quelle série TV est-ce ?",
+    "imageUrl": "/quiz-images/succession-scene.jpg",
+    "correctAnswer": "Succession",
+    "acceptableAnswers": [
+      "succession"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Succession (HBO, 2018–2023) suit la bataille de la famille Roy pour le contrôle de leur empire médiatique. La série a remporté l'Emmy du Meilleur Drame quatre fois."
+  },
+  {
+    "id": "pr_str_1",
+    "type": "pixel_reveal",
+    "category": "streaming",
+    "question": "Qui joue ce personnage TV iconique ?",
+    "imageUrl": "/quiz-images/pixel/streaming-walter-white.jpg",
+    "correctAnswer": "Bryan Cranston",
+    "acceptableAnswers": [
+      "bryan cranston",
+      "cranston",
+      "walter white"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Bryan Cranston joue Walter White dans Breaking Bad. Sa transformation d'un professeur de chimie ordinaire en baron de la drogue est considérée comme l'une des plus grandes performances d'acteur de l'histoire de la télévision."
+  },
+  {
+    "id": "pr_str_2",
+    "type": "pixel_reveal",
+    "category": "streaming",
+    "question": "Qui est cette actrice TV ?",
+    "imageUrl": "/quiz-images/pixel/streaming-jennifer-aniston.jpg",
+    "correctAnswer": "Jennifer Aniston",
+    "acceptableAnswers": [
+      "jennifer aniston",
+      "aniston",
+      "rachel green"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Jennifer Aniston est surtout connue pour avoir joué Rachel Green dans Friends (1994–2004). Sa coiffure dans les premières saisons de la série est devenue l'une des coupes les plus copiées de l'histoire."
+  },
+  {
+    "id": "pr_str_3",
+    "type": "pixel_reveal",
+    "category": "streaming",
+    "question": "Qui est cet acteur TV ?",
+    "imageUrl": "/quiz-images/pixel/streaming-emilia-clarke.jpg",
+    "correctAnswer": "Emilia Clarke",
+    "acceptableAnswers": [
+      "emilia clarke",
+      "clarke",
+      "daenerys"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Emilia Clarke a joué Daenerys Targaryen dans Game of Thrones (2011–2019), l'un des personnages les plus complexes et appréciés de l'histoire de la télévision."
+  },
+  {
+    "id": "pr_str_4",
+    "type": "pixel_reveal",
+    "category": "streaming",
+    "question": "Qui joue ce personnage ?",
+    "imageUrl": "/quiz-images/pixel/streaming-jon-hamm.jpg",
+    "correctAnswer": "Jon Hamm",
+    "acceptableAnswers": [
+      "jon hamm",
+      "hamm",
+      "don draper"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Jon Hamm a joué Don Draper dans Mad Men (AMC, 2007–2015), un directeur publicitaire mystérieux dans le New York des années 1960. La série a remporté 16 Emmy Awards."
+  },
+  {
+    "id": "pr_str_5",
+    "type": "pixel_reveal",
+    "category": "streaming",
+    "question": "Qui est cette actrice TV ?",
+    "imageUrl": "/quiz-images/pixel/streaming-sarah-jessica-parker.jpg",
+    "correctAnswer": "Sarah Jessica Parker",
+    "acceptableAnswers": [
+      "sarah jessica parker",
+      "sjp",
+      "carrie bradshaw"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Sarah Jessica Parker a joué Carrie Bradshaw dans Sex and the City (HBO, 1998–2004), une chroniqueuse mode naviguant entre amour et vie à New York."
+  },
+  {
+    "id": "pr_str_6",
+    "type": "pixel_reveal",
+    "category": "streaming",
+    "question": "Qui est cet acteur TV ?",
+    "imageUrl": "/quiz-images/pixel/streaming-kit-harington.jpg",
+    "correctAnswer": "Kit Harington",
+    "acceptableAnswers": [
+      "kit harington",
+      "harington",
+      "jon snow"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Kit Harington a joué Jon Snow dans Game of Thrones (2011–2019). Jon Snow était au centre des moments les plus iconiques de la série, notamment 'Tu ne sais rien, Jon Snow'."
+  },
+  {
+    "id": "pr_str_7",
+    "type": "pixel_reveal",
+    "category": "streaming",
+    "question": "Qui est cette actrice TV ?",
+    "imageUrl": "/quiz-images/pixel/streaming-zendaya.jpg",
+    "correctAnswer": "Zendaya",
+    "acceptableAnswers": [
+      "zendaya",
+      "rue bennett"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Zendaya joue Rue Bennett dans Euphoria (HBO, 2019–). Elle est devenue la plus jeune personne à remporter l'Emmy de la Meilleure Actrice Principale dans une série dramatique en 2020."
+  },
+  {
+    "id": "pr_str_8",
+    "type": "pixel_reveal",
+    "category": "streaming",
+    "question": "Qui joue ce personnage TV ?",
+    "imageUrl": "/quiz-images/pixel/streaming-pedro-pascal.jpg",
+    "correctAnswer": "Pedro Pascal",
+    "acceptableAnswers": [
+      "pedro pascal",
+      "pascal"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Pedro Pascal est connu pour The Mandalorian (Disney+), The Last of Us (HBO) et Narcos. Il est devenu l'un des acteurs TV les plus demandés de sa génération."
+  },
+  {
+    "id": "pr_str_9",
+    "type": "pixel_reveal",
+    "category": "streaming",
+    "question": "Qui est cette actrice TV ?",
+    "imageUrl": "/quiz-images/pixel/streaming-jenna-ortega.jpg",
+    "correctAnswer": "Jenna Ortega",
+    "acceptableAnswers": [
+      "jenna ortega",
+      "ortega",
+      "wednesday addams"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Jenna Ortega joue Mercredi Addams dans Wednesday de Netflix (2022). Sa scène de danse virale dans la série est devenue l'un des TikToks les plus vus de 2022."
+  },
+  {
+    "id": "pr_str_10",
+    "type": "pixel_reveal",
+    "category": "streaming",
+    "question": "Qui est cet acteur TV ?",
+    "imageUrl": "/quiz-images/pixel/streaming-david-harbour.jpg",
+    "correctAnswer": "David Harbour",
+    "acceptableAnswers": [
+      "david harbour",
+      "harbour",
+      "jim hopper"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "David Harbour joue Jim Hopper, le Chef de la Police de Hawkins, dans Stranger Things (Netflix, 2016–). Il joue également Red Guardian dans le MCU."
+  },
+  {
+    "id": "as_str_1",
+    "type": "animal_sound",
+    "category": "streaming",
+    "question": "Quel oiseau, animal de l'ère du streaming, émet ce son ?",
+    "audioUrl": "/audio/animals/goose.ogg",
+    "correctAnswer": "Goose",
+    "acceptableAnswers": [
+      "Goose",
+      "Canada goose",
+      "Greylag goose"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_str_2",
+    "type": "animal_sound",
+    "category": "streaming",
+    "question": "Quel oiseau de basse-cour émet ce gloussement ?",
+    "audioUrl": "/audio/animals/chicken.ogg",
+    "correctAnswer": "Chicken",
+    "acceptableAnswers": [
+      "Chicken",
+      "Hen",
+      "Rooster"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_str_3",
+    "type": "animal_sound",
+    "category": "streaming",
+    "question": "Quel petit mammifère poilu émet ce son ?",
+    "audioUrl": "/audio/animals/ferret.ogg",
+    "correctAnswer": "Ferret",
+    "acceptableAnswers": [
+      "Ferret"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_str_4",
+    "type": "animal_sound",
+    "category": "streaming",
+    "question": "Quel animal duveteux émet ce son ?",
+    "audioUrl": "/audio/animals/rabbit.ogg",
+    "correctAnswer": "Rabbit",
+    "acceptableAnswers": [
+      "Rabbit",
+      "Hare",
+      "Bunny"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_str_5",
+    "type": "animal_sound",
+    "category": "streaming",
+    "question": "Quel petit rongeur émet ce couinement ?",
+    "audioUrl": "/audio/animals/hamster.ogg",
+    "correctAnswer": "Hamster",
+    "acceptableAnswers": [
+      "Hamster"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_str_6",
+    "type": "animal_sound",
+    "category": "streaming",
+    "question": "Quel mammifère semi-aquatique émet ce son ?",
+    "audioUrl": "/audio/animals/otter.ogg",
+    "correctAnswer": "Otter",
+    "acceptableAnswers": [
+      "Otter",
+      "Sea otter",
+      "River otter"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_str_7",
+    "type": "animal_sound",
+    "category": "streaming",
+    "question": "Quel marsupial australien émet ce son ?",
+    "audioUrl": "/audio/animals/kangaroo.ogg",
+    "correctAnswer": "Kangaroo",
+    "acceptableAnswers": [
+      "Kangaroo",
+      "Red kangaroo"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  }
 ]

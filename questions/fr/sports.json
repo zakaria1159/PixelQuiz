@@ -1,50 +1,1223 @@
 [
-  { "id": "mc2",    "type": "multiple_choice", "category": "sports", "question": "Quel pays a remporté le plus de Coupes du monde de la FIFA ?", "options": ["Allemagne", "Argentine", "Brésil", "France"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "Le Brésil a remporté la Coupe du monde de la FIFA 5 fois (1958, 1962, 1970, 1994, 2002)." },
-  { "id": "sp_mc1", "type": "multiple_choice", "category": "sports", "question": "Quel athlète a remporté le plus de médailles d'or olympiques de tous les temps ?", "options": ["Usain Bolt", "Michael Phelps", "Carl Lewis", "Simone Biles"], "correctAnswer": 1, "difficulty": "medium", "timeLimit": 20, "explanation": "Michael Phelps a remporté 23 médailles d'or olympiques lors de quatre Jeux olympiques." },
-  { "id": "sp_mc2", "type": "multiple_choice", "category": "sports", "question": "À quel sport est associé le Super Bowl ?", "options": ["Basketball", "Baseball", "Football américain", "Hockey sur glace"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 10, "explanation": "Le Super Bowl est le match de championnat de la NFL." },
-  { "id": "sp_mc3", "type": "multiple_choice", "category": "sports", "question": "Dans quelle ville se sont déroulés les premiers Jeux olympiques modernes en 1896 ?", "options": ["Rome", "Paris", "Athènes", "Londres"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "Les premiers Jeux olympiques modernes ont eu lieu à Athènes, en Grèce, en 1896." },
-  { "id": "sp_mc4", "type": "multiple_choice", "category": "sports", "question": "Quel joueur a remporté le plus de titres du Grand Chelem en tennis ?", "options": ["Roger Federer", "Rafael Nadal", "Novak Djokovic", "Pete Sampras"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 20, "explanation": "Novak Djokovic mène avec 24 titres du Grand Chelem." },
-  { "id": "sp_mc5", "type": "multiple_choice", "category": "sports", "question": "Quel est le score maximum en un seul cadre au bowling ?", "options": ["250", "300", "150", "200"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 15, "explanation": "Un jeu parfait au bowling vaut 300 points — 12 strikes consécutifs." },
-
-  { "id": "sp_tf1", "type": "true_false", "category": "sports", "question": "Lionel Messi a remporté la Coupe du monde de la FIFA.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 12, "explanation": "L'Argentine a remporté la Coupe du monde 2022 au Qatar, et Messi a décroché le Ballon d'Or du tournoi." },
-  { "id": "sp_tf2", "type": "true_false", "category": "sports", "question": "Un match de NBA réglementaire se compose de quatre quart-temps de 12 minutes.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 12, "explanation": "Les matchs NBA se composent de quatre quart-temps de 12 minutes (contrairement aux 10 minutes de la FIBA)." },
-  { "id": "sp_tf3", "type": "true_false", "category": "sports", "question": "Usain Bolt a remporté l'or sur 100 m lors de trois Jeux olympiques consécutifs.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 15, "explanation": "Bolt a remporté l'or sur 100 m à Pékin 2008, Londres 2012 et Rio 2016." },
-  { "id": "sp_tf4", "type": "true_false", "category": "sports", "question": "Un marathon mesure exactement 26,2 miles de long.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 12, "explanation": "Un marathon mesure 26,219 miles (42,195 km), une distance normalisée après les Jeux olympiques de Londres de 1908." },
-  { "id": "sp_tf5", "type": "true_false", "category": "sports", "question": "Cristiano Ronaldo et Lionel Messi ont chacun remporté le Ballon d'Or de la FIFA plus de 5 fois.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 15, "explanation": "Messi a remporté 8 Ballons d'Or ; Ronaldo en a remporté 5." },
-
-  { "id": "sp_fb1", "type": "fill_blank", "category": "sports", "question": "En boxe, un combat est arrêté lorsque l'arbitre compte jusqu'à ___.", "correctAnswer": "ten", "acceptableAnswers": ["10"], "difficulty": "easy", "timeLimit": 15, "explanation": "L'arbitre compte jusqu'à dix (10) lorsqu'un boxeur est à terre." },
-  { "id": "sp_fb2", "type": "fill_blank", "category": "sports", "question": "Au tennis, un score de ___ signifie que les deux joueurs ont chacun remporté trois points.", "correctAnswer": "deuce", "difficulty": "medium", "timeLimit": 15, "explanation": "Le deuce survient lorsque les deux joueurs sont à égalité 40-40. L'un d'eux doit alors gagner deux points consécutifs pour remporter le jeu." },
-  { "id": "sp_fb3", "type": "fill_blank", "category": "sports", "question": "Au football, un joueur reçoit un carton ___ pour une faute grave et est immédiatement expulsé.", "correctAnswer": "red", "difficulty": "easy", "timeLimit": 12, "explanation": "Un carton rouge entraîne l'expulsion immédiate du joueur. Deux cartons jaunes équivalent également à un carton rouge." },
-  { "id": "sp_fb4", "type": "fill_blank", "category": "sports", "question": "La devise olympique « Citius, Altius, ___ » signifie Plus vite, Plus haut, Plus fort.", "correctAnswer": "Fortius", "difficulty": "hard", "timeLimit": 20, "explanation": "« Citius, Altius, Fortius » (Plus vite, Plus haut, Plus fort) est la devise olympique depuis 1894." },
-  { "id": "sp_fb5", "type": "fill_blank", "category": "sports", "question": "En football américain, un ___ vaut six points.", "correctAnswer": "touchdown", "difficulty": "easy", "timeLimit": 12, "explanation": "Un touchdown rapporte 6 points, suivi d'une opportunité de transformation (1 ou 2 points)." },
-
-  { "id": "sp_rk1", "type": "ranking", "category": "sports", "question": "Classez ces années de victoire à la Coupe du monde de la FIFA dans l'ordre chronologique (la plus ancienne en premier) :", "items": ["2006 (Italy)", "1998 (France)", "2014 (Germany)"], "correctOrder": [1, 0, 2], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "France 1998 → Italie 2006 → Allemagne 2014" },
-  { "id": "sp_rk2", "type": "ranking", "category": "sports", "question": "Classez ces sports selon le nombre de joueurs par équipe (du moins nombreux au plus nombreux) :", "items": ["Basketball", "American Football", "Tennis (singles)"], "correctOrder": [2, 0, 1], "difficulty": "easy", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Tennis/simple (1) → Basketball (5) → Football américain (11)" },
-  { "id": "sp_rk3", "type": "ranking", "category": "sports", "question": "Classez ces athlètes selon leur record du monde du 100 m (du plus rapide au moins rapide) :", "items": ["Usain Bolt (9.58s)", "Florence Griffith-Joyner (10.49s)", "Asafa Powell (9.72s)"], "correctOrder": [0, 2, 1], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "Bolt (9,58 s) → Powell (9,72 s) → Flo-Jo (10,49 s — record féminin)" },
-  { "id": "sp_rk4", "type": "ranking", "category": "sports", "question": "Classez ces tournois du Grand Chelem de tennis par mois de tenue (le plus tôt dans l'année en premier) :", "items": ["Wimbledon", "Australian Open", "Roland Garros"], "correctOrder": [1, 2, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Open d'Australie (janvier) → Roland-Garros (mai/juin) → Wimbledon (juin/juillet)" },
-  { "id": "sp_rk5", "type": "ranking", "category": "sports", "question": "Classez ces clubs de football selon leur nombre de titres en UEFA Champions League (du moins titré au plus titré) :", "items": ["Real Madrid", "Barcelona", "Liverpool"], "correctOrder": [2, 1, 0], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "Liverpool (6) → Barcelone (5) → Real Madrid (15) en 2024" },
-
-  { "id": "sp_cw1", "type": "closest_wins", "category": "sports", "question": "Quel est le record du monde d'Usain Bolt sur 100 m ? (en secondes)", "correctAnswer": 9.58, "unit": "seconds", "difficulty": "hard", "timeLimit": 20, "explanation": "Usain Bolt a établi le record du monde de 9,58 secondes aux Championnats du monde 2009 à Berlin." },
-  { "id": "sp_cw2", "type": "closest_wins", "category": "sports", "question": "Combien de buts Lionel Messi a-t-il marqués lors de la saison 2011/12 de La Liga ?", "correctAnswer": 50, "unit": "goals", "difficulty": "hard", "timeLimit": 20, "explanation": "Messi a marqué 50 buts en championnat en 2011/12 — un record en Liga." },
-  { "id": "sp_cw3", "type": "closest_wins", "category": "sports", "question": "En quelle année se sont tenus les premiers Jeux olympiques modernes ?", "correctAnswer": 1896, "difficulty": "medium", "timeLimit": 15, "explanation": "Les premiers Jeux olympiques modernes ont eu lieu à Athènes, en Grèce, en 1896." },
-  { "id": "sp_cw4", "type": "closest_wins", "category": "sports", "question": "Combien de fois le Brésil a-t-il remporté la Coupe du monde de la FIFA ?", "correctAnswer": 5, "unit": "times", "difficulty": "easy", "timeLimit": 12, "explanation": "Le Brésil a remporté la Coupe du monde 5 fois : 1958, 1962, 1970, 1994 et 2002." },
-  { "id": "sp_cw5", "type": "closest_wins", "category": "sports", "question": "Quelle est la durée d'un match de football (soccer) standard, en minutes ?", "correctAnswer": 90, "unit": "minutes", "difficulty": "easy", "timeLimit": 10, "explanation": "Un match de football standard dure 90 minutes — deux mi-temps de 45 minutes chacune, plus le temps additionnel." },
-
-  { "id": "sp_sb1", "type": "speed_buzz", "category": "sports", "question": "Combien de joueurs composent une équipe de football (soccer) standard sur le terrain ?", "options": ["9", "10", "11", "12"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 10, "explanation": "Chaque équipe aligne 11 joueurs." },
-  { "id": "sp_sb2", "type": "speed_buzz", "category": "sports", "question": "Quel pays accueille la course cycliste du Tour de France ?", "options": ["Italie", "Espagne", "Belgique", "France"], "correctAnswer": 3, "difficulty": "easy", "timeLimit": 10, "explanation": "Le Tour de France est une course cycliste par étapes qui se déroule principalement en France chaque mois de juillet." },
-  { "id": "sp_sb3", "type": "speed_buzz", "category": "sports", "question": "Dans quel sport effectue-t-on un slam dunk ?", "options": ["Volleyball", "Basketball", "Handball", "Water-polo"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 10, "explanation": "Le slam dunk est un tir de basketball où le joueur saute et force le ballon dans le panier." },
-  { "id": "sp_sb4", "type": "speed_buzz", "category": "sports", "question": "Quel pays a remporté la Coupe du monde de rugby en 2023 ?", "options": ["Nouvelle-Zélande", "Irlande", "Afrique du Sud", "France"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "L'Afrique du Sud a remporté la Coupe du monde de rugby 2023 en France, son quatrième titre mondial." },
-  { "id": "sp_sb5", "type": "speed_buzz", "category": "sports", "question": "De quelle couleur est la veste remise au vainqueur du tournoi de golf du Masters ?", "options": ["Bleue", "Blanche", "Rouge", "Verte"], "correctAnswer": 3, "difficulty": "easy", "timeLimit": 12, "explanation": "Le Masters remet au vainqueur une veste verte distinctive, une tradition depuis 1949." },
-
-  { "id": "sp_ft1", "type": "free_text", "category": "sports", "question": "Quel sport se pratique à Wimbledon ?", "correctAnswer": "tennis", "acceptableAnswers": ["tennis", "lawn tennis"], "difficulty": "easy", "timeLimit": 10, "explanation": "Wimbledon est le plus ancien tournoi de tennis au monde, organisé chaque année à Londres depuis 1877." },
-  { "id": "sp_ft2", "type": "free_text", "category": "sports", "question": "Quelle est la nationalité du pilote de Formule 1 Max Verstappen ?", "correctAnswer": "Dutch", "acceptableAnswers": ["dutch", "netherlands", "holland"], "difficulty": "easy", "timeLimit": 12, "explanation": "Max Verstappen est néerlandais, né à Hasselt, en Belgique, d'une mère belge et d'un père néerlandais." },
-  { "id": "sp_ft3", "type": "free_text", "category": "sports", "question": "Dans quel pays s'est déroulée la Coupe du monde de la FIFA 2022 ?", "correctAnswer": "Qatar", "acceptableAnswers": ["qatar"], "difficulty": "easy", "timeLimit": 12, "explanation": "Le Qatar a accueilli la Coupe du monde de la FIFA 2022 — la première organisée au Moyen-Orient." },
-  { "id": "sp_ft4", "type": "free_text", "category": "sports", "question": "Quel est le nom du trophée remis aux champions du Super Bowl de la NFL ?", "correctAnswer": "Vince Lombardi Trophy", "acceptableAnswers": ["vince lombardi trophy", "lombardi trophy", "lombardi"], "difficulty": "medium", "timeLimit": 20, "explanation": "Le Trophée Vince Lombardi est remis au vainqueur du Super Bowl, en hommage au légendaire entraîneur des Green Bay Packers." },
-  { "id": "sp_ft5", "type": "free_text", "category": "sports", "question": "Quel nageur a remporté le plus de médailles olympiques de tous les temps ?", "correctAnswer": "Michael Phelps", "acceptableAnswers": ["michael phelps", "phelps"], "difficulty": "medium", "timeLimit": 15, "explanation": "Michael Phelps a remporté 28 médailles olympiques (23 en or) — le plus grand nombre pour un athlète olympique dans l'histoire." },
-
-  { "id": "cc_sp1", "type": "clue_chain", "category": "sports", "question": "Qui suis-je ?", "clues": ["Je suis né en 1985 à Rosario, en Argentine, et j'ai déménagé en Espagne à l'âge de 13 ans", "J'ai remporté 8 Ballons d'Or — plus que tout autre footballeur dans l'histoire", "J'ai passé la majeure partie de ma carrière en club au FC Barcelone avant de rejoindre le PSG puis l'Inter Miami", "J'ai mené l'Argentine à la victoire lors de la Coupe du monde de la FIFA 2022 au Qatar"], "correctAnswer": "Lionel Messi", "acceptableAnswers": ["messi", "leo messi"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_sp2", "type": "clue_chain", "category": "sports", "question": "Qui suis-je ?", "clues": ["Je suis né en Jamaïque en 1986 et j'ai commencé ma carrière sportive en jouant au cricket chez les jeunes", "Je détiens les records du monde sur 100 m et sur 200 m", "Je suis la seule personne à avoir remporté à la fois le 100 m et le 200 m lors de trois Jeux olympiques consécutifs", "Mon surnom est « Lightning Bolt » et ma pose de victoire est devenue iconique"], "correctAnswer": "Usain Bolt", "acceptableAnswers": ["bolt", "usain bolt"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_sp3", "type": "clue_chain", "category": "sports", "question": "Qui suis-je ?", "clues": ["J'ai mis fin à ma carrière de tennisman professionnel en 2022 avec plus de titres du Grand Chelem que quiconque avant moi à l'époque", "Je suis Suisse et je suis réputé pour mon élégant revers à une main", "J'ai remporté Wimbledon un record de 8 fois", "Ma célèbre rivalité avec Rafael Nadal et Novak Djokovic a marqué l'âge d'or du tennis"], "correctAnswer": "Roger Federer", "acceptableAnswers": ["federer"], "difficulty": "medium", "timeLimit": 60 },
-  { "id": "cc_sp4", "type": "clue_chain", "category": "sports", "question": "Qui suis-je ?", "clues": ["Je suis né à Akron, dans l'Ohio, en 1984, et j'ai été sélectionné en premier lors de la Draft NBA 2003", "J'ai remporté quatre championnats NBA avec trois équipes différentes", "Je suis largement considéré comme le meilleur joueur de basket-ball de tous les temps", "Je suis surnommé « The King » et j'ai joué pour les Cavaliers, le Heat et les Lakers"], "correctAnswer": "LeBron James", "acceptableAnswers": ["lebron james", "lebron", "lbj"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_sp5", "type": "clue_chain", "category": "sports", "question": "Quel événement sportif suis-je ?", "clues": ["J'ai lieu tous les quatre ans et j'ai été relancé à Athènes en 1896 après une interruption de 1 500 ans", "Je comprends à la fois des éditions Estivales et Hivernales — chacune organisée des années différentes", "Mon symbole est cinq anneaux entrelacés représentant les cinq continents habités", "Des athlètes de plus de 200 nations s'affrontent sous le drapeau de leur pays"], "correctAnswer": "The Olympic Games", "acceptableAnswers": ["the olympic games", "olympic games", "olympics"], "difficulty": "easy", "timeLimit": 60 }
+  {
+    "id": "mc2",
+    "type": "multiple_choice",
+    "category": "sports",
+    "question": "Quel pays a remporté le plus de Coupes du monde de la FIFA ?",
+    "options": [
+      "Allemagne",
+      "Argentine",
+      "Brésil",
+      "France"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Le Brésil a remporté la Coupe du monde de la FIFA 5 fois (1958, 1962, 1970, 1994, 2002)."
+  },
+  {
+    "id": "sp_mc1",
+    "type": "multiple_choice",
+    "category": "sports",
+    "question": "Quel athlète a remporté le plus de médailles d'or olympiques de tous les temps ?",
+    "options": [
+      "Usain Bolt",
+      "Michael Phelps",
+      "Carl Lewis",
+      "Simone Biles"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Michael Phelps a remporté 23 médailles d'or olympiques lors de quatre Jeux olympiques."
+  },
+  {
+    "id": "sp_mc2",
+    "type": "multiple_choice",
+    "category": "sports",
+    "question": "À quel sport est associé le Super Bowl ?",
+    "options": [
+      "Basketball",
+      "Baseball",
+      "Football américain",
+      "Hockey sur glace"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Le Super Bowl est le match de championnat de la NFL."
+  },
+  {
+    "id": "sp_mc3",
+    "type": "multiple_choice",
+    "category": "sports",
+    "question": "Dans quelle ville se sont déroulés les premiers Jeux olympiques modernes en 1896 ?",
+    "options": [
+      "Rome",
+      "Paris",
+      "Athènes",
+      "Londres"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Les premiers Jeux olympiques modernes ont eu lieu à Athènes, en Grèce, en 1896."
+  },
+  {
+    "id": "sp_mc4",
+    "type": "multiple_choice",
+    "category": "sports",
+    "question": "Quel joueur a remporté le plus de titres du Grand Chelem en tennis ?",
+    "options": [
+      "Roger Federer",
+      "Rafael Nadal",
+      "Novak Djokovic",
+      "Pete Sampras"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Novak Djokovic mène avec 24 titres du Grand Chelem."
+  },
+  {
+    "id": "sp_mc5",
+    "type": "multiple_choice",
+    "category": "sports",
+    "question": "Quel est le score maximum en un seul cadre au bowling ?",
+    "options": [
+      "250",
+      "300",
+      "150",
+      "200"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Un jeu parfait au bowling vaut 300 points — 12 strikes consécutifs."
+  },
+  {
+    "id": "sp_tf1",
+    "type": "true_false",
+    "category": "sports",
+    "question": "Lionel Messi a remporté la Coupe du monde de la FIFA.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "L'Argentine a remporté la Coupe du monde 2022 au Qatar, et Messi a décroché le Ballon d'Or du tournoi."
+  },
+  {
+    "id": "sp_tf2",
+    "type": "true_false",
+    "category": "sports",
+    "question": "Un match de NBA réglementaire se compose de quatre quart-temps de 12 minutes.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Les matchs NBA se composent de quatre quart-temps de 12 minutes (contrairement aux 10 minutes de la FIBA)."
+  },
+  {
+    "id": "sp_tf3",
+    "type": "true_false",
+    "category": "sports",
+    "question": "Usain Bolt a remporté l'or sur 100 m lors de trois Jeux olympiques consécutifs.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Bolt a remporté l'or sur 100 m à Pékin 2008, Londres 2012 et Rio 2016."
+  },
+  {
+    "id": "sp_tf4",
+    "type": "true_false",
+    "category": "sports",
+    "question": "Un marathon mesure exactement 26,2 miles de long.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Un marathon mesure 26,219 miles (42,195 km), une distance normalisée après les Jeux olympiques de Londres de 1908."
+  },
+  {
+    "id": "sp_tf5",
+    "type": "true_false",
+    "category": "sports",
+    "question": "Cristiano Ronaldo et Lionel Messi ont chacun remporté le Ballon d'Or de la FIFA plus de 5 fois.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Messi a remporté 8 Ballons d'Or ; Ronaldo en a remporté 5."
+  },
+  {
+    "id": "sp_fb1",
+    "type": "fill_blank",
+    "category": "sports",
+    "question": "En boxe, un combat est arrêté lorsque l'arbitre compte jusqu'à ___.",
+    "correctAnswer": "ten",
+    "acceptableAnswers": [
+      "10"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "L'arbitre compte jusqu'à dix (10) lorsqu'un boxeur est à terre."
+  },
+  {
+    "id": "sp_fb2",
+    "type": "fill_blank",
+    "category": "sports",
+    "question": "Au tennis, un score de ___ signifie que les deux joueurs ont chacun remporté trois points.",
+    "correctAnswer": "deuce",
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Le deuce survient lorsque les deux joueurs sont à égalité 40-40. L'un d'eux doit alors gagner deux points consécutifs pour remporter le jeu."
+  },
+  {
+    "id": "sp_fb3",
+    "type": "fill_blank",
+    "category": "sports",
+    "question": "Au football, un joueur reçoit un carton ___ pour une faute grave et est immédiatement expulsé.",
+    "correctAnswer": "red",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Un carton rouge entraîne l'expulsion immédiate du joueur. Deux cartons jaunes équivalent également à un carton rouge."
+  },
+  {
+    "id": "sp_fb4",
+    "type": "fill_blank",
+    "category": "sports",
+    "question": "La devise olympique « Citius, Altius, ___ » signifie Plus vite, Plus haut, Plus fort.",
+    "correctAnswer": "Fortius",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "« Citius, Altius, Fortius » (Plus vite, Plus haut, Plus fort) est la devise olympique depuis 1894."
+  },
+  {
+    "id": "sp_fb5",
+    "type": "fill_blank",
+    "category": "sports",
+    "question": "En football américain, un ___ vaut six points.",
+    "correctAnswer": "touchdown",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Un touchdown rapporte 6 points, suivi d'une opportunité de transformation (1 ou 2 points)."
+  },
+  {
+    "id": "sp_rk1",
+    "type": "ranking",
+    "category": "sports",
+    "question": "Classez ces années de victoire à la Coupe du monde de la FIFA dans l'ordre chronologique (la plus ancienne en premier) :",
+    "items": [
+      "2006 (Italy)",
+      "1998 (France)",
+      "2014 (Germany)"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "France 1998 → Italie 2006 → Allemagne 2014"
+  },
+  {
+    "id": "sp_rk2",
+    "type": "ranking",
+    "category": "sports",
+    "question": "Classez ces sports selon le nombre de joueurs par équipe (du moins nombreux au plus nombreux) :",
+    "items": [
+      "Basketball",
+      "American Football",
+      "Tennis (singles)"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      1
+    ],
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Tennis/simple (1) → Basketball (5) → Football américain (11)"
+  },
+  {
+    "id": "sp_rk3",
+    "type": "ranking",
+    "category": "sports",
+    "question": "Classez ces athlètes selon leur record du monde du 100 m (du plus rapide au moins rapide) :",
+    "items": [
+      "Usain Bolt (9.58s)",
+      "Florence Griffith-Joyner (10.49s)",
+      "Asafa Powell (9.72s)"
+    ],
+    "correctOrder": [
+      0,
+      2,
+      1
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Bolt (9,58 s) → Powell (9,72 s) → Flo-Jo (10,49 s — record féminin)"
+  },
+  {
+    "id": "sp_rk4",
+    "type": "ranking",
+    "category": "sports",
+    "question": "Classez ces tournois du Grand Chelem de tennis par mois de tenue (le plus tôt dans l'année en premier) :",
+    "items": [
+      "Wimbledon",
+      "Australian Open",
+      "Roland Garros"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Open d'Australie (janvier) → Roland-Garros (mai/juin) → Wimbledon (juin/juillet)"
+  },
+  {
+    "id": "sp_rk5",
+    "type": "ranking",
+    "category": "sports",
+    "question": "Classez ces clubs de football selon leur nombre de titres en UEFA Champions League (du moins titré au plus titré) :",
+    "items": [
+      "Real Madrid",
+      "Barcelona",
+      "Liverpool"
+    ],
+    "correctOrder": [
+      2,
+      1,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Liverpool (6) → Barcelone (5) → Real Madrid (15) en 2024"
+  },
+  {
+    "id": "sp_cw1",
+    "type": "closest_wins",
+    "category": "sports",
+    "question": "Quel est le record du monde d'Usain Bolt sur 100 m ? (en secondes)",
+    "correctAnswer": 9.58,
+    "unit": "seconds",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Usain Bolt a établi le record du monde de 9,58 secondes aux Championnats du monde 2009 à Berlin."
+  },
+  {
+    "id": "sp_cw2",
+    "type": "closest_wins",
+    "category": "sports",
+    "question": "Combien de buts Lionel Messi a-t-il marqués lors de la saison 2011/12 de La Liga ?",
+    "correctAnswer": 50,
+    "unit": "goals",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Messi a marqué 50 buts en championnat en 2011/12 — un record en Liga."
+  },
+  {
+    "id": "sp_cw3",
+    "type": "closest_wins",
+    "category": "sports",
+    "question": "En quelle année se sont tenus les premiers Jeux olympiques modernes ?",
+    "correctAnswer": 1896,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Les premiers Jeux olympiques modernes ont eu lieu à Athènes, en Grèce, en 1896."
+  },
+  {
+    "id": "sp_cw4",
+    "type": "closest_wins",
+    "category": "sports",
+    "question": "Combien de fois le Brésil a-t-il remporté la Coupe du monde de la FIFA ?",
+    "correctAnswer": 5,
+    "unit": "times",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Le Brésil a remporté la Coupe du monde 5 fois : 1958, 1962, 1970, 1994 et 2002."
+  },
+  {
+    "id": "sp_cw5",
+    "type": "closest_wins",
+    "category": "sports",
+    "question": "Quelle est la durée d'un match de football (soccer) standard, en minutes ?",
+    "correctAnswer": 90,
+    "unit": "minutes",
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Un match de football standard dure 90 minutes — deux mi-temps de 45 minutes chacune, plus le temps additionnel."
+  },
+  {
+    "id": "sp_sb1",
+    "type": "speed_buzz",
+    "category": "sports",
+    "question": "Combien de joueurs composent une équipe de football (soccer) standard sur le terrain ?",
+    "options": [
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Chaque équipe aligne 11 joueurs."
+  },
+  {
+    "id": "sp_sb2",
+    "type": "speed_buzz",
+    "category": "sports",
+    "question": "Quel pays accueille la course cycliste du Tour de France ?",
+    "options": [
+      "Italie",
+      "Espagne",
+      "Belgique",
+      "France"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Le Tour de France est une course cycliste par étapes qui se déroule principalement en France chaque mois de juillet."
+  },
+  {
+    "id": "sp_sb3",
+    "type": "speed_buzz",
+    "category": "sports",
+    "question": "Dans quel sport effectue-t-on un slam dunk ?",
+    "options": [
+      "Volleyball",
+      "Basketball",
+      "Handball",
+      "Water-polo"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Le slam dunk est un tir de basketball où le joueur saute et force le ballon dans le panier."
+  },
+  {
+    "id": "sp_sb4",
+    "type": "speed_buzz",
+    "category": "sports",
+    "question": "Quel pays a remporté la Coupe du monde de rugby en 2023 ?",
+    "options": [
+      "Nouvelle-Zélande",
+      "Irlande",
+      "Afrique du Sud",
+      "France"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "L'Afrique du Sud a remporté la Coupe du monde de rugby 2023 en France, son quatrième titre mondial."
+  },
+  {
+    "id": "sp_sb5",
+    "type": "speed_buzz",
+    "category": "sports",
+    "question": "De quelle couleur est la veste remise au vainqueur du tournoi de golf du Masters ?",
+    "options": [
+      "Bleue",
+      "Blanche",
+      "Rouge",
+      "Verte"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Le Masters remet au vainqueur une veste verte distinctive, une tradition depuis 1949."
+  },
+  {
+    "id": "sp_ft1",
+    "type": "free_text",
+    "category": "sports",
+    "question": "Quel sport se pratique à Wimbledon ?",
+    "correctAnswer": "tennis",
+    "acceptableAnswers": [
+      "tennis",
+      "lawn tennis"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Wimbledon est le plus ancien tournoi de tennis au monde, organisé chaque année à Londres depuis 1877."
+  },
+  {
+    "id": "sp_ft2",
+    "type": "free_text",
+    "category": "sports",
+    "question": "Quelle est la nationalité du pilote de Formule 1 Max Verstappen ?",
+    "correctAnswer": "Dutch",
+    "acceptableAnswers": [
+      "dutch",
+      "netherlands",
+      "holland"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Max Verstappen est néerlandais, né à Hasselt, en Belgique, d'une mère belge et d'un père néerlandais."
+  },
+  {
+    "id": "sp_ft3",
+    "type": "free_text",
+    "category": "sports",
+    "question": "Dans quel pays s'est déroulée la Coupe du monde de la FIFA 2022 ?",
+    "correctAnswer": "Qatar",
+    "acceptableAnswers": [
+      "qatar"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Le Qatar a accueilli la Coupe du monde de la FIFA 2022 — la première organisée au Moyen-Orient."
+  },
+  {
+    "id": "sp_ft4",
+    "type": "free_text",
+    "category": "sports",
+    "question": "Quel est le nom du trophée remis aux champions du Super Bowl de la NFL ?",
+    "correctAnswer": "Vince Lombardi Trophy",
+    "acceptableAnswers": [
+      "vince lombardi trophy",
+      "lombardi trophy",
+      "lombardi"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Le Trophée Vince Lombardi est remis au vainqueur du Super Bowl, en hommage au légendaire entraîneur des Green Bay Packers."
+  },
+  {
+    "id": "sp_ft5",
+    "type": "free_text",
+    "category": "sports",
+    "question": "Quel nageur a remporté le plus de médailles olympiques de tous les temps ?",
+    "correctAnswer": "Michael Phelps",
+    "acceptableAnswers": [
+      "michael phelps",
+      "phelps"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Michael Phelps a remporté 28 médailles olympiques (23 en or) — le plus grand nombre pour un athlète olympique dans l'histoire."
+  },
+  {
+    "id": "cc_sp1",
+    "type": "clue_chain",
+    "category": "sports",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis né en 1985 à Rosario, en Argentine, et j'ai déménagé en Espagne à l'âge de 13 ans",
+      "J'ai remporté 8 Ballons d'Or — plus que tout autre footballeur dans l'histoire",
+      "J'ai passé la majeure partie de ma carrière en club au FC Barcelone avant de rejoindre le PSG puis l'Inter Miami",
+      "J'ai mené l'Argentine à la victoire lors de la Coupe du monde de la FIFA 2022 au Qatar"
+    ],
+    "correctAnswer": "Lionel Messi",
+    "acceptableAnswers": [
+      "messi",
+      "leo messi"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_sp2",
+    "type": "clue_chain",
+    "category": "sports",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis né en Jamaïque en 1986 et j'ai commencé ma carrière sportive en jouant au cricket chez les jeunes",
+      "Je détiens les records du monde sur 100 m et sur 200 m",
+      "Je suis la seule personne à avoir remporté à la fois le 100 m et le 200 m lors de trois Jeux olympiques consécutifs",
+      "Mon surnom est « Lightning Bolt » et ma pose de victoire est devenue iconique"
+    ],
+    "correctAnswer": "Usain Bolt",
+    "acceptableAnswers": [
+      "bolt",
+      "usain bolt"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_sp3",
+    "type": "clue_chain",
+    "category": "sports",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "J'ai mis fin à ma carrière de tennisman professionnel en 2022 avec plus de titres du Grand Chelem que quiconque avant moi à l'époque",
+      "Je suis Suisse et je suis réputé pour mon élégant revers à une main",
+      "J'ai remporté Wimbledon un record de 8 fois",
+      "Ma célèbre rivalité avec Rafael Nadal et Novak Djokovic a marqué l'âge d'or du tennis"
+    ],
+    "correctAnswer": "Roger Federer",
+    "acceptableAnswers": [
+      "federer"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_sp4",
+    "type": "clue_chain",
+    "category": "sports",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis né à Akron, dans l'Ohio, en 1984, et j'ai été sélectionné en premier lors de la Draft NBA 2003",
+      "J'ai remporté quatre championnats NBA avec trois équipes différentes",
+      "Je suis largement considéré comme le meilleur joueur de basket-ball de tous les temps",
+      "Je suis surnommé « The King » et j'ai joué pour les Cavaliers, le Heat et les Lakers"
+    ],
+    "correctAnswer": "LeBron James",
+    "acceptableAnswers": [
+      "lebron james",
+      "lebron",
+      "lbj"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_sp5",
+    "type": "clue_chain",
+    "category": "sports",
+    "question": "Quel événement sportif suis-je ?",
+    "clues": [
+      "J'ai lieu tous les quatre ans et j'ai été relancé à Athènes en 1896 après une interruption de 1 500 ans",
+      "Je comprends à la fois des éditions Estivales et Hivernales — chacune organisée des années différentes",
+      "Mon symbole est cinq anneaux entrelacés représentant les cinq continents habités",
+      "Des athlètes de plus de 200 nations s'affrontent sous le drapeau de leur pays"
+    ],
+    "correctAnswer": "The Olympic Games",
+    "acceptableAnswers": [
+      "the olympic games",
+      "olympic games",
+      "olympics"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "fg_spo_1",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "de",
+    "correctAnswer": "Germany",
+    "acceptableAnswers": [
+      "Germany"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "L'Allemagne a remporté la Coupe du Monde de la FIFA quatre fois (1954, 1974, 1990, 2014)."
+  },
+  {
+    "id": "fg_spo_2",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "ar",
+    "correctAnswer": "Argentina",
+    "acceptableAnswers": [
+      "Argentina"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "L'Argentine a remporté trois Coupes du Monde de la FIFA (1978, 1986, 2022), la dernière sous la direction de Lionel Messi."
+  },
+  {
+    "id": "fg_spo_3",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "fr",
+    "correctAnswer": "France",
+    "acceptableAnswers": [
+      "France"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "La France a remporté la Coupe du Monde de la FIFA en 1998 (à domicile) et à nouveau en 2018 en Russie."
+  },
+  {
+    "id": "fg_spo_4",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "it",
+    "correctAnswer": "Italy",
+    "acceptableAnswers": [
+      "Italy"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "L'Italie (les Azzurri) a remporté la Coupe du Monde de la FIFA quatre fois : 1934, 1938, 1982 et 2006."
+  },
+  {
+    "id": "fg_spo_5",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "es",
+    "correctAnswer": "Spain",
+    "acceptableAnswers": [
+      "Spain"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "L'Espagne a remporté son unique Coupe du Monde de la FIFA en 2010 en Afrique du Sud, battant les Pays-Bas 1–0 en finale."
+  },
+  {
+    "id": "fg_spo_6",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "pt",
+    "correctAnswer": "Portugal",
+    "acceptableAnswers": [
+      "Portugal"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Le Portugal est la patrie de Cristiano Ronaldo, l'un des plus grands footballeurs de tous les temps, et a remporté l'UEFA Euro 2016."
+  },
+  {
+    "id": "fg_spo_7",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "nl",
+    "correctAnswer": "Netherlands",
+    "acceptableAnswers": [
+      "Netherlands",
+      "Holland",
+      "The Netherlands"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Les Pays-Bas, connus pour le 'Football Total', ont été finalistes à trois Coupes du Monde (1974, 1978, 2010) sans jamais remporter le titre."
+  },
+  {
+    "id": "fg_spo_8",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "be",
+    "correctAnswer": "Belgium",
+    "acceptableAnswers": [
+      "Belgium"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Les Diables Rouges de Belgique ont atteint les demi-finales de la Coupe du Monde 2018 et sont connus pour produire des talents de classe mondiale comme De Bruyne, Hazard et Lukaku."
+  },
+  {
+    "id": "fg_spo_9",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "hr",
+    "correctAnswer": "Croatia",
+    "acceptableAnswers": [
+      "Croatia"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "La Croatie, menée par Luka Modrić, a terminé finaliste à la Coupe du Monde 2018 et troisième en 2022."
+  },
+  {
+    "id": "fg_spo_10",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "se",
+    "correctAnswer": "Sweden",
+    "acceptableAnswers": [
+      "Sweden"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "La Suède est célèbre pour Zlatan Ibrahimović et a produit la légende du tennis Björn Borg, qui a remporté cinq titres consécutifs à Wimbledon."
+  },
+  {
+    "id": "fg_spo_11",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "uy",
+    "correctAnswer": "Uruguay",
+    "acceptableAnswers": [
+      "Uruguay"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "L'Uruguay, malgré une population de seulement 3,5 millions d'habitants, a remporté deux Coupes du Monde de la FIFA (1930, 1950) et est une grande puissance footballistique."
+  },
+  {
+    "id": "fg_spo_12",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "pl",
+    "correctAnswer": "Poland",
+    "acceptableAnswers": [
+      "Poland"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "La Pologne est la patrie de Robert Lewandowski, qui détient le record du plus grand nombre de buts en Bundesliga en une seule saison (41 en 2020–21)."
+  },
+  {
+    "id": "fg_spo_13",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "cl",
+    "correctAnswer": "Chile",
+    "acceptableAnswers": [
+      "Chile"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Le Chili a remporté des titres consécutifs de Copa América en 2015 et 2016, mené par Alexis Sánchez et Arturo Vidal."
+  },
+  {
+    "id": "fg_spo_14",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "kr",
+    "correctAnswer": "South Korea",
+    "acceptableAnswers": [
+      "South Korea",
+      "Korea"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "La Corée du Sud a atteint les demi-finales de la Coupe du Monde 2002 (co-organisée avec le Japon) et est une puissance dominante dans les esports."
+  },
+  {
+    "id": "fg_spo_15",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "À quel pays appartient ce drapeau ?",
+    "countryCode": "br",
+    "correctAnswer": "Brazil",
+    "acceptableAnswers": [
+      "Brazil"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Le Brésil est le pays le plus titré de la Coupe du Monde de la FIFA avec cinq victoires (1958, 1962, 1970, 1994, 2002), et est la patrie de légendes comme Pelé et Ronaldo."
+  },
+  {
+    "id": "ig_spo_1",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "Qui est ce footballeur légendaire ?",
+    "imageUrl": "/quiz-images/ronaldo.jpg",
+    "correctAnswer": "Cristiano Ronaldo",
+    "acceptableAnswers": [
+      "ronaldo",
+      "cristiano ronaldo",
+      "cr7"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Cristiano Ronaldo (CR7) est l'un des plus grands footballeurs de tous les temps, ayant remporté cinq Ballons d'Or et marqué plus de 800 buts en carrière."
+  },
+  {
+    "id": "ig_spo_2",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "Qui est cette légende du basketball ?",
+    "imageUrl": "/quiz-images/michael-jordan.jpg",
+    "correctAnswer": "Michael Jordan",
+    "acceptableAnswers": [
+      "michael jordan",
+      "jordan",
+      "mj"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Michael Jordan est largement considéré comme le plus grand joueur de basketball de tous les temps, ayant remporté six championnats NBA avec les Chicago Bulls."
+  },
+  {
+    "id": "ig_spo_3",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "Qui est cette championne de tennis ?",
+    "imageUrl": "/quiz-images/serena-williams.jpg",
+    "correctAnswer": "Serena Williams",
+    "acceptableAnswers": [
+      "serena williams",
+      "serena"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Serena Williams a remporté 23 titres du Grand Chelem en simple, plus que tout autre joueur de l'ère Open."
+  },
+  {
+    "id": "ig_spo_4",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "Quel est ce célèbre stade sportif ?",
+    "imageUrl": "/quiz-images/wembley-stadium.jpg",
+    "correctAnswer": "Wembley Stadium",
+    "acceptableAnswers": [
+      "wembley",
+      "wembley stadium"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Le stade de Wembley à Londres, avec son arc emblématique, est le domicile de l'équipe nationale d'Angleterre de football et accueille les grandes finales."
+  },
+  {
+    "id": "ig_spo_5",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "Quel est ce trophée sportif iconique ?",
+    "imageUrl": "/quiz-images/fifa-world-cup-trophy.jpg",
+    "correctAnswer": "FIFA World Cup Trophy",
+    "acceptableAnswers": [
+      "world cup trophy",
+      "fifa world cup",
+      "world cup"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Le trophée de la Coupe du Monde de la FIFA, en or 18 carats, représente deux figures humaines tenant le globe. Il est remis depuis 1974."
+  },
+  {
+    "id": "ig_spo_6",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "Qui est cette légende de la natation ?",
+    "imageUrl": "/quiz-images/michael-phelps.jpg",
+    "correctAnswer": "Michael Phelps",
+    "acceptableAnswers": [
+      "michael phelps",
+      "phelps"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Michael Phelps est l'athlète olympique le plus décoré de tous les temps avec 23 médailles d'or aux Jeux Olympiques de 2000–2016."
+  },
+  {
+    "id": "ig_spo_7",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "Quel est le nom de ce circuit iconique de Formule 1 ?",
+    "imageUrl": "/quiz-images/monaco-circuit.jpg",
+    "correctAnswer": "Monaco Circuit",
+    "acceptableAnswers": [
+      "monaco",
+      "circuit de monaco",
+      "monte carlo",
+      "monaco circuit"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Le Circuit de Monaco est l'un des tracés de Formule 1 les plus prestigieux et exigeants, serpentant dans les rues de Monte-Carlo."
+  },
+  {
+    "id": "ig_spo_8",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "Qui est cette légende du sprint ?",
+    "imageUrl": "/quiz-images/usain-bolt.jpg",
+    "correctAnswer": "Usain Bolt",
+    "acceptableAnswers": [
+      "usain bolt",
+      "bolt"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Usain Bolt détient les records du monde du 100m (9,58s) et du 200m (19,19s), établis aux Championnats du Monde 2009 à Berlin."
+  },
+  {
+    "id": "ig_spo_9",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "Quel est ce célèbre court ?",
+    "imageUrl": "/quiz-images/wimbledon-centre-court.jpg",
+    "correctAnswer": "Wimbledon Centre Court",
+    "acceptableAnswers": [
+      "wimbledon",
+      "centre court",
+      "wimbledon centre court"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Le Court Central de Wimbledon, inauguré en 1922, est le court de tennis le plus célèbre au monde et accueille la finale du tournoi."
+  },
+  {
+    "id": "ig_spo_10",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "Qui est cette légende du football ?",
+    "imageUrl": "/quiz-images/messi.jpg",
+    "correctAnswer": "Lionel Messi",
+    "acceptableAnswers": [
+      "messi",
+      "lionel messi",
+      "leo messi"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Lionel Messi a remporté un record de huit Ballons d'Or et a mené l'Argentine au titre de la Coupe du Monde 2022."
+  },
+  {
+    "id": "pr_spo_1",
+    "type": "pixel_reveal",
+    "category": "sports",
+    "question": "Qui est cette star du sport ?",
+    "imageUrl": "/quiz-images/pixel/sports-lebron-james.jpg",
+    "correctAnswer": "LeBron James",
+    "acceptableAnswers": [
+      "lebron james",
+      "lebron",
+      "king james"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "LeBron James est considéré comme l'un des plus grands joueurs de NBA, ayant remporté quatre championnats avec trois équipes différentes."
+  },
+  {
+    "id": "pr_spo_2",
+    "type": "pixel_reveal",
+    "category": "sports",
+    "question": "Qui est ce champion de tennis ?",
+    "imageUrl": "/quiz-images/pixel/sports-roger-federer.jpg",
+    "correctAnswer": "Roger Federer",
+    "acceptableAnswers": [
+      "roger federer",
+      "federer"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Roger Federer a remporté 20 titres du Grand Chelem et est réputé pour son style de jeu élégant et son fair-play."
+  },
+  {
+    "id": "pr_spo_3",
+    "type": "pixel_reveal",
+    "category": "sports",
+    "question": "Qui est ce légendaire boxeur ?",
+    "imageUrl": "/quiz-images/pixel/sports-muhammad-ali.jpg",
+    "correctAnswer": "Muhammad Ali",
+    "acceptableAnswers": [
+      "muhammad ali",
+      "ali",
+      "cassius clay"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Muhammad Ali, né Cassius Clay, est largement considéré comme le plus grand boxeur poids lourd de tous les temps, célèbre pour 'flotter comme un papillon et piquer comme une abeille'."
+  },
+  {
+    "id": "pr_spo_4",
+    "type": "pixel_reveal",
+    "category": "sports",
+    "question": "Qui est cette légende de la Formule 1 ?",
+    "imageUrl": "/quiz-images/pixel/sports-michael-schumacher.jpg",
+    "correctAnswer": "Michael Schumacher",
+    "acceptableAnswers": [
+      "michael schumacher",
+      "schumacher"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Michael Schumacher a remporté sept championnats du monde de Formule 1 (1994, 1995, 2000–2004), un record qu'il partage avec Lewis Hamilton."
+  },
+  {
+    "id": "pr_spo_5",
+    "type": "pixel_reveal",
+    "category": "sports",
+    "question": "Qui est cette icône du football ?",
+    "imageUrl": "/quiz-images/pixel/sports-pele.jpg",
+    "correctAnswer": "Pelé",
+    "acceptableAnswers": [
+      "pele",
+      "pelé",
+      "edson arantes"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Pelé est le seul joueur à avoir remporté trois Coupes du Monde de la FIFA (1958, 1962, 1970) et a marqué plus de 1 000 buts en carrière."
+  },
+  {
+    "id": "pr_spo_6",
+    "type": "pixel_reveal",
+    "category": "sports",
+    "question": "Qui est ce champion cycliste ?",
+    "imageUrl": "/quiz-images/pixel/sports-eddy-merckx.jpg",
+    "correctAnswer": "Eddy Merckx",
+    "acceptableAnswers": [
+      "eddy merckx",
+      "merckx"
+    ],
+    "caseSensitive": false,
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "explanation": "Eddy Merckx est largement considéré comme le plus grand cycliste de tous les temps, ayant remporté le Tour de France cinq fois et gagné le surnom de 'Le Cannibale'."
+  },
+  {
+    "id": "pr_spo_7",
+    "type": "pixel_reveal",
+    "category": "sports",
+    "question": "Qui est cette légende du golf ?",
+    "imageUrl": "/quiz-images/pixel/sports-tiger-woods.jpg",
+    "correctAnswer": "Tiger Woods",
+    "acceptableAnswers": [
+      "tiger woods",
+      "tiger"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Tiger Woods a remporté 15 tournois majeurs et a été classé numéro un mondial pendant un record de 683 semaines."
+  },
+  {
+    "id": "pr_spo_8",
+    "type": "pixel_reveal",
+    "category": "sports",
+    "question": "Qui est cette superstar du basketball ?",
+    "imageUrl": "/quiz-images/pixel/sports-kobe-bryant.jpg",
+    "correctAnswer": "Kobe Bryant",
+    "acceptableAnswers": [
+      "kobe bryant",
+      "kobe",
+      "black mamba"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Kobe Bryant a remporté cinq championnats NBA avec les LA Lakers et était connu sous le nom de 'La Mamba Noire'. Il a tragiquement péri dans un accident d'hélicoptère en 2020."
+  },
+  {
+    "id": "as_spo_1",
+    "type": "animal_sound",
+    "category": "sports",
+    "question": "Quelle mascotte animale émet ce son ?",
+    "audioUrl": "/audio/animals/jaguar.ogg",
+    "correctAnswer": "Jaguar",
+    "acceptableAnswers": [
+      "Jaguar",
+      "Jaguar cat",
+      "Leopard",
+      "Panther"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_spo_2",
+    "type": "animal_sound",
+    "category": "sports",
+    "question": "Quelle mascotte animale émet ce son ?",
+    "audioUrl": "/audio/animals/bison.ogg",
+    "correctAnswer": "Bison",
+    "acceptableAnswers": [
+      "Bison",
+      "Buffalo",
+      "American bison"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_spo_3",
+    "type": "animal_sound",
+    "category": "sports",
+    "question": "Quel animal émet ce son ?",
+    "audioUrl": "/audio/animals/eagle.ogg",
+    "correctAnswer": "Eagle",
+    "acceptableAnswers": [
+      "Eagle",
+      "Bald eagle",
+      "Golden eagle"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_spo_4",
+    "type": "animal_sound",
+    "category": "sports",
+    "question": "Quel animal émet ce son ?",
+    "audioUrl": "/audio/animals/bear.ogg",
+    "correctAnswer": "Bear",
+    "acceptableAnswers": [
+      "Bear",
+      "Grizzly bear",
+      "Brown bear"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_spo_5",
+    "type": "animal_sound",
+    "category": "sports",
+    "question": "Quel animal émet ce son ?",
+    "audioUrl": "/audio/animals/tiger.ogg",
+    "correctAnswer": "Tiger",
+    "acceptableAnswers": [
+      "Tiger",
+      "Bengal tiger"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_spo_6",
+    "type": "animal_sound",
+    "category": "sports",
+    "question": "Quel animal émet ce son ?",
+    "audioUrl": "/audio/animals/lion.ogg",
+    "correctAnswer": "Lion",
+    "acceptableAnswers": [
+      "Lion",
+      "Male lion"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  }
 ]

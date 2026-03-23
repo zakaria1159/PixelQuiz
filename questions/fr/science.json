@@ -1,64 +1,1226 @@
 [
-  { "id": "as1",  "type": "animal_sound", "category": "science", "question": "Quel animal fait ce son ?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Barking_of_a_dog.ogg",              "correctAnswer": "Dog",      "acceptableAnswers": ["Dog", "Beagle", "Hound", "Puppy"],               "difficulty": "easy",   "timeLimit": 20 },
-  { "id": "as2",  "type": "animal_sound", "category": "science", "question": "Quel animal fait ce son ?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Meow_domestic_cat.ogg",             "correctAnswer": "Cat",      "acceptableAnswers": ["Cat", "Kitten", "Kitty"],                        "difficulty": "easy",   "timeLimit": 20 },
-  { "id": "as3",  "type": "animal_sound", "category": "science", "question": "Quel animal fait ce son ?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Single_Cow_Moo.ogg",              "correctAnswer": "Cow",      "acceptableAnswers": ["Cow", "Bull", "Cattle", "Calf"],                 "difficulty": "easy",   "timeLimit": 20 },
-  { "id": "as4",  "type": "animal_sound", "category": "science", "question": "Quel animal fait ce son ?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Rooster_crowing.ogg",             "correctAnswer": "Rooster",  "acceptableAnswers": ["Rooster", "Chicken", "Cockerel", "Cock"],        "difficulty": "easy",   "timeLimit": 20 },
-  { "id": "as5",  "type": "animal_sound", "category": "science", "question": "Quel animal fait ce son ?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Wiehern.ogg",                    "correctAnswer": "Horse",    "acceptableAnswers": ["Horse", "Mare", "Stallion", "Pony"],             "difficulty": "easy",   "timeLimit": 20 },
-  { "id": "as6",  "type": "animal_sound", "category": "science", "question": "Quel animal fait ce son ?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Mudchute_pig_1.ogg",              "correctAnswer": "Pig",      "acceptableAnswers": ["Pig", "Hog", "Boar", "Swine", "Piglet"],        "difficulty": "medium", "timeLimit": 20 },
-  { "id": "as7",  "type": "animal_sound", "category": "science", "question": "Quel animal fait ce son ?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Wolf_howls.ogg",                 "correctAnswer": "Wolf",     "acceptableAnswers": ["Wolf", "Wolves", "Grey Wolf"],                   "difficulty": "medium", "timeLimit": 20 },
-  { "id": "as8",  "type": "animal_sound", "category": "science", "question": "Quel animal fait ce son ?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Single_Frog_Croak.oga",          "correctAnswer": "Frog",     "acceptableAnswers": ["Frog", "Toad"],                                  "difficulty": "medium", "timeLimit": 20 },
-  { "id": "as9",  "type": "animal_sound", "category": "science", "question": "Quel animal fait ce son ?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Strix_aluco_-_Tawny_Owl_XC563348.mp3", "correctAnswer": "Owl",  "acceptableAnswers": ["Owl", "Tawny Owl"],                              "difficulty": "hard",   "timeLimit": 20 },
-  { "id": "as10", "type": "animal_sound", "category": "science", "question": "Quel animal fait ce son ?", "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Elephant_voice_-_trumpeting.ogg", "correctAnswer": "Elephant", "acceptableAnswers": ["Elephant"],                                      "difficulty": "hard",   "timeLimit": 20 },
-
-  { "id": "pr1",  "type": "pixel_reveal", "category": "science", "question": "De qui s'agit-il ?", "imageUrl": "/quiz-images/einstein.jpg", "correctAnswer": "Albert Einstein", "acceptableAnswers": ["einstein"], "caseSensitive": false, "difficulty": "medium", "timeLimit": 25, "explanation": "Albert Einstein a développé la théorie de la relativité et a remporté le prix Nobel de physique en 1921." },
-  { "id": "ig2",  "type": "image_guess",  "category": "science", "question": "Nommez cet animal.", "imageUrl": "/quiz-images/penguin.jpg", "correctAnswer": "Penguin", "acceptableAnswers": ["penguins", "chinstrap penguin"], "caseSensitive": false, "difficulty": "easy", "timeLimit": 15, "explanation": "Les manchots sont des oiseaux incapables de voler qui vivent principalement dans l'hémisphère sud." },
-
-  { "id": "sci_mc1", "type": "multiple_choice", "category": "science", "question": "Quelle est la vitesse de la lumière dans le vide (approximativement) ?", "options": ["300 000 km/s", "150 000 km/s", "3 000 km/s", "1 000 000 km/s"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 15, "explanation": "La lumière voyage à environ 299 792 km/s dans le vide." },
-  { "id": "sci_mc2", "type": "multiple_choice", "category": "science", "question": "Combien d'os compte le corps humain adulte ?", "options": ["196", "206", "216", "226"], "correctAnswer": 1, "difficulty": "medium", "timeLimit": 15, "explanation": "Le corps humain adulte possède 206 os. Les bébés naissent avec environ 270 à 300 os." },
-  { "id": "sci_mc3", "type": "multiple_choice", "category": "science", "question": "Quel est le gaz le plus abondant dans l'atmosphère terrestre ?", "options": ["Oxygène", "Dioxyde de carbone", "Azote", "Argon"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 15, "explanation": "L'azote représente environ 78 % de l'atmosphère terrestre." },
-  { "id": "sci_mc4", "type": "multiple_choice", "category": "science", "question": "Quel est le centre énergétique de la cellule ?", "options": ["Noyau", "Ribosome", "Mitochondrie", "Appareil de Golgi"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 12, "explanation": "Les mitochondries produisent la majeure partie de l'ATP de la cellule, utilisé comme source d'énergie chimique." },
-  { "id": "sci_mc5", "type": "multiple_choice", "category": "science", "question": "Quelle planète de notre système solaire possède le plus de lunes ?", "options": ["Jupiter", "Saturne", "Uranus", "Neptune"], "correctAnswer": 1, "difficulty": "hard", "timeLimit": 20, "explanation": "Saturne a dépassé Jupiter en 2023 avec 146 lunes confirmées, soit le plus grand nombre pour toute planète." },
-
-  { "id": "sci_tf1", "type": "true_false", "category": "science", "question": "Les humains partagent environ 98 % de leur ADN avec les chimpanzés.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 15, "explanation": "Les humains et les chimpanzés partagent environ 98,7 % de leur ADN." },
-  { "id": "sci_tf2", "type": "true_false", "category": "science", "question": "La foudre ne frappe jamais deux fois au même endroit.", "options": ["Vrai", "Faux"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 12, "explanation": "La foudre frappe souvent le même endroit — l'Empire State Building est touché environ 20 à 25 fois par an." },
-  { "id": "sci_tf3", "type": "true_false", "category": "science", "question": "Les diamants sont composés de carbone.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 12, "explanation": "Les diamants sont constitués d'atomes de carbone pur arrangés en réseau cristallin — le même élément que le graphite, mais avec une structure différente." },
-  { "id": "sci_tf4", "type": "true_false", "category": "science", "question": "Le Soleil est une étoile.", "options": ["Vrai", "Faux"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 10, "explanation": "Le Soleil est une étoile de taille moyenne au centre de notre système solaire, âgée d'environ 4,6 milliards d'années." },
-  { "id": "sci_tf5", "type": "true_false", "category": "science", "question": "Le son se propage plus vite que la lumière.", "options": ["Vrai", "Faux"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 10, "explanation": "La lumière voyage à ~300 000 km/s. Le son se propage à ~0,343 km/s dans l'air — près d'un million de fois plus lentement." },
-
-  { "id": "sci_fb1", "type": "fill_blank", "category": "science", "question": "Le symbole chimique de l'eau est ___.", "correctAnswer": "H2O", "acceptableAnswers": ["h2o", "H₂O"], "difficulty": "easy", "timeLimit": 12, "explanation": "L'eau (H₂O) est composée de deux atomes d'hydrogène liés à un atome d'oxygène." },
-  { "id": "sci_fb2", "type": "fill_blank", "category": "science", "question": "La force qui maintient les planètes en orbite autour du Soleil s'appelle la ___.", "correctAnswer": "gravité", "acceptableAnswers": ["gravité", "gravitation", "force gravitationnelle"], "difficulty": "easy", "timeLimit": 15, "explanation": "La gravité est la force d'attraction entre les masses. Newton l'a décrite ; Einstein l'a ensuite affinée avec la relativité générale." },
-  { "id": "sci_fb3", "type": "fill_blank", "category": "science", "question": "Le tableau des éléments chimiques organisé par numéro atomique est appelé le tableau ___.", "correctAnswer": "périodique", "difficulty": "easy", "timeLimit": 12, "explanation": "Dmitri Mendeleïev a créé le premier tableau périodique en 1869, en organisant les éléments par masse atomique et par propriétés." },
-  { "id": "sci_fb4", "type": "fill_blank", "category": "science", "question": "Le processus par lequel les plantes utilisent la lumière solaire pour produire de la nourriture s'appelle la ___.", "correctAnswer": "photosynthèse", "difficulty": "easy", "timeLimit": 15, "explanation": "La photosynthèse convertit le CO₂ et l'eau en glucose et en oxygène grâce à l'énergie solaire dans les chloroplastes." },
-  { "id": "sci_fb5", "type": "fill_blank", "category": "science", "question": "ADN signifie acide ___.", "correctAnswer": "désoxyribonucléique", "acceptableAnswers": ["désoxyribonucléique"], "difficulty": "hard", "timeLimit": 20, "explanation": "L'ADN (acide désoxyribonucléique) porte les instructions génétiques pour le développement de tous les organismes vivants connus." },
-
-  { "id": "rk2",  "type": "ranking", "category": "science", "question": "Classez ces planètes par taille (de la plus petite à la plus grande) :", "items": ["Earth", "Jupiter", "Mars"], "correctOrder": [2, 0, 1], "difficulty": "medium", "timeLimit": 20, "allowPartialCredit": true, "explanation": "Mars (la plus petite) → Terre → Jupiter (la plus grande)." },
-  { "id": "sci_rk1", "type": "ranking", "category": "science", "question": "Classez ces planètes par distance au Soleil (la plus proche en premier) :", "items": ["Mars", "Mercury", "Venus"], "correctOrder": [1, 2, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Mercure → Vénus → Mars, par ordre de distance au Soleil." },
-  { "id": "sci_rk2", "type": "ranking", "category": "science", "question": "Classez ces scientifiques par année de naissance (du plus ancien au plus récent) :", "items": ["Albert Einstein", "Isaac Newton", "Marie Curie"], "correctOrder": [1, 2, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Isaac Newton (1643) → Marie Curie (1867) → Albert Einstein (1879)" },
-  { "id": "sci_rk3", "type": "ranking", "category": "science", "question": "Classez ces éléments par numéro atomique (du plus faible au plus élevé) :", "items": ["Gold", "Carbon", "Oxygen"], "correctOrder": [1, 2, 0], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "Carbone (6) → Oxygène (8) → Or (79)" },
-  { "id": "sci_rk4", "type": "ranking", "category": "science", "question": "Classez ces animaux par espérance de vie moyenne (la plus courte en premier) :", "items": ["Greenland Shark", "Human", "Mayfly"], "correctOrder": [2, 1, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Éphémère (~1 jour) → Être humain (~80 ans) → Requin du Groenland (~400 ans)" },
-  { "id": "sci_rk5", "type": "ranking", "category": "science", "question": "Classez ces inventions par année (de la plus ancienne à la plus récente) :", "items": ["Internet", "Telephone", "Steam Engine"], "correctOrder": [2, 1, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Machine à vapeur (1698) → Téléphone (1876) → Internet (1969/1991)" },
-
-  { "id": "sci_cw1", "type": "closest_wins", "category": "science", "question": "Combien de lunes Jupiter possède-t-elle ?", "correctAnswer": 95, "unit": "lunes", "difficulty": "hard", "timeLimit": 20, "explanation": "En 2023, Jupiter compte 95 lunes confirmées — le plus grand nombre de toutes les planètes du système solaire." },
-  { "id": "sci_cw2", "type": "closest_wins", "category": "science", "question": "Quel est le point d'ébullition de l'eau en degrés Celsius ?", "correctAnswer": 100, "unit": "°C", "difficulty": "easy", "timeLimit": 12, "explanation": "L'eau bout à 100 °C (212 °F) à la pression atmosphérique standard (au niveau de la mer)." },
-  { "id": "sci_cw3", "type": "closest_wins", "category": "science", "question": "Combien d'éléments y a-t-il dans le tableau périodique ?", "correctAnswer": 118, "unit": "éléments", "difficulty": "medium", "timeLimit": 15, "explanation": "Le tableau périodique contient actuellement 118 éléments confirmés, jusqu'à l'oganesson (Og)." },
-  { "id": "sci_cw4", "type": "closest_wins", "category": "science", "question": "Combien de chromosomes un être humain possède-t-il normalement ?", "correctAnswer": 46, "unit": "chromosomes", "difficulty": "medium", "timeLimit": 15, "explanation": "Les humains possèdent normalement 46 chromosomes répartis en 23 paires." },
-  { "id": "sci_cw5", "type": "closest_wins", "category": "science", "question": "Quel est l'âge approximatif de l'univers en milliards d'années ?", "correctAnswer": 13.8, "unit": "milliards d'années", "difficulty": "hard", "timeLimit": 20, "explanation": "L'univers est estimé à environ 13,8 milliards d'années, d'après les mesures du fond diffus cosmologique." },
-
-  { "id": "sb1",  "type": "speed_buzz", "category": "science", "question": "Quelle planète est la plus proche du Soleil ?", "options": ["Vénus", "Terre", "Mars", "Mercure"], "correctAnswer": 3, "difficulty": "easy", "timeLimit": 12, "explanation": "Mercure est la planète la plus proche du Soleil." },
-  { "id": "sb2",  "type": "speed_buzz", "category": "science", "question": "Quel est le symbole chimique de l'or ?", "options": ["Go", "Gd", "Au", "Ag"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "Au vient du mot latin « Aurum »." },
-  { "id": "sci_sb1", "type": "speed_buzz", "category": "science", "question": "Quel gaz les plantes absorbent-elles lors de la photosynthèse ?", "options": ["Oxygène", "Dioxyde de carbone", "Azote", "Hydrogène"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 12, "explanation": "Les plantes absorbent le dioxyde de carbone (CO₂) et libèrent de l'oxygène (O₂) lors de la photosynthèse." },
-  { "id": "sci_sb2", "type": "speed_buzz", "category": "science", "question": "Combien de cœurs possède une pieuvre ?", "options": ["1", "2", "3", "4"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "Les pieuvres ont trois cœurs — deux pompent le sang vers les branchies, et un le pompe vers le reste du corps." },
-  { "id": "sci_sb3", "type": "speed_buzz", "category": "science", "question": "Quelle est la substance naturelle la plus dure sur Terre ?", "options": ["Or", "Fer", "Diamant", "Quartz"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 12, "explanation": "Le diamant obtient un score de 10 sur l'échelle de Mohs — le plus élevé de tous les matériaux naturels." },
-
-  { "id": "sci_ft1", "type": "free_text", "category": "science", "question": "Comment s'appelle la force qui nous maintient au sol ?", "correctAnswer": "gravité", "acceptableAnswers": ["gravité", "gravitation"], "difficulty": "easy", "timeLimit": 12, "explanation": "La gravité est la force d'attraction entre les objets ayant une masse. Sur Terre, elle nous attire vers le centre de la planète." },
-  { "id": "sci_ft2", "type": "free_text", "category": "science", "question": "Quel organe pompe le sang dans le corps humain ?", "correctAnswer": "cœur", "acceptableAnswers": ["cœur", "le cœur"], "difficulty": "easy", "timeLimit": 10, "explanation": "Le cœur humain bat environ 100 000 fois par jour, pompant environ 5 litres de sang par minute." },
-  { "id": "sci_ft3", "type": "free_text", "category": "science", "question": "Quelle est l'étoile la plus proche de la Terre (autre que le Soleil) ?", "correctAnswer": "Proxima Centauri", "acceptableAnswers": ["proxima centauri", "proxima"], "difficulty": "hard", "timeLimit": 20, "explanation": "Proxima Centauri se trouve à environ 4,24 années-lumière et fait partie du système stellaire d'Alpha du Centaure." },
-  { "id": "sci_ft4", "type": "free_text", "category": "science", "question": "Comment s'appelle la couche de gaz qui entoure la Terre ?", "correctAnswer": "atmosphère", "acceptableAnswers": ["atmosphère", "l'atmosphère"], "difficulty": "easy", "timeLimit": 12, "explanation": "L'atmosphère terrestre est une couche de gaz maintenue par la gravité, qui protège la vie des rayonnements solaires et permet la météo." },
-  { "id": "sci_ft5", "type": "free_text", "category": "science", "question": "Quel est le symbole chimique du fer ?", "correctAnswer": "Fe", "acceptableAnswers": ["fe"], "difficulty": "medium", "timeLimit": 15, "explanation": "Fe vient du mot latin « ferrum », qui signifie fer. Le numéro atomique du fer est 26." },
-
-  { "id": "cc_sci1", "type": "clue_chain", "category": "science", "question": "Quel élément suis-je ?", "clues": ["Je suis l'élément naturel le plus lourd présent sur Terre", "J'ai été découvert en 1789 par Martin Heinrich Klaproth et nommé d'après la planète Uranus", "Je suis radioactif, avec un numéro atomique de 92", "Je suis le principal combustible utilisé dans les centrales nucléaires du monde entier"], "correctAnswer": "Uranium", "acceptableAnswers": ["uranium"], "difficulty": "medium", "timeLimit": 60 },
-  { "id": "cc_sci2", "type": "clue_chain", "category": "science", "question": "Quel animal suis-je ?", "clues": ["Je suis le plus grand animal ayant jamais existé sur Terre", "Je communique par des sons pouvant traverser des centaines de kilomètres d'océan", "Je respire de l'air et dois remonter régulièrement en surface — je peux retenir mon souffle jusqu'à 90 minutes", "Mon cœur est de la taille d'une petite voiture et je peux mesurer jusqu'à 30 mètres de long"], "correctAnswer": "Blue Whale", "acceptableAnswers": ["blue whale", "whale"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_sci3", "type": "clue_chain", "category": "science", "question": "Qui suis-je ?", "clues": ["Né en 1879, j'ai échoué à l'examen d'entrée de l'université à ma première tentative", "J'ai travaillé comme employé dans un bureau des brevets à Berne, en Suisse, tout en développant mes théories les plus célèbres", "En 1905 — mon « année miraculeuse » — j'ai publié quatre articles révolutionnaires qui ont transformé la physique", "Mon équation la plus célèbre, E=mc², est reconnue dans le monde entier"], "correctAnswer": "Albert Einstein", "acceptableAnswers": ["einstein"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_sci4", "type": "clue_chain", "category": "science", "question": "Que suis-je ?", "clues": ["Je suis une force qui s'exerce entre des particules chargées — les charges opposées s'attirent, les charges identiques se repoussent", "Je suis responsable de la cohésion des atomes et de la formation des liaisons chimiques", "Je suis transmis par des particules appelées photons", "James Clerk Maxwell m'a unifié avec le magnétisme en une seule théorie au XIXe siècle"], "correctAnswer": "Electromagnetism", "acceptableAnswers": ["electromagnetism", "electromagnetic force", "electricity"], "difficulty": "hard", "timeLimit": 60 },
-  { "id": "cc_sci5", "type": "clue_chain", "category": "science", "question": "Qui suis-je ?", "clues": ["Je suis née en 1867 à Varsovie, alors partie de l'Empire russe", "J'ai été la première femme à remporter un prix Nobel, et la seule personne à en remporter dans deux disciplines scientifiques différentes", "J'ai découvert les éléments polonium et radium", "J'ai mené des recherches pionnières sur la radioactivité, terme que j'ai moi-même forgé"], "correctAnswer": "Marie Curie", "acceptableAnswers": ["marie curie", "curie"], "difficulty": "easy", "timeLimit": 60 }
+  {
+    "id": "as1",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel animal fait ce son ?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Barking_of_a_dog.ogg",
+    "correctAnswer": "Dog",
+    "acceptableAnswers": [
+      "Dog",
+      "Beagle",
+      "Hound",
+      "Puppy"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as2",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel animal fait ce son ?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Meow_domestic_cat.ogg",
+    "correctAnswer": "Cat",
+    "acceptableAnswers": [
+      "Cat",
+      "Kitten",
+      "Kitty"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as3",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel animal fait ce son ?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Single_Cow_Moo.ogg",
+    "correctAnswer": "Cow",
+    "acceptableAnswers": [
+      "Cow",
+      "Bull",
+      "Cattle",
+      "Calf"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as4",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel animal fait ce son ?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Rooster_crowing.ogg",
+    "correctAnswer": "Rooster",
+    "acceptableAnswers": [
+      "Rooster",
+      "Chicken",
+      "Cockerel",
+      "Cock"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as5",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel animal fait ce son ?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Wiehern.ogg",
+    "correctAnswer": "Horse",
+    "acceptableAnswers": [
+      "Horse",
+      "Mare",
+      "Stallion",
+      "Pony"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as6",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel animal fait ce son ?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/7/73/Mudchute_pig_1.ogg",
+    "correctAnswer": "Pig",
+    "acceptableAnswers": [
+      "Pig",
+      "Hog",
+      "Boar",
+      "Swine",
+      "Piglet"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as7",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel animal fait ce son ?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/8/87/Wolf_howls.ogg",
+    "correctAnswer": "Wolf",
+    "acceptableAnswers": [
+      "Wolf",
+      "Wolves",
+      "Grey Wolf"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as8",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel animal fait ce son ?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Single_Frog_Croak.oga",
+    "correctAnswer": "Frog",
+    "acceptableAnswers": [
+      "Frog",
+      "Toad"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as9",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel animal fait ce son ?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/6/64/Strix_aluco_-_Tawny_Owl_XC563348.mp3",
+    "correctAnswer": "Owl",
+    "acceptableAnswers": [
+      "Owl",
+      "Tawny Owl"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20
+  },
+  {
+    "id": "as10",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel animal fait ce son ?",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/4/40/Elephant_voice_-_trumpeting.ogg",
+    "correctAnswer": "Elephant",
+    "acceptableAnswers": [
+      "Elephant"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20
+  },
+  {
+    "id": "pr1",
+    "type": "pixel_reveal",
+    "category": "science",
+    "question": "De qui s'agit-il ?",
+    "imageUrl": "/quiz-images/einstein.jpg",
+    "correctAnswer": "Albert Einstein",
+    "acceptableAnswers": [
+      "einstein"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Albert Einstein a développé la théorie de la relativité et a remporté le prix Nobel de physique en 1921."
+  },
+  {
+    "id": "ig2",
+    "type": "image_guess",
+    "category": "science",
+    "question": "Nommez cet animal.",
+    "imageUrl": "/quiz-images/penguin.jpg",
+    "correctAnswer": "Penguin",
+    "acceptableAnswers": [
+      "penguins",
+      "chinstrap penguin"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Les manchots sont des oiseaux incapables de voler qui vivent principalement dans l'hémisphère sud."
+  },
+  {
+    "id": "sci_mc1",
+    "type": "multiple_choice",
+    "category": "science",
+    "question": "Quelle est la vitesse de la lumière dans le vide (approximativement) ?",
+    "options": [
+      "300 000 km/s",
+      "150 000 km/s",
+      "3 000 km/s",
+      "1 000 000 km/s"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "La lumière voyage à environ 299 792 km/s dans le vide."
+  },
+  {
+    "id": "sci_mc2",
+    "type": "multiple_choice",
+    "category": "science",
+    "question": "Combien d'os compte le corps humain adulte ?",
+    "options": [
+      "196",
+      "206",
+      "216",
+      "226"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Le corps humain adulte possède 206 os. Les bébés naissent avec environ 270 à 300 os."
+  },
+  {
+    "id": "sci_mc3",
+    "type": "multiple_choice",
+    "category": "science",
+    "question": "Quel est le gaz le plus abondant dans l'atmosphère terrestre ?",
+    "options": [
+      "Oxygène",
+      "Dioxyde de carbone",
+      "Azote",
+      "Argon"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "L'azote représente environ 78 % de l'atmosphère terrestre."
+  },
+  {
+    "id": "sci_mc4",
+    "type": "multiple_choice",
+    "category": "science",
+    "question": "Quel est le centre énergétique de la cellule ?",
+    "options": [
+      "Noyau",
+      "Ribosome",
+      "Mitochondrie",
+      "Appareil de Golgi"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Les mitochondries produisent la majeure partie de l'ATP de la cellule, utilisé comme source d'énergie chimique."
+  },
+  {
+    "id": "sci_mc5",
+    "type": "multiple_choice",
+    "category": "science",
+    "question": "Quelle planète de notre système solaire possède le plus de lunes ?",
+    "options": [
+      "Jupiter",
+      "Saturne",
+      "Uranus",
+      "Neptune"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Saturne a dépassé Jupiter en 2023 avec 146 lunes confirmées, soit le plus grand nombre pour toute planète."
+  },
+  {
+    "id": "sci_tf1",
+    "type": "true_false",
+    "category": "science",
+    "question": "Les humains partagent environ 98 % de leur ADN avec les chimpanzés.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Les humains et les chimpanzés partagent environ 98,7 % de leur ADN."
+  },
+  {
+    "id": "sci_tf2",
+    "type": "true_false",
+    "category": "science",
+    "question": "La foudre ne frappe jamais deux fois au même endroit.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "La foudre frappe souvent le même endroit — l'Empire State Building est touché environ 20 à 25 fois par an."
+  },
+  {
+    "id": "sci_tf3",
+    "type": "true_false",
+    "category": "science",
+    "question": "Les diamants sont composés de carbone.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Les diamants sont constitués d'atomes de carbone pur arrangés en réseau cristallin — le même élément que le graphite, mais avec une structure différente."
+  },
+  {
+    "id": "sci_tf4",
+    "type": "true_false",
+    "category": "science",
+    "question": "Le Soleil est une étoile.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Le Soleil est une étoile de taille moyenne au centre de notre système solaire, âgée d'environ 4,6 milliards d'années."
+  },
+  {
+    "id": "sci_tf5",
+    "type": "true_false",
+    "category": "science",
+    "question": "Le son se propage plus vite que la lumière.",
+    "options": [
+      "Vrai",
+      "Faux"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "La lumière voyage à ~300 000 km/s. Le son se propage à ~0,343 km/s dans l'air — près d'un million de fois plus lentement."
+  },
+  {
+    "id": "sci_fb1",
+    "type": "fill_blank",
+    "category": "science",
+    "question": "Le symbole chimique de l'eau est ___.",
+    "correctAnswer": "H2O",
+    "acceptableAnswers": [
+      "h2o",
+      "H₂O"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "L'eau (H₂O) est composée de deux atomes d'hydrogène liés à un atome d'oxygène."
+  },
+  {
+    "id": "sci_fb2",
+    "type": "fill_blank",
+    "category": "science",
+    "question": "La force qui maintient les planètes en orbite autour du Soleil s'appelle la ___.",
+    "correctAnswer": "gravité",
+    "acceptableAnswers": [
+      "gravité",
+      "gravitation",
+      "force gravitationnelle"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "La gravité est la force d'attraction entre les masses. Newton l'a décrite ; Einstein l'a ensuite affinée avec la relativité générale."
+  },
+  {
+    "id": "sci_fb3",
+    "type": "fill_blank",
+    "category": "science",
+    "question": "Le tableau des éléments chimiques organisé par numéro atomique est appelé le tableau ___.",
+    "correctAnswer": "périodique",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Dmitri Mendeleïev a créé le premier tableau périodique en 1869, en organisant les éléments par masse atomique et par propriétés."
+  },
+  {
+    "id": "sci_fb4",
+    "type": "fill_blank",
+    "category": "science",
+    "question": "Le processus par lequel les plantes utilisent la lumière solaire pour produire de la nourriture s'appelle la ___.",
+    "correctAnswer": "photosynthèse",
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "La photosynthèse convertit le CO₂ et l'eau en glucose et en oxygène grâce à l'énergie solaire dans les chloroplastes."
+  },
+  {
+    "id": "sci_fb5",
+    "type": "fill_blank",
+    "category": "science",
+    "question": "ADN signifie acide ___.",
+    "correctAnswer": "désoxyribonucléique",
+    "acceptableAnswers": [
+      "désoxyribonucléique"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "L'ADN (acide désoxyribonucléique) porte les instructions génétiques pour le développement de tous les organismes vivants connus."
+  },
+  {
+    "id": "rk2",
+    "type": "ranking",
+    "category": "science",
+    "question": "Classez ces planètes par taille (de la plus petite à la plus grande) :",
+    "items": [
+      "Earth",
+      "Jupiter",
+      "Mars"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      1
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "allowPartialCredit": true,
+    "explanation": "Mars (la plus petite) → Terre → Jupiter (la plus grande)."
+  },
+  {
+    "id": "sci_rk1",
+    "type": "ranking",
+    "category": "science",
+    "question": "Classez ces planètes par distance au Soleil (la plus proche en premier) :",
+    "items": [
+      "Mars",
+      "Mercury",
+      "Venus"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Mercure → Vénus → Mars, par ordre de distance au Soleil."
+  },
+  {
+    "id": "sci_rk2",
+    "type": "ranking",
+    "category": "science",
+    "question": "Classez ces scientifiques par année de naissance (du plus ancien au plus récent) :",
+    "items": [
+      "Albert Einstein",
+      "Isaac Newton",
+      "Marie Curie"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Isaac Newton (1643) → Marie Curie (1867) → Albert Einstein (1879)"
+  },
+  {
+    "id": "sci_rk3",
+    "type": "ranking",
+    "category": "science",
+    "question": "Classez ces éléments par numéro atomique (du plus faible au plus élevé) :",
+    "items": [
+      "Gold",
+      "Carbon",
+      "Oxygen"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Carbone (6) → Oxygène (8) → Or (79)"
+  },
+  {
+    "id": "sci_rk4",
+    "type": "ranking",
+    "category": "science",
+    "question": "Classez ces animaux par espérance de vie moyenne (la plus courte en premier) :",
+    "items": [
+      "Greenland Shark",
+      "Human",
+      "Mayfly"
+    ],
+    "correctOrder": [
+      2,
+      1,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Éphémère (~1 jour) → Être humain (~80 ans) → Requin du Groenland (~400 ans)"
+  },
+  {
+    "id": "sci_rk5",
+    "type": "ranking",
+    "category": "science",
+    "question": "Classez ces inventions par année (de la plus ancienne à la plus récente) :",
+    "items": [
+      "Internet",
+      "Telephone",
+      "Steam Engine"
+    ],
+    "correctOrder": [
+      2,
+      1,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Machine à vapeur (1698) → Téléphone (1876) → Internet (1969/1991)"
+  },
+  {
+    "id": "sci_cw1",
+    "type": "closest_wins",
+    "category": "science",
+    "question": "Combien de lunes Jupiter possède-t-elle ?",
+    "correctAnswer": 95,
+    "unit": "lunes",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "En 2023, Jupiter compte 95 lunes confirmées — le plus grand nombre de toutes les planètes du système solaire."
+  },
+  {
+    "id": "sci_cw2",
+    "type": "closest_wins",
+    "category": "science",
+    "question": "Quel est le point d'ébullition de l'eau en degrés Celsius ?",
+    "correctAnswer": 100,
+    "unit": "°C",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "L'eau bout à 100 °C (212 °F) à la pression atmosphérique standard (au niveau de la mer)."
+  },
+  {
+    "id": "sci_cw3",
+    "type": "closest_wins",
+    "category": "science",
+    "question": "Combien d'éléments y a-t-il dans le tableau périodique ?",
+    "correctAnswer": 118,
+    "unit": "éléments",
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Le tableau périodique contient actuellement 118 éléments confirmés, jusqu'à l'oganesson (Og)."
+  },
+  {
+    "id": "sci_cw4",
+    "type": "closest_wins",
+    "category": "science",
+    "question": "Combien de chromosomes un être humain possède-t-il normalement ?",
+    "correctAnswer": 46,
+    "unit": "chromosomes",
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Les humains possèdent normalement 46 chromosomes répartis en 23 paires."
+  },
+  {
+    "id": "sci_cw5",
+    "type": "closest_wins",
+    "category": "science",
+    "question": "Quel est l'âge approximatif de l'univers en milliards d'années ?",
+    "correctAnswer": 13.8,
+    "unit": "milliards d'années",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "L'univers est estimé à environ 13,8 milliards d'années, d'après les mesures du fond diffus cosmologique."
+  },
+  {
+    "id": "sb1",
+    "type": "speed_buzz",
+    "category": "science",
+    "question": "Quelle planète est la plus proche du Soleil ?",
+    "options": [
+      "Vénus",
+      "Terre",
+      "Mars",
+      "Mercure"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Mercure est la planète la plus proche du Soleil."
+  },
+  {
+    "id": "sb2",
+    "type": "speed_buzz",
+    "category": "science",
+    "question": "Quel est le symbole chimique de l'or ?",
+    "options": [
+      "Go",
+      "Gd",
+      "Au",
+      "Ag"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Au vient du mot latin « Aurum »."
+  },
+  {
+    "id": "sci_sb1",
+    "type": "speed_buzz",
+    "category": "science",
+    "question": "Quel gaz les plantes absorbent-elles lors de la photosynthèse ?",
+    "options": [
+      "Oxygène",
+      "Dioxyde de carbone",
+      "Azote",
+      "Hydrogène"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Les plantes absorbent le dioxyde de carbone (CO₂) et libèrent de l'oxygène (O₂) lors de la photosynthèse."
+  },
+  {
+    "id": "sci_sb2",
+    "type": "speed_buzz",
+    "category": "science",
+    "question": "Combien de cœurs possède une pieuvre ?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Les pieuvres ont trois cœurs — deux pompent le sang vers les branchies, et un le pompe vers le reste du corps."
+  },
+  {
+    "id": "sci_sb3",
+    "type": "speed_buzz",
+    "category": "science",
+    "question": "Quelle est la substance naturelle la plus dure sur Terre ?",
+    "options": [
+      "Or",
+      "Fer",
+      "Diamant",
+      "Quartz"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Le diamant obtient un score de 10 sur l'échelle de Mohs — le plus élevé de tous les matériaux naturels."
+  },
+  {
+    "id": "sci_ft1",
+    "type": "free_text",
+    "category": "science",
+    "question": "Comment s'appelle la force qui nous maintient au sol ?",
+    "correctAnswer": "gravité",
+    "acceptableAnswers": [
+      "gravité",
+      "gravitation"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "La gravité est la force d'attraction entre les objets ayant une masse. Sur Terre, elle nous attire vers le centre de la planète."
+  },
+  {
+    "id": "sci_ft2",
+    "type": "free_text",
+    "category": "science",
+    "question": "Quel organe pompe le sang dans le corps humain ?",
+    "correctAnswer": "cœur",
+    "acceptableAnswers": [
+      "cœur",
+      "le cœur"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Le cœur humain bat environ 100 000 fois par jour, pompant environ 5 litres de sang par minute."
+  },
+  {
+    "id": "sci_ft3",
+    "type": "free_text",
+    "category": "science",
+    "question": "Quelle est l'étoile la plus proche de la Terre (autre que le Soleil) ?",
+    "correctAnswer": "Proxima Centauri",
+    "acceptableAnswers": [
+      "proxima centauri",
+      "proxima"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Proxima Centauri se trouve à environ 4,24 années-lumière et fait partie du système stellaire d'Alpha du Centaure."
+  },
+  {
+    "id": "sci_ft4",
+    "type": "free_text",
+    "category": "science",
+    "question": "Comment s'appelle la couche de gaz qui entoure la Terre ?",
+    "correctAnswer": "atmosphère",
+    "acceptableAnswers": [
+      "atmosphère",
+      "l'atmosphère"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "L'atmosphère terrestre est une couche de gaz maintenue par la gravité, qui protège la vie des rayonnements solaires et permet la météo."
+  },
+  {
+    "id": "sci_ft5",
+    "type": "free_text",
+    "category": "science",
+    "question": "Quel est le symbole chimique du fer ?",
+    "correctAnswer": "Fe",
+    "acceptableAnswers": [
+      "fe"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Fe vient du mot latin « ferrum », qui signifie fer. Le numéro atomique du fer est 26."
+  },
+  {
+    "id": "cc_sci1",
+    "type": "clue_chain",
+    "category": "science",
+    "question": "Quel élément suis-je ?",
+    "clues": [
+      "Je suis l'élément naturel le plus lourd présent sur Terre",
+      "J'ai été découvert en 1789 par Martin Heinrich Klaproth et nommé d'après la planète Uranus",
+      "Je suis radioactif, avec un numéro atomique de 92",
+      "Je suis le principal combustible utilisé dans les centrales nucléaires du monde entier"
+    ],
+    "correctAnswer": "Uranium",
+    "acceptableAnswers": [
+      "uranium"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_sci2",
+    "type": "clue_chain",
+    "category": "science",
+    "question": "Quel animal suis-je ?",
+    "clues": [
+      "Je suis le plus grand animal ayant jamais existé sur Terre",
+      "Je communique par des sons pouvant traverser des centaines de kilomètres d'océan",
+      "Je respire de l'air et dois remonter régulièrement en surface — je peux retenir mon souffle jusqu'à 90 minutes",
+      "Mon cœur est de la taille d'une petite voiture et je peux mesurer jusqu'à 30 mètres de long"
+    ],
+    "correctAnswer": "Blue Whale",
+    "acceptableAnswers": [
+      "blue whale",
+      "whale"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_sci3",
+    "type": "clue_chain",
+    "category": "science",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Né en 1879, j'ai échoué à l'examen d'entrée de l'université à ma première tentative",
+      "J'ai travaillé comme employé dans un bureau des brevets à Berne, en Suisse, tout en développant mes théories les plus célèbres",
+      "En 1905 — mon « année miraculeuse » — j'ai publié quatre articles révolutionnaires qui ont transformé la physique",
+      "Mon équation la plus célèbre, E=mc², est reconnue dans le monde entier"
+    ],
+    "correctAnswer": "Albert Einstein",
+    "acceptableAnswers": [
+      "einstein"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_sci4",
+    "type": "clue_chain",
+    "category": "science",
+    "question": "Que suis-je ?",
+    "clues": [
+      "Je suis une force qui s'exerce entre des particules chargées — les charges opposées s'attirent, les charges identiques se repoussent",
+      "Je suis responsable de la cohésion des atomes et de la formation des liaisons chimiques",
+      "Je suis transmis par des particules appelées photons",
+      "James Clerk Maxwell m'a unifié avec le magnétisme en une seule théorie au XIXe siècle"
+    ],
+    "correctAnswer": "Electromagnetism",
+    "acceptableAnswers": [
+      "electromagnetism",
+      "electromagnetic force",
+      "electricity"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_sci5",
+    "type": "clue_chain",
+    "category": "science",
+    "question": "Qui suis-je ?",
+    "clues": [
+      "Je suis née en 1867 à Varsovie, alors partie de l'Empire russe",
+      "J'ai été la première femme à remporter un prix Nobel, et la seule personne à en remporter dans deux disciplines scientifiques différentes",
+      "J'ai découvert les éléments polonium et radium",
+      "J'ai mené des recherches pionnières sur la radioactivité, terme que j'ai moi-même forgé"
+    ],
+    "correctAnswer": "Marie Curie",
+    "acceptableAnswers": [
+      "marie curie",
+      "curie"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "as_sci_1",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel animal émet ce son ?",
+    "audioUrl": "/audio/animals/lion.ogg",
+    "correctAnswer": "Lion",
+    "acceptableAnswers": [
+      "Lion",
+      "Male lion"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_2",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel animal émet ce son ?",
+    "audioUrl": "/audio/animals/dolphin.ogg",
+    "correctAnswer": "Dolphin",
+    "acceptableAnswers": [
+      "Dolphin",
+      "Bottlenose dolphin"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_3",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel animal émet ce son ?",
+    "audioUrl": "/audio/animals/eagle.ogg",
+    "correctAnswer": "Eagle",
+    "acceptableAnswers": [
+      "Eagle",
+      "Bald eagle",
+      "Golden eagle"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_4",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel insecte émet ce bourdonnement ?",
+    "audioUrl": "/audio/animals/bee.ogg",
+    "correctAnswer": "Bee",
+    "acceptableAnswers": [
+      "Bee",
+      "Honeybee",
+      "Bumblebee"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_5",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel animal émet ce son ?",
+    "audioUrl": "/audio/animals/bear.ogg",
+    "correctAnswer": "Bear",
+    "acceptableAnswers": [
+      "Bear",
+      "Grizzly bear",
+      "Brown bear"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_6",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel grand singe émet ce son ?",
+    "audioUrl": "/audio/animals/gorilla.ogg",
+    "correctAnswer": "Gorilla",
+    "acceptableAnswers": [
+      "Gorilla",
+      "Western gorilla"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_7",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel mammifère marin produit cet appel ?",
+    "audioUrl": "/audio/animals/whale.ogg",
+    "correctAnswer": "Whale",
+    "acceptableAnswers": [
+      "Whale",
+      "Humpback whale",
+      "Blue whale"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_8",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel reptile émet ce son ?",
+    "audioUrl": "/audio/animals/crocodile.ogg",
+    "correctAnswer": "Crocodile",
+    "acceptableAnswers": [
+      "Crocodile",
+      "Alligator",
+      "Crocodilian"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_9",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel mammifère volant nocturne émet ce son ?",
+    "audioUrl": "/audio/animals/bat.ogg",
+    "correctAnswer": "Bat",
+    "acceptableAnswers": [
+      "Bat",
+      "Fruit bat",
+      "Vampire bat"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_10",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel insecte émet ce chant strident ?",
+    "audioUrl": "/audio/animals/cricket.ogg",
+    "correctAnswer": "Cricket",
+    "acceptableAnswers": [
+      "Cricket",
+      "Field cricket"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_11",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel grand félin émet ce son ?",
+    "audioUrl": "/audio/animals/tiger.ogg",
+    "correctAnswer": "Tiger",
+    "acceptableAnswers": [
+      "Tiger",
+      "Bengal tiger",
+      "Siberian tiger"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_12",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel grand animal africain émet ce son ?",
+    "audioUrl": "/audio/animals/rhinoceros.ogg",
+    "correctAnswer": "Rhinoceros",
+    "acceptableAnswers": [
+      "Rhinoceros",
+      "Rhino",
+      "White rhino",
+      "Black rhino"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_13",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel animal semi-aquatique africain émet ce son ?",
+    "audioUrl": "/audio/animals/hippo.ogg",
+    "correctAnswer": "Hippopotamus",
+    "acceptableAnswers": [
+      "Hippopotamus",
+      "Hippo"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_14",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel mammifère marin émet cet aboiement ?",
+    "audioUrl": "/audio/animals/seal.ogg",
+    "correctAnswer": "Seal",
+    "acceptableAnswers": [
+      "Seal",
+      "Sea lion",
+      "Harbor seal"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_15",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel oiseau coloré émet ce son ?",
+    "audioUrl": "/audio/animals/parrot.ogg",
+    "correctAnswer": "Parrot",
+    "acceptableAnswers": [
+      "Parrot",
+      "Macaw",
+      "African grey"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_16",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel oiseau connu pour sa queue spectaculaire émet ce son ?",
+    "audioUrl": "/audio/animals/peacock.ogg",
+    "correctAnswer": "Peacock",
+    "acceptableAnswers": [
+      "Peacock",
+      "Peafowl",
+      "Indian peafowl"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_17",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel animal à sabots émet ce son ?",
+    "audioUrl": "/audio/animals/deer.ogg",
+    "correctAnswer": "Deer",
+    "acceptableAnswers": [
+      "Deer",
+      "Stag",
+      "Elk",
+      "Red deer"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_18",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel mammifère du désert émet ce gargouillement ?",
+    "audioUrl": "/audio/animals/camel.ogg",
+    "correctAnswer": "Camel",
+    "acceptableAnswers": [
+      "Camel",
+      "Dromedary",
+      "Bactrian camel"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_19",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel mammifère nocturne nord-américain émet ce jacassement ?",
+    "audioUrl": "/audio/animals/raccoon.ogg",
+    "correctAnswer": "Raccoon",
+    "acceptableAnswers": [
+      "Raccoon"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_sci_20",
+    "type": "animal_sound",
+    "category": "science",
+    "question": "Quel petit rongeur émet ce bruit ?",
+    "audioUrl": "/audio/animals/squirrel.ogg",
+    "correctAnswer": "Squirrel",
+    "acceptableAnswers": [
+      "Squirrel",
+      "Gray squirrel",
+      "Red squirrel"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "ig_sci_1",
+    "type": "image_guess",
+    "category": "science",
+    "question": "Quel est ce célèbre modèle scientifique ?",
+    "imageUrl": "/quiz-images/dna-double-helix.jpg",
+    "correctAnswer": "DNA Double Helix",
+    "acceptableAnswers": [
+      "dna",
+      "dna double helix",
+      "double helix"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "La structure en double hélice de l'ADN a été découverte par Watson et Crick en 1953, grâce aux données de diffraction aux rayons X de Rosalind Franklin. Elle encode l'information génétique de toute vie sur Terre."
+  },
+  {
+    "id": "ig_sci_2",
+    "type": "image_guess",
+    "category": "science",
+    "question": "Quel est cet instrument scientifique ?",
+    "imageUrl": "/quiz-images/hubble-space-telescope.jpg",
+    "correctAnswer": "Hubble Space Telescope",
+    "acceptableAnswers": [
+      "hubble",
+      "hubble space telescope",
+      "hubble telescope"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Le télescope spatial Hubble, lancé en 1990, orbite autour de la Terre à 570 km d'altitude et a capturé certaines des images les plus profondes de l'univers jamais prises."
+  },
+  {
+    "id": "ig_sci_3",
+    "type": "image_guess",
+    "category": "science",
+    "question": "Quelle est cette planète ?",
+    "imageUrl": "/quiz-images/saturn.jpg",
+    "correctAnswer": "Saturn",
+    "acceptableAnswers": [
+      "saturn"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Saturne est la sixième planète depuis le Soleil, célèbre pour son spectaculaire système d'anneaux composés principalement de glace et de roches. C'est la deuxième plus grande planète de notre système solaire."
+  },
+  {
+    "id": "ig_sci_4",
+    "type": "image_guess",
+    "category": "science",
+    "question": "Quel type de cellule est représenté ici ?",
+    "imageUrl": "/quiz-images/neuron.jpg",
+    "correctAnswer": "Neuron",
+    "acceptableAnswers": [
+      "neuron",
+      "nerve cell",
+      "brain cell"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Les neurones sont les unités fondamentales du cerveau et du système nerveux. Le cerveau humain contient environ 86 milliards de neurones reliés par des billions de synapses."
+  },
+  {
+    "id": "ig_sci_5",
+    "type": "image_guess",
+    "category": "science",
+    "question": "Quelle célèbre formule scientifique est écrite ici ?",
+    "imageUrl": "/quiz-images/e-mc2.jpg",
+    "correctAnswer": "E=mc²",
+    "acceptableAnswers": [
+      "e=mc2",
+      "e=mc²",
+      "mass energy equivalence"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "La formule d'équivalence masse-énergie d'Einstein (E=mc²), tirée de sa Théorie de la Relativité Restreinte de 1905, montre que masse et énergie sont interchangeables, c étant la vitesse de la lumière."
+  },
+  {
+    "id": "pr_sci_1",
+    "type": "pixel_reveal",
+    "category": "science",
+    "question": "Qui est ce scientifique ?",
+    "imageUrl": "/quiz-images/pixel/science-marie-curie.jpg",
+    "correctAnswer": "Marie Curie",
+    "acceptableAnswers": [
+      "marie curie",
+      "curie",
+      "maria sklodowska"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Marie Curie était physicienne et chimiste, pionnière de la recherche sur la radioactivité. Elle fut la première femme à recevoir un prix Nobel et la seule personne à remporter des prix Nobel dans deux sciences différentes."
+  },
+  {
+    "id": "pr_sci_2",
+    "type": "pixel_reveal",
+    "category": "science",
+    "question": "Qui est ce scientifique ?",
+    "imageUrl": "/quiz-images/pixel/science-darwin.jpg",
+    "correctAnswer": "Charles Darwin",
+    "acceptableAnswers": [
+      "charles darwin",
+      "darwin"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Charles Darwin (1809–1882) a développé la théorie de l'évolution par sélection naturelle, publiée dans 'De l'origine des espèces' en 1859."
+  }
 ]

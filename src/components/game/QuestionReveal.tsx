@@ -137,6 +137,7 @@ export function QuestionReveal({
     const { t } = useTranslation()
     const serverRevealIndex = gameState.currentRevealIndex || 0
     const [currentRevealIndex, setCurrentRevealIndex] = useState(serverRevealIndex)
+    const [showExplanation, setShowExplanation] = useState(false)
     const [showingChallenge, setShowingChallenge] = useState(false)
     const [challengeExplanation, setChallengeExplanation] = useState('')
     const [challengeTimeLeft, setChallengeTimeLeft] = useState(30)
@@ -155,6 +156,7 @@ export function QuestionReveal({
     useEffect(() => {
         if (gameState.currentRevealIndex !== undefined) {
             setCurrentRevealIndex(gameState.currentRevealIndex)
+            setShowExplanation(false)
         }
     }, [gameState.currentRevealIndex])
 
@@ -644,6 +646,49 @@ export function QuestionReveal({
                             </p>
                         )}
                     </div>
+
+                    {/* ── Explanation Toggle ── */}
+                    {currentQuestion.explanation && (
+                        <div>
+                            <button
+                                onClick={() => setShowExplanation(v => !v)}
+                                style={{
+                                    width: '100%',
+                                    padding: '10px 16px',
+                                    borderRadius: '14px',
+                                    border: '1px solid rgba(251,191,36,0.3)',
+                                    background: 'rgba(251,191,36,0.08)',
+                                    color: '#fbbf24',
+                                    fontSize: '13px',
+                                    fontWeight: 700,
+                                    cursor: 'pointer',
+                                    textAlign: 'left',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '8px',
+                                    transition: 'background 0.15s',
+                                }}
+                            >
+                                <span>{showExplanation ? '▲' : '💡'}</span>
+                                {showExplanation ? 'Hide explanation' : 'Show explanation'}
+                            </button>
+                            {showExplanation && (
+                                <div style={{
+                                    marginTop: '8px',
+                                    padding: '14px 16px',
+                                    borderRadius: '14px',
+                                    background: 'rgba(251,191,36,0.06)',
+                                    border: '1px solid rgba(251,191,36,0.15)',
+                                    fontSize: '13px',
+                                    color: '#d4d4d8',
+                                    lineHeight: '1.6',
+                                    animation: 'slideUpFadeIn 0.2s ease both',
+                                }}>
+                                    {currentQuestion.explanation}
+                                </div>
+                            )}
+                        </div>
+                    )}
 
                     {/* ── Your Result Card ── */}
                     <div style={{

@@ -1,54 +1,1244 @@
 [
-  { "id": "tf1",  "type": "true_false", "category": "pop_culture", "question": "TikTok was originally called Musical.ly", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 10, "explanation": "Musical.ly was acquired by ByteDance and rebranded as TikTok in 2018." },
-  { "id": "pc_tf1", "type": "true_false", "category": "pop_culture", "question": "The fidget spinner was one of the most popular toys of 2017.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 12, "explanation": "Fidget spinners became a massive global craze in 2017." },
-  { "id": "pc_tf2", "type": "true_false", "category": "pop_culture", "question": "Netflix started as a DVD-by-mail service.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 12, "explanation": "Netflix launched in 1997 as a DVD rental service before pivoting to streaming in 2007." },
-  { "id": "pc_tf3", "type": "true_false", "category": "pop_culture", "question": "Elon Musk bought Twitter and rebranded it to X.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 10, "explanation": "Elon Musk acquired Twitter in October 2022 and rebranded it to X in 2023." },
-  { "id": "pc_tf4", "type": "true_false", "category": "pop_culture", "question": "The TV show 'Friends' ran for 10 seasons.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 12, "explanation": "Friends aired for 10 seasons from 1994 to 2004 on NBC." },
-  { "id": "pc_tf5", "type": "true_false", "category": "pop_culture", "question": "Beyoncé and Jay-Z are siblings.", "options": ["True", "False"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 10, "explanation": "Beyoncé and Jay-Z are married — they wed in April 2008." },
-
-  { "id": "pc_mc1", "type": "multiple_choice", "category": "pop_culture", "question": "Which social media platform has the most monthly active users?", "options": ["Instagram", "TikTok", "Facebook", "YouTube"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "Facebook leads with over 3 billion monthly active users as of 2024." },
-  { "id": "pc_mc2", "type": "multiple_choice", "category": "pop_culture", "question": "What does 'GOAT' stand for in sports culture?", "options": ["Greatest of All Time", "Game of All Teams", "Gold of Athletic Training", "Glory on Any Turf"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 12, "explanation": "GOAT = Greatest Of All Time, often used to describe athletes like LeBron James or Serena Williams." },
-  { "id": "pc_mc3", "type": "multiple_choice", "category": "pop_culture", "question": "Which year did the COVID-19 pandemic begin?", "options": ["2018", "2019", "2020", "2021"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 12, "explanation": "COVID-19 was first identified in Wuhan, China in late 2019." },
-  { "id": "pc_mc4", "type": "multiple_choice", "category": "pop_culture", "question": "Which show features the fictional paper company Dunder Mifflin?", "options": ["Parks and Recreation", "Brooklyn Nine-Nine", "The Office", "Arrested Development"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 12, "explanation": "Dunder Mifflin Paper Company is the fictional workplace in the US version of The Office (2005–2013)." },
-  { "id": "pc_mc5", "type": "multiple_choice", "category": "pop_culture", "question": "Which artist has the most Grammy Award wins of all time?", "options": ["Michael Jackson", "Beyoncé", "Taylor Swift", "Jay-Z"], "correctAnswer": 1, "difficulty": "hard", "timeLimit": 20, "explanation": "Beyoncé holds the record for the most Grammy wins ever, surpassing 30 awards as of 2024." },
-
-  { "id": "pc_fb1", "type": "fill_blank", "category": "pop_culture", "question": "\"OK ___\" — the phrase used to dismiss older people's concerns online.", "correctAnswer": "Boomer", "difficulty": "easy", "timeLimit": 15, "explanation": "'OK Boomer' became a viral phrase in 2019 to dismiss baby boomers." },
-  { "id": "pc_fb2", "type": "fill_blank", "category": "pop_culture", "question": "The viral 2012 song 'Gangnam ___' by PSY.", "correctAnswer": "Style", "difficulty": "easy", "timeLimit": 12, "explanation": "Gangnam Style was the first YouTube video to reach 1 billion views." },
-  { "id": "pc_fb3", "type": "fill_blank", "category": "pop_culture", "question": "The fictional TV drama set in a high school where teachers become drug lords is called Breaking ___.", "correctAnswer": "Bad", "difficulty": "easy", "timeLimit": 12, "explanation": "Breaking Bad (2008–2013) follows Walter White, a chemistry teacher turned methamphetamine manufacturer." },
-  { "id": "pc_fb4", "type": "fill_blank", "category": "pop_culture", "question": "Taylor Swift's album '___' was originally released in 2019 and re-released as 'Taylor's Version' in 2021.", "correctAnswer": "Fearless", "difficulty": "medium", "timeLimit": 20, "explanation": "Fearless (Taylor's Version) was released in April 2021, the first of her re-recorded albums." },
-  { "id": "pc_fb5", "type": "fill_blank", "category": "pop_culture", "question": "The viral Ice ___ Challenge involved dumping cold water on your head to raise ALS awareness.", "correctAnswer": "Bucket", "acceptableAnswers": ["bucket"], "difficulty": "easy", "timeLimit": 15, "explanation": "The Ice Bucket Challenge went viral in 2014 and raised over $220 million for ALS research." },
-
-  { "id": "cw1",  "type": "closest_wins", "category": "pop_culture", "question": "In what year was the first iPhone released?", "correctAnswer": 2007, "difficulty": "easy", "timeLimit": 15, "explanation": "Apple released the first iPhone on June 29, 2007." },
-  { "id": "pc_cw1", "type": "closest_wins", "category": "pop_culture", "question": "In what year did Instagram launch?", "correctAnswer": 2010, "difficulty": "medium", "timeLimit": 15, "explanation": "Instagram launched on October 6, 2010 and reached 1 million users in just 2 months." },
-  { "id": "pc_cw2", "type": "closest_wins", "category": "pop_culture", "question": "In what year was YouTube founded?", "correctAnswer": 2005, "difficulty": "medium", "timeLimit": 15, "explanation": "YouTube was founded in February 2005 and launched to the public in November 2005." },
-  { "id": "pc_cw3", "type": "closest_wins", "category": "pop_culture", "question": "How many episodes does Game of Thrones have in total?", "correctAnswer": 73, "unit": "episodes", "difficulty": "hard", "timeLimit": 20, "explanation": "Game of Thrones ran for 8 seasons with a total of 73 episodes from 2011 to 2019." },
-  { "id": "pc_cw4", "type": "closest_wins", "category": "pop_culture", "question": "In what year was Facebook (now Meta) founded?", "correctAnswer": 2004, "difficulty": "easy", "timeLimit": 15, "explanation": "Mark Zuckerberg founded Facebook in February 2004 while studying at Harvard University." },
-
-  { "id": "pc_sb1", "type": "speed_buzz", "category": "pop_culture", "question": "Which streaming platform produces Stranger Things?", "options": ["HBO", "Amazon Prime", "Netflix", "Disney+"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 10, "explanation": "Stranger Things is an original Netflix series, first released in July 2016." },
-  { "id": "pc_sb2", "type": "speed_buzz", "category": "pop_culture", "question": "What is the name of the fictional kingdom in Frozen?", "options": ["Narnia", "Arendelle", "Agrabah", "Eldorado"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 12, "explanation": "Arendelle is the fictional Scandinavian-inspired kingdom ruled by Queen Elsa in Frozen." },
-  { "id": "pc_sb3", "type": "speed_buzz", "category": "pop_culture", "question": "Which K-pop group performs 'Dynamite' and 'Butter'?", "options": ["BLACKPINK", "EXO", "TWICE", "BTS"], "correctAnswer": 3, "difficulty": "easy", "timeLimit": 12, "explanation": "BTS released 'Dynamite' in 2020 and 'Butter' in 2021 — both became massive global hits." },
-  { "id": "pc_sb4", "type": "speed_buzz", "category": "pop_culture", "question": "Which actress plays Katniss Everdeen in The Hunger Games?", "options": ["Emma Watson", "Shailene Woodley", "Jennifer Lawrence", "Kristen Stewart"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 10, "explanation": "Jennifer Lawrence starred as Katniss Everdeen across all four Hunger Games films." },
-  { "id": "pc_sb5", "type": "speed_buzz", "category": "pop_culture", "question": "What colour is the dress in the famous 2015 internet debate — 'The Dress'?", "options": ["Red and gold", "Blue and black", "Pink and white", "Green and silver"], "correctAnswer": 1, "difficulty": "hard", "timeLimit": 15, "explanation": "The actual dress was blue and black — but viral perception divided viewers between white/gold and blue/black." },
-
-  { "id": "pc_ft1", "type": "free_text", "category": "pop_culture", "question": "What is the name of the main character in the TV series Breaking Bad?", "correctAnswer": "Walter White", "acceptableAnswers": ["walter white", "walter", "heisenberg"], "difficulty": "easy", "timeLimit": 15, "explanation": "Walter White, played by Bryan Cranston, is a chemistry teacher who becomes a drug kingpin known as Heisenberg." },
-  { "id": "pc_ft2", "type": "free_text", "category": "pop_culture", "question": "Name the social media app known for its 'disappearing' photo messages.", "correctAnswer": "Snapchat", "acceptableAnswers": ["snapchat", "snap"], "difficulty": "easy", "timeLimit": 12, "explanation": "Snapchat launched in 2011 and popularised ephemeral messaging — photos/videos that disappear after viewing." },
-  { "id": "pc_ft3", "type": "free_text", "category": "pop_culture", "question": "Who sang 'Bad Guy', released in 2019?", "correctAnswer": "Billie Eilish", "acceptableAnswers": ["billie eilish", "billie"], "difficulty": "easy", "timeLimit": 15, "explanation": "Billie Eilish released 'Bad Guy' in March 2019. It became her first Billboard Hot 100 number-one." },
-  { "id": "pc_ft4", "type": "free_text", "category": "pop_culture", "question": "What is the name of Tony Stark's AI assistant in the Iron Man films?", "correctAnswer": "JARVIS", "acceptableAnswers": ["jarvis", "j.a.r.v.i.s"], "difficulty": "medium", "timeLimit": 15, "explanation": "JARVIS (Just A Rather Very Intelligent System) is Tony Stark's AI assistant, voiced by Paul Bettany." },
-  { "id": "pc_ft5", "type": "free_text", "category": "pop_culture", "question": "Which show follows drug dealers and a cartel, set in Medellín, Colombia?", "correctAnswer": "Narcos", "acceptableAnswers": ["narcos"], "difficulty": "medium", "timeLimit": 15, "explanation": "Narcos is a Netflix original series that dramatises the rise of Pablo Escobar and the Medellín Cartel." },
-
-  { "id": "pc_rk1", "type": "ranking", "category": "pop_culture", "question": "Rank these social media platforms by founding year (oldest first):", "items": ["Instagram", "Facebook", "TikTok"], "correctOrder": [1, 0, 2], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Facebook (2004) → Instagram (2010) → TikTok (2016)" },
-  { "id": "pc_rk2", "type": "ranking", "category": "pop_culture", "question": "Rank these TV shows by their premiere year (oldest first):", "items": ["Game of Thrones", "The Sopranos", "Breaking Bad"], "correctOrder": [1, 2, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "The Sopranos (1999) → Breaking Bad (2008) → Game of Thrones (2011)" },
-  { "id": "pc_rk3", "type": "ranking", "category": "pop_culture", "question": "Rank these iPhones by release year (oldest first):", "items": ["iPhone X", "iPhone 6", "iPhone 3G"], "correctOrder": [2, 1, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "iPhone 3G (2008) → iPhone 6 (2014) → iPhone X (2017)" },
-  { "id": "pc_rk4", "type": "ranking", "category": "pop_culture", "question": "Rank these Taylor Swift albums by release year (oldest first):", "items": ["Reputation", "1989", "Folklore"], "correctOrder": [1, 0, 2], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "1989 (2014) → Reputation (2017) → Folklore (2020)" },
-  { "id": "pc_rk5", "type": "ranking", "category": "pop_culture", "question": "Rank these streaming services by founding year (oldest first):", "items": ["Disney+", "Netflix Streaming", "HBO Max"], "correctOrder": [1, 2, 0], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "Netflix streaming (2007) → HBO Max (2020) → Disney+ (2019) — actually Disney+ (2019) → HBO Max (2020)" },
-
-  { "id": "lg1",  "type": "letter_game", "category": "pop_culture", "question": "For each category, think of a word that starts with the letter:", "letter": "S", "categories": ["Name", "Animal", "Country", "Fruit/Vegetable", "Profession", "Object"], "difficulty": "medium", "timeLimit": 60, "explanation": "Example: Sarah, Snake, Spain, Strawberry, Surgeon, Sofa" },
-  { "id": "lg2",  "type": "letter_game", "category": "pop_culture", "question": "For each category, think of a word that starts with the letter:", "letter": "B", "categories": ["Name", "Animal", "Country", "Fruit/Vegetable", "Profession", "Object"], "difficulty": "medium", "timeLimit": 60, "explanation": "Example: Bob, Bear, Brazil, Banana, Baker, Bottle" },
-  { "id": "pc_lg1", "type": "letter_game", "category": "pop_culture", "question": "For each category, think of a word that starts with the letter:", "letter": "M", "categories": ["Celebrity Name", "Movie", "Country", "Food", "Sport", "Brand"], "difficulty": "medium", "timeLimit": 60, "explanation": "Example: Megan, Matrix, Morocco, Mango, Marathon, McDonald's" },
-
-  { "id": "cc_pc1", "type": "clue_chain", "category": "pop_culture", "question": "Which TV series am I?", "clues": ["I premiered on HBO in 2011 and became one of the most-watched shows of the decade", "I am based on a book series by George R.R. Martin", "I feature dragons, White Walkers, and a throne made of swords", "My final season in 2019 was widely criticised despite record viewership"], "correctAnswer": "Game of Thrones", "acceptableAnswers": ["game of thrones", "got"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_pc2", "type": "clue_chain", "category": "pop_culture", "question": "Who am I?", "clues": ["I was born on March 26, 1997 in Houston, Texas", "I became famous on YouTube and Vine before releasing my debut album 'Astroworld' in 2018", "My concert at the Astroworld Festival in 2021 became a tragic event where 10 people died in a crowd crush", "I am the father of Kylie Jenner's children"], "correctAnswer": "Travis Scott", "acceptableAnswers": ["travis scott", "travis"], "difficulty": "medium", "timeLimit": 60 },
-  { "id": "cc_pc3", "type": "clue_chain", "category": "pop_culture", "question": "Which platform am I?", "clues": ["I was founded in 2005 and bought by Google for $1.65 billion in 2006", "I host billions of videos and am the second most-visited website in the world", "My first ever video, titled 'Me at the zoo', was uploaded on April 23, 2005", "I introduced 'YouTube Shorts' to compete with TikTok"], "correctAnswer": "YouTube", "acceptableAnswers": ["youtube"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_pc4", "type": "clue_chain", "category": "pop_culture", "question": "Who am I?", "clues": ["I was born in Nashville, Tennessee in 1989 and started writing country music at age 14", "I have had multiple high-profile public relationships that inspired my songwriting", "My 'Eras Tour' in 2023 became the highest-grossing concert tour in history", "I have re-recorded my early albums as 'Taylor's Version' to own her masters"], "correctAnswer": "Taylor Swift", "acceptableAnswers": ["taylor swift", "taylor"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_pc5", "type": "clue_chain", "category": "pop_culture", "question": "Which TV show am I?", "clues": ["I am set in Hawkins, Indiana and premiered on Netflix in 2016", "My main characters are a group of kids who ride bikes and play Dungeons & Dragons", "A girl with a shaved head and psychokinetic powers is central to the story", "My main supernatural villain is called 'The Demogorgon', later 'The Mind Flayer'"], "correctAnswer": "Stranger Things", "acceptableAnswers": ["stranger things"], "difficulty": "easy", "timeLimit": 60 }
+  {
+    "id": "tf1",
+    "type": "true_false",
+    "category": "pop_culture",
+    "question": "TikTok was originally called Musical.ly",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Musical.ly was acquired by ByteDance and rebranded as TikTok in 2018."
+  },
+  {
+    "id": "pc_tf1",
+    "type": "true_false",
+    "category": "pop_culture",
+    "question": "The fidget spinner was one of the most popular toys of 2017.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Fidget spinners became a massive global craze in 2017."
+  },
+  {
+    "id": "pc_tf2",
+    "type": "true_false",
+    "category": "pop_culture",
+    "question": "Netflix started as a DVD-by-mail service.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "Netflix launched in 1997 as a DVD rental service before pivoting to streaming in 2007."
+  },
+  {
+    "id": "pc_tf3",
+    "type": "true_false",
+    "category": "pop_culture",
+    "question": "Elon Musk bought Twitter and rebranded it to X.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Elon Musk acquired Twitter in October 2022 and rebranded it to X in 2023."
+  },
+  {
+    "id": "pc_tf4",
+    "type": "true_false",
+    "category": "pop_culture",
+    "question": "The TV show 'Friends' ran for 10 seasons.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Friends aired for 10 seasons from 1994 to 2004 on NBC."
+  },
+  {
+    "id": "pc_tf5",
+    "type": "true_false",
+    "category": "pop_culture",
+    "question": "Beyoncé and Jay-Z are siblings.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Beyoncé and Jay-Z are married — they wed in April 2008."
+  },
+  {
+    "id": "pc_mc1",
+    "type": "multiple_choice",
+    "category": "pop_culture",
+    "question": "Which social media platform has the most monthly active users?",
+    "options": [
+      "Instagram",
+      "TikTok",
+      "Facebook",
+      "YouTube"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Facebook leads with over 3 billion monthly active users as of 2024."
+  },
+  {
+    "id": "pc_mc2",
+    "type": "multiple_choice",
+    "category": "pop_culture",
+    "question": "What does 'GOAT' stand for in sports culture?",
+    "options": [
+      "Greatest of All Time",
+      "Game of All Teams",
+      "Gold of Athletic Training",
+      "Glory on Any Turf"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "GOAT = Greatest Of All Time, often used to describe athletes like LeBron James or Serena Williams."
+  },
+  {
+    "id": "pc_mc3",
+    "type": "multiple_choice",
+    "category": "pop_culture",
+    "question": "Which year did the COVID-19 pandemic begin?",
+    "options": [
+      "2018",
+      "2019",
+      "2020",
+      "2021"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "COVID-19 was first identified in Wuhan, China in late 2019."
+  },
+  {
+    "id": "pc_mc4",
+    "type": "multiple_choice",
+    "category": "pop_culture",
+    "question": "Which show features the fictional paper company Dunder Mifflin?",
+    "options": [
+      "Parks and Recreation",
+      "Brooklyn Nine-Nine",
+      "The Office",
+      "Arrested Development"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Dunder Mifflin Paper Company is the fictional workplace in the US version of The Office (2005–2013)."
+  },
+  {
+    "id": "pc_mc5",
+    "type": "multiple_choice",
+    "category": "pop_culture",
+    "question": "Which artist has the most Grammy Award wins of all time?",
+    "options": [
+      "Michael Jackson",
+      "Beyoncé",
+      "Taylor Swift",
+      "Jay-Z"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Beyoncé holds the record for the most Grammy wins ever, surpassing 30 awards as of 2024."
+  },
+  {
+    "id": "pc_fb1",
+    "type": "fill_blank",
+    "category": "pop_culture",
+    "question": "\"OK ___\" — the phrase used to dismiss older people's concerns online.",
+    "correctAnswer": "Boomer",
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "'OK Boomer' became a viral phrase in 2019 to dismiss baby boomers."
+  },
+  {
+    "id": "pc_fb2",
+    "type": "fill_blank",
+    "category": "pop_culture",
+    "question": "The viral 2012 song 'Gangnam ___' by PSY.",
+    "correctAnswer": "Style",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Gangnam Style was the first YouTube video to reach 1 billion views."
+  },
+  {
+    "id": "pc_fb3",
+    "type": "fill_blank",
+    "category": "pop_culture",
+    "question": "The fictional TV drama set in a high school where teachers become drug lords is called Breaking ___.",
+    "correctAnswer": "Bad",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Breaking Bad (2008–2013) follows Walter White, a chemistry teacher turned methamphetamine manufacturer."
+  },
+  {
+    "id": "pc_fb4",
+    "type": "fill_blank",
+    "category": "pop_culture",
+    "question": "Taylor Swift's album '___' was originally released in 2019 and re-released as 'Taylor's Version' in 2021.",
+    "correctAnswer": "Fearless",
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Fearless (Taylor's Version) was released in April 2021, the first of her re-recorded albums."
+  },
+  {
+    "id": "pc_fb5",
+    "type": "fill_blank",
+    "category": "pop_culture",
+    "question": "The viral Ice ___ Challenge involved dumping cold water on your head to raise ALS awareness.",
+    "correctAnswer": "Bucket",
+    "acceptableAnswers": [
+      "bucket"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "The Ice Bucket Challenge went viral in 2014 and raised over $220 million for ALS research."
+  },
+  {
+    "id": "cw1",
+    "type": "closest_wins",
+    "category": "pop_culture",
+    "question": "In what year was the first iPhone released?",
+    "correctAnswer": 2007,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Apple released the first iPhone on June 29, 2007."
+  },
+  {
+    "id": "pc_cw1",
+    "type": "closest_wins",
+    "category": "pop_culture",
+    "question": "In what year did Instagram launch?",
+    "correctAnswer": 2010,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Instagram launched on October 6, 2010 and reached 1 million users in just 2 months."
+  },
+  {
+    "id": "pc_cw2",
+    "type": "closest_wins",
+    "category": "pop_culture",
+    "question": "In what year was YouTube founded?",
+    "correctAnswer": 2005,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "YouTube was founded in February 2005 and launched to the public in November 2005."
+  },
+  {
+    "id": "pc_cw3",
+    "type": "closest_wins",
+    "category": "pop_culture",
+    "question": "How many episodes does Game of Thrones have in total?",
+    "correctAnswer": 73,
+    "unit": "episodes",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Game of Thrones ran for 8 seasons with a total of 73 episodes from 2011 to 2019."
+  },
+  {
+    "id": "pc_cw4",
+    "type": "closest_wins",
+    "category": "pop_culture",
+    "question": "In what year was Facebook (now Meta) founded?",
+    "correctAnswer": 2004,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Mark Zuckerberg founded Facebook in February 2004 while studying at Harvard University."
+  },
+  {
+    "id": "pc_sb1",
+    "type": "speed_buzz",
+    "category": "pop_culture",
+    "question": "Which streaming platform produces Stranger Things?",
+    "options": [
+      "HBO",
+      "Amazon Prime",
+      "Netflix",
+      "Disney+"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Stranger Things is an original Netflix series, first released in July 2016."
+  },
+  {
+    "id": "pc_sb2",
+    "type": "speed_buzz",
+    "category": "pop_culture",
+    "question": "What is the name of the fictional kingdom in Frozen?",
+    "options": [
+      "Narnia",
+      "Arendelle",
+      "Agrabah",
+      "Eldorado"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Arendelle is the fictional Scandinavian-inspired kingdom ruled by Queen Elsa in Frozen."
+  },
+  {
+    "id": "pc_sb3",
+    "type": "speed_buzz",
+    "category": "pop_culture",
+    "question": "Which K-pop group performs 'Dynamite' and 'Butter'?",
+    "options": [
+      "BLACKPINK",
+      "EXO",
+      "TWICE",
+      "BTS"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "BTS released 'Dynamite' in 2020 and 'Butter' in 2021 — both became massive global hits."
+  },
+  {
+    "id": "pc_sb4",
+    "type": "speed_buzz",
+    "category": "pop_culture",
+    "question": "Which actress plays Katniss Everdeen in The Hunger Games?",
+    "options": [
+      "Emma Watson",
+      "Shailene Woodley",
+      "Jennifer Lawrence",
+      "Kristen Stewart"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Jennifer Lawrence starred as Katniss Everdeen across all four Hunger Games films."
+  },
+  {
+    "id": "pc_sb5",
+    "type": "speed_buzz",
+    "category": "pop_culture",
+    "question": "What colour is the dress in the famous 2015 internet debate — 'The Dress'?",
+    "options": [
+      "Red and gold",
+      "Blue and black",
+      "Pink and white",
+      "Green and silver"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "The actual dress was blue and black — but viral perception divided viewers between white/gold and blue/black."
+  },
+  {
+    "id": "pc_ft1",
+    "type": "free_text",
+    "category": "pop_culture",
+    "question": "What is the name of the main character in the TV series Breaking Bad?",
+    "correctAnswer": "Walter White",
+    "acceptableAnswers": [
+      "walter white",
+      "walter",
+      "heisenberg"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Walter White, played by Bryan Cranston, is a chemistry teacher who becomes a drug kingpin known as Heisenberg."
+  },
+  {
+    "id": "pc_ft2",
+    "type": "free_text",
+    "category": "pop_culture",
+    "question": "Name the social media app known for its 'disappearing' photo messages.",
+    "correctAnswer": "Snapchat",
+    "acceptableAnswers": [
+      "snapchat",
+      "snap"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Snapchat launched in 2011 and popularised ephemeral messaging — photos/videos that disappear after viewing."
+  },
+  {
+    "id": "pc_ft3",
+    "type": "free_text",
+    "category": "pop_culture",
+    "question": "Who sang 'Bad Guy', released in 2019?",
+    "correctAnswer": "Billie Eilish",
+    "acceptableAnswers": [
+      "billie eilish",
+      "billie"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Billie Eilish released 'Bad Guy' in March 2019. It became her first Billboard Hot 100 number-one."
+  },
+  {
+    "id": "pc_ft4",
+    "type": "free_text",
+    "category": "pop_culture",
+    "question": "What is the name of Tony Stark's AI assistant in the Iron Man films?",
+    "correctAnswer": "JARVIS",
+    "acceptableAnswers": [
+      "jarvis",
+      "j.a.r.v.i.s"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "JARVIS (Just A Rather Very Intelligent System) is Tony Stark's AI assistant, voiced by Paul Bettany."
+  },
+  {
+    "id": "pc_ft5",
+    "type": "free_text",
+    "category": "pop_culture",
+    "question": "Which show follows drug dealers and a cartel, set in Medellín, Colombia?",
+    "correctAnswer": "Narcos",
+    "acceptableAnswers": [
+      "narcos"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Narcos is a Netflix original series that dramatises the rise of Pablo Escobar and the Medellín Cartel."
+  },
+  {
+    "id": "pc_rk1",
+    "type": "ranking",
+    "category": "pop_culture",
+    "question": "Rank these social media platforms by founding year (oldest first):",
+    "items": [
+      "Instagram",
+      "Facebook",
+      "TikTok"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Facebook (2004) → Instagram (2010) → TikTok (2016)"
+  },
+  {
+    "id": "pc_rk2",
+    "type": "ranking",
+    "category": "pop_culture",
+    "question": "Rank these TV shows by their premiere year (oldest first):",
+    "items": [
+      "Game of Thrones",
+      "The Sopranos",
+      "Breaking Bad"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "The Sopranos (1999) → Breaking Bad (2008) → Game of Thrones (2011)"
+  },
+  {
+    "id": "pc_rk3",
+    "type": "ranking",
+    "category": "pop_culture",
+    "question": "Rank these iPhones by release year (oldest first):",
+    "items": [
+      "iPhone X",
+      "iPhone 6",
+      "iPhone 3G"
+    ],
+    "correctOrder": [
+      2,
+      1,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "iPhone 3G (2008) → iPhone 6 (2014) → iPhone X (2017)"
+  },
+  {
+    "id": "pc_rk4",
+    "type": "ranking",
+    "category": "pop_culture",
+    "question": "Rank these Taylor Swift albums by release year (oldest first):",
+    "items": [
+      "Reputation",
+      "1989",
+      "Folklore"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "1989 (2014) → Reputation (2017) → Folklore (2020)"
+  },
+  {
+    "id": "pc_rk5",
+    "type": "ranking",
+    "category": "pop_culture",
+    "question": "Rank these streaming services by founding year (oldest first):",
+    "items": [
+      "Disney+",
+      "Netflix Streaming",
+      "HBO Max"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Netflix streaming (2007) → HBO Max (2020) → Disney+ (2019) — actually Disney+ (2019) → HBO Max (2020)"
+  },
+  {
+    "id": "lg1",
+    "type": "letter_game",
+    "category": "pop_culture",
+    "question": "For each category, think of a word that starts with the letter:",
+    "letter": "S",
+    "categories": [
+      "Name",
+      "Animal",
+      "Country",
+      "Fruit/Vegetable",
+      "Profession",
+      "Object"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60,
+    "explanation": "Example: Sarah, Snake, Spain, Strawberry, Surgeon, Sofa"
+  },
+  {
+    "id": "lg2",
+    "type": "letter_game",
+    "category": "pop_culture",
+    "question": "For each category, think of a word that starts with the letter:",
+    "letter": "B",
+    "categories": [
+      "Name",
+      "Animal",
+      "Country",
+      "Fruit/Vegetable",
+      "Profession",
+      "Object"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60,
+    "explanation": "Example: Bob, Bear, Brazil, Banana, Baker, Bottle"
+  },
+  {
+    "id": "pc_lg1",
+    "type": "letter_game",
+    "category": "pop_culture",
+    "question": "For each category, think of a word that starts with the letter:",
+    "letter": "M",
+    "categories": [
+      "Celebrity Name",
+      "Movie",
+      "Country",
+      "Food",
+      "Sport",
+      "Brand"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60,
+    "explanation": "Example: Megan, Matrix, Morocco, Mango, Marathon, McDonald's"
+  },
+  {
+    "id": "cc_pc1",
+    "type": "clue_chain",
+    "category": "pop_culture",
+    "question": "Which TV series am I?",
+    "clues": [
+      "I premiered on HBO in 2011 and became one of the most-watched shows of the decade",
+      "I am based on a book series by George R.R. Martin",
+      "I feature dragons, White Walkers, and a throne made of swords",
+      "My final season in 2019 was widely criticised despite record viewership"
+    ],
+    "correctAnswer": "Game of Thrones",
+    "acceptableAnswers": [
+      "game of thrones",
+      "got"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_pc2",
+    "type": "clue_chain",
+    "category": "pop_culture",
+    "question": "Who am I?",
+    "clues": [
+      "I was born on March 26, 1997 in Houston, Texas",
+      "I became famous on YouTube and Vine before releasing my debut album 'Astroworld' in 2018",
+      "My concert at the Astroworld Festival in 2021 became a tragic event where 10 people died in a crowd crush",
+      "I am the father of Kylie Jenner's children"
+    ],
+    "correctAnswer": "Travis Scott",
+    "acceptableAnswers": [
+      "travis scott",
+      "travis"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_pc3",
+    "type": "clue_chain",
+    "category": "pop_culture",
+    "question": "Which platform am I?",
+    "clues": [
+      "I was founded in 2005 and bought by Google for $1.65 billion in 2006",
+      "I host billions of videos and am the second most-visited website in the world",
+      "My first ever video, titled 'Me at the zoo', was uploaded on April 23, 2005",
+      "I introduced 'YouTube Shorts' to compete with TikTok"
+    ],
+    "correctAnswer": "YouTube",
+    "acceptableAnswers": [
+      "youtube"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_pc4",
+    "type": "clue_chain",
+    "category": "pop_culture",
+    "question": "Who am I?",
+    "clues": [
+      "I was born in Nashville, Tennessee in 1989 and started writing country music at age 14",
+      "I have had multiple high-profile public relationships that inspired my songwriting",
+      "My 'Eras Tour' in 2023 became the highest-grossing concert tour in history",
+      "I have re-recorded my early albums as 'Taylor's Version' to own her masters"
+    ],
+    "correctAnswer": "Taylor Swift",
+    "acceptableAnswers": [
+      "taylor swift",
+      "taylor"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_pc5",
+    "type": "clue_chain",
+    "category": "pop_culture",
+    "question": "Which TV show am I?",
+    "clues": [
+      "I am set in Hawkins, Indiana and premiered on Netflix in 2016",
+      "My main characters are a group of kids who ride bikes and play Dungeons & Dragons",
+      "A girl with a shaved head and psychokinetic powers is central to the story",
+      "My main supernatural villain is called 'The Demogorgon', later 'The Mind Flayer'"
+    ],
+    "correctAnswer": "Stranger Things",
+    "acceptableAnswers": [
+      "stranger things"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "mg_pop_1",
+    "type": "music_guess",
+    "category": "pop_culture",
+    "question": "Name this song",
+    "deezerQuery": "old town road lil nas x",
+    "correctAnswer": "Old Town Road",
+    "acceptableAnswers": [],
+    "artist": "Lil Nas X",
+    "songTitle": "Old Town Road",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_pop_2",
+    "type": "music_guess",
+    "category": "pop_culture",
+    "question": "Name this song",
+    "deezerQuery": "gangnam style psy",
+    "correctAnswer": "Gangnam Style",
+    "acceptableAnswers": [],
+    "artist": "PSY",
+    "songTitle": "Gangnam Style",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_pop_3",
+    "type": "music_guess",
+    "category": "pop_culture",
+    "question": "Name this song",
+    "deezerQuery": "despacito luis fonsi daddy yankee",
+    "correctAnswer": "Despacito",
+    "acceptableAnswers": [],
+    "artist": "Luis Fonsi ft. Daddy Yankee",
+    "songTitle": "Despacito",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_pop_4",
+    "type": "music_guess",
+    "category": "pop_culture",
+    "question": "Name this song",
+    "deezerQuery": "shake it off taylor swift",
+    "correctAnswer": "Shake It Off",
+    "acceptableAnswers": [],
+    "artist": "Taylor Swift",
+    "songTitle": "Shake It Off",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_pop_5",
+    "type": "music_guess",
+    "category": "pop_culture",
+    "question": "Name this song",
+    "deezerQuery": "bad guy billie eilish",
+    "correctAnswer": "Bad Guy",
+    "acceptableAnswers": [],
+    "artist": "Billie Eilish",
+    "songTitle": "Bad Guy",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_pop_6",
+    "type": "music_guess",
+    "category": "pop_culture",
+    "question": "Name this song",
+    "deezerQuery": "call me maybe carly rae jepsen",
+    "correctAnswer": "Call Me Maybe",
+    "acceptableAnswers": [],
+    "artist": "Carly Rae Jepsen",
+    "songTitle": "Call Me Maybe",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_pop_7",
+    "type": "music_guess",
+    "category": "pop_culture",
+    "question": "Name this song",
+    "deezerQuery": "cant stop the feeling justin timberlake",
+    "correctAnswer": "Can't Stop the Feeling!",
+    "acceptableAnswers": [],
+    "artist": "Justin Timberlake",
+    "songTitle": "Can't Stop the Feeling!",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_pop_8",
+    "type": "music_guess",
+    "category": "pop_culture",
+    "question": "Name this song",
+    "deezerQuery": "levitating dua lipa",
+    "correctAnswer": "Levitating",
+    "acceptableAnswers": [],
+    "artist": "Dua Lipa",
+    "songTitle": "Levitating",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_pop_9",
+    "type": "music_guess",
+    "category": "pop_culture",
+    "question": "Name this song",
+    "deezerQuery": "counting stars onerepublic",
+    "correctAnswer": "Counting Stars",
+    "acceptableAnswers": [],
+    "artist": "OneRepublic",
+    "songTitle": "Counting Stars",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_pop_10",
+    "type": "music_guess",
+    "category": "pop_culture",
+    "question": "Name this song",
+    "deezerQuery": "someone like you adele",
+    "correctAnswer": "Someone Like You",
+    "acceptableAnswers": [],
+    "artist": "Adele",
+    "songTitle": "Someone Like You",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_pop_11",
+    "type": "music_guess",
+    "category": "pop_culture",
+    "question": "Name this song",
+    "deezerQuery": "wake me up avicii",
+    "correctAnswer": "Wake Me Up",
+    "acceptableAnswers": [],
+    "artist": "Avicii",
+    "songTitle": "Wake Me Up",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_pop_12",
+    "type": "music_guess",
+    "category": "pop_culture",
+    "question": "Name this song",
+    "deezerQuery": "stay with me sam smith",
+    "correctAnswer": "Stay With Me",
+    "acceptableAnswers": [],
+    "artist": "Sam Smith",
+    "songTitle": "Stay With Me",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_pop_13",
+    "type": "music_guess",
+    "category": "pop_culture",
+    "question": "Name this song",
+    "deezerQuery": "we are the champions queen",
+    "correctAnswer": "We Are the Champions",
+    "acceptableAnswers": [],
+    "artist": "Queen",
+    "songTitle": "We Are the Champions",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_pop_14",
+    "type": "music_guess",
+    "category": "pop_culture",
+    "question": "Name this song",
+    "deezerQuery": "eye of the tiger survivor",
+    "correctAnswer": "Eye of the Tiger",
+    "acceptableAnswers": [],
+    "artist": "Survivor",
+    "songTitle": "Eye of the Tiger",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "mg_pop_15",
+    "type": "music_guess",
+    "category": "pop_culture",
+    "question": "Name this song",
+    "deezerQuery": "baby justin bieber",
+    "correctAnswer": "Baby",
+    "acceptableAnswers": [],
+    "artist": "Justin Bieber",
+    "songTitle": "Baby",
+    "difficulty": "easy",
+    "timeLimit": 25
+  },
+  {
+    "id": "ig_pop_1",
+    "type": "image_guess",
+    "category": "pop_culture",
+    "question": "Who is this global celebrity?",
+    "imageUrl": "/quiz-images/taylor-swift.jpg",
+    "correctAnswer": "Taylor Swift",
+    "acceptableAnswers": [
+      "taylor swift",
+      "taylor"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Taylor Swift is one of the best-selling music artists of all time and was TIME Magazine's Person of the Year 2023."
+  },
+  {
+    "id": "ig_pop_2",
+    "type": "image_guess",
+    "category": "pop_culture",
+    "question": "Who is this global icon?",
+    "imageUrl": "/quiz-images/rihanna.jpg",
+    "correctAnswer": "Rihanna",
+    "acceptableAnswers": [
+      "rihanna",
+      "riri"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Rihanna is one of the best-selling music artists of all time and performed the 2023 Super Bowl halftime show while pregnant."
+  },
+  {
+    "id": "ig_pop_3",
+    "type": "image_guess",
+    "category": "pop_culture",
+    "question": "Who is this social media star?",
+    "imageUrl": "/quiz-images/kim-kardashian.jpg",
+    "correctAnswer": "Kim Kardashian",
+    "acceptableAnswers": [
+      "kim kardashian",
+      "kim k"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Kim Kardashian is a media personality and businesswoman who shaped modern celebrity culture and is estimated to be worth over $1 billion."
+  },
+  {
+    "id": "ig_pop_4",
+    "type": "image_guess",
+    "category": "pop_culture",
+    "question": "Who is this pop star?",
+    "imageUrl": "/quiz-images/ariana-grande.jpg",
+    "correctAnswer": "Ariana Grande",
+    "acceptableAnswers": [
+      "ariana grande",
+      "ariana"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Ariana Grande is one of the most-followed people on Instagram and holds the Spotify record for the highest-streamed album in a single week by a female artist."
+  },
+  {
+    "id": "ig_pop_5",
+    "type": "image_guess",
+    "category": "pop_culture",
+    "question": "Who is this internet-famous character?",
+    "imageUrl": "/quiz-images/elon-musk.jpg",
+    "correctAnswer": "Elon Musk",
+    "acceptableAnswers": [
+      "elon musk",
+      "musk"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Elon Musk is the CEO of Tesla and SpaceX and owner of X (formerly Twitter). He was briefly the richest person in the world."
+  },
+  {
+    "id": "ig_pop_6",
+    "type": "image_guess",
+    "category": "pop_culture",
+    "question": "Who is this pop culture icon?",
+    "imageUrl": "/quiz-images/harry-styles.jpg",
+    "correctAnswer": "Harry Styles",
+    "acceptableAnswers": [
+      "harry styles",
+      "harry"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Harry Styles rose to fame as a member of One Direction before launching a hugely successful solo career known for its genre-blending style and bold fashion choices."
+  },
+  {
+    "id": "ig_pop_7",
+    "type": "image_guess",
+    "category": "pop_culture",
+    "question": "Who is this rap superstar?",
+    "imageUrl": "/quiz-images/drake.jpg",
+    "correctAnswer": "Drake",
+    "acceptableAnswers": [
+      "drake",
+      "aubrey graham"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Drake holds the record for the most Billboard Hot 100 hits of any artist and has dominated streaming charts since the early 2010s."
+  },
+  {
+    "id": "ig_pop_8",
+    "type": "image_guess",
+    "category": "pop_culture",
+    "question": "Who is this pop star?",
+    "imageUrl": "/quiz-images/billie-eilish.jpg",
+    "correctAnswer": "Billie Eilish",
+    "acceptableAnswers": [
+      "billie eilish",
+      "billie"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Billie Eilish became the youngest artist to win all four major Grammy categories in a single year, achieving this at age 18 in 2020."
+  },
+  {
+    "id": "ig_pop_9",
+    "type": "image_guess",
+    "category": "pop_culture",
+    "question": "Who is this TV host and comedian?",
+    "imageUrl": "/quiz-images/oprah-winfrey.jpg",
+    "correctAnswer": "Oprah Winfrey",
+    "acceptableAnswers": [
+      "oprah winfrey",
+      "oprah"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Oprah Winfrey hosted The Oprah Winfrey Show for 25 years, making it the highest-rated daytime talk show in television history."
+  },
+  {
+    "id": "ig_pop_10",
+    "type": "image_guess",
+    "category": "pop_culture",
+    "question": "Who is this global rapper?",
+    "imageUrl": "/quiz-images/kanye-west.jpg",
+    "correctAnswer": "Kanye West",
+    "acceptableAnswers": [
+      "kanye west",
+      "kanye",
+      "ye"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Kanye West is one of the most critically acclaimed and controversial figures in music, with albums like The College Dropout, My Beautiful Dark Twisted Fantasy and Yeezus."
+  },
+  {
+    "id": "ig_pop_11",
+    "type": "image_guess",
+    "category": "pop_culture",
+    "question": "Who is this actor and comedian?",
+    "imageUrl": "/quiz-images/will-smith.jpg",
+    "correctAnswer": "Will Smith",
+    "acceptableAnswers": [
+      "will smith",
+      "fresh prince"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Will Smith is one of Hollywood's biggest stars, known for The Fresh Prince of Bel-Air, Men in Black, Ali and the 2022 Oscar incident."
+  },
+  {
+    "id": "ig_pop_12",
+    "type": "image_guess",
+    "category": "pop_culture",
+    "question": "Who is this pop icon?",
+    "imageUrl": "/quiz-images/lady-gaga.jpg",
+    "correctAnswer": "Lady Gaga",
+    "acceptableAnswers": [
+      "lady gaga",
+      "gaga",
+      "stefani germanotta"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Lady Gaga is known for her outrageous fashion, powerful vocals and acting career. She won an Oscar for Best Original Song for 'Shallow' from A Star Is Born (2018)."
+  },
+  {
+    "id": "pr_pop_1",
+    "type": "pixel_reveal",
+    "category": "pop_culture",
+    "question": "Who is this celebrity?",
+    "imageUrl": "/quiz-images/pixel/pop-culture-ryan-reynolds.jpg",
+    "correctAnswer": "Ryan Reynolds",
+    "acceptableAnswers": [
+      "ryan reynolds",
+      "reynolds",
+      "deadpool"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Ryan Reynolds is best known for playing Deadpool in the Marvel films and has become one of Hollywood's most popular leading men, also known for his witty social media presence."
+  },
+  {
+    "id": "pr_pop_2",
+    "type": "pixel_reveal",
+    "category": "pop_culture",
+    "question": "Who is this celebrity?",
+    "imageUrl": "/quiz-images/pixel/pop-culture-dwayne-johnson.jpg",
+    "correctAnswer": "Dwayne Johnson",
+    "acceptableAnswers": [
+      "dwayne johnson",
+      "the rock",
+      "rock"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Dwayne 'The Rock' Johnson transitioned from professional wrestling to becoming one of Hollywood's highest-paid actors, starring in the Fast & Furious franchise and Jumanji."
+  },
+  {
+    "id": "pr_pop_3",
+    "type": "pixel_reveal",
+    "category": "pop_culture",
+    "question": "Who is this celebrity?",
+    "imageUrl": "/quiz-images/pixel/pop-culture-chris-hemsworth.jpg",
+    "correctAnswer": "Chris Hemsworth",
+    "acceptableAnswers": [
+      "chris hemsworth",
+      "hemsworth",
+      "thor"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Chris Hemsworth plays Thor in the Marvel Cinematic Universe. He was the first Marvel character to have their own film after The Avengers."
+  },
+  {
+    "id": "pr_pop_4",
+    "type": "pixel_reveal",
+    "category": "pop_culture",
+    "question": "Who is this celebrity?",
+    "imageUrl": "/quiz-images/pixel/pop-culture-jennifer-lopez.jpg",
+    "correctAnswer": "Jennifer Lopez",
+    "acceptableAnswers": [
+      "jennifer lopez",
+      "jlo",
+      "j.lo"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Jennifer Lopez is a multitalented entertainer known as J.Lo, one of the most influential Latina artists of all time as a singer, actress and dancer."
+  },
+  {
+    "id": "pr_pop_5",
+    "type": "pixel_reveal",
+    "category": "pop_culture",
+    "question": "Who is this celebrity?",
+    "imageUrl": "/quiz-images/pixel/pop-culture-kylie-jenner.jpg",
+    "correctAnswer": "Kylie Jenner",
+    "acceptableAnswers": [
+      "kylie jenner",
+      "kylie"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Kylie Jenner became the youngest self-made billionaire (at the time) with her cosmetics brand Kylie Cosmetics and has hundreds of millions of social media followers."
+  },
+  {
+    "id": "pr_pop_6",
+    "type": "pixel_reveal",
+    "category": "pop_culture",
+    "question": "Who is this celebrity?",
+    "imageUrl": "/quiz-images/pixel/pop-culture-ed-sheeran.jpg",
+    "correctAnswer": "Ed Sheeran",
+    "acceptableAnswers": [
+      "ed sheeran",
+      "sheeran"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Ed Sheeran is one of the world's best-selling music artists and has held the record for the most-streamed song on Spotify multiple times."
+  },
+  {
+    "id": "pr_pop_7",
+    "type": "pixel_reveal",
+    "category": "pop_culture",
+    "question": "Who is this celebrity?",
+    "imageUrl": "/quiz-images/pixel/pop-culture-charlie-chaplin-modern.jpg",
+    "correctAnswer": "Mr. Bean",
+    "acceptableAnswers": [
+      "mr bean",
+      "rowan atkinson"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Mr. Bean, played by Rowan Atkinson, is one of Britain's most beloved comedy characters and has been watched in over 200 territories worldwide."
+  },
+  {
+    "id": "as_pop_1",
+    "type": "animal_sound",
+    "category": "pop_culture",
+    "question": "Which animal, star of countless internet memes, makes this sound?",
+    "audioUrl": "/audio/animals/monkey.ogg",
+    "correctAnswer": "Monkey",
+    "acceptableAnswers": [
+      "Monkey",
+      "Macaque",
+      "Spider monkey"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_pop_2",
+    "type": "animal_sound",
+    "category": "pop_culture",
+    "question": "Which famous Disney animal makes this sound?",
+    "audioUrl": "/audio/animals/hyena.ogg",
+    "correctAnswer": "Hyena",
+    "acceptableAnswers": [
+      "Hyena",
+      "Spotted hyena",
+      "Laughing hyena"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_pop_3",
+    "type": "animal_sound",
+    "category": "pop_culture",
+    "question": "Which tuxedo-wearing animal makes this sound?",
+    "audioUrl": "/audio/animals/penguin.ogg",
+    "correctAnswer": "Penguin",
+    "acceptableAnswers": [
+      "Penguin",
+      "Emperor penguin"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_pop_4",
+    "type": "animal_sound",
+    "category": "pop_culture",
+    "question": "Which cunning animal makes this sound?",
+    "audioUrl": "/audio/animals/fox.ogg",
+    "correctAnswer": "Fox",
+    "acceptableAnswers": [
+      "Fox",
+      "Red fox"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_pop_5",
+    "type": "animal_sound",
+    "category": "pop_culture",
+    "question": "Which wild dog-like animal makes this howling sound?",
+    "audioUrl": "/audio/animals/coyote.ogg",
+    "correctAnswer": "Coyote",
+    "acceptableAnswers": [
+      "Coyote",
+      "Prairie wolf"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  }
 ]

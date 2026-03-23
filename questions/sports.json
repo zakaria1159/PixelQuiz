@@ -1,50 +1,1223 @@
 [
-  { "id": "mc2",    "type": "multiple_choice", "category": "sports", "question": "Which country has won the most FIFA World Cups?", "options": ["Germany", "Argentina", "Brazil", "France"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "Brazil has won the FIFA World Cup 5 times (1958, 1962, 1970, 1994, 2002)." },
-  { "id": "sp_mc1", "type": "multiple_choice", "category": "sports", "question": "Which athlete has won the most Olympic gold medals of all time?", "options": ["Usain Bolt", "Michael Phelps", "Carl Lewis", "Simone Biles"], "correctAnswer": 1, "difficulty": "medium", "timeLimit": 20, "explanation": "Michael Phelps won 23 Olympic gold medals across four Olympic Games." },
-  { "id": "sp_mc2", "type": "multiple_choice", "category": "sports", "question": "What sport is the Super Bowl associated with?", "options": ["Basketball", "Baseball", "American Football", "Ice Hockey"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 10, "explanation": "The Super Bowl is the championship game of the NFL." },
-  { "id": "sp_mc3", "type": "multiple_choice", "category": "sports", "question": "In which city were the first modern Olympic Games held in 1896?", "options": ["Rome", "Paris", "Athens", "London"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "The first modern Olympics took place in Athens, Greece in 1896." },
-  { "id": "sp_mc4", "type": "multiple_choice", "category": "sports", "question": "Which player has won the most Grand Slam tennis titles?", "options": ["Roger Federer", "Rafael Nadal", "Novak Djokovic", "Pete Sampras"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 20, "explanation": "Novak Djokovic leads with 24 Grand Slam titles." },
-  { "id": "sp_mc5", "type": "multiple_choice", "category": "sports", "question": "What is the maximum score in a single frame of bowling?", "options": ["250", "300", "150", "200"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 15, "explanation": "A perfect game in bowling is 300 — 12 consecutive strikes." },
-
-  { "id": "sp_tf1", "type": "true_false", "category": "sports", "question": "Lionel Messi has won the FIFA World Cup.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 12, "explanation": "Argentina won the 2022 FIFA World Cup in Qatar, with Messi winning the Golden Ball." },
-  { "id": "sp_tf2", "type": "true_false", "category": "sports", "question": "A regulation NBA basketball game has four 12-minute quarters.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 12, "explanation": "NBA games consist of four 12-minute quarters (unlike FIBA's 10-minute quarters)." },
-  { "id": "sp_tf3", "type": "true_false", "category": "sports", "question": "Usain Bolt won gold in the 100m at three consecutive Olympic Games.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 15, "explanation": "Bolt won 100m gold at Beijing 2008, London 2012, and Rio 2016." },
-  { "id": "sp_tf4", "type": "true_false", "category": "sports", "question": "A marathon is exactly 26.2 miles long.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "easy", "timeLimit": 12, "explanation": "A marathon is 26.219 miles (42.195 km), a distance standardised after the 1908 London Olympics." },
-  { "id": "sp_tf5", "type": "true_false", "category": "sports", "question": "Cristiano Ronaldo and Lionel Messi have both won the FIFA Ballon d'Or more than 5 times each.", "options": ["True", "False"], "correctAnswer": 0, "difficulty": "medium", "timeLimit": 15, "explanation": "Messi has won 8 Ballon d'Or awards; Ronaldo has won 5." },
-
-  { "id": "sp_fb1", "type": "fill_blank", "category": "sports", "question": "In boxing, a fight is stopped when the referee counts to ___.", "correctAnswer": "ten", "acceptableAnswers": ["10"], "difficulty": "easy", "timeLimit": 15, "explanation": "A referee counts to ten (10) when a boxer is knocked down." },
-  { "id": "sp_fb2", "type": "fill_blank", "category": "sports", "question": "In tennis, a score of ___ means both players have won three points each.", "correctAnswer": "deuce", "difficulty": "medium", "timeLimit": 15, "explanation": "Deuce occurs when both players are tied at 40-40. One player must then win two consecutive points to win the game." },
-  { "id": "sp_fb3", "type": "fill_blank", "category": "sports", "question": "In football (soccer), a player receives a ___ card for a serious foul and is sent off immediately.", "correctAnswer": "red", "difficulty": "easy", "timeLimit": 12, "explanation": "A red card results in immediate dismissal from the game. Two yellow cards also result in a red." },
-  { "id": "sp_fb4", "type": "fill_blank", "category": "sports", "question": "The Olympic motto 'Citius, Altius, ___' means Faster, Higher, Stronger.", "correctAnswer": "Fortius", "difficulty": "hard", "timeLimit": 20, "explanation": "'Citius, Altius, Fortius' (Faster, Higher, Stronger) has been the Olympic motto since 1894." },
-  { "id": "sp_fb5", "type": "fill_blank", "category": "sports", "question": "In American football, a ___ is worth six points.", "correctAnswer": "touchdown", "difficulty": "easy", "timeLimit": 12, "explanation": "A touchdown scores 6 points, followed by an opportunity for an extra point kick or 2-point conversion." },
-
-  { "id": "sp_rk1", "type": "ranking", "category": "sports", "question": "Rank these FIFA World Cup winning years chronologically (earliest first):", "items": ["2006 (Italy)", "1998 (France)", "2014 (Germany)"], "correctOrder": [1, 0, 2], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "France 1998 → Italy 2006 → Germany 2014" },
-  { "id": "sp_rk2", "type": "ranking", "category": "sports", "question": "Rank these sports by the number of players on each team (fewest first):", "items": ["Basketball", "American Football", "Tennis (singles)"], "correctOrder": [2, 0, 1], "difficulty": "easy", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Tennis/singles (1) → Basketball (5) → American Football (11)" },
-  { "id": "sp_rk3", "type": "ranking", "category": "sports", "question": "Rank these athletes by their 100m world record times (fastest first):", "items": ["Usain Bolt (9.58s)", "Florence Griffith-Joyner (10.49s)", "Asafa Powell (9.72s)"], "correctOrder": [0, 2, 1], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "Bolt (9.58s) → Powell (9.72s) → Flo-Jo (10.49s — women's record)" },
-  { "id": "sp_rk4", "type": "ranking", "category": "sports", "question": "Rank these Grand Slam tennis tournaments by the month they are held (earliest in the year first):", "items": ["Wimbledon", "Australian Open", "Roland Garros"], "correctOrder": [1, 2, 0], "difficulty": "medium", "timeLimit": 25, "allowPartialCredit": true, "explanation": "Australian Open (January) → Roland Garros (May/June) → Wimbledon (June/July)" },
-  { "id": "sp_rk5", "type": "ranking", "category": "sports", "question": "Rank these football clubs by number of UEFA Champions League titles (fewest first):", "items": ["Real Madrid", "Barcelona", "Liverpool"], "correctOrder": [2, 1, 0], "difficulty": "hard", "timeLimit": 30, "allowPartialCredit": true, "explanation": "Liverpool (6) → Barcelona (5) → Real Madrid (15) as of 2024" },
-
-  { "id": "sp_cw1", "type": "closest_wins", "category": "sports", "question": "What is Usain Bolt's 100m world record time? (in seconds)", "correctAnswer": 9.58, "unit": "seconds", "difficulty": "hard", "timeLimit": 20, "explanation": "Usain Bolt set the world record of 9.58 seconds at the 2009 World Championships in Berlin." },
-  { "id": "sp_cw2", "type": "closest_wins", "category": "sports", "question": "How many goals did Lionel Messi score in the 2011/12 La Liga season?", "correctAnswer": 50, "unit": "goals", "difficulty": "hard", "timeLimit": 20, "explanation": "Messi scored 50 league goals in 2011/12 — a La Liga record." },
-  { "id": "sp_cw3", "type": "closest_wins", "category": "sports", "question": "In what year were the first modern Olympic Games held?", "correctAnswer": 1896, "difficulty": "medium", "timeLimit": 15, "explanation": "The first modern Olympic Games were held in Athens, Greece in 1896." },
-  { "id": "sp_cw4", "type": "closest_wins", "category": "sports", "question": "How many times has Brazil won the FIFA World Cup?", "correctAnswer": 5, "unit": "times", "difficulty": "easy", "timeLimit": 12, "explanation": "Brazil has won the World Cup 5 times: 1958, 1962, 1970, 1994, and 2002." },
-  { "id": "sp_cw5", "type": "closest_wins", "category": "sports", "question": "How long is a standard football (soccer) match in minutes?", "correctAnswer": 90, "unit": "minutes", "difficulty": "easy", "timeLimit": 10, "explanation": "A standard football match is 90 minutes — two halves of 45 minutes each, plus injury time." },
-
-  { "id": "sp_sb1", "type": "speed_buzz", "category": "sports", "question": "How many players are on a standard football (soccer) team on the pitch?", "options": ["9", "10", "11", "12"], "correctAnswer": 2, "difficulty": "easy", "timeLimit": 10, "explanation": "Each team fields 11 players." },
-  { "id": "sp_sb2", "type": "speed_buzz", "category": "sports", "question": "Which country hosts the Tour de France cycling race?", "options": ["Italy", "Spain", "Belgium", "France"], "correctAnswer": 3, "difficulty": "easy", "timeLimit": 10, "explanation": "The Tour de France is a multi-stage road cycling race held primarily in France each July." },
-  { "id": "sp_sb3", "type": "speed_buzz", "category": "sports", "question": "In which sport would you perform a slam dunk?", "options": ["Volleyball", "Basketball", "Handball", "Water Polo"], "correctAnswer": 1, "difficulty": "easy", "timeLimit": 10, "explanation": "A slam dunk is a type of basketball shot where the player jumps and forces the ball down through the hoop." },
-  { "id": "sp_sb4", "type": "speed_buzz", "category": "sports", "question": "Which country won the Rugby World Cup in 2023?", "options": ["New Zealand", "Ireland", "South Africa", "France"], "correctAnswer": 2, "difficulty": "medium", "timeLimit": 15, "explanation": "South Africa won the 2023 Rugby World Cup in France, their fourth World Cup title." },
-  { "id": "sp_sb5", "type": "speed_buzz", "category": "sports", "question": "What colour is the jacket awarded to the Masters golf tournament winner?", "options": ["Blue", "White", "Red", "Green"], "correctAnswer": 3, "difficulty": "easy", "timeLimit": 12, "explanation": "The Masters Tournament awards the winner a distinctive green jacket, a tradition since 1949." },
-
-  { "id": "sp_ft1", "type": "free_text", "category": "sports", "question": "Which sport is played at Wimbledon?", "correctAnswer": "tennis", "acceptableAnswers": ["tennis", "lawn tennis"], "difficulty": "easy", "timeLimit": 10, "explanation": "Wimbledon is the oldest tennis tournament in the world, held annually in London since 1877." },
-  { "id": "sp_ft2", "type": "free_text", "category": "sports", "question": "What nationality is Formula 1 driver Max Verstappen?", "correctAnswer": "Dutch", "acceptableAnswers": ["dutch", "netherlands", "holland"], "difficulty": "easy", "timeLimit": 12, "explanation": "Max Verstappen is Dutch, born in Hasselt, Belgium to a Belgian mother and Dutch father." },
-  { "id": "sp_ft3", "type": "free_text", "category": "sports", "question": "In what country did the 2022 FIFA World Cup take place?", "correctAnswer": "Qatar", "acceptableAnswers": ["qatar"], "difficulty": "easy", "timeLimit": 12, "explanation": "Qatar hosted the 2022 FIFA World Cup — the first World Cup held in the Middle East." },
-  { "id": "sp_ft4", "type": "free_text", "category": "sports", "question": "What is the name of the trophy awarded to the NFL Super Bowl champions?", "correctAnswer": "Vince Lombardi Trophy", "acceptableAnswers": ["vince lombardi trophy", "lombardi trophy", "lombardi"], "difficulty": "medium", "timeLimit": 20, "explanation": "The Vince Lombardi Trophy is awarded to the Super Bowl winner, named after the legendary Green Bay Packers coach." },
-  { "id": "sp_ft5", "type": "free_text", "category": "sports", "question": "Which swimmer has won the most Olympic medals of all time?", "correctAnswer": "Michael Phelps", "acceptableAnswers": ["michael phelps", "phelps"], "difficulty": "medium", "timeLimit": 15, "explanation": "Michael Phelps won 28 Olympic medals (23 gold) — the most of any Olympic athlete in history." },
-
-  { "id": "cc_sp1", "type": "clue_chain", "category": "sports", "question": "Who am I?", "clues": ["I was born in 1985 in Rosario, Argentina and moved to Spain at age 13", "I have won 8 Ballon d'Or awards — more than any other footballer in history", "I spent the majority of my club career at FC Barcelona before moving to PSG and Inter Miami", "I captained Argentina to victory at the 2022 FIFA World Cup in Qatar"], "correctAnswer": "Lionel Messi", "acceptableAnswers": ["messi", "leo messi"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_sp2", "type": "clue_chain", "category": "sports", "question": "Who am I?", "clues": ["I was born in Jamaica in 1986 and began my athletic career as a youth cricket player", "I hold the world records in both the 100m and 200m sprint", "I am the only person to win both the 100m and 200m at three consecutive Olympics", "My nickname is 'Lightning Bolt' and my victory pose is iconic"], "correctAnswer": "Usain Bolt", "acceptableAnswers": ["bolt", "usain bolt"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_sp3", "type": "clue_chain", "category": "sports", "question": "Who am I?", "clues": ["I retired from professional tennis in 2022 with more Grand Slam titles than anyone before me at the time", "I am Swiss and known for my elegant one-handed backhand", "I won Wimbledon a record 8 times", "My famous rivalry with Rafael Nadal and Novak Djokovic defined a golden era of tennis"], "correctAnswer": "Roger Federer", "acceptableAnswers": ["federer"], "difficulty": "medium", "timeLimit": 60 },
-  { "id": "cc_sp4", "type": "clue_chain", "category": "sports", "question": "Who am I?", "clues": ["I was born in Akron, Ohio in 1984 and was drafted first overall in the 2003 NBA Draft", "I have won four NBA championships with three different teams", "I am widely considered the greatest basketball player of all time", "I am known as 'The King' and have played for the Cavaliers, Heat, and Lakers"], "correctAnswer": "LeBron James", "acceptableAnswers": ["lebron james", "lebron", "lbj"], "difficulty": "easy", "timeLimit": 60 },
-  { "id": "cc_sp5", "type": "clue_chain", "category": "sports", "question": "Which sporting event am I?", "clues": ["I am held every four years and was revived in Athens in 1896 after a 1,500-year hiatus", "I include both Summer and Winter editions — each held in different years", "My symbol is five interlocking rings representing the five inhabited continents", "Athletes from over 200 nations compete under one flag of their country"], "correctAnswer": "The Olympic Games", "acceptableAnswers": ["the olympic games", "olympic games", "olympics"], "difficulty": "easy", "timeLimit": 60 }
+  {
+    "id": "mc2",
+    "type": "multiple_choice",
+    "category": "sports",
+    "question": "Which country has won the most FIFA World Cups?",
+    "options": [
+      "Germany",
+      "Argentina",
+      "Brazil",
+      "France"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Brazil has won the FIFA World Cup 5 times (1958, 1962, 1970, 1994, 2002)."
+  },
+  {
+    "id": "sp_mc1",
+    "type": "multiple_choice",
+    "category": "sports",
+    "question": "Which athlete has won the most Olympic gold medals of all time?",
+    "options": [
+      "Usain Bolt",
+      "Michael Phelps",
+      "Carl Lewis",
+      "Simone Biles"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Michael Phelps won 23 Olympic gold medals across four Olympic Games."
+  },
+  {
+    "id": "sp_mc2",
+    "type": "multiple_choice",
+    "category": "sports",
+    "question": "What sport is the Super Bowl associated with?",
+    "options": [
+      "Basketball",
+      "Baseball",
+      "American Football",
+      "Ice Hockey"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "The Super Bowl is the championship game of the NFL."
+  },
+  {
+    "id": "sp_mc3",
+    "type": "multiple_choice",
+    "category": "sports",
+    "question": "In which city were the first modern Olympic Games held in 1896?",
+    "options": [
+      "Rome",
+      "Paris",
+      "Athens",
+      "London"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "The first modern Olympics took place in Athens, Greece in 1896."
+  },
+  {
+    "id": "sp_mc4",
+    "type": "multiple_choice",
+    "category": "sports",
+    "question": "Which player has won the most Grand Slam tennis titles?",
+    "options": [
+      "Roger Federer",
+      "Rafael Nadal",
+      "Novak Djokovic",
+      "Pete Sampras"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Novak Djokovic leads with 24 Grand Slam titles."
+  },
+  {
+    "id": "sp_mc5",
+    "type": "multiple_choice",
+    "category": "sports",
+    "question": "What is the maximum score in a single frame of bowling?",
+    "options": [
+      "250",
+      "300",
+      "150",
+      "200"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "A perfect game in bowling is 300 — 12 consecutive strikes."
+  },
+  {
+    "id": "sp_tf1",
+    "type": "true_false",
+    "category": "sports",
+    "question": "Lionel Messi has won the FIFA World Cup.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Argentina won the 2022 FIFA World Cup in Qatar, with Messi winning the Golden Ball."
+  },
+  {
+    "id": "sp_tf2",
+    "type": "true_false",
+    "category": "sports",
+    "question": "A regulation NBA basketball game has four 12-minute quarters.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "NBA games consist of four 12-minute quarters (unlike FIBA's 10-minute quarters)."
+  },
+  {
+    "id": "sp_tf3",
+    "type": "true_false",
+    "category": "sports",
+    "question": "Usain Bolt won gold in the 100m at three consecutive Olympic Games.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Bolt won 100m gold at Beijing 2008, London 2012, and Rio 2016."
+  },
+  {
+    "id": "sp_tf4",
+    "type": "true_false",
+    "category": "sports",
+    "question": "A marathon is exactly 26.2 miles long.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "A marathon is 26.219 miles (42.195 km), a distance standardised after the 1908 London Olympics."
+  },
+  {
+    "id": "sp_tf5",
+    "type": "true_false",
+    "category": "sports",
+    "question": "Cristiano Ronaldo and Lionel Messi have both won the FIFA Ballon d'Or more than 5 times each.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Messi has won 8 Ballon d'Or awards; Ronaldo has won 5."
+  },
+  {
+    "id": "sp_fb1",
+    "type": "fill_blank",
+    "category": "sports",
+    "question": "In boxing, a fight is stopped when the referee counts to ___.",
+    "correctAnswer": "ten",
+    "acceptableAnswers": [
+      "10"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "A referee counts to ten (10) when a boxer is knocked down."
+  },
+  {
+    "id": "sp_fb2",
+    "type": "fill_blank",
+    "category": "sports",
+    "question": "In tennis, a score of ___ means both players have won three points each.",
+    "correctAnswer": "deuce",
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Deuce occurs when both players are tied at 40-40. One player must then win two consecutive points to win the game."
+  },
+  {
+    "id": "sp_fb3",
+    "type": "fill_blank",
+    "category": "sports",
+    "question": "In football (soccer), a player receives a ___ card for a serious foul and is sent off immediately.",
+    "correctAnswer": "red",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "A red card results in immediate dismissal from the game. Two yellow cards also result in a red."
+  },
+  {
+    "id": "sp_fb4",
+    "type": "fill_blank",
+    "category": "sports",
+    "question": "The Olympic motto 'Citius, Altius, ___' means Faster, Higher, Stronger.",
+    "correctAnswer": "Fortius",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "'Citius, Altius, Fortius' (Faster, Higher, Stronger) has been the Olympic motto since 1894."
+  },
+  {
+    "id": "sp_fb5",
+    "type": "fill_blank",
+    "category": "sports",
+    "question": "In American football, a ___ is worth six points.",
+    "correctAnswer": "touchdown",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "A touchdown scores 6 points, followed by an opportunity for an extra point kick or 2-point conversion."
+  },
+  {
+    "id": "sp_rk1",
+    "type": "ranking",
+    "category": "sports",
+    "question": "Rank these FIFA World Cup winning years chronologically (earliest first):",
+    "items": [
+      "2006 (Italy)",
+      "1998 (France)",
+      "2014 (Germany)"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "France 1998 → Italy 2006 → Germany 2014"
+  },
+  {
+    "id": "sp_rk2",
+    "type": "ranking",
+    "category": "sports",
+    "question": "Rank these sports by the number of players on each team (fewest first):",
+    "items": [
+      "Basketball",
+      "American Football",
+      "Tennis (singles)"
+    ],
+    "correctOrder": [
+      2,
+      0,
+      1
+    ],
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Tennis/singles (1) → Basketball (5) → American Football (11)"
+  },
+  {
+    "id": "sp_rk3",
+    "type": "ranking",
+    "category": "sports",
+    "question": "Rank these athletes by their 100m world record times (fastest first):",
+    "items": [
+      "Usain Bolt (9.58s)",
+      "Florence Griffith-Joyner (10.49s)",
+      "Asafa Powell (9.72s)"
+    ],
+    "correctOrder": [
+      0,
+      2,
+      1
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Bolt (9.58s) → Powell (9.72s) → Flo-Jo (10.49s — women's record)"
+  },
+  {
+    "id": "sp_rk4",
+    "type": "ranking",
+    "category": "sports",
+    "question": "Rank these Grand Slam tennis tournaments by the month they are held (earliest in the year first):",
+    "items": [
+      "Wimbledon",
+      "Australian Open",
+      "Roland Garros"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Australian Open (January) → Roland Garros (May/June) → Wimbledon (June/July)"
+  },
+  {
+    "id": "sp_rk5",
+    "type": "ranking",
+    "category": "sports",
+    "question": "Rank these football clubs by number of UEFA Champions League titles (fewest first):",
+    "items": [
+      "Real Madrid",
+      "Barcelona",
+      "Liverpool"
+    ],
+    "correctOrder": [
+      2,
+      1,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "allowPartialCredit": true,
+    "explanation": "Liverpool (6) → Barcelona (5) → Real Madrid (15) as of 2024"
+  },
+  {
+    "id": "sp_cw1",
+    "type": "closest_wins",
+    "category": "sports",
+    "question": "What is Usain Bolt's 100m world record time? (in seconds)",
+    "correctAnswer": 9.58,
+    "unit": "seconds",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Usain Bolt set the world record of 9.58 seconds at the 2009 World Championships in Berlin."
+  },
+  {
+    "id": "sp_cw2",
+    "type": "closest_wins",
+    "category": "sports",
+    "question": "How many goals did Lionel Messi score in the 2011/12 La Liga season?",
+    "correctAnswer": 50,
+    "unit": "goals",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Messi scored 50 league goals in 2011/12 — a La Liga record."
+  },
+  {
+    "id": "sp_cw3",
+    "type": "closest_wins",
+    "category": "sports",
+    "question": "In what year were the first modern Olympic Games held?",
+    "correctAnswer": 1896,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "The first modern Olympic Games were held in Athens, Greece in 1896."
+  },
+  {
+    "id": "sp_cw4",
+    "type": "closest_wins",
+    "category": "sports",
+    "question": "How many times has Brazil won the FIFA World Cup?",
+    "correctAnswer": 5,
+    "unit": "times",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Brazil has won the World Cup 5 times: 1958, 1962, 1970, 1994, and 2002."
+  },
+  {
+    "id": "sp_cw5",
+    "type": "closest_wins",
+    "category": "sports",
+    "question": "How long is a standard football (soccer) match in minutes?",
+    "correctAnswer": 90,
+    "unit": "minutes",
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "A standard football match is 90 minutes — two halves of 45 minutes each, plus injury time."
+  },
+  {
+    "id": "sp_sb1",
+    "type": "speed_buzz",
+    "category": "sports",
+    "question": "How many players are on a standard football (soccer) team on the pitch?",
+    "options": [
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Each team fields 11 players."
+  },
+  {
+    "id": "sp_sb2",
+    "type": "speed_buzz",
+    "category": "sports",
+    "question": "Which country hosts the Tour de France cycling race?",
+    "options": [
+      "Italy",
+      "Spain",
+      "Belgium",
+      "France"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "The Tour de France is a multi-stage road cycling race held primarily in France each July."
+  },
+  {
+    "id": "sp_sb3",
+    "type": "speed_buzz",
+    "category": "sports",
+    "question": "In which sport would you perform a slam dunk?",
+    "options": [
+      "Volleyball",
+      "Basketball",
+      "Handball",
+      "Water Polo"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "A slam dunk is a type of basketball shot where the player jumps and forces the ball down through the hoop."
+  },
+  {
+    "id": "sp_sb4",
+    "type": "speed_buzz",
+    "category": "sports",
+    "question": "Which country won the Rugby World Cup in 2023?",
+    "options": [
+      "New Zealand",
+      "Ireland",
+      "South Africa",
+      "France"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "South Africa won the 2023 Rugby World Cup in France, their fourth World Cup title."
+  },
+  {
+    "id": "sp_sb5",
+    "type": "speed_buzz",
+    "category": "sports",
+    "question": "What colour is the jacket awarded to the Masters golf tournament winner?",
+    "options": [
+      "Blue",
+      "White",
+      "Red",
+      "Green"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "The Masters Tournament awards the winner a distinctive green jacket, a tradition since 1949."
+  },
+  {
+    "id": "sp_ft1",
+    "type": "free_text",
+    "category": "sports",
+    "question": "Which sport is played at Wimbledon?",
+    "correctAnswer": "tennis",
+    "acceptableAnswers": [
+      "tennis",
+      "lawn tennis"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Wimbledon is the oldest tennis tournament in the world, held annually in London since 1877."
+  },
+  {
+    "id": "sp_ft2",
+    "type": "free_text",
+    "category": "sports",
+    "question": "What nationality is Formula 1 driver Max Verstappen?",
+    "correctAnswer": "Dutch",
+    "acceptableAnswers": [
+      "dutch",
+      "netherlands",
+      "holland"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Max Verstappen is Dutch, born in Hasselt, Belgium to a Belgian mother and Dutch father."
+  },
+  {
+    "id": "sp_ft3",
+    "type": "free_text",
+    "category": "sports",
+    "question": "In what country did the 2022 FIFA World Cup take place?",
+    "correctAnswer": "Qatar",
+    "acceptableAnswers": [
+      "qatar"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Qatar hosted the 2022 FIFA World Cup — the first World Cup held in the Middle East."
+  },
+  {
+    "id": "sp_ft4",
+    "type": "free_text",
+    "category": "sports",
+    "question": "What is the name of the trophy awarded to the NFL Super Bowl champions?",
+    "correctAnswer": "Vince Lombardi Trophy",
+    "acceptableAnswers": [
+      "vince lombardi trophy",
+      "lombardi trophy",
+      "lombardi"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "The Vince Lombardi Trophy is awarded to the Super Bowl winner, named after the legendary Green Bay Packers coach."
+  },
+  {
+    "id": "sp_ft5",
+    "type": "free_text",
+    "category": "sports",
+    "question": "Which swimmer has won the most Olympic medals of all time?",
+    "correctAnswer": "Michael Phelps",
+    "acceptableAnswers": [
+      "michael phelps",
+      "phelps"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Michael Phelps won 28 Olympic medals (23 gold) — the most of any Olympic athlete in history."
+  },
+  {
+    "id": "cc_sp1",
+    "type": "clue_chain",
+    "category": "sports",
+    "question": "Who am I?",
+    "clues": [
+      "I was born in 1985 in Rosario, Argentina and moved to Spain at age 13",
+      "I have won 8 Ballon d'Or awards — more than any other footballer in history",
+      "I spent the majority of my club career at FC Barcelona before moving to PSG and Inter Miami",
+      "I captained Argentina to victory at the 2022 FIFA World Cup in Qatar"
+    ],
+    "correctAnswer": "Lionel Messi",
+    "acceptableAnswers": [
+      "messi",
+      "leo messi"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_sp2",
+    "type": "clue_chain",
+    "category": "sports",
+    "question": "Who am I?",
+    "clues": [
+      "I was born in Jamaica in 1986 and began my athletic career as a youth cricket player",
+      "I hold the world records in both the 100m and 200m sprint",
+      "I am the only person to win both the 100m and 200m at three consecutive Olympics",
+      "My nickname is 'Lightning Bolt' and my victory pose is iconic"
+    ],
+    "correctAnswer": "Usain Bolt",
+    "acceptableAnswers": [
+      "bolt",
+      "usain bolt"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_sp3",
+    "type": "clue_chain",
+    "category": "sports",
+    "question": "Who am I?",
+    "clues": [
+      "I retired from professional tennis in 2022 with more Grand Slam titles than anyone before me at the time",
+      "I am Swiss and known for my elegant one-handed backhand",
+      "I won Wimbledon a record 8 times",
+      "My famous rivalry with Rafael Nadal and Novak Djokovic defined a golden era of tennis"
+    ],
+    "correctAnswer": "Roger Federer",
+    "acceptableAnswers": [
+      "federer"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_sp4",
+    "type": "clue_chain",
+    "category": "sports",
+    "question": "Who am I?",
+    "clues": [
+      "I was born in Akron, Ohio in 1984 and was drafted first overall in the 2003 NBA Draft",
+      "I have won four NBA championships with three different teams",
+      "I am widely considered the greatest basketball player of all time",
+      "I am known as 'The King' and have played for the Cavaliers, Heat, and Lakers"
+    ],
+    "correctAnswer": "LeBron James",
+    "acceptableAnswers": [
+      "lebron james",
+      "lebron",
+      "lbj"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_sp5",
+    "type": "clue_chain",
+    "category": "sports",
+    "question": "Which sporting event am I?",
+    "clues": [
+      "I am held every four years and was revived in Athens in 1896 after a 1,500-year hiatus",
+      "I include both Summer and Winter editions — each held in different years",
+      "My symbol is five interlocking rings representing the five inhabited continents",
+      "Athletes from over 200 nations compete under one flag of their country"
+    ],
+    "correctAnswer": "The Olympic Games",
+    "acceptableAnswers": [
+      "the olympic games",
+      "olympic games",
+      "olympics"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "fg_spo_1",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "de",
+    "correctAnswer": "Germany",
+    "acceptableAnswers": [
+      "Germany"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Germany has won the FIFA World Cup four times (1954, 1974, 1990, 2014)."
+  },
+  {
+    "id": "fg_spo_2",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "ar",
+    "correctAnswer": "Argentina",
+    "acceptableAnswers": [
+      "Argentina"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Argentina has won three FIFA World Cups (1978, 1986, 2022), the last led by Lionel Messi."
+  },
+  {
+    "id": "fg_spo_3",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "fr",
+    "correctAnswer": "France",
+    "acceptableAnswers": [
+      "France"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "France won the FIFA World Cup in 1998 (on home soil) and again in 2018 in Russia."
+  },
+  {
+    "id": "fg_spo_4",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "it",
+    "correctAnswer": "Italy",
+    "acceptableAnswers": [
+      "Italy"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Italy (the Azzurri) have won the FIFA World Cup four times: 1934, 1938, 1982 and 2006."
+  },
+  {
+    "id": "fg_spo_5",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "es",
+    "correctAnswer": "Spain",
+    "acceptableAnswers": [
+      "Spain"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Spain won their only FIFA World Cup in 2010 in South Africa, defeating the Netherlands 1–0 in the final."
+  },
+  {
+    "id": "fg_spo_6",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "pt",
+    "correctAnswer": "Portugal",
+    "acceptableAnswers": [
+      "Portugal"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Portugal is home to Cristiano Ronaldo, one of the greatest footballers of all time, and won UEFA Euro 2016."
+  },
+  {
+    "id": "fg_spo_7",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "nl",
+    "correctAnswer": "Netherlands",
+    "acceptableAnswers": [
+      "Netherlands",
+      "Holland",
+      "The Netherlands"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "The Netherlands, known for 'Total Football', were runners-up at three World Cups (1974, 1978, 2010) without ever winning."
+  },
+  {
+    "id": "fg_spo_8",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "be",
+    "correctAnswer": "Belgium",
+    "acceptableAnswers": [
+      "Belgium"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Belgium's Red Devils reached the semi-finals of the 2018 FIFA World Cup and are known for producing world-class talent like De Bruyne, Hazard, and Lukaku."
+  },
+  {
+    "id": "fg_spo_9",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "hr",
+    "correctAnswer": "Croatia",
+    "acceptableAnswers": [
+      "Croatia"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Croatia, led by Luka Modrić, finished runners-up at the 2018 FIFA World Cup and third in 2022."
+  },
+  {
+    "id": "fg_spo_10",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "se",
+    "correctAnswer": "Sweden",
+    "acceptableAnswers": [
+      "Sweden"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Sweden is famous for Zlatan Ibrahimović and produced tennis legend Björn Borg, who won five consecutive Wimbledon titles."
+  },
+  {
+    "id": "fg_spo_11",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "uy",
+    "correctAnswer": "Uruguay",
+    "acceptableAnswers": [
+      "Uruguay"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "Uruguay, despite a population of just 3.5 million, won two FIFA World Cups (1930, 1950) and is a football powerhouse."
+  },
+  {
+    "id": "fg_spo_12",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "pl",
+    "correctAnswer": "Poland",
+    "acceptableAnswers": [
+      "Poland"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Poland is home to Robert Lewandowski, who holds the record for most Bundesliga goals in a single season (41 in 2020–21)."
+  },
+  {
+    "id": "fg_spo_13",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "cl",
+    "correctAnswer": "Chile",
+    "acceptableAnswers": [
+      "Chile"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Chile won back-to-back Copa América titles in 2015 and 2016, led by Alexis Sánchez and Arturo Vidal."
+  },
+  {
+    "id": "fg_spo_14",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "kr",
+    "correctAnswer": "South Korea",
+    "acceptableAnswers": [
+      "South Korea",
+      "Korea"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "South Korea famously reached the semi-finals of the 2002 FIFA World Cup (co-hosted with Japan) and is a dominant force in esports."
+  },
+  {
+    "id": "fg_spo_15",
+    "type": "flag_guess",
+    "category": "sports",
+    "question": "Which country does this flag belong to?",
+    "countryCode": "ke",
+    "correctAnswer": "Kenya",
+    "acceptableAnswers": [
+      "Kenya"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "Kenya is a dominant force in long-distance running. Kenyan athletes have won dozens of Olympic medals in the 800m, 1500m, and marathon."
+  },
+  {
+    "id": "ig_spo_1",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "Who is this legendary footballer?",
+    "imageUrl": "/quiz-images/ronaldo.jpg",
+    "correctAnswer": "Cristiano Ronaldo",
+    "acceptableAnswers": [
+      "ronaldo",
+      "cristiano ronaldo",
+      "cr7"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Cristiano Ronaldo (CR7) is one of the greatest footballers of all time, having won five Ballon d'Or awards and scored over 800 career goals."
+  },
+  {
+    "id": "ig_spo_2",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "Who is this basketball legend?",
+    "imageUrl": "/quiz-images/michael-jordan.jpg",
+    "correctAnswer": "Michael Jordan",
+    "acceptableAnswers": [
+      "michael jordan",
+      "jordan",
+      "mj"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Michael Jordan is widely regarded as the greatest basketball player of all time, winning six NBA championships with the Chicago Bulls."
+  },
+  {
+    "id": "ig_spo_3",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "Who is this tennis champion?",
+    "imageUrl": "/quiz-images/serena-williams.jpg",
+    "correctAnswer": "Serena Williams",
+    "acceptableAnswers": [
+      "serena williams",
+      "serena"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Serena Williams won 23 Grand Slam singles titles, more than any other player in the Open Era."
+  },
+  {
+    "id": "ig_spo_4",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "What famous sporting venue is this?",
+    "imageUrl": "/quiz-images/wembley-stadium.jpg",
+    "correctAnswer": "Wembley Stadium",
+    "acceptableAnswers": [
+      "wembley",
+      "wembley stadium"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Wembley Stadium in London, with its iconic arch, is the home of the England national football team and hosts major finals."
+  },
+  {
+    "id": "ig_spo_5",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "What is this iconic sporting trophy?",
+    "imageUrl": "/quiz-images/fifa-world-cup-trophy.jpg",
+    "correctAnswer": "FIFA World Cup Trophy",
+    "acceptableAnswers": [
+      "world cup trophy",
+      "fifa world cup",
+      "world cup"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "The FIFA World Cup Trophy, made of 18-carat gold, depicts two human figures holding up the Earth. It has been awarded since 1974."
+  },
+  {
+    "id": "ig_spo_6",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "Who is this swimming legend?",
+    "imageUrl": "/quiz-images/michael-phelps.jpg",
+    "correctAnswer": "Michael Phelps",
+    "acceptableAnswers": [
+      "michael phelps",
+      "phelps"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Michael Phelps is the most decorated Olympian of all time, with 23 gold medals from the 2000–2016 Olympic Games."
+  },
+  {
+    "id": "ig_spo_7",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "What is the name of this iconic Formula 1 circuit?",
+    "imageUrl": "/quiz-images/monaco-circuit.jpg",
+    "correctAnswer": "Monaco Circuit",
+    "acceptableAnswers": [
+      "monaco",
+      "circuit de monaco",
+      "monte carlo",
+      "monaco circuit"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "The Circuit de Monaco is one of the most prestigious and demanding Formula 1 tracks, winding through the streets of Monte Carlo."
+  },
+  {
+    "id": "ig_spo_8",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "Who is this sprinting legend?",
+    "imageUrl": "/quiz-images/usain-bolt.jpg",
+    "correctAnswer": "Usain Bolt",
+    "acceptableAnswers": [
+      "usain bolt",
+      "bolt"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Usain Bolt holds the world records for both the 100m (9.58s) and 200m (19.19s) sprint, set at the 2009 World Championships in Berlin."
+  },
+  {
+    "id": "ig_spo_9",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "What famous court is this?",
+    "imageUrl": "/quiz-images/wimbledon-centre-court.jpg",
+    "correctAnswer": "Wimbledon Centre Court",
+    "acceptableAnswers": [
+      "wimbledon",
+      "centre court",
+      "wimbledon centre court"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Wimbledon's Centre Court, opened in 1922, is the most famous tennis court in the world and hosts the final of The Championships."
+  },
+  {
+    "id": "ig_spo_10",
+    "type": "image_guess",
+    "category": "sports",
+    "question": "Who is this football legend?",
+    "imageUrl": "/quiz-images/messi.jpg",
+    "correctAnswer": "Lionel Messi",
+    "acceptableAnswers": [
+      "messi",
+      "lionel messi",
+      "leo messi"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 20,
+    "explanation": "Lionel Messi has won a record eight Ballon d'Or awards and led Argentina to the 2022 FIFA World Cup title."
+  },
+  {
+    "id": "pr_spo_1",
+    "type": "pixel_reveal",
+    "category": "sports",
+    "question": "Who is this sports star?",
+    "imageUrl": "/quiz-images/pixel/sports-lebron-james.jpg",
+    "correctAnswer": "LeBron James",
+    "acceptableAnswers": [
+      "lebron james",
+      "lebron",
+      "king james"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "LeBron James is considered one of the NBA's greatest players, having won four championships with three different teams."
+  },
+  {
+    "id": "pr_spo_2",
+    "type": "pixel_reveal",
+    "category": "sports",
+    "question": "Who is this tennis champion?",
+    "imageUrl": "/quiz-images/pixel/sports-roger-federer.jpg",
+    "correctAnswer": "Roger Federer",
+    "acceptableAnswers": [
+      "roger federer",
+      "federer"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Roger Federer won 20 Grand Slam titles and is renowned for his elegant playing style and sportsmanship."
+  },
+  {
+    "id": "pr_spo_3",
+    "type": "pixel_reveal",
+    "category": "sports",
+    "question": "Who is this legendary boxer?",
+    "imageUrl": "/quiz-images/pixel/sports-muhammad-ali.jpg",
+    "correctAnswer": "Muhammad Ali",
+    "acceptableAnswers": [
+      "muhammad ali",
+      "ali",
+      "cassius clay"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Muhammad Ali, born Cassius Clay, is widely considered the greatest heavyweight boxer of all time, famous for 'floating like a butterfly, stinging like a bee'."
+  },
+  {
+    "id": "pr_spo_4",
+    "type": "pixel_reveal",
+    "category": "sports",
+    "question": "Who is this Formula 1 legend?",
+    "imageUrl": "/quiz-images/pixel/sports-michael-schumacher.jpg",
+    "correctAnswer": "Michael Schumacher",
+    "acceptableAnswers": [
+      "michael schumacher",
+      "schumacher"
+    ],
+    "caseSensitive": false,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Michael Schumacher won seven Formula 1 World Championships (1994, 1995, 2000–2004), a record he shares with Lewis Hamilton."
+  },
+  {
+    "id": "pr_spo_5",
+    "type": "pixel_reveal",
+    "category": "sports",
+    "question": "Who is this football icon?",
+    "imageUrl": "/quiz-images/pixel/sports-pele.jpg",
+    "correctAnswer": "Pelé",
+    "acceptableAnswers": [
+      "pele",
+      "pelé",
+      "edson arantes"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Pelé is the only player to win three FIFA World Cups (1958, 1962, 1970) and scored over 1,000 career goals."
+  },
+  {
+    "id": "pr_spo_6",
+    "type": "pixel_reveal",
+    "category": "sports",
+    "question": "Who is this cycling champion?",
+    "imageUrl": "/quiz-images/pixel/sports-eddy-merckx.jpg",
+    "correctAnswer": "Eddy Merckx",
+    "acceptableAnswers": [
+      "eddy merckx",
+      "merckx"
+    ],
+    "caseSensitive": false,
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "explanation": "Eddy Merckx is widely regarded as the greatest cyclist of all time, winning the Tour de France five times and earning the nickname 'The Cannibal'."
+  },
+  {
+    "id": "pr_spo_7",
+    "type": "pixel_reveal",
+    "category": "sports",
+    "question": "Who is this golf legend?",
+    "imageUrl": "/quiz-images/pixel/sports-tiger-woods.jpg",
+    "correctAnswer": "Tiger Woods",
+    "acceptableAnswers": [
+      "tiger woods",
+      "tiger"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Tiger Woods has won 15 major championships and was ranked world number one for a record 683 weeks."
+  },
+  {
+    "id": "pr_spo_8",
+    "type": "pixel_reveal",
+    "category": "sports",
+    "question": "Who is this basketball superstar?",
+    "imageUrl": "/quiz-images/pixel/sports-kobe-bryant.jpg",
+    "correctAnswer": "Kobe Bryant",
+    "acceptableAnswers": [
+      "kobe bryant",
+      "kobe",
+      "black mamba"
+    ],
+    "caseSensitive": false,
+    "difficulty": "easy",
+    "timeLimit": 25,
+    "explanation": "Kobe Bryant won five NBA championships with the LA Lakers and was known as 'The Black Mamba'. He tragically died in a helicopter crash in 2020."
+  },
+  {
+    "id": "as_spo_1",
+    "type": "animal_sound",
+    "category": "sports",
+    "question": "Which animal mascot makes this sound?",
+    "audioUrl": "/audio/animals/jaguar.ogg",
+    "correctAnswer": "Jaguar",
+    "acceptableAnswers": [
+      "Jaguar",
+      "Jaguar cat",
+      "Leopard",
+      "Panther"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_spo_2",
+    "type": "animal_sound",
+    "category": "sports",
+    "question": "Which animal mascot makes this sound?",
+    "audioUrl": "/audio/animals/bison.ogg",
+    "correctAnswer": "Bison",
+    "acceptableAnswers": [
+      "Bison",
+      "Buffalo",
+      "American bison"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_spo_3",
+    "type": "animal_sound",
+    "category": "sports",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "/audio/animals/eagle.ogg",
+    "correctAnswer": "Eagle",
+    "acceptableAnswers": [
+      "Eagle",
+      "Bald eagle",
+      "Golden eagle"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_spo_4",
+    "type": "animal_sound",
+    "category": "sports",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "/audio/animals/bear.ogg",
+    "correctAnswer": "Bear",
+    "acceptableAnswers": [
+      "Bear",
+      "Grizzly bear",
+      "Brown bear"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_spo_5",
+    "type": "animal_sound",
+    "category": "sports",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "/audio/animals/tiger.ogg",
+    "correctAnswer": "Tiger",
+    "acceptableAnswers": [
+      "Tiger",
+      "Bengal tiger"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  },
+  {
+    "id": "as_spo_6",
+    "type": "animal_sound",
+    "category": "sports",
+    "question": "Which animal makes this sound?",
+    "audioUrl": "/audio/animals/lion.ogg",
+    "correctAnswer": "Lion",
+    "acceptableAnswers": [
+      "Lion",
+      "Male lion"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 20
+  }
 ]
