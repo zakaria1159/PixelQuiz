@@ -603,7 +603,7 @@ export function SharedGameView({
                 <input
                   type="text"
                   value={fillBlankAnswer}
-                  onChange={e => setFillBlankAnswer(e.target.value.replace(/\s+/g, ''))}
+                  onChange={e => setFillBlankAnswer(e.target.value)}
                   onKeyDown={handleKeyDown}
                   disabled={hasAnswered || timeLeft === 0}
                   placeholder={t('missing_word')}
@@ -611,7 +611,7 @@ export function SharedGameView({
 
                   autoComplete="off"
                 />
-                <p className="text-xs text-zinc-600">{t('one_word_only')}</p>
+                <p className="text-xs text-zinc-600">{t('not_case_sensitive')}</p>
               </div>
             )}
 

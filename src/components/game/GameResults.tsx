@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react'
 import { useTranslation } from '@/hooks/useTranslation'
+import { generateGameCode } from '@/lib/utils'
 
 interface GameResultsProps {
   gameState: any
@@ -355,28 +356,57 @@ export function GameResults({ gameState, currentPlayer, isHost }: GameResultsPro
         </div>
       )}
 
-      {/* Back home */}
-      <button
-        onClick={() => window.location.href = '/'}
-        style={{
-          position: 'relative', zIndex: 1,
-          padding: '14px 40px',
-          borderRadius: '14px',
-          background: 'rgba(99,102,241,0.15)',
-          border: '1px solid rgba(99,102,241,0.4)',
-          color: '#a5b4fc',
-          fontSize: '14px',
-          fontWeight: 700,
-          cursor: 'pointer',
-          letterSpacing: '0.05em',
-          opacity: showStats ? 1 : 0,
-          transition: 'opacity 0.4s ease 0.2s, background 0.2s',
-        }}
-        onMouseEnter={e => (e.currentTarget.style.background = 'rgba(99,102,241,0.28)')}
-        onMouseLeave={e => (e.currentTarget.style.background = 'rgba(99,102,241,0.15)')}
-      >
-        {t('back_to_home')}
-      </button>
+      {/* Action buttons */}
+      <div style={{
+        position: 'relative', zIndex: 1,
+        display: 'flex', flexDirection: 'column', gap: '10px', width: '100%', maxWidth: '460px',
+        opacity: showStats ? 1 : 0,
+        transition: 'opacity 0.4s ease 0.2s',
+      }}>
+        {isHost && (
+          <button
+            onClick={() => {
+              const code = generateGameCode()
+              const name = encodeURIComponent(currentPlayer?.name || '')
+              window.location.href = `/host/${code}?name=${name}`
+            }}
+            style={{
+              width: '100%',
+              padding: '16px 40px',
+              borderRadius: '14px',
+              background: 'linear-gradient(135deg, #4f46e5, #4338ca)',
+              border: 'none',
+              color: 'white',
+              fontSize: '15px',
+              fontWeight: 800,
+              cursor: 'pointer',
+              boxShadow: '0 0 30px rgba(79,70,229,0.35)',
+            }}
+          >
+            {t('play_again')}
+          </button>
+        )}
+        <button
+          onClick={() => window.location.href = '/'}
+          style={{
+            width: '100%',
+            padding: '14px 40px',
+            borderRadius: '14px',
+            background: 'rgba(99,102,241,0.15)',
+            border: '1px solid rgba(99,102,241,0.4)',
+            color: '#a5b4fc',
+            fontSize: '14px',
+            fontWeight: 700,
+            cursor: 'pointer',
+            letterSpacing: '0.05em',
+            transition: 'background 0.2s',
+          }}
+          onMouseEnter={e => (e.currentTarget.style.background = 'rgba(99,102,241,0.28)')}
+          onMouseLeave={e => (e.currentTarget.style.background = 'rgba(99,102,241,0.15)')}
+        >
+          {t('back_to_home')}
+        </button>
+      </div>
 
       <style>{`
         @keyframes popIn {

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { QuizSettingsPanel, QuizSettings } from '@/components/game/QuizSettings'
+import { CustomQuestionBuilder, CustomQuestion } from '@/components/game/CustomQuestionBuilder'
 import { useTranslation } from '@/hooks/useTranslation'
 
 interface Player {
@@ -105,7 +106,10 @@ export function Lobby({
   onLeaveGame,
 }: LobbyProps) {
   const [copied, setCopied] = useState(false)
-  const [settings, setSettings] = useState<QuizSettings>({ categories: [], types: [], questionCount: 10, lang: 'en' })
+  const [settings, setSettings] = useState<QuizSettings>({ categories: [], types: [], difficulties: [], questionCount: 10, lang: 'en' })
+  const [customQuestions, setCustomQuestions] = useState<CustomQuestion[]>([])
+  const [customOnly, setCustomOnly] = useState(true)
+  const [showBuilder, setShowBuilder] = useState(false)
   const { t } = useTranslation()
   const canStart = isSolo ? players.length >= 1 : players.length >= 2
   const nonHostPlayers = players.filter(p => !p.isHost)
@@ -199,6 +203,48 @@ export function Lobby({
           </div>
         )}
 
+        {/* Custom question builder — host only */}
+        {isHost && (
+          <div className="glass" style={{ animation: 'slideUpFadeIn 0.4s ease 0.25s both', overflow: 'hidden' }}>
+            <button
+              onClick={() => setShowBuilder(v => !v)}
+              style={{
+                width: '100%', padding: '16px 20px',
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                background: 'none', border: 'none', cursor: 'pointer',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ fontSize: '16px' }}>✏️</span>
+                <div style={{ textAlign: 'left' }}>
+                  <div style={{ fontSize: '13px', fontWeight: 700, color: 'white' }}>
+                    Custom Questions
+                    {customQuestions.length > 0 && (
+                      <span style={{ marginLeft: '8px', fontSize: '10px', fontWeight: 700, background: 'rgba(99,102,241,0.3)', color: '#a5b4fc', padding: '1px 7px', borderRadius: '99px' }}>
+                        {customQuestions.length}
+                      </span>
+                    )}
+                  </div>
+                  <div style={{ fontSize: '11px', color: '#52525b', marginTop: '1px' }}>
+                    Add your own questions to the game
+                  </div>
+                </div>
+              </div>
+              <span style={{ fontSize: '12px', color: '#52525b', transform: showBuilder ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>▼</span>
+            </button>
+            {showBuilder && (
+              <div style={{ padding: '0 20px 20px' }}>
+                <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)', marginBottom: '20px' }} />
+                <CustomQuestionBuilder
+                  questions={customQuestions}
+                  customOnly={customOnly}
+                  onChange={(qs, co) => { setCustomQuestions(qs); setCustomOnly(co) }}
+                />
+              </div>
+            )}
+          </div>
+        )}
+
         {/* Actions */}
         <div className="flex flex-col gap-3" style={{ animation: 'slideUpFadeIn 0.4s ease 0.28s both', paddingBottom: 'env(safe-area-inset-bottom)' }}>
           {isHost ? (
@@ -209,7 +255,7 @@ export function Lobby({
                 </div>
               )}
               <button
-                onClick={() => onStartGame?.(settings)}
+                onClick={() => onStartGame?.({ ...settings, customQuestions, customOnly })}
                 disabled={!canStart}
                 className="w-full py-5 px-6 rounded-2xl font-black text-lg text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
                 style={{

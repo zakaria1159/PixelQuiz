@@ -44,6 +44,7 @@ export const translations = {
     // QuizSettings
     language: 'Language',
     questions_label: 'Questions',
+    difficulty: 'Difficulty',
     categories: 'Categories',
     all_label: '(all)',
     n_selected: '{n} selected',
@@ -53,6 +54,24 @@ export const translations = {
     question_types: 'Question Types',
     n_of_m_selected: '{n} of {m} selected —',
     select_all_link: 'select all',
+    themed_universe_note: 'All questions will come from the selected universe',
+
+    // HomePage
+    tagline: 'Real-time multiplayer trivia for streamers',
+    host_a_game: 'Host a Game',
+    solo_practice: 'Solo Practice',
+    join_a_game: 'Join a Game',
+    your_name: 'Your name',
+    enter_your_name: 'Enter your name…',
+    create_game: 'Create Game',
+    setting_up_game: 'Setting up…',
+    joining_game: 'Joining…',
+    join_game_btn: 'Join Game',
+    feat_speed_buzz: 'Speed Buzz',
+    feat_types: '14 Types',
+    feat_stream: 'Stream Ready',
+    feat_scoring: 'Live Scoring',
+    feat_ai: 'AI Powered',
 
     // GameCode
     copy: 'Copy',
@@ -179,6 +198,7 @@ export const translations = {
     no_answer: 'No answer submitted',
 
     // GameResults
+    play_again: '▶ Play Again',
     game_over: 'Game Over',
     n_players_n_questions: '{players} players · {questions} questions',
     wins_the_game: 'pts · wins the game!',
@@ -233,6 +253,7 @@ export const translations = {
     // QuizSettings
     language: 'Langue',
     questions_label: 'Questions',
+    difficulty: 'Difficulté',
     categories: 'Catégories',
     all_label: '(toutes)',
     n_selected: '{n} sélectionnée(s)',
@@ -242,6 +263,24 @@ export const translations = {
     question_types: 'Types de questions',
     n_of_m_selected: '{n} sur {m} sélectionné(s) —',
     select_all_link: 'tout sélectionner',
+    themed_universe_note: "Toutes les questions viendront de l'univers sélectionné",
+
+    // HomePage
+    tagline: 'Quiz multijoueur en temps réel pour streamers',
+    host_a_game: 'Créer une partie',
+    solo_practice: 'Solo / Entraînement',
+    join_a_game: 'Rejoindre une partie',
+    your_name: 'Votre nom',
+    enter_your_name: 'Entrez votre nom…',
+    create_game: 'Créer la partie',
+    setting_up_game: 'Préparation…',
+    joining_game: 'Connexion…',
+    join_game_btn: 'Rejoindre',
+    feat_speed_buzz: 'Speed Buzz',
+    feat_types: '14 Types',
+    feat_stream: 'Pour les streams',
+    feat_scoring: 'Score en direct',
+    feat_ai: 'Propulsé par IA',
 
     // GameCode
     copy: 'Copier',
@@ -368,6 +407,7 @@ export const translations = {
     no_answer: 'Aucune réponse soumise',
 
     // GameResults
+    play_again: '▶ Rejouer',
     game_over: 'Fin de partie',
     n_players_n_questions: '{players} joueurs · {questions} questions',
     wins_the_game: 'pts · remporte la partie !',

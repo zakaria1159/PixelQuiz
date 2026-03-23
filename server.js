@@ -585,7 +585,12 @@ function roundRobin(buckets) {
 }
 
 function getRandomQuestions(settings = {}) {
-  const { categories = [], types = [], questionCount = 10, lang = 'en' } = settings
+  const { categories = [], types = [], difficulties = [], questionCount = 10, lang = 'en', customQuestions = [], customOnly = false } = settings
+
+  // Custom-only mode: use custom questions exclusively (shuffle them)
+  if (customOnly && customQuestions.length > 0) {
+    return shuffle(customQuestions).slice(0, questionCount)
+  }
 
   const base = (questionsByLang[lang] && questionsByLang[lang].length > 0)
     ? questionsByLang[lang]
@@ -597,6 +602,7 @@ function getRandomQuestions(settings = {}) {
   let pool = base
   if (categories.length > 0) pool = pool.filter(q => categories.includes(q.category))
   if (types.length > 0) pool = pool.filter(q => types.includes(q.type))
+  if (difficulties.length > 0) pool = pool.filter(q => difficulties.includes(q.difficulty))
   if (pool.length === 0) pool = base
 
   if (isThemed) {
@@ -627,7 +633,14 @@ function getRandomQuestions(settings = {}) {
     return roundRobin(catBuckets)
   })
 
-  return shuffle(roundRobin(typeBuckets).slice(0, questionCount))
+  const standardQuestions = shuffle(roundRobin(typeBuckets).slice(0, questionCount))
+
+  // Mix mode: combine custom + standard, total capped at questionCount + custom count
+  if (customQuestions.length > 0) {
+    return shuffle([...standardQuestions, ...customQuestions])
+  }
+
+  return standardQuestions
 }
 
 const app = express()
@@ -896,8 +909,9 @@ io.on('connection', (socket) => {
       game.questionStartTime = Date.now()
       game.updatedAt = Date.now()
 
+      const customQuestions = settings?.customQuestions || []
       console.log('🚀 Game started:', gameCode)
-      console.log('📝 Loaded questions:', questions.length)
+      console.log('📝 Loaded questions:', questions.length, customQuestions.length > 0 ? `(${customQuestions.length} custom)` : '')
       console.log('🎯 First question:', game.currentQuestion.question, '(Type:', game.currentQuestion.type + ')')
 
       game.gameStatus = 'starting'

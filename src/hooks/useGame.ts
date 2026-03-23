@@ -480,7 +480,7 @@ export const useGame = (options: UseGameOptions = {}) => {
     }
   }, [resetStore])
 
-  const startGame = useCallback((settings?: { categories: string[]; types: string[]; questionCount: number }, solo?: boolean) => {
+  const startGame = useCallback((settings?: Record<string, any>, solo?: boolean) => {
     if (!currentGameCode.current) {
       setConnectionError('No active game')
       return false

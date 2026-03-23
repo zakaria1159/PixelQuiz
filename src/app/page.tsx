@@ -1,8 +1,15 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { generateGameCode } from '@/lib/utils'
+import { useGameStore } from '@/stores/gameStore'
+import { useTranslation } from '@/hooks/useTranslation'
+
+const LANGUAGES = [
+  { id: 'en', emoji: '🇬🇧', label: 'EN' },
+  { id: 'fr', emoji: '🇫🇷', label: 'FR' },
+]
 
 export default function HomePage() {
   const [gameCode,    setGameCode]    = useState('')
@@ -11,6 +18,19 @@ export default function HomePage() {
   const [isLoading,   setIsLoading]   = useState(false)
   const [mode,        setMode]        = useState<'idle' | 'join' | 'host' | 'practice'>('idle')
   const router = useRouter()
+  const { lang, setLang } = useGameStore()
+  const { t } = useTranslation()
+
+  // Restore lang from localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem('metaquizz_lang')
+    if (saved && saved !== lang) setLang(saved)
+  }, [])
+
+  const handleLangSelect = (l: string) => {
+    setLang(l)
+    localStorage.setItem('metaquizz_lang', l)
+  }
 
   const createGame = async (solo = false) => {
     if (!hostName.trim()) return
@@ -67,8 +87,26 @@ export default function HomePage() {
             <span className="text-white">META</span><span className="text-indigo-400">QUIZZ</span>
           </h1>
           <p className="text-zinc-500 text-sm font-semibold tracking-wide">
-            Real-time multiplayer trivia for streamers
+            {t('tagline')}
           </p>
+          {/* Language selector */}
+          <div className="flex items-center justify-center gap-2 mt-5">
+            {LANGUAGES.map(l => (
+              <button
+                key={l.id}
+                onClick={() => handleLangSelect(l.id)}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-150"
+                style={{
+                  border: lang === l.id ? '1.5px solid rgba(99,102,241,0.7)' : '1.5px solid rgba(255,255,255,0.1)',
+                  background: lang === l.id ? 'rgba(99,102,241,0.2)' : 'rgba(255,255,255,0.03)',
+                  color: lang === l.id ? '#a5b4fc' : '#52525b',
+                }}
+              >
+                <span>{l.emoji}</span>
+                <span>{l.label}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Action card */}
@@ -83,14 +121,14 @@ export default function HomePage() {
                   boxShadow: '0 0 40px rgba(79,70,229,0.4), inset 0 1px 0 rgba(255,255,255,0.1)',
                 }}
               >
-                <span className="relative z-10">▶  Host a Game</span>
+                <span className="relative z-10">▶  {t('host_a_game')}</span>
               </button>
 
               <button
                 onClick={() => setMode('practice')}
                 className="w-full py-4 px-6 rounded-2xl font-black text-base text-emerald-300 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-emerald-800/60 hover:border-emerald-700 hover:bg-emerald-950/30"
               >
-                🎯  Solo Practice
+                🎯  {t('solo_practice')}
               </button>
 
               <div className="relative flex items-center gap-3 py-1">
@@ -103,21 +141,21 @@ export default function HomePage() {
                 onClick={() => setMode('join')}
                 className="w-full py-5 px-6 rounded-2xl font-black text-lg text-zinc-200 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] border border-white/10 hover:border-white/20 hover:bg-white/5"
               >
-                Join a Game
+                {t('join_a_game')}
               </button>
             </div>
           ) : mode === 'host' || mode === 'practice' ? (
             <div className="space-y-4" style={{ animation: 'slideUpFadeIn 0.3s ease both' }}>
               <div>
                 <label className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2">
-                  Your name
+                  {t('your_name')}
                 </label>
                 <input
                   type="text"
                   value={hostName}
                   onChange={e => setHostName(e.target.value)}
                   onKeyDown={e => e.key === 'Enter' && canHost && createGame(mode === 'practice')}
-                  placeholder="Enter your name…"
+                  placeholder={t('enter_your_name')}
                   maxLength={20}
                   autoFocus
                   className="w-full bg-white/5 border border-white/10 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-white placeholder-zinc-600 font-semibold text-base py-4 px-5 rounded-xl outline-none transition-all duration-150"
@@ -140,7 +178,7 @@ export default function HomePage() {
                   border: canHost ? 'none' : '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                {isLoading ? 'Setting up…' : mode === 'practice' ? '🎯  Start Practice' : '▶  Create Game'}
+                {isLoading ? t('setting_up_game') : mode === 'practice' ? `🎯  ${t('start_practice')}` : `▶  ${t('create_game')}`}
               </button>
 
               <button
@@ -154,14 +192,14 @@ export default function HomePage() {
             <div className="space-y-4" style={{ animation: 'slideUpFadeIn 0.3s ease both' }}>
               <div>
                 <label className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2">
-                  Your name
+                  {t('your_name')}
                 </label>
                 <input
                   type="text"
                   value={playerName}
                   onChange={e => setPlayerName(e.target.value)}
                   onKeyDown={e => e.key === 'Enter' && canJoin && joinGame()}
-                  placeholder="Enter your name…"
+                  placeholder={t('enter_your_name')}
                   maxLength={20}
                   autoFocus
                   className="w-full bg-white/5 border border-white/10 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-white placeholder-zinc-600 font-semibold text-base py-4 px-5 rounded-xl outline-none transition-all duration-150"
@@ -193,7 +231,7 @@ export default function HomePage() {
                   border: canJoin ? 'none' : '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                {isLoading ? 'Joining…' : '▶  Join Game'}
+                {isLoading ? t('joining_game') : `▶  ${t('join_game_btn')}`}
               </button>
 
               <button
@@ -212,11 +250,11 @@ export default function HomePage() {
           style={{ animation: 'slideUpFadeIn 0.5s ease 0.2s both', opacity: 0 }}
         >
           {[
-            { icon: '⚡', label: 'Speed Buzz' },
-            { icon: '🎯', label: '10 Types' },
-            { icon: '📡', label: 'Stream Ready' },
-            { icon: '🏆', label: 'Live Scoring' },
-            { icon: '🤖', label: 'AI Powered' },
+            { icon: '⚡', label: t('feat_speed_buzz') },
+            { icon: '🎯', label: t('feat_types') },
+            { icon: '📡', label: t('feat_stream') },
+            { icon: '🏆', label: t('feat_scoring') },
+            { icon: '🤖', label: t('feat_ai') },
           ].map(f => (
             <div
               key={f.label}
