@@ -60,7 +60,15 @@ export default function HostPage() {
   } = useGame({ gameCode, playerName, isHost: true })
 
   const questionStartTime = useGameStore(state => state.questionStartTime)
+  const storeTimeLimit = useGameStore(state => state.timeLimit)
+  const setLang = useGameStore(state => state.setLang)
   const { t } = useTranslation()
+
+  // Restore language preference from localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem('metaquizz_lang')
+    if (saved) setLang(saved)
+  }, [])
 
   // Create the game when component mounts
   useEffect(() => {
@@ -77,7 +85,7 @@ export default function HostPage() {
     }
   }, [gameCode, gameState, createGame, isConnected])
 
-  const handleStartGame = (settings: { categories: string[]; types: string[]; questionCount: number }) => {
+  const handleStartGame = (settings: Record<string, any>) => {
     if (isSolo || canStartGame) {
       startGame(settings, isSolo)
     }
@@ -201,7 +209,7 @@ export default function HostPage() {
         question={gameState.currentQuestion}
         questionIndex={gameState.currentQuestionIndex}
         totalQuestions={gameState.questions.length}
-        timeLimit={gameState.currentQuestion.timeLimit}
+        timeLimit={storeTimeLimit || gameState.currentQuestion.timeLimit}
         questionStartTime={questionStartTime}
         players={players}
         answeredPlayers={answeredPlayers}

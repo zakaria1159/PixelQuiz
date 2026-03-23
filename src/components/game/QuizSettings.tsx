@@ -1,12 +1,16 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { useGameStore } from '@/stores/gameStore'
+import { useTranslation } from '@/hooks/useTranslation'
 
 export interface QuizSettings {
   categories: string[]
   types: string[]
+  difficulties: string[]
   questionCount: number
   lang: string
+  customQuestions?: any[]
+  customOnly?: boolean
 }
 
 const CATEGORIES = [
@@ -44,7 +48,13 @@ const QUESTION_TYPES = [
   { id: 'letter_game',     label: 'Letter Game',     emoji: '🅰️' },
 ]
 
-const QUESTION_COUNTS = [5, 10, 15, 20]
+const DIFFICULTIES = [
+  { id: 'easy',   label: 'Easy',   emoji: '🟢' },
+  { id: 'medium', label: 'Medium', emoji: '🟡' },
+  { id: 'hard',   label: 'Hard',   emoji: '🔴' },
+]
+
+const QUESTION_COUNTS = [5, 10, 15, 20, 25, 30, 40]
 
 const LANGUAGES = [
   { id: 'en', label: 'English', emoji: '🇬🇧' },
@@ -69,6 +79,7 @@ function ToggleGrid({
   onSelectAll: () => void
   accentColor?: string
 }) {
+  const { t } = useTranslation()
   const allSelected = selected.length === items.length
   return (
     <>
@@ -105,12 +116,12 @@ function ToggleGrid({
       </div>
       {!allSelected && (
         <p style={{ fontSize: '11px', color: '#3f3f46', marginTop: '10px', textAlign: 'center' }}>
-          {selected.length} of {items.length} selected —{' '}
+          {t('n_of_m_selected', { n: selected.length, m: items.length })}{' '}
           <button
             onClick={onSelectAll}
             style={{ fontSize: '11px', color: '#6366f1', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
           >
-            select all
+            {t('select_all_link')}
           </button>
         </p>
       )}
@@ -124,17 +135,19 @@ const ALL_CATEGORY_IDS  = [...ALL_GENERAL_CATEGORY_IDS, ...ALL_THEMED_CATEGORY_I
 const ALL_TYPE_IDS      = QUESTION_TYPES.map(t => t.id)
 
 export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
-  const [selectedTypes,      setSelectedTypes]      = useState<string[]>([])
-  const [questionCount,      setQuestionCount]      = useState(10)
-  const [lang,               setLang]               = useState('en')
+  const { t, lang: storeLang } = useTranslation()
+  const [selectedCategories,  setSelectedCategories]  = useState<string[]>([])
+  const [selectedTypes,       setSelectedTypes]       = useState<string[]>([])
+  const [selectedDifficulties, setSelectedDifficulties] = useState<string[]>([])
+  const [questionCount,       setQuestionCount]       = useState(10)
+  const [lang,                setLang]                = useState(storeLang)
 
-  const emit = (cats: string[], types: string[], count: number, l: string) =>
-    onChange({ categories: cats, types, questionCount: count, lang: l })
+  const emit = (cats: string[], types: string[], diffs: string[], count: number, l: string) =>
+    onChange({ categories: cats, types, difficulties: diffs, questionCount: count, lang: l })
 
   // Emit initial state so parent has correct values without user interaction
   useEffect(() => {
-    emit([], [], 10, 'en')
+    emit([], [], [], 10, 'en')
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -150,7 +163,7 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
       next = [...selectedCategories.filter(c => !clearIds.includes(c)), id]
     }
     setSelectedCategories(next)
-    emit(next, selectedTypes, questionCount, lang)
+    emit(next, selectedTypes, selectedDifficulties, questionCount, lang)
   }
 
   const toggleType = (id: string) => {
@@ -158,18 +171,27 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
       ? selectedTypes.filter(t => t !== id)
       : [...selectedTypes, id]
     setSelectedTypes(next)
-    emit(selectedCategories, next, questionCount, lang)
+    emit(selectedCategories, next, selectedDifficulties, questionCount, lang)
+  }
+
+  const toggleDifficulty = (id: string) => {
+    const next = selectedDifficulties.includes(id)
+      ? selectedDifficulties.filter(d => d !== id)
+      : [...selectedDifficulties, id]
+    setSelectedDifficulties(next)
+    emit(selectedCategories, selectedTypes, next, questionCount, lang)
   }
 
   const selectCount = (count: number) => {
     setQuestionCount(count)
-    emit(selectedCategories, selectedTypes, count, lang)
+    emit(selectedCategories, selectedTypes, selectedDifficulties, count, lang)
   }
 
   const selectLang = (l: string) => {
     setLang(l)
     useGameStore.getState().setLang(l)
-    emit(selectedCategories, selectedTypes, questionCount, l)
+    localStorage.setItem('metaquizz_lang', l)
+    emit(selectedCategories, selectedTypes, selectedDifficulties, questionCount, l)
   }
 
   return (
@@ -178,7 +200,7 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
       {/* Language */}
       <div>
         <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '10px' }}>
-          Language
+          {t('language')}
         </div>
         <div style={{ display: 'flex', gap: '8px' }}>
           {LANGUAGES.map(l => (
@@ -216,15 +238,14 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
       {/* Question count */}
       <div>
         <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '10px' }}>
-          Questions
+          {t('questions_label')}
         </div>
-        <div style={{ display: 'flex', gap: '8px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px' }}>
           {QUESTION_COUNTS.map(count => (
             <button
               key={count}
               onClick={() => selectCount(count)}
               style={{
-                flex: 1,
                 padding: '9px 0',
                 borderRadius: '12px',
                 border: questionCount === count
@@ -246,28 +267,70 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
         </div>
       </div>
 
+      {/* Difficulty */}
+      <div>
+        <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '10px' }}>
+          {t('difficulty')}
+          <span style={{ fontWeight: 400, color: '#3f3f46', marginLeft: '6px', textTransform: 'none', letterSpacing: 0 }}>
+            {selectedDifficulties.length === 0 ? t('all_label') : selectedDifficulties.join(', ')}
+          </span>
+        </div>
+        <div style={{ display: 'flex', gap: '8px' }}>
+          {DIFFICULTIES.map(d => {
+            const active = selectedDifficulties.includes(d.id)
+            const colors: Record<string, string> = { easy: 'rgba(34,197,94', medium: 'rgba(234,179,8', hard: 'rgba(239,68,68' }
+            const c = colors[d.id]
+            return (
+              <button
+                key={d.id}
+                onClick={() => toggleDifficulty(d.id)}
+                style={{
+                  flex: 1,
+                  padding: '9px 0',
+                  borderRadius: '12px',
+                  border: active ? `1.5px solid ${c},0.6)` : '1.5px solid rgba(255,255,255,0.08)',
+                  background: active ? `${c},0.15)` : 'rgba(255,255,255,0.03)',
+                  color: active ? `${c},1)` : '#52525b',
+                  fontWeight: 700,
+                  fontSize: '13px',
+                  cursor: 'pointer',
+                  transition: 'all 0.15s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '6px',
+                }}
+              >
+                <span>{d.emoji}</span>
+                <span>{d.label}</span>
+              </button>
+            )
+          })}
+        </div>
+      </div>
+
       {/* Categories */}
       <div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
           <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-            Categories
+            {t('categories')}
             <span style={{ fontWeight: 400, color: '#3f3f46', marginLeft: '6px', textTransform: 'none', letterSpacing: 0 }}>
-              {selectedCategories.length === 0 ? '(all)' : `${selectedCategories.length} selected`}
+              {selectedCategories.length === 0 ? t('all_label') : t('n_selected', { n: selectedCategories.length })}
             </span>
           </div>
           {selectedCategories.length === 0 ? (
             <button
-              onClick={() => { setSelectedCategories(ALL_GENERAL_CATEGORY_IDS); emit(ALL_GENERAL_CATEGORY_IDS, selectedTypes, questionCount, lang) }}
+              onClick={() => { setSelectedCategories(ALL_GENERAL_CATEGORY_IDS); emit(ALL_GENERAL_CATEGORY_IDS, selectedTypes, selectedDifficulties, questionCount, lang) }}
               style={{ fontSize: '11px', color: '#6366f1', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
             >
-              Select All
+              {t('select_all')}
             </button>
           ) : (
             <button
-              onClick={() => { setSelectedCategories([]); emit([], selectedTypes, questionCount, lang) }}
+              onClick={() => { setSelectedCategories([]); emit([], selectedTypes, selectedDifficulties, questionCount, lang) }}
               style={{ fontSize: '11px', color: '#52525b', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
             >
-              Clear
+              {t('clear')}
             </button>
           )}
         </div>
@@ -275,7 +338,7 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
           items={CATEGORIES}
           selected={selectedCategories}
           onToggle={toggleCategory}
-          onSelectAll={() => { setSelectedCategories(ALL_GENERAL_CATEGORY_IDS); emit(ALL_GENERAL_CATEGORY_IDS, selectedTypes, questionCount, lang) }}
+          onSelectAll={() => { setSelectedCategories(ALL_GENERAL_CATEGORY_IDS); emit(ALL_GENERAL_CATEGORY_IDS, selectedTypes, selectedDifficulties, questionCount, lang) }}
         />
       </div>
 
@@ -284,7 +347,7 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
           <div style={{ height: '1px', flex: 1, background: 'rgba(255,255,255,0.06)' }} />
           <div style={{ fontSize: '10px', fontWeight: 700, color: '#3f3f46', textTransform: 'uppercase', letterSpacing: '0.12em', whiteSpace: 'nowrap' }}>
-            Themed
+            {t('themed')}
           </div>
           <div style={{ height: '1px', flex: 1, background: 'rgba(255,255,255,0.06)' }} />
         </div>
@@ -292,12 +355,12 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
           items={THEMED_CATEGORIES}
           selected={selectedCategories}
           onToggle={toggleCategory}
-          onSelectAll={() => { setSelectedCategories(ALL_THEMED_CATEGORY_IDS); emit(ALL_THEMED_CATEGORY_IDS, selectedTypes, questionCount, lang) }}
+          onSelectAll={() => { setSelectedCategories(ALL_THEMED_CATEGORY_IDS); emit(ALL_THEMED_CATEGORY_IDS, selectedTypes, selectedDifficulties, questionCount, lang) }}
           accentColor='rgba(251,191,36'
         />
         {selectedCategories.some(c => ALL_THEMED_CATEGORY_IDS.includes(c)) && (
           <p style={{ fontSize: '10px', color: '#78716c', marginTop: '8px', textAlign: 'center' }}>
-            All questions will come from the selected universe
+            {t('themed_universe_note')}
           </p>
         )}
       </div>
@@ -309,24 +372,24 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
       <div>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
           <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-            Question Types
+            {t('question_types')}
             <span style={{ fontWeight: 400, color: '#3f3f46', marginLeft: '6px', textTransform: 'none', letterSpacing: 0 }}>
-              {selectedTypes.length === 0 ? '(all)' : `${selectedTypes.length} selected`}
+              {selectedTypes.length === 0 ? t('all_label') : t('n_selected', { n: selectedTypes.length })}
             </span>
           </div>
           {selectedTypes.length === 0 ? (
             <button
-              onClick={() => { setSelectedTypes(ALL_TYPE_IDS); emit(selectedCategories, ALL_TYPE_IDS, questionCount, lang) }}
+              onClick={() => { setSelectedTypes(ALL_TYPE_IDS); emit(selectedCategories, ALL_TYPE_IDS, selectedDifficulties, questionCount, lang) }}
               style={{ fontSize: '11px', color: '#14b8a6', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
             >
-              Select All
+              {t('select_all')}
             </button>
           ) : (
             <button
-              onClick={() => { setSelectedTypes([]); emit(selectedCategories, [], questionCount, lang) }}
+              onClick={() => { setSelectedTypes([]); emit(selectedCategories, [], selectedDifficulties, questionCount, lang) }}
               style={{ fontSize: '11px', color: '#52525b', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
             >
-              Clear
+              {t('clear')}
             </button>
           )}
         </div>
@@ -334,7 +397,7 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
           items={QUESTION_TYPES}
           selected={selectedTypes}
           onToggle={toggleType}
-          onSelectAll={() => { setSelectedTypes(ALL_TYPE_IDS); emit(selectedCategories, ALL_TYPE_IDS, questionCount, lang) }}
+          onSelectAll={() => { setSelectedTypes(ALL_TYPE_IDS); emit(selectedCategories, ALL_TYPE_IDS, selectedDifficulties, questionCount, lang) }}
           accentColor='rgba(20,184,166'
         />
       </div>

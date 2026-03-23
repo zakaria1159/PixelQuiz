@@ -648,7 +648,7 @@ export function QuestionReveal({
                     </div>
 
                     {/* ── Explanation Toggle ── */}
-                    {currentQuestion.explanation && (
+                    {currentQuestion.explanation && !['music_guess', 'animal_sound', 'clue_chain'].includes(currentQuestion.type) && (
                         <div>
                             <button
                                 onClick={() => setShowExplanation(v => !v)}
