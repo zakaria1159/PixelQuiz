@@ -1,6 +1,7 @@
 import { createHmac, timingSafeEqual } from 'crypto'
 
-const SECRET = process.env.ADMIN_PASSWORD!
+const SECRET = process.env.ADMIN_PASSWORD as string
+if (!SECRET) throw new Error('ADMIN_PASSWORD environment variable is not set')
 const COOKIE_NAME = 'admin_session'
 const EXPIRY_MS = 7 * 24 * 60 * 60 * 1000 // 7 days
 
@@ -15,8 +16,9 @@ export function createToken(): string {
 
 export function verifyToken(token: string): boolean {
   if (!token) return false
-  const [payload, sig] = token.split('.')
-  if (!payload || !sig) return false
+  const parts = token.split('.')
+  if (parts.length !== 2) return false
+  const [payload, sig] = parts
   try {
     const expected = sign(payload)
     const sigBuf = Buffer.from(sig, 'hex')
