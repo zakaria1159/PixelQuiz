@@ -22,6 +22,7 @@ export default function AdminLoginPage() {
       router.push('/admin/questions')
     } else {
       setError('Invalid password')
+      setPassword('')
       setLoading(false)
     }
   }
