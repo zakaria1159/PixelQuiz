@@ -1,6 +1,9 @@
 // Uses Web Crypto API (crypto.subtle) — works in Edge runtime (middleware) and Node.js
-const SECRET = process.env.ADMIN_PASSWORD as string
-if (!SECRET) throw new Error('ADMIN_PASSWORD environment variable is not set')
+function getSecret(): string {
+  const s = process.env.ADMIN_PASSWORD
+  if (!s) throw new Error('ADMIN_PASSWORD environment variable is not set')
+  return s
+}
 
 const COOKIE_NAME = 'admin_session'
 const EXPIRY_MS = 7 * 24 * 60 * 60 * 1000 // 7 days
@@ -8,7 +11,7 @@ const EXPIRY_MS = 7 * 24 * 60 * 60 * 1000 // 7 days
 async function getKey(): Promise<CryptoKey> {
   return crypto.subtle.importKey(
     'raw',
-    new TextEncoder().encode(SECRET),
+    new TextEncoder().encode(getSecret()),
     { name: 'HMAC', hash: 'SHA-256' },
     false,
     ['sign', 'verify']
