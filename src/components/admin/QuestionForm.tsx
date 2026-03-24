@@ -33,7 +33,7 @@ function ListField({ label, values, onChange, placeholder }: any) {
       <label className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-1">{label}</label>
       <div className="space-y-2">
         {(values || []).map((v: string, i: number) => (
-          <div key={i} className="flex gap-2">
+          <div key={`${i}-${v}`} className="flex gap-2">
             <input
               value={v}
               onChange={e => { const next = [...values]; next[i] = e.target.value; onChange(next) }}
@@ -86,7 +86,7 @@ export default function QuestionForm({ initialValues, allCategories, onSubmit, s
       clue_chain: { clues: ['', '', '', ''], correctAnswer: '', acceptableAnswers: [] },
     }
     if (resets[form.type]) setForm((f: any) => ({ ...f, ...resets[form.type] }))
-  }, [form.type])
+  }, [form.type, initialValues])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -96,6 +96,7 @@ export default function QuestionForm({ initialValues, allCategories, onSubmit, s
       await onSubmit(form)
     } catch (err: any) {
       setError(err.message || 'Something went wrong')
+    } finally {
       setSaving(false)
     }
   }
