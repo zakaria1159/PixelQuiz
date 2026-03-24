@@ -267,11 +267,32 @@ onReadyStatusUpdated(callback: (data: { questionIndex: number, readyPlayers: str
     }
   }
 
+  // Spectator methods
+  spectatorJoin(gameCode: string) {
+    this.socket?.emit('spectator-join', { gameCode })
+  }
+
+  onSpectatorJoined(callback: (data: { gameState: any }) => void) {
+    this.socket?.on('spectator-joined', callback)
+  }
+
+  onSpectatorError(callback: (data: { message: string }) => void) {
+    this.socket?.on('spectator-error', callback)
+  }
+
+  onSpectatorCountUpdated(callback: (data: { count: number }) => void) {
+    this.socket?.on('spectator-count-updated', callback)
+  }
+
+  onPlayerAnswered(callback: (data: { playerId: string; playerName: string; answer: string }) => void) {
+    this.socket?.on('player-answered', callback)
+  }
+
   // Remove event listeners
   offAllGameEvents() {
     const events = [
       'game-created',
-      'player-joined', 
+      'player-joined',
       'player-left',
       'game-starting',
       'game-ended',
@@ -290,8 +311,12 @@ onReadyStatusUpdated(callback: (data: { questionIndex: number, readyPlayers: str
       'game-finished',
       'game-state-updated',
       'answer-status-updated',
+      'spectator-joined',
+      'spectator-error',
+      'spectator-count-updated',
+      'player-answered',
     ]
-    
+
     events.forEach(event => {
       this.socket?.off(event)
     })
