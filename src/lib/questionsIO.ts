@@ -10,6 +10,12 @@ function filePath(category: string, lang: 'en' | 'fr'): string {
     : path.join(QUESTIONS_DIR, `${category}.json`)
 }
 
+// Validate that a category string is safe (exists as a JSON file in the dir)
+function isValidCategory(category: string, lang: 'en' | 'fr'): boolean {
+  const allowed = getCategories(lang)
+  return allowed.includes(category)
+}
+
 // List all categories available for a language (from filesystem)
 export function getCategories(lang: 'en' | 'fr'): string[] {
   const dir = lang === 'fr' ? path.join(QUESTIONS_DIR, 'fr') : QUESTIONS_DIR
@@ -85,6 +91,7 @@ export function getQuestion(id: string, lang?: 'en' | 'fr'): { question: any; la
 
 // Add a new question to a category file
 export function createQuestion(question: any, lang: 'en' | 'fr', category: string): any {
+  if (!isValidCategory(category, lang)) throw new Error(`Invalid category: ${category}`)
   const id = `${category.slice(0, 2)}${Date.now()}${Math.random().toString(36).slice(2, 5)}`
   const newQ = { ...question, id }
   delete newQ._lang
@@ -96,6 +103,7 @@ export function createQuestion(question: any, lang: 'en' | 'fr', category: strin
 
 // Update an existing question in its file
 export function updateQuestion(id: string, updates: any, lang: 'en' | 'fr', category: string): any | null {
+  if (!isValidCategory(category, lang)) return null
   const qs = readCategory(category, lang)
   const idx = qs.findIndex(q => q.id === id)
   if (idx === -1) return null
@@ -108,6 +116,7 @@ export function updateQuestion(id: string, updates: any, lang: 'en' | 'fr', cate
 
 // Delete a question from its file
 export function deleteQuestion(id: string, lang: 'en' | 'fr', category: string): boolean {
+  if (!isValidCategory(category, lang)) return false
   const qs = readCategory(category, lang)
   const next = qs.filter(q => q.id !== id)
   if (next.length === qs.length) return false

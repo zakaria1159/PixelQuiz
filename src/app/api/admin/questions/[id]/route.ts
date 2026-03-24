@@ -16,7 +16,10 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
   const { searchParams } = req.nextUrl
   const lang = searchParams.get('lang') as 'en' | 'fr'
-  const category = searchParams.get('category')!
+  const category = searchParams.get('category')
+  if (!lang || !category) {
+    return NextResponse.json({ error: 'lang and category are required' }, { status: 400 })
+  }
   const ok = deleteQuestion(params.id, lang, category)
   if (!ok) return NextResponse.json({ error: 'Not found' }, { status: 404 })
   await reloadGameServer()
