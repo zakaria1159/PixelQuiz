@@ -2206,11 +2206,23 @@ app.get('/api/deezer-preview', async (req, res) => {
 
 // Health check endpoint
 app.get('/health', (req, res) => {
-  res.json({ 
-    status: 'ok', 
+  res.json({
+    status: 'ok',
     activeGames: games.size,
     activePlayers: players.size
   })
+})
+
+// Internal reload endpoint — only accepts requests from localhost
+app.post('/internal/reload-questions', (req, res) => {
+  const ip = req.socket.remoteAddress
+  if (ip !== '127.0.0.1' && ip !== '::1' && ip !== '::ffff:127.0.0.1') {
+    return res.status(403).json({ error: 'Forbidden' })
+  }
+  questionsByLang.en = loadQuestionsFromDir(questionsDir)
+  questionsByLang.fr = loadQuestionsFromDir(path.join(questionsDir, 'fr'))
+  console.log(`🔄 Questions reloaded — EN: ${questionsByLang.en.length}, FR: ${questionsByLang.fr.length}`)
+  res.json({ ok: true, en: questionsByLang.en.length, fr: questionsByLang.fr.length })
 })
 
 const PORT = process.env.PORT || 3003
