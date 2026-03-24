@@ -1112,5 +1112,651 @@
     "difficulty": "easy",
     "timeLimit": 15,
     "explanation": "The US is home to major studios including Blizzard, EA, Rockstar Games, Naughty Dog and Bungie, and hosts events like E3 and The Game Awards."
+  },
+  {
+    "id": "gm_mc6",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Who is the main protagonist of Metal Gear Solid (1998)?",
+    "options": [
+      "Liquid Snake",
+      "Solid Snake",
+      "Big Boss",
+      "Revolver Ocelot"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Solid Snake is the main playable character in Metal Gear Solid, sent to Shadow Moses Island."
+  },
+  {
+    "id": "gm_mc7",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "What is the name of the main character in Vagrant Story?",
+    "options": [
+      "Ashley Riot",
+      "Sydney Losstarot",
+      "Hardin",
+      "Guildenstern"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Ashley Riot is the Riskbreaker agent sent to investigate Leá Monde."
+  },
+  {
+    "id": "gm_mc8",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which city is the main setting of Vagrant Story?",
+    "options": [
+      "Midgar",
+      "Leá Monde",
+      "Valendia",
+      "Ivalice"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Leá Monde is the ruined city where the entire game takes place."
+  },
+  {
+    "id": "gm_tf6",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "Metal Gear Solid is primarily a stealth game.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Metal Gear Solid emphasizes stealth gameplay over direct combat."
+  },
+  {
+    "id": "gm_tf7",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which company developed the original Driver (1999)?",
+    "options": [
+      "Rockstar Games",
+      "Reflections Interactive",
+      "Ubisoft",
+      "Electronic Arts"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Driver (1999) was developed by Reflections Interactive, a British studio later acquired by Ubisoft."
+  },
+  {
+    "id": "gm_fb6",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "In Metal Gear Solid, the base is located on ______ Moses Island.",
+    "correctAnswer": "Shadow",
+    "acceptableAnswers": [
+      "shadow"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Shadow Moses Island is the secret nuclear weapons facility where the game takes place."
+  },
+  {
+    "id": "gm_fb7",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "In Driver, the main character is named John ______.",
+    "correctAnswer": "Tanner",
+    "acceptableAnswers": [
+      "tanner"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "John Tanner is the undercover driver and protagonist of the Driver series."
+  },
+  {
+    "id": "gm_rk6",
+    "type": "ranking",
+    "category": "gaming",
+    "question": "Rank these games by release year (oldest first):",
+    "items": [
+      "Vagrant Story",
+      "Metal Gear Solid",
+      "Driver"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Metal Gear Solid (1998) → Driver (1999) → Vagrant Story (2000)"
+  },
+  {
+    "id": "gm_cw6",
+    "type": "closest_wins",
+    "category": "gaming",
+    "question": "In what year was Metal Gear Solid released?",
+    "correctAnswer": 1998,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Metal Gear Solid was released in 1998 for the PlayStation."
+  },
+  {
+    "id": "gm_ft6",
+    "type": "free_text",
+    "category": "gaming",
+    "question": "Name the psychic boss in Metal Gear Solid who reads the player's memory card.",
+    "correctAnswer": "Psycho Mantis",
+    "acceptableAnswers": [
+      "psycho mantis",
+      "mantis"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Psycho Mantis is famous for breaking the fourth wall and reading player data."
+  },
+  {
+    "id": "cc_gm6_fixed",
+    "type": "clue_chain",
+    "category": "gaming",
+    "question": "Which video game am I?",
+    "clues": [
+      "I am known for breaking the fourth wall, including reading your memory card",
+      "One of my bosses requires you to switch controller ports to defeat him",
+      "I take place on Shadow Moses Island, a nuclear weapons facility",
+      "My main character is Solid Snake"
+    ],
+    "correctAnswer": "Metal Gear Solid",
+    "acceptableAnswers": [
+      "metal gear solid",
+      "mgs"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_gm7",
+    "type": "clue_chain",
+    "category": "gaming",
+    "question": "Which video game am I?",
+    "clues": [
+      "I am a 1999 game focused on cinematic driving missions",
+      "I begin with a famous parking garage tutorial",
+      "Players take on the role of an undercover driver",
+      "My protagonist is John Tanner"
+    ],
+    "correctAnswer": "Driver",
+    "acceptableAnswers": [
+      "driver"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "gm_mc9",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which company developed GoldenEye 007 for the Nintendo 64?",
+    "options": [
+      "Rare",
+      "Nintendo",
+      "EA",
+      "Ubisoft"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "GoldenEye 007 was developed by Rare and released in 1997 for the N64."
+  },
+  {
+    "id": "gm_mc10",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "What is the name of the main character in Silent Hill 2?",
+    "options": [
+      "Harry Mason",
+      "James Sunderland",
+      "Leon Kennedy",
+      "Chris Redfield"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "James Sunderland is the protagonist of Silent Hill 2."
+  },
+  {
+    "id": "gm_mc11",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which console was the Sega Dreamcast's main competitor?",
+    "options": [
+      "PlayStation 2",
+      "GameCube",
+      "Xbox",
+      "Nintendo 64"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "The Dreamcast competed mainly with the PlayStation 2."
+  },
+  {
+    "id": "gm_mc12",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "In Resident Evil, what does the 'T-Virus' do?",
+    "options": [
+      "Cures diseases",
+      "Creates zombies",
+      "Boosts intelligence",
+      "Stops aging"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "The T-Virus turns humans into zombies and monsters."
+  },
+  {
+    "id": "gm_tf8",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "The PlayStation 2 is the best-selling console of all time.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "The PS2 sold over 155 million units worldwide."
+  },
+  {
+    "id": "gm_tf9",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "Halo: Combat Evolved was originally released on PlayStation.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Halo launched as an Xbox exclusive in 2001."
+  },
+  {
+    "id": "gm_fb8",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "In Metal Gear Solid, Snake hides inside a ______ box.",
+    "correctAnswer": "cardboard",
+    "acceptableAnswers": [
+      "cardboard"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "The cardboard box is one of Snake’s iconic stealth tools."
+  },
+  {
+    "id": "gm_fb9",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "In Crash Bandicoot, the main villain is Dr. Neo ______.",
+    "correctAnswer": "Cortex",
+    "acceptableAnswers": [
+      "cortex"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Dr. Neo Cortex is Crash's main enemy."
+  },
+  {
+    "id": "gm_ft7",
+    "type": "free_text",
+    "category": "gaming",
+    "question": "What is the name of the main city in GTA III?",
+    "correctAnswer": "Liberty City",
+    "acceptableAnswers": [
+      "liberty city"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "GTA III is set in Liberty City, inspired by New York."
+  },
+  {
+    "id": "gm_ft8",
+    "type": "free_text",
+    "category": "gaming",
+    "question": "Name the protagonist of Devil May Cry.",
+    "correctAnswer": "Dante",
+    "acceptableAnswers": [
+      "dante"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Dante is the demon hunter main character."
+  },
+  {
+    "id": "gm_cw7",
+    "type": "closest_wins",
+    "category": "gaming",
+    "question": "In what year was the PlayStation 2 released?",
+    "correctAnswer": 2000,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "The PS2 launched in 2000 in Japan."
+  },
+  {
+    "id": "gm_cw8",
+    "type": "closest_wins",
+    "category": "gaming",
+    "question": "In what year was Halo: Combat Evolved released?",
+    "correctAnswer": 2001,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Halo launched with the original Xbox in 2001."
+  },
+  {
+    "id": "gm_rk7",
+    "type": "ranking",
+    "category": "gaming",
+    "question": "Rank these consoles by release date (oldest first):",
+    "items": [
+      "Dreamcast",
+      "PlayStation 2",
+      "Xbox"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2
+    ],
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "allowPartialCredit": true,
+    "explanation": "Dreamcast (1998/1999) → PS2 (2000) → Xbox (2001)"
+  },
+  {
+    "id": "gm_rk8",
+    "type": "ranking",
+    "category": "gaming",
+    "question": "Rank these games by release year (oldest first):",
+    "items": [
+      "Final Fantasy X",
+      "Resident Evil 2",
+      "Shenmue"
+    ],
+    "correctOrder": [
+      1,
+      2,
+      0
+    ],
+    "difficulty": "hard",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Resident Evil 2 (1998) → Shenmue (1999) → Final Fantasy X (2001)"
+  },
+  {
+    "id": "cc_gm8",
+    "type": "clue_chain",
+    "category": "gaming",
+    "question": "Which game am I?",
+    "clues": [
+      "I was released in 1996 on Nintendo 64",
+      "I revolutionized 3D platformers",
+      "I feature a castle with multiple paintings as portals",
+      "My main character is Mario"
+    ],
+    "correctAnswer": "Super Mario 64",
+    "acceptableAnswers": [
+      "super mario 64"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "cc_gm9",
+    "type": "clue_chain",
+    "category": "gaming",
+    "question": "Which game am I?",
+    "clues": [
+      "I follow a young martial artist on a quest for revenge in Japan",
+      "I let you drive forklifts and explore a detailed Japanese town",
+      "I was released on the Sega Dreamcast in 1999",
+      "My story takes place in Yokosuka, Japan"
+    ],
+    "correctAnswer": "Shenmue",
+    "acceptableAnswers": [
+      "shenmue"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "gm_mc13",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which company developed Shenmue for the Dreamcast?",
+    "options": [
+      "Sega",
+      "Capcom",
+      "Square",
+      "Namco"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Shenmue was developed and published by Sega, led by Yu Suzuki."
+  },
+  {
+    "id": "gm_mc14",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which gameplay mechanic is closely associated with Max Payne?",
+    "options": [
+      "Bullet time",
+      "Fast travel",
+      "Crafting weapons",
+      "Building a city"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Max Payne is famous for popularizing 'bullet time' slow-motion shooting."
+  },
+  {
+    "id": "gm_mc15",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which game introduced the character Kratos?",
+    "options": [
+      "God of War",
+      "Devil May Cry",
+      "Onimusha",
+      "Prince of Persia"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Kratos debuted in God of War (2005) on PlayStation 2."
+  },
+  {
+    "id": "gm_mc16",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which console used GD-ROM discs?",
+    "options": [
+      "PlayStation",
+      "Dreamcast",
+      "Xbox",
+      "GameCube"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "The Sega Dreamcast used proprietary GD-ROM discs."
+  },
+  {
+    "id": "gm_tf10",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "Final Fantasy VII was originally released on the Nintendo 64.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Final Fantasy VII was released on PlayStation due to CD storage advantages."
+  },
+  {
+    "id": "gm_tf11",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "The Nintendo 64 used cartridges instead of discs.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Nintendo stuck with cartridges while competitors moved to CDs."
+  },
+  {
+    "id": "gm_fb10",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "In Sonic Adventure, Sonic's main ability is super ______.",
+    "correctAnswer": "speed",
+    "acceptableAnswers": [
+      "speed"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Sonic is known for his incredible speed."
+  },
+  {
+    "id": "gm_fb11",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "In Resident Evil 4, Leon must rescue Ashley ______.",
+    "correctAnswer": "Graham",
+    "acceptableAnswers": [
+      "graham"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Ashley Graham is the U.S. President's daughter."
+  },
+  {
+    "id": "gm_ft9",
+    "type": "free_text",
+    "category": "gaming",
+    "question": "Name the blue hedgehog mascot created by Sega.",
+    "correctAnswer": "Sonic",
+    "acceptableAnswers": [
+      "sonic",
+      "sonic the hedgehog"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Sonic debuted in 1991 and became Sega’s mascot."
+  },
+  {
+    "id": "gm_ft10",
+    "type": "free_text",
+    "category": "gaming",
+    "question": "What is the name of the main character in Shenmue?",
+    "correctAnswer": "Ryo Hazuki",
+    "acceptableAnswers": [
+      "ryo",
+      "ryo hazuki"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Ryo Hazuki seeks revenge for his father's murder."
+  },
+  {
+    "id": "gm_cw9",
+    "type": "closest_wins",
+    "category": "gaming",
+    "question": "In what year was the Nintendo 64 released?",
+    "correctAnswer": 1996,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "The Nintendo 64 launched in 1996."
+  },
+  {
+    "id": "gm_cw10",
+    "type": "closest_wins",
+    "category": "gaming",
+    "question": "In what year was the Sega Dreamcast discontinued?",
+    "correctAnswer": 2001,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Sega discontinued the Dreamcast in 2001."
+  },
+  {
+    "id": "gm_rk9",
+    "type": "ranking",
+    "category": "gaming",
+    "question": "Rank these games by release year (oldest first):",
+    "items": [
+      "Metal Gear Solid 2",
+      "Resident Evil",
+      "GTA Vice City"
+    ],
+    "correctOrder": [
+      1,
+      0,
+      2
+    ],
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "allowPartialCredit": true,
+    "explanation": "Resident Evil (1996) → MGS2 (2001) → Vice City (2002)"
+  },
+  {
+    "id": "cc_gm10",
+    "type": "clue_chain",
+    "category": "gaming",
+    "question": "Which game am I?",
+    "clues": [
+      "I was released in 2001 on PlayStation 2",
+      "I feature turn-based battles and summons",
+      "My story includes a pilgrimage to defeat a creature called Sin",
+      "My main character is Tidus"
+    ],
+    "correctAnswer": "Final Fantasy X",
+    "acceptableAnswers": [
+      "ffx",
+      "final fantasy x"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 60
+  },
+  {
+    "id": "gm_sb6",
+    "type": "speed_buzz",
+    "category": "gaming",
+    "question": "Which company created the Xbox?",
+    "options": [
+      "Sony",
+      "Microsoft",
+      "Nintendo",
+      "Sega"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "Microsoft launched the Xbox in 2001."
   }
 ]
