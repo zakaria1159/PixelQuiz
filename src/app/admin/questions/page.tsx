@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState, useCallback } from 'react'
-import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
 const QUESTION_TYPES = ['multiple_choice','true_false','free_text','fill_blank','ranking','image_guess','pixel_reveal','closest_wins','speed_buzz','letter_game','flag_guess','music_guess','animal_sound','clue_chain']
@@ -13,7 +12,6 @@ export default function QuestionsPage() {
   const [loading, setLoading] = useState(true)
   const [deleting, setDeleting] = useState<string | null>(null)
   const [filters, setFilters] = useState({ lang: '', category: '', type: '', difficulty: '', search: '' })
-  const router = useRouter()
 
   const fetchQuestions = useCallback(async () => {
     setLoading(true)
