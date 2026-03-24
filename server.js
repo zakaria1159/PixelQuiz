@@ -2215,8 +2215,9 @@ app.get('/health', (req, res) => {
 
 // Internal reload endpoint — only accepts requests from localhost
 app.post('/internal/reload-questions', (req, res) => {
-  const ip = req.socket.remoteAddress
-  if (ip !== '127.0.0.1' && ip !== '::1' && ip !== '::ffff:127.0.0.1') {
+  const secret = process.env.ADMIN_PASSWORD
+  const auth = req.headers['authorization']
+  if (!secret || auth !== `Bearer ${secret}`) {
     return res.status(403).json({ error: 'Forbidden' })
   }
   questionsByLang.en = loadQuestionsFromDir(questionsDir)

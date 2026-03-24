@@ -13,16 +13,21 @@ export default function AdminLoginPage() {
     e.preventDefault()
     setLoading(true)
     setError('')
-    const res = await fetch('/api/admin/auth', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password }),
-    })
-    if (res.ok) {
-      router.push('/admin/questions')
-    } else {
-      setError('Invalid password')
-      setPassword('')
+    try {
+      const res = await fetch('/api/admin/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      })
+      if (res.ok) {
+        router.push('/admin/questions')
+      } else {
+        setError('Invalid password')
+        setPassword('')
+      }
+    } catch (err) {
+      setError(`Network error: ${err}`)
+    } finally {
       setLoading(false)
     }
   }

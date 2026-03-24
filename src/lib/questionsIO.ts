@@ -127,8 +127,12 @@ export function deleteQuestion(id: string, lang: 'en' | 'fr', category: string):
 // Notify game server to reload questions from disk
 export async function reloadGameServer(): Promise<void> {
   try {
-    const port = process.env.PORT || 3003
-    await fetch(`http://localhost:${port}/internal/reload-questions`, { method: 'POST' })
+    const base = process.env.GAME_SERVER_URL || 'http://localhost:3003'
+    const secret = process.env.ADMIN_PASSWORD || ''
+    await fetch(`${base}/internal/reload-questions`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${secret}` },
+    })
   } catch {
     // Non-fatal: server may not be running in dev
   }
