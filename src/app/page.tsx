@@ -79,11 +79,11 @@ export default function HomePage() {
       <div className="relative z-10 w-full max-w-md" style={{ animation: 'slideUpFadeIn 0.5s ease both' }}>
 
         {/* Logo */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 mb-6">
-            <span className="text-2xl">⚡</span>
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 mb-5 sm:mb-6">
+            <span className="text-xl sm:text-2xl">⚡</span>
           </div>
-          <h1 className="text-5xl font-display tracking-tight leading-none mb-3">
+          <h1 className="text-4xl sm:text-5xl font-display tracking-tight leading-none mb-3">
             <span className="text-white">META</span><span className="text-indigo-400">QUIZZ</span>
           </h1>
           <p className="text-zinc-500 text-sm font-semibold tracking-wide">
@@ -110,7 +110,7 @@ export default function HomePage() {
         </div>
 
         {/* Action card */}
-        <div className="glass p-8">
+        <div className="glass p-5 sm:p-8">
           {mode === 'idle' ? (
             <div className="space-y-3" style={{ animation: 'slideUpFadeIn 0.35s ease both' }}>
               <button
@@ -246,7 +246,7 @@ export default function HomePage() {
 
         {/* Feature row */}
         <div
-          className="flex flex-wrap justify-center gap-2 mt-8"
+          className="flex flex-wrap justify-center gap-2 mt-6 sm:mt-8"
           style={{ animation: 'slideUpFadeIn 0.5s ease 0.2s both', opacity: 0 }}
         >
           {[
@@ -255,6 +255,10 @@ export default function HomePage() {
             { icon: '📡', label: t('feat_stream') },
             { icon: '🏆', label: t('feat_scoring') },
             { icon: '🤖', label: t('feat_ai') },
+            { icon: '👥', label: t('feat_multiplayer') },
+            { icon: '🌐', label: t('feat_languages') },
+            { icon: '🔥', label: t('feat_challenge') },
+            { icon: '🚀', label: t('feat_free') },
           ].map(f => (
             <div
               key={f.label}

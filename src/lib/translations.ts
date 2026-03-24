@@ -72,6 +72,10 @@ export const translations = {
     feat_stream: 'Stream Ready',
     feat_scoring: 'Live Scoring',
     feat_ai: 'AI Powered',
+    feat_multiplayer: 'Up to 20 Players',
+    feat_languages: 'EN & FR',
+    feat_challenge: 'Challenge Mode',
+    feat_free: 'Free · No Signup',
 
     // GameCode
     copy: 'Copy',
@@ -281,6 +285,10 @@ export const translations = {
     feat_stream: 'Pour les streams',
     feat_scoring: 'Score en direct',
     feat_ai: 'Propulsé par IA',
+    feat_multiplayer: "Jusqu'à 20 joueurs",
+    feat_languages: 'EN & FR',
+    feat_challenge: 'Mode défi',
+    feat_free: 'Gratuit · Sans inscription',
 
     // GameCode
     copy: 'Copier',

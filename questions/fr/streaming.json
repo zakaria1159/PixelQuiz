@@ -1110,7 +1110,7 @@
     "type": "animal_sound",
     "category": "streaming",
     "question": "Quel oiseau, animal de l'ère du streaming, émet ce son ?",
-    "audioUrl": "/audio/animals/goose.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Branta_canadensis.ogg",
     "correctAnswer": "Goose",
     "acceptableAnswers": [
       "Goose",
@@ -1125,7 +1125,7 @@
     "type": "animal_sound",
     "category": "streaming",
     "question": "Quel oiseau de basse-cour émet ce gloussement ?",
-    "audioUrl": "/audio/animals/chicken.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/Chicken_Wikipedia.ogg",
     "correctAnswer": "Chicken",
     "acceptableAnswers": [
       "Chicken",
@@ -1136,71 +1136,16 @@
     "timeLimit": 20
   },
   {
-    "id": "as_str_3",
-    "type": "animal_sound",
-    "category": "streaming",
-    "question": "Quel petit mammifère poilu émet ce son ?",
-    "audioUrl": "/audio/animals/ferret.ogg",
-    "correctAnswer": "Ferret",
-    "acceptableAnswers": [
-      "Ferret"
-    ],
-    "difficulty": "hard",
-    "timeLimit": 20
-  },
-  {
     "id": "as_str_4",
     "type": "animal_sound",
     "category": "streaming",
     "question": "Quel animal duveteux émet ce son ?",
-    "audioUrl": "/audio/animals/rabbit.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/4/49/Rabbit_oinks_and_squeaks.wav",
     "correctAnswer": "Rabbit",
     "acceptableAnswers": [
       "Rabbit",
       "Hare",
       "Bunny"
-    ],
-    "difficulty": "medium",
-    "timeLimit": 20
-  },
-  {
-    "id": "as_str_5",
-    "type": "animal_sound",
-    "category": "streaming",
-    "question": "Quel petit rongeur émet ce couinement ?",
-    "audioUrl": "/audio/animals/hamster.ogg",
-    "correctAnswer": "Hamster",
-    "acceptableAnswers": [
-      "Hamster"
-    ],
-    "difficulty": "medium",
-    "timeLimit": 20
-  },
-  {
-    "id": "as_str_6",
-    "type": "animal_sound",
-    "category": "streaming",
-    "question": "Quel mammifère semi-aquatique émet ce son ?",
-    "audioUrl": "/audio/animals/otter.ogg",
-    "correctAnswer": "Otter",
-    "acceptableAnswers": [
-      "Otter",
-      "Sea otter",
-      "River otter"
-    ],
-    "difficulty": "medium",
-    "timeLimit": 20
-  },
-  {
-    "id": "as_str_7",
-    "type": "animal_sound",
-    "category": "streaming",
-    "question": "Quel marsupial australien émet ce son ?",
-    "audioUrl": "/audio/animals/kangaroo.ogg",
-    "correctAnswer": "Kangaroo",
-    "acceptableAnswers": [
-      "Kangaroo",
-      "Red kangaroo"
     ],
     "difficulty": "medium",
     "timeLimit": 20

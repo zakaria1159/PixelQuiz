@@ -1110,7 +1110,7 @@
     "type": "animal_sound",
     "category": "history",
     "question": "Quel animal, symbole du pouvoir impérial, émet ce son ?",
-    "audioUrl": "/audio/animals/eagle.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/5/59/Bald_Eagle_Yellowstone_National_Park.ogg",
     "correctAnswer": "Eagle",
     "acceptableAnswers": [
       "Eagle",
@@ -1125,7 +1125,7 @@
     "type": "animal_sound",
     "category": "history",
     "question": "Quel animal, associé à la Russie comme symbole national, émet ce son ?",
-    "audioUrl": "/audio/animals/bear.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Bear_growl.ogg",
     "correctAnswer": "Bear",
     "acceptableAnswers": [
       "Bear",
@@ -1140,7 +1140,7 @@
     "type": "animal_sound",
     "category": "history",
     "question": "Quel animal, symbole de la royauté britannique, émet ce son ?",
-    "audioUrl": "/audio/animals/lion.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Lionroar.wav",
     "correctAnswer": "Lion",
     "acceptableAnswers": [
       "Lion"
@@ -1153,7 +1153,7 @@
     "type": "animal_sound",
     "category": "history",
     "question": "Quel animal, sacré dans l'Égypte antique, émet ce son ?",
-    "audioUrl": "/audio/animals/cat.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d5/En-Cat_%28part_1%29.ogg",
     "correctAnswer": "Cat",
     "acceptableAnswers": [
       "Cat",
@@ -1167,7 +1167,7 @@
     "type": "animal_sound",
     "category": "history",
     "question": "Quel animal, utilisé dans la guerre et l'exploration antiques, émet ce son ?",
-    "audioUrl": "/audio/animals/horse.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/d/db/Wiehern.ogg",
     "correctAnswer": "Horse",
     "acceptableAnswers": [
       "Horse",

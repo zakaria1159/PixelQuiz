@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { useSpectator } from '@/hooks/useSpectator'
-import { hasOptions } from '@/types/question'
+import { hasOptions, isImageGuessQuestion, isPixelRevealQuestion, isFlagGuessQuestion, isMusicGuessQuestion, isAnimalSoundQuestion } from '@/types/question'
+import { MusicPlayer } from '@/components/game/MusicPlayer'
 
 const AVATAR_COLORS = [
   'from-blue-600 to-blue-800',
@@ -60,7 +61,7 @@ function TimerBar({ timeLimit, questionStartTime }: { timeLimit: number; questio
 export default function WatchPage() {
   const params = useParams()
   const gameCode = params.gameCode as string
-  const { gameState, gameStatus, spectatorCount, playerAnswers, timeLimit, questionStartTime, isConnected, error } = useSpectator(gameCode)
+  const { gameState, gameStatus, spectatorCount, playerAnswers, correctAnswerText, timeLimit, questionStartTime, isConnected, error } = useSpectator(gameCode)
 
   const bg = 'radial-gradient(ellipse at 50% -10%, #13154a 0%, #0f0f1a 50%, #09090f 100%)'
 
@@ -176,19 +177,63 @@ export default function WatchPage() {
 
             {question && (
               <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '14px', padding: '16px', marginBottom: '12px' }}>
+                {isFlagGuessQuestion(question) && (
+                  <img
+                    src={`https://flagcdn.com/w640/${question.countryCode.toLowerCase()}.png`}
+                    alt="Flag"
+                    style={{ width: '100%', maxHeight: '160px', objectFit: 'contain', borderRadius: '8px', marginBottom: '12px' }}
+                  />
+                )}
+                {(isImageGuessQuestion(question) || isPixelRevealQuestion(question)) && question.imageUrl && (
+                  <img
+                    src={question.imageUrl}
+                    alt="Question image"
+                    style={{ width: '100%', maxHeight: '200px', objectFit: 'contain', borderRadius: '8px', marginBottom: '12px' }}
+                  />
+                )}
+                {(isMusicGuessQuestion(question) || isAnimalSoundQuestion(question)) && (
+                  <div style={{ marginBottom: '12px' }}>
+                    <MusicPlayer
+                      deezerQuery={isMusicGuessQuestion(question) ? question.deezerQuery : undefined}
+                      audioUrl={isAnimalSoundQuestion(question) ? question.audioUrl : undefined}
+                      allowedDuration={timeLimit}
+                      hasAnswered={false}
+                    />
+                  </div>
+                )}
                 <div style={{ fontSize: '14px', fontWeight: 700, color: 'white', marginBottom: '12px', lineHeight: 1.5 }}>
                   {question.question}
                 </div>
                 {hasOptions(question) && (
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px' }}>
-                    {question.options.map((opt, i) => (
-                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '10px', padding: '8px 10px' }}>
-                        <div style={{ width: '20px', height: '20px', borderRadius: '6px', background: 'rgba(99,102,241,0.2)', color: '#818cf8', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', fontWeight: 800, flexShrink: 0 }}>
-                          {String.fromCharCode(65 + i)}
+                    {question.options.map((opt, i) => {
+                      const isCorrect = correctAnswerText !== null && opt === correctAnswerText
+                      return (
+                        <div key={i} style={{
+                          display: 'flex', alignItems: 'center', gap: '8px',
+                          background: isCorrect ? 'rgba(34,197,94,0.12)' : 'rgba(255,255,255,0.04)',
+                          border: `1px solid ${isCorrect ? 'rgba(34,197,94,0.5)' : 'rgba(255,255,255,0.08)'}`,
+                          borderRadius: '10px', padding: '8px 10px',
+                          transition: 'background 0.3s, border-color 0.3s',
+                        }}>
+                          <div style={{
+                            width: '20px', height: '20px', borderRadius: '6px', flexShrink: 0,
+                            background: isCorrect ? 'rgba(34,197,94,0.25)' : 'rgba(99,102,241,0.2)',
+                            color: isCorrect ? '#4ade80' : '#818cf8',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', fontWeight: 800,
+                          }}>
+                            {isCorrect ? '✓' : String.fromCharCode(65 + i)}
+                          </div>
+                          <span style={{ fontSize: '12px', color: isCorrect ? '#86efac' : '#a1a1aa', fontWeight: isCorrect ? 700 : 600 }}>{opt}</span>
                         </div>
-                        <span style={{ fontSize: '12px', color: '#a1a1aa', fontWeight: 600 }}>{opt}</span>
-                      </div>
-                    ))}
+                      )
+                    })}
+                  </div>
+                )}
+                {!hasOptions(question) && correctAnswerText && (
+                  <div style={{ marginTop: '8px', display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.4)', borderRadius: '10px', padding: '10px 12px' }}>
+                    <span style={{ fontSize: '14px' }}>✓</span>
+                    <span style={{ fontSize: '13px', fontWeight: 700, color: '#86efac' }}>{correctAnswerText}</span>
                   </div>
                 )}
               </div>
@@ -209,9 +254,14 @@ export default function WatchPage() {
                       </div>
                       <span style={{ flex: 1, fontSize: '12px', fontWeight: 600, color: '#e4e4e7' }}>{player.name}</span>
                       {answered ? (
-                        <span style={{ fontSize: '10px', fontWeight: 700, background: 'rgba(99,102,241,0.2)', color: '#a5b4fc', padding: '2px 8px', borderRadius: '99px', border: '1px solid rgba(99,102,241,0.3)' }}>
-                          {answered.answer}
-                        </span>
+                        gameStatus === 'question' ? (
+                          // Option C: hide answer during live question — show filled dot only
+                          <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'rgba(99,102,241,0.8)', boxShadow: '0 0 6px rgba(99,102,241,0.5)' }} />
+                        ) : (
+                          <span style={{ fontSize: '10px', fontWeight: 700, background: 'rgba(99,102,241,0.2)', color: '#a5b4fc', padding: '2px 8px', borderRadius: '99px', border: '1px solid rgba(99,102,241,0.3)' }}>
+                            {answered.answer}
+                          </span>
+                        )
                       ) : (
                         <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'rgba(255,255,255,0.1)' }} />
                       )}

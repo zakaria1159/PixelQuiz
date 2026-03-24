@@ -817,7 +817,7 @@
     "type": "animal_sound",
     "category": "science",
     "question": "Quel animal émet ce son ?",
-    "audioUrl": "/audio/animals/lion.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Lionroar.wav",
     "correctAnswer": "Lion",
     "acceptableAnswers": [
       "Lion",
@@ -827,25 +827,11 @@
     "timeLimit": 20
   },
   {
-    "id": "as_sci_2",
-    "type": "animal_sound",
-    "category": "science",
-    "question": "Quel animal émet ce son ?",
-    "audioUrl": "/audio/animals/dolphin.ogg",
-    "correctAnswer": "Dolphin",
-    "acceptableAnswers": [
-      "Dolphin",
-      "Bottlenose dolphin"
-    ],
-    "difficulty": "easy",
-    "timeLimit": 20
-  },
-  {
     "id": "as_sci_3",
     "type": "animal_sound",
     "category": "science",
     "question": "Quel animal émet ce son ?",
-    "audioUrl": "/audio/animals/eagle.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/5/59/Bald_Eagle_Yellowstone_National_Park.ogg",
     "correctAnswer": "Eagle",
     "acceptableAnswers": [
       "Eagle",
@@ -860,7 +846,7 @@
     "type": "animal_sound",
     "category": "science",
     "question": "Quel insecte émet ce bourdonnement ?",
-    "audioUrl": "/audio/animals/bee.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/7/77/Buzzing_bees.ogg",
     "correctAnswer": "Bee",
     "acceptableAnswers": [
       "Bee",
@@ -875,7 +861,7 @@
     "type": "animal_sound",
     "category": "science",
     "question": "Quel animal émet ce son ?",
-    "audioUrl": "/audio/animals/bear.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Bear_growl.ogg",
     "correctAnswer": "Bear",
     "acceptableAnswers": [
       "Bear",
@@ -886,25 +872,11 @@
     "timeLimit": 20
   },
   {
-    "id": "as_sci_6",
-    "type": "animal_sound",
-    "category": "science",
-    "question": "Quel grand singe émet ce son ?",
-    "audioUrl": "/audio/animals/gorilla.ogg",
-    "correctAnswer": "Gorilla",
-    "acceptableAnswers": [
-      "Gorilla",
-      "Western gorilla"
-    ],
-    "difficulty": "medium",
-    "timeLimit": 20
-  },
-  {
     "id": "as_sci_7",
     "type": "animal_sound",
     "category": "science",
     "question": "Quel mammifère marin produit cet appel ?",
-    "audioUrl": "/audio/animals/whale.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Whales_and_Dolphins_whale_nature_sounds_songs_nueva_esparta.ogg",
     "correctAnswer": "Whale",
     "acceptableAnswers": [
       "Whale",
@@ -915,26 +887,11 @@
     "timeLimit": 20
   },
   {
-    "id": "as_sci_8",
-    "type": "animal_sound",
-    "category": "science",
-    "question": "Quel reptile émet ce son ?",
-    "audioUrl": "/audio/animals/crocodile.ogg",
-    "correctAnswer": "Crocodile",
-    "acceptableAnswers": [
-      "Crocodile",
-      "Alligator",
-      "Crocodilian"
-    ],
-    "difficulty": "hard",
-    "timeLimit": 20
-  },
-  {
     "id": "as_sci_9",
     "type": "animal_sound",
     "category": "science",
     "question": "Quel mammifère volant nocturne émet ce son ?",
-    "audioUrl": "/audio/animals/bat.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Bat_feeding_buzz.wav",
     "correctAnswer": "Bat",
     "acceptableAnswers": [
       "Bat",
@@ -949,7 +906,7 @@
     "type": "animal_sound",
     "category": "science",
     "question": "Quel insecte émet ce chant strident ?",
-    "audioUrl": "/audio/animals/cricket.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/8/80/Field_cricket_Gryllus_pennsylvanicus.ogg",
     "correctAnswer": "Cricket",
     "acceptableAnswers": [
       "Cricket",
@@ -963,7 +920,7 @@
     "type": "animal_sound",
     "category": "science",
     "question": "Quel grand félin émet ce son ?",
-    "audioUrl": "/audio/animals/tiger.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/439280_schots_angry-tiger.wav",
     "correctAnswer": "Tiger",
     "acceptableAnswers": [
       "Tiger",
@@ -974,41 +931,11 @@
     "timeLimit": 20
   },
   {
-    "id": "as_sci_12",
-    "type": "animal_sound",
-    "category": "science",
-    "question": "Quel grand animal africain émet ce son ?",
-    "audioUrl": "/audio/animals/rhinoceros.ogg",
-    "correctAnswer": "Rhinoceros",
-    "acceptableAnswers": [
-      "Rhinoceros",
-      "Rhino",
-      "White rhino",
-      "Black rhino"
-    ],
-    "difficulty": "medium",
-    "timeLimit": 20
-  },
-  {
-    "id": "as_sci_13",
-    "type": "animal_sound",
-    "category": "science",
-    "question": "Quel animal semi-aquatique africain émet ce son ?",
-    "audioUrl": "/audio/animals/hippo.ogg",
-    "correctAnswer": "Hippopotamus",
-    "acceptableAnswers": [
-      "Hippopotamus",
-      "Hippo"
-    ],
-    "difficulty": "medium",
-    "timeLimit": 20
-  },
-  {
     "id": "as_sci_14",
     "type": "animal_sound",
     "category": "science",
     "question": "Quel mammifère marin émet cet aboiement ?",
-    "audioUrl": "/audio/animals/seal.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Arctocephalusgazellavocal.wav",
     "correctAnswer": "Seal",
     "acceptableAnswers": [
       "Seal",
@@ -1023,7 +950,7 @@
     "type": "animal_sound",
     "category": "science",
     "question": "Quel oiseau coloré émet ce son ?",
-    "audioUrl": "/audio/animals/parrot.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Amazon_edited.ogv",
     "correctAnswer": "Parrot",
     "acceptableAnswers": [
       "Parrot",
@@ -1038,7 +965,7 @@
     "type": "animal_sound",
     "category": "science",
     "question": "Quel oiseau connu pour sa queue spectaculaire émet ce son ?",
-    "audioUrl": "/audio/animals/peacock.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Pavo%2Bcristatus.wav",
     "correctAnswer": "Peacock",
     "acceptableAnswers": [
       "Peacock",
@@ -1053,7 +980,7 @@
     "type": "animal_sound",
     "category": "science",
     "question": "Quel animal à sabots émet ce son ?",
-    "audioUrl": "/audio/animals/deer.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Red_Deer_%28Cervus_elaphus%29_%28W1CDR0001424_BD3%29.ogg",
     "correctAnswer": "Deer",
     "acceptableAnswers": [
       "Deer",
@@ -1069,7 +996,7 @@
     "type": "animal_sound",
     "category": "science",
     "question": "Quel mammifère du désert émet ce gargouillement ?",
-    "audioUrl": "/audio/animals/camel.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Cri_du_chameau.wav",
     "correctAnswer": "Camel",
     "acceptableAnswers": [
       "Camel",
@@ -1084,7 +1011,7 @@
     "type": "animal_sound",
     "category": "science",
     "question": "Quel mammifère nocturne nord-américain émet ce jacassement ?",
-    "audioUrl": "/audio/animals/raccoon.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Baby_Raccoon_Chatter_1.flac",
     "correctAnswer": "Raccoon",
     "acceptableAnswers": [
       "Raccoon"
@@ -1097,7 +1024,7 @@
     "type": "animal_sound",
     "category": "science",
     "question": "Quel petit rongeur émet ce bruit ?",
-    "audioUrl": "/audio/animals/squirrel.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Grey_Squirrel_%28Sciurus_carolinensis%29_%28W1CDR0001470_BD12%29.ogg",
     "correctAnswer": "Squirrel",
     "acceptableAnswers": [
       "Squirrel",

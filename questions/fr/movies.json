@@ -1148,7 +1148,7 @@
     "type": "animal_sound",
     "category": "movies",
     "question": "Quel oiseau, célèbre pour son apparition dans les films Pixar, émet ce son ?",
-    "audioUrl": "/audio/animals/seagull.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Ring-billed_Gull_colony_-_Chicago_-_Andy_Mabbett_-_01.flac",
     "correctAnswer": "Seagull",
     "acceptableAnswers": [
       "Seagull",
@@ -1163,27 +1163,13 @@
     "type": "animal_sound",
     "category": "movies",
     "question": "Quel grand animal nord-américain émet ce son ?",
-    "audioUrl": "/audio/animals/moose.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Moose_mate.ogg",
     "correctAnswer": "Moose",
     "acceptableAnswers": [
       "Moose",
       "Elk"
     ],
     "difficulty": "medium",
-    "timeLimit": 20
-  },
-  {
-    "id": "as_mov_3",
-    "type": "animal_sound",
-    "category": "movies",
-    "question": "Quel oiseau, associé à Thanksgiving et à plusieurs scènes de films, émet ce son ?",
-    "audioUrl": "/audio/animals/turkey.ogg",
-    "correctAnswer": "Turkey",
-    "acceptableAnswers": [
-      "Turkey",
-      "Wild turkey"
-    ],
-    "difficulty": "easy",
     "timeLimit": 20
   }
 ]

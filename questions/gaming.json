@@ -856,25 +856,11 @@
     "explanation": "Donkey Kong is Nintendo's giant gorilla, first appearing as the villain of the 1981 arcade game. He later became the hero of his own platformer series."
   },
   {
-    "id": "as_gam_1",
-    "type": "animal_sound",
-    "category": "gaming",
-    "question": "Which animal, mascot of a famous gaming company, makes this sound?",
-    "audioUrl": "/audio/animals/hedgehog.ogg",
-    "correctAnswer": "Hedgehog",
-    "acceptableAnswers": [
-      "Hedgehog",
-      "European hedgehog"
-    ],
-    "difficulty": "medium",
-    "timeLimit": 20
-  },
-  {
     "id": "as_gam_2",
     "type": "animal_sound",
     "category": "gaming",
     "question": "Which primate makes this sound?",
-    "audioUrl": "/audio/animals/chimpanzee.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Pant-hoot_call_made_by_a_male_chimpanzee.ogg",
     "correctAnswer": "Chimpanzee",
     "acceptableAnswers": [
       "Chimpanzee",
@@ -885,66 +871,11 @@
     "timeLimit": 20
   },
   {
-    "id": "as_gam_3",
-    "type": "animal_sound",
-    "category": "gaming",
-    "question": "Which marsupial makes this sound?",
-    "audioUrl": "/audio/animals/kangaroo.ogg",
-    "correctAnswer": "Kangaroo",
-    "acceptableAnswers": [
-      "Kangaroo",
-      "Red kangaroo"
-    ],
-    "difficulty": "medium",
-    "timeLimit": 20
-  },
-  {
-    "id": "as_gam_4",
-    "type": "animal_sound",
-    "category": "gaming",
-    "question": "Which small African mammal makes this sound?",
-    "audioUrl": "/audio/animals/meerkat.ogg",
-    "correctAnswer": "Meerkat",
-    "acceptableAnswers": [
-      "Meerkat",
-      "Suricate"
-    ],
-    "difficulty": "hard",
-    "timeLimit": 20
-  },
-  {
-    "id": "as_gam_5",
-    "type": "animal_sound",
-    "category": "gaming",
-    "question": "Which rodent makes this sound?",
-    "audioUrl": "/audio/animals/capybara.ogg",
-    "correctAnswer": "Capybara",
-    "acceptableAnswers": [
-      "Capybara"
-    ],
-    "difficulty": "hard",
-    "timeLimit": 20
-  },
-  {
-    "id": "as_gam_6",
-    "type": "animal_sound",
-    "category": "gaming",
-    "question": "Which lizard makes this hissing sound?",
-    "audioUrl": "/audio/animals/iguana.ogg",
-    "correctAnswer": "Iguana",
-    "acceptableAnswers": [
-      "Iguana",
-      "Green iguana"
-    ],
-    "difficulty": "hard",
-    "timeLimit": 20
-  },
-  {
     "id": "as_gam_7",
     "type": "animal_sound",
     "category": "gaming",
     "question": "Which venomous snake makes this rattling sound?",
-    "audioUrl": "/audio/animals/rattlesnake.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Rattlesnake.ogg",
     "correctAnswer": "Rattlesnake",
     "acceptableAnswers": [
       "Rattlesnake",
@@ -954,46 +885,17 @@
     "timeLimit": 20
   },
   {
-    "id": "as_gam_8",
-    "type": "animal_sound",
-    "category": "gaming",
-    "question": "Which nocturnal primate makes this call?",
-    "audioUrl": "/audio/animals/lemur.ogg",
-    "correctAnswer": "Lemur",
-    "acceptableAnswers": [
-      "Lemur",
-      "Ring-tailed lemur"
-    ],
-    "difficulty": "hard",
-    "timeLimit": 20
-  },
-  {
     "id": "as_gam_9",
     "type": "animal_sound",
     "category": "gaming",
     "question": "Which animal makes this sound?",
-    "audioUrl": "/audio/animals/fox.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Bellender_Fuchs.ogg",
     "correctAnswer": "Fox",
     "acceptableAnswers": [
       "Fox",
       "Red fox"
     ],
     "difficulty": "medium",
-    "timeLimit": 20
-  },
-  {
-    "id": "as_gam_10",
-    "type": "animal_sound",
-    "category": "gaming",
-    "question": "Which rodent makes this squeaking sound?",
-    "audioUrl": "/audio/animals/rat.ogg",
-    "correctAnswer": "Rat",
-    "acceptableAnswers": [
-      "Rat",
-      "Brown rat",
-      "House rat"
-    ],
-    "difficulty": "easy",
     "timeLimit": 20
   },
   {

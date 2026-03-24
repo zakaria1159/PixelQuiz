@@ -15,6 +15,7 @@ interface SpectatorState {
   gameStatus: GameStatus | null
   spectatorCount: number
   playerAnswers: Record<string, PlayerAnswer> // playerId → answer
+  correctAnswerText: string | null
   timeLimit: number
   questionStartTime: number
   isConnected: boolean
@@ -27,6 +28,7 @@ export function useSpectator(gameCode: string) {
     gameStatus: null,
     spectatorCount: 0,
     playerAnswers: {},
+    correctAnswerText: null,
     timeLimit: 30,
     questionStartTime: 0,
     isConnected: false,
@@ -92,6 +94,7 @@ export function useSpectator(gameCode: string) {
         ...s,
         gameStatus: 'question',
         playerAnswers: {}, // reset per question
+        correctAnswerText: null, // reset per question
         timeLimit: data.timeLimit,
         questionStartTime: Date.now(),
       }))
@@ -111,6 +114,7 @@ export function useSpectator(gameCode: string) {
       setState(s => ({
         ...s,
         gameStatus: 'question_results',
+        correctAnswerText: data.correctAnswerText ?? null,
       }))
     })
 

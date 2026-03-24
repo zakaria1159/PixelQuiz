@@ -706,40 +706,11 @@
     "explanation": "Albert Camus (1913–1960) developed the philosophy of the absurd — the conflict between humanity's search for meaning and the universe's silence. His other key works include 'The Plague' and 'The Myth of Sisyphus'."
   },
   {
-    "id": "as_bk_1",
-    "type": "animal_sound",
-    "category": "books",
-    "question": "Which animal, Eeyore from Winnie-the-Pooh, makes this sound?",
-    "audioUrl": "/audio/animals/donkey.ogg",
-    "correctAnswer": "Donkey",
-    "acceptableAnswers": [
-      "Donkey",
-      "Ass",
-      "Burro"
-    ],
-    "difficulty": "easy",
-    "timeLimit": 20
-  },
-  {
-    "id": "as_bk_2",
-    "type": "animal_sound",
-    "category": "books",
-    "question": "Which animal, from the Three Billy Goats Gruff fairy tale, makes this sound?",
-    "audioUrl": "/audio/animals/goat.ogg",
-    "correctAnswer": "Goat",
-    "acceptableAnswers": [
-      "Goat",
-      "Billy goat"
-    ],
-    "difficulty": "easy",
-    "timeLimit": 20
-  },
-  {
     "id": "as_bk_3",
     "type": "animal_sound",
     "category": "books",
     "question": "Which bird, subject of Edgar Allan Poe's most famous poem, makes this sound?",
-    "audioUrl": "/audio/animals/crow.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/American_crow_in_spring.ogg",
     "correctAnswer": "Crow",
     "acceptableAnswers": [
       "Crow",
@@ -750,26 +721,11 @@
     "timeLimit": 20
   },
   {
-    "id": "as_bk_4",
-    "type": "animal_sound",
-    "category": "books",
-    "question": "Which reptile, appearing in The Jungle Book by Kipling, makes this hissing sound?",
-    "audioUrl": "/audio/animals/snake.ogg",
-    "correctAnswer": "Snake",
-    "acceptableAnswers": [
-      "Snake",
-      "Python",
-      "Kaa"
-    ],
-    "difficulty": "medium",
-    "timeLimit": 20
-  },
-  {
     "id": "as_bk_5",
     "type": "animal_sound",
     "category": "books",
     "question": "Which waterfowl, from Make Way for Ducklings, makes this sound?",
-    "audioUrl": "/audio/animals/duck.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Anas_platyrhynchos_-_Mallard_-_XC62258.ogg",
     "correctAnswer": "Duck",
     "acceptableAnswers": [
       "Duck",

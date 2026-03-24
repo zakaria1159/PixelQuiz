@@ -1170,26 +1170,11 @@
     "explanation": "Mr. Bean, joué par Rowan Atkinson, est l'un des personnages comiques britanniques les plus aimés et a été regardé dans plus de 200 territoires dans le monde."
   },
   {
-    "id": "as_pop_1",
-    "type": "animal_sound",
-    "category": "pop_culture",
-    "question": "Quel animal, vedette d'innombrables mèmes internet, émet ce son ?",
-    "audioUrl": "/audio/animals/monkey.ogg",
-    "correctAnswer": "Monkey",
-    "acceptableAnswers": [
-      "Monkey",
-      "Macaque",
-      "Spider monkey"
-    ],
-    "difficulty": "easy",
-    "timeLimit": 20
-  },
-  {
     "id": "as_pop_2",
     "type": "animal_sound",
     "category": "pop_culture",
     "question": "Quel fameux animal Disney émet ce son ?",
-    "audioUrl": "/audio/animals/hyena.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/0/07/Spotted_Hyaena_%28Crocuta_crocuta%29_%28W1CDR0000381_BD12%29.ogg",
     "correctAnswer": "Hyena",
     "acceptableAnswers": [
       "Hyena",
@@ -1204,7 +1189,7 @@
     "type": "animal_sound",
     "category": "pop_culture",
     "question": "Quel animal en smoking émet ce son ?",
-    "audioUrl": "/audio/animals/penguin.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/7/75/Pygoscelis_antarctica_trying_to_get_to_iceberg.wmv.ogv",
     "correctAnswer": "Penguin",
     "acceptableAnswers": [
       "Penguin",
@@ -1218,7 +1203,7 @@
     "type": "animal_sound",
     "category": "pop_culture",
     "question": "Quel animal rusé émet ce son ?",
-    "audioUrl": "/audio/animals/fox.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Bellender_Fuchs.ogg",
     "correctAnswer": "Fox",
     "acceptableAnswers": [
       "Fox",
@@ -1232,7 +1217,7 @@
     "type": "animal_sound",
     "category": "pop_culture",
     "question": "Quel animal sauvage ressemblant à un chien émet ce hurlement ?",
-    "audioUrl": "/audio/animals/coyote.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Coyotl.ogg",
     "correctAnswer": "Coyote",
     "acceptableAnswers": [
       "Coyote",

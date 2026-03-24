@@ -114,7 +114,6 @@ export function Lobby({
   const [streamerMode, setStreamerMode] = useState(false)
   const [spectatorCount, setSpectatorCount] = useState(0)
   const watchUrl = typeof window !== 'undefined' ? `${window.location.origin}/watch/${gameCode}` : `/watch/${gameCode}`
-  const overlayUrl = typeof window !== 'undefined' ? `${window.location.origin}/overlay/${gameCode}` : `/overlay/${gameCode}`
   const { t } = useTranslation()
   const canStart = isSolo ? players.length >= 1 : players.length >= 2
   const nonHostPlayers = players.filter(p => !p.isHost)
@@ -308,7 +307,7 @@ export function Lobby({
                 <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)', marginBottom: '16px' }} />
 
                 {/* Watch link */}
-                <div style={{ marginBottom: '10px' }}>
+                <div>
                   <div style={{ fontSize: '10px', color: '#71717a', fontWeight: 600, marginBottom: '5px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                     Watch link (share with chat)
                   </div>
@@ -316,22 +315,6 @@ export function Lobby({
                     <span style={{ flex: 1, fontSize: '11px', color: '#818cf8', fontFamily: 'monospace', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{watchUrl}</span>
                     <button
                       onClick={(e) => { e.stopPropagation(); navigator.clipboard.writeText(watchUrl) }}
-                      style={{ fontSize: '9px', fontWeight: 700, color: '#6366f1', background: 'rgba(99,102,241,0.15)', border: 'none', borderRadius: '5px', padding: '3px 8px', cursor: 'pointer', flexShrink: 0 }}
-                    >
-                      COPY
-                    </button>
-                  </div>
-                </div>
-
-                {/* OBS overlay link */}
-                <div>
-                  <div style={{ fontSize: '10px', color: '#71717a', fontWeight: 600, marginBottom: '5px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    OBS overlay (browser source)
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: '8px', padding: '8px 10px' }}>
-                    <span style={{ flex: 1, fontSize: '11px', color: '#818cf8', fontFamily: 'monospace', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{overlayUrl}</span>
-                    <button
-                      onClick={(e) => { e.stopPropagation(); navigator.clipboard.writeText(overlayUrl) }}
                       style={{ fontSize: '9px', fontWeight: 700, color: '#6366f1', background: 'rgba(99,102,241,0.15)', border: 'none', borderRadius: '5px', padding: '3px 8px', cursor: 'pointer', flexShrink: 0 }}
                     >
                       COPY

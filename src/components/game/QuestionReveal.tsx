@@ -1049,7 +1049,7 @@ export function QuestionReveal({
                                     <div style={{ fontSize: '13px', color: '#a1a1aa', lineHeight: 1.6 }}>
                                         <div><span style={{ color: '#71717a' }}>{t('challenger_label')}</span> <span style={{ color: 'white', fontWeight: 700 }}>{currentChallenge.challengerName}</span></div>
                                         <div><span style={{ color: '#71717a' }}>{t('their_answer_label')}</span> <span style={{ color: 'white', fontWeight: 700 }}>{getDisplayAnswer(currentQuestion, currentChallenge.playerAnswer)}</span></div>
-                                        <div><span style={{ color: '#71717a' }}>{t('reason_label')}</span> <span style={{ color: '#e4e4e7' }}>"{currentChallenge.explanation}"</span></div>
+                                        <div><span style={{ color: '#71717a' }}>{t('reason_label')}</span> <span style={{ color: '#e4e4e7' }}>&quot;{currentChallenge.explanation}&quot;</span></div>
                                         <div><span style={{ color: '#71717a' }}>{t('potential_label')}</span> <span style={{ color: '#4ade80', fontWeight: 700 }}>+{currentChallenge.potentialScore} pts</span></div>
                                     </div>
                                 </div>

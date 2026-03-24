@@ -713,40 +713,11 @@
     "explanation": "Albert Camus (1913–1960) a développé la philosophie de l'absurde. Ses autres œuvres clés sont 'La Peste' et 'Le Mythe de Sisyphe'."
   },
   {
-    "id": "as_bk_1",
-    "type": "animal_sound",
-    "category": "books",
-    "question": "Quel animal, Bourriquet de Winnie l'Ourson, émet ce son ?",
-    "audioUrl": "/audio/animals/donkey.ogg",
-    "correctAnswer": "Donkey",
-    "acceptableAnswers": [
-      "Donkey",
-      "Ass",
-      "Burro"
-    ],
-    "difficulty": "easy",
-    "timeLimit": 20
-  },
-  {
-    "id": "as_bk_2",
-    "type": "animal_sound",
-    "category": "books",
-    "question": "Quel animal, du conte des Trois Billy Bouc Gruff, émet ce son ?",
-    "audioUrl": "/audio/animals/goat.ogg",
-    "correctAnswer": "Goat",
-    "acceptableAnswers": [
-      "Goat",
-      "Billy goat"
-    ],
-    "difficulty": "easy",
-    "timeLimit": 20
-  },
-  {
     "id": "as_bk_3",
     "type": "animal_sound",
     "category": "books",
     "question": "Quel oiseau, sujet du poème le plus célèbre d'Edgar Allan Poe, émet ce son ?",
-    "audioUrl": "/audio/animals/crow.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/American_crow_in_spring.ogg",
     "correctAnswer": "Crow",
     "acceptableAnswers": [
       "Crow",
@@ -757,26 +728,11 @@
     "timeLimit": 20
   },
   {
-    "id": "as_bk_4",
-    "type": "animal_sound",
-    "category": "books",
-    "question": "Quel reptile, apparaissant dans Le Livre de la Jungle de Kipling, émet ce sifflement ?",
-    "audioUrl": "/audio/animals/snake.ogg",
-    "correctAnswer": "Snake",
-    "acceptableAnswers": [
-      "Snake",
-      "Python",
-      "Kaa"
-    ],
-    "difficulty": "medium",
-    "timeLimit": 20
-  },
-  {
     "id": "as_bk_5",
     "type": "animal_sound",
     "category": "books",
     "question": "Quel palmipède, du livre 'Make Way for Ducklings', émet ce son ?",
-    "audioUrl": "/audio/animals/duck.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Anas_platyrhynchos_-_Mallard_-_XC62258.ogg",
     "correctAnswer": "Duck",
     "acceptableAnswers": [
       "Duck",

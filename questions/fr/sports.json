@@ -1136,7 +1136,7 @@
     "type": "animal_sound",
     "category": "sports",
     "question": "Quelle mascotte animale émet ce son ?",
-    "audioUrl": "/audio/animals/jaguar.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Jaguar.ogg",
     "correctAnswer": "Jaguar",
     "acceptableAnswers": [
       "Jaguar",
@@ -1152,7 +1152,7 @@
     "type": "animal_sound",
     "category": "sports",
     "question": "Quelle mascotte animale émet ce son ?",
-    "audioUrl": "/audio/animals/bison.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/Bison.ogg",
     "correctAnswer": "Bison",
     "acceptableAnswers": [
       "Bison",
@@ -1167,7 +1167,7 @@
     "type": "animal_sound",
     "category": "sports",
     "question": "Quel animal émet ce son ?",
-    "audioUrl": "/audio/animals/eagle.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/5/59/Bald_Eagle_Yellowstone_National_Park.ogg",
     "correctAnswer": "Eagle",
     "acceptableAnswers": [
       "Eagle",
@@ -1182,7 +1182,7 @@
     "type": "animal_sound",
     "category": "sports",
     "question": "Quel animal émet ce son ?",
-    "audioUrl": "/audio/animals/bear.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Bear_growl.ogg",
     "correctAnswer": "Bear",
     "acceptableAnswers": [
       "Bear",
@@ -1197,7 +1197,7 @@
     "type": "animal_sound",
     "category": "sports",
     "question": "Quel animal émet ce son ?",
-    "audioUrl": "/audio/animals/tiger.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/439280_schots_angry-tiger.wav",
     "correctAnswer": "Tiger",
     "acceptableAnswers": [
       "Tiger",
@@ -1211,7 +1211,7 @@
     "type": "animal_sound",
     "category": "sports",
     "question": "Quel animal émet ce son ?",
-    "audioUrl": "/audio/animals/lion.ogg",
+    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Lionroar.wav",
     "correctAnswer": "Lion",
     "acceptableAnswers": [
       "Lion",
