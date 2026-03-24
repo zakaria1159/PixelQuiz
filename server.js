@@ -659,6 +659,7 @@ const io = new Server(server, {
 // Game state storage
 const games = new Map()
 const players = new Map()
+const spectators = new Map() // socketId → { gameCode }
 
 // Generate random game codes
 const generateGameCode = () => {
@@ -903,6 +904,7 @@ io.on('connection', (socket) => {
 
       const questions = getRandomQuestions(settings)
       game.questions = questions
+      game.settings.streamerMode = settings?.streamerMode ?? false
       game.currentQuestionIndex = 0
       game.currentQuestion = questions[0]
       game.gameStatus = 'question'
@@ -1006,6 +1008,18 @@ io.on('connection', (socket) => {
         answeredPlayers: answeredPlayerIds,
         totalPlayers: game.players.length
       })
+
+      // Notify spectators of the raw answer (spectator-only, not broadcast to room)
+      if (game.spectators.length > 0) {
+        const playerObj = game.players.find(p => p.id === socket.id)
+        game.spectators.forEach(spectatorId => {
+          io.to(spectatorId).emit('player-answered', {
+            playerId: socket.id,
+            playerName: playerObj?.name || 'Unknown',
+            answer: answerText
+          })
+        })
+      }
 
       const answeredPlayersCount = game.players.filter(player => 
         game.answers[player.id] && 
@@ -1802,6 +1816,38 @@ socket.on('player-ready', (data) => {
     }
   })
 
+  socket.on('spectator-join', ({ gameCode }) => {
+    try {
+      const game = games.get(gameCode)
+      if (!game) {
+        socket.emit('spectator-error', { message: 'Game not found' })
+        return
+      }
+      if (!game.settings.streamerMode) {
+        socket.emit('spectator-error', { message: 'Streamer mode is not enabled for this game' })
+        return
+      }
+
+      socket.join(gameCode)
+      spectators.set(socket.id, { gameCode })
+      game.spectators.push(socket.id)
+
+      // Sanitize gameState: strip answers during active question to avoid leaking correctness data
+      const safeGameState = { ...game }
+      if (game.gameStatus === 'question') {
+        safeGameState.answers = {}
+      }
+
+      socket.emit('spectator-joined', { gameState: safeGameState })
+      io.to(gameCode).emit('spectator-count-updated', { count: game.spectators.length })
+
+      console.log(`👁 Spectator joined game ${gameCode} (total: ${game.spectators.length})`)
+    } catch (error) {
+      console.error('Error in spectator-join:', error)
+      socket.emit('spectator-error', { message: 'Failed to join as spectator' })
+    }
+  })
+
   // Handle disconnection
   socket.on('disconnect', () => {
     console.log('❌ Player disconnected:', socket.id)
@@ -1838,6 +1884,18 @@ socket.on('player-ready', (data) => {
         }
       }
       players.delete(socket.id)
+
+      // Spectator disconnect cleanup
+      if (spectators.has(socket.id)) {
+        const { gameCode } = spectators.get(socket.id)
+        spectators.delete(socket.id)
+        const game = games.get(gameCode)
+        if (game) {
+          game.spectators = game.spectators.filter(id => id !== socket.id)
+          io.to(gameCode).emit('spectator-count-updated', { count: game.spectators.length })
+          console.log(`👁 Spectator left game ${gameCode} (total: ${game.spectators.length})`)
+        }
+      }
     }
   })
 })
