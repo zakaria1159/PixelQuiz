@@ -691,7 +691,8 @@ const createGameState = (gameCode, hostId) => ({
     difficulty: 'mixed',
     aiGenerated: false,
     showExplanations: true,
-    allowSpectators: false
+    allowSpectators: false,
+    streamerMode: false
   },
   createdAt: Date.now(),
   updatedAt: Date.now()
@@ -1011,7 +1012,6 @@ io.on('connection', (socket) => {
 
       // Notify spectators of the raw answer (spectator-only, not broadcast to room)
       if (game.spectators.length > 0) {
-        const playerObj = game.players.find(p => p.id === socket.id)
         game.spectators.forEach(spectatorId => {
           io.to(spectatorId).emit('player-answered', {
             playerId: socket.id,
@@ -1828,6 +1828,14 @@ socket.on('player-ready', (data) => {
         return
       }
 
+      if (game.spectators.includes(socket.id)) {
+        // Already registered — just re-send the current state
+        const safeGameState = { ...game }
+        if (game.gameStatus === 'question') safeGameState.answers = {}
+        socket.emit('spectator-joined', { gameState: safeGameState })
+        return
+      }
+
       socket.join(gameCode)
       spectators.set(socket.id, { gameCode })
       game.spectators.push(socket.id)
@@ -1884,17 +1892,17 @@ socket.on('player-ready', (data) => {
         }
       }
       players.delete(socket.id)
+    }
 
-      // Spectator disconnect cleanup
-      if (spectators.has(socket.id)) {
-        const { gameCode } = spectators.get(socket.id)
-        spectators.delete(socket.id)
-        const game = games.get(gameCode)
-        if (game) {
-          game.spectators = game.spectators.filter(id => id !== socket.id)
-          io.to(gameCode).emit('spectator-count-updated', { count: game.spectators.length })
-          console.log(`👁 Spectator left game ${gameCode} (total: ${game.spectators.length})`)
-        }
+    // Spectator disconnect cleanup — must be outside if(player) since spectators are never in players Map
+    if (spectators.has(socket.id)) {
+      const { gameCode } = spectators.get(socket.id)
+      spectators.delete(socket.id)
+      const game = games.get(gameCode)
+      if (game) {
+        game.spectators = game.spectators.filter(id => id !== socket.id)
+        io.to(gameCode).emit('spectator-count-updated', { count: game.spectators.length })
+        console.log(`👁 Spectator left game ${gameCode} (total: ${game.spectators.length})`)
       }
     }
   })
