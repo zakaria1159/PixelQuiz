@@ -12,6 +12,7 @@ export interface GameSettings {
   aiGenerated: boolean
   showExplanations: boolean
   allowSpectators: boolean
+  streamerMode?: boolean
 }
 
 export interface QuestionResult {
@@ -38,7 +39,7 @@ export interface GameState {
   id: string
   hostId: string
   players: Player[]
-  spectators: Player[]
+  spectators: string[]
   questions: Question[]
   currentQuestion: Question | null
   currentQuestionIndex: number
