@@ -6,6 +6,7 @@ import QuestionForm from '@/components/admin/QuestionForm'
 
 function EditQuestionContent({ id }: { id: string }) {
   const [question, setQuestion] = useState<any>(null)
+  const [notFound, setNotFound] = useState(false)
   const [allCategories, setAllCategories] = useState<{ en: string[]; fr: string[] }>({ en: [], fr: [] })
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -17,9 +18,14 @@ function EditQuestionContent({ id }: { id: string }) {
       .then(r => r.json())
       .then(data => {
         const q = data.questions.find((q: any) => q.id === id)
-        setQuestion(q ? { ...q, lang, category } : null)
+        if (!q) {
+          setNotFound(true)
+          return
+        }
+        setQuestion({ ...q, lang, category })
         setAllCategories(data.categories)
       })
+      .catch(() => setNotFound(true))
   }, [id, lang, category])
 
   async function handleSubmit(data: any) {
@@ -35,6 +41,7 @@ function EditQuestionContent({ id }: { id: string }) {
     router.push('/admin/questions')
   }
 
+  if (notFound) return <div className="text-red-400">Question not found.</div>
   if (!question) return <div className="text-zinc-500">Loading…</div>
 
   return (
