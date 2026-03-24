@@ -11,6 +11,7 @@ export interface QuizSettings {
   lang: string
   customQuestions?: any[]
   customOnly?: boolean
+  streamerMode?: boolean
 }
 
 const CATEGORIES = [

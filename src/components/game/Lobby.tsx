@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { QuizSettingsPanel, QuizSettings } from '@/components/game/QuizSettings'
 import { CustomQuestionBuilder, CustomQuestion } from '@/components/game/CustomQuestionBuilder'
 import { useTranslation } from '@/hooks/useTranslation'
+import socketManager from '@/lib/socket'
 
 interface Player {
   id: string
@@ -110,9 +111,22 @@ export function Lobby({
   const [customQuestions, setCustomQuestions] = useState<CustomQuestion[]>([])
   const [customOnly, setCustomOnly] = useState(true)
   const [showBuilder, setShowBuilder] = useState(false)
+  const [streamerMode, setStreamerMode] = useState(false)
+  const [spectatorCount, setSpectatorCount] = useState(0)
+  const watchUrl = typeof window !== 'undefined' ? `${window.location.origin}/watch/${gameCode}` : `/watch/${gameCode}`
+  const overlayUrl = typeof window !== 'undefined' ? `${window.location.origin}/overlay/${gameCode}` : `/overlay/${gameCode}`
   const { t } = useTranslation()
   const canStart = isSolo ? players.length >= 1 : players.length >= 2
   const nonHostPlayers = players.filter(p => !p.isHost)
+
+  useEffect(() => {
+    socketManager.onSpectatorCountUpdated(({ count }) => {
+      setSpectatorCount(count)
+    })
+    return () => {
+      socketManager.getSocket()?.off('spectator-count-updated')
+    }
+  }, [])
 
   const handleCopy = () => {
     navigator.clipboard.writeText(gameCode)
@@ -245,6 +259,90 @@ export function Lobby({
           </div>
         )}
 
+        {/* Streamer Mode — host only */}
+        {isHost && (
+          <div className="glass" style={{ animation: 'slideUpFadeIn 0.4s ease 0.28s both', overflow: 'hidden' }}>
+            <button
+              onClick={() => setStreamerMode(v => !v)}
+              style={{
+                width: '100%', padding: '16px 20px',
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                background: 'none', border: 'none', cursor: 'pointer',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span style={{ fontSize: '16px' }}>📡</span>
+                <div style={{ textAlign: 'left' }}>
+                  <div style={{ fontSize: '13px', fontWeight: 700, color: 'white' }}>
+                    Streamer Mode
+                    {streamerMode && spectatorCount > 0 && (
+                      <span style={{ marginLeft: '8px', fontSize: '10px', fontWeight: 700, background: 'rgba(34,197,94,0.2)', color: '#4ade80', padding: '1px 7px', borderRadius: '99px' }}>
+                        {spectatorCount} watching
+                      </span>
+                    )}
+                  </div>
+                  <div style={{ fontSize: '11px', color: '#52525b', marginTop: '1px' }}>
+                    Share your game with viewers
+                  </div>
+                </div>
+              </div>
+              {/* Toggle */}
+              <div style={{
+                width: '36px', height: '20px', borderRadius: '99px',
+                background: streamerMode ? '#6366f1' : 'rgba(255,255,255,0.1)',
+                display: 'flex', alignItems: 'center', padding: '2px',
+                transition: 'background 0.2s',
+                boxShadow: streamerMode ? '0 0 12px rgba(99,102,241,0.4)' : 'none',
+                flexShrink: 0,
+              }}>
+                <div style={{
+                  width: '16px', height: '16px', borderRadius: '50%', background: '#fff',
+                  transform: streamerMode ? 'translateX(16px)' : 'translateX(0)',
+                  transition: 'transform 0.2s',
+                }} />
+              </div>
+            </button>
+
+            {streamerMode && (
+              <div style={{ padding: '0 20px 20px' }}>
+                <div style={{ height: '1px', background: 'rgba(255,255,255,0.06)', marginBottom: '16px' }} />
+
+                {/* Watch link */}
+                <div style={{ marginBottom: '10px' }}>
+                  <div style={{ fontSize: '10px', color: '#71717a', fontWeight: 600, marginBottom: '5px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    Watch link (share with chat)
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: '8px', padding: '8px 10px' }}>
+                    <span style={{ flex: 1, fontSize: '11px', color: '#818cf8', fontFamily: 'monospace', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{watchUrl}</span>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); navigator.clipboard.writeText(watchUrl) }}
+                      style={{ fontSize: '9px', fontWeight: 700, color: '#6366f1', background: 'rgba(99,102,241,0.15)', border: 'none', borderRadius: '5px', padding: '3px 8px', cursor: 'pointer', flexShrink: 0 }}
+                    >
+                      COPY
+                    </button>
+                  </div>
+                </div>
+
+                {/* OBS overlay link */}
+                <div>
+                  <div style={{ fontSize: '10px', color: '#71717a', fontWeight: 600, marginBottom: '5px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    OBS overlay (browser source)
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(99,102,241,0.08)', border: '1px solid rgba(99,102,241,0.2)', borderRadius: '8px', padding: '8px 10px' }}>
+                    <span style={{ flex: 1, fontSize: '11px', color: '#818cf8', fontFamily: 'monospace', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{overlayUrl}</span>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); navigator.clipboard.writeText(overlayUrl) }}
+                      style={{ fontSize: '9px', fontWeight: 700, color: '#6366f1', background: 'rgba(99,102,241,0.15)', border: 'none', borderRadius: '5px', padding: '3px 8px', cursor: 'pointer', flexShrink: 0 }}
+                    >
+                      COPY
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
         {/* Actions */}
         <div className="flex flex-col gap-3" style={{ animation: 'slideUpFadeIn 0.4s ease 0.28s both', paddingBottom: 'env(safe-area-inset-bottom)' }}>
           {isHost ? (
@@ -255,7 +353,7 @@ export function Lobby({
                 </div>
               )}
               <button
-                onClick={() => onStartGame?.({ ...settings, customQuestions, customOnly })}
+                onClick={() => onStartGame?.({ ...settings, customQuestions, customOnly, streamerMode })}
                 disabled={!canStart}
                 className="w-full py-5 px-6 rounded-2xl font-black text-lg text-white transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
                 style={{
