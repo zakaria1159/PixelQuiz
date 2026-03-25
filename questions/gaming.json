@@ -1613,5 +1613,750 @@
     "difficulty": "easy",
     "timeLimit": 10,
     "explanation": "Microsoft launched the Xbox in 2001."
+  },
+  {
+    "id": "rt_mc1",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "What processor powered the Sega Mega Drive / Genesis?",
+    "options": [
+      "Motorola 68000",
+      "Intel 8088",
+      "MOS 6502",
+      "Zilog Z80"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "The Mega Drive ran a Motorola 68000 at 7.67 MHz as its main CPU, with a secondary Zilog Z80 handling sound and backward compatibility with the Master System."
+  },
+  {
+    "id": "rt_mc2",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which chip handled audio processing on the Super Nintendo?",
+    "options": [
+      "Sony SPC700",
+      "Yamaha YM2612",
+      "Ricoh 5A22",
+      "Texas Instruments SN76489"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "The Sony SPC700 was an 8-bit processor dedicated to audio in the SNES, capable of 8 channels of sampled sound with built-in DSP effects."
+  },
+  {
+    "id": "rt_mc3",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which NES game is infamous for its brutally difficult 'Turbo Tunnel' level?",
+    "options": [
+      "Battletoads",
+      "Contra",
+      "Castlevania III",
+      "Ninja Gaiden III"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "The Turbo Tunnel in Battletoads (1991) requires perfect memorisation of dozens of obstacles at blinding speed and is considered one of gaming's hardest levels."
+  },
+  {
+    "id": "rt_mc4",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "The Atari 2600's CPU was a cost-reduced variant of which chip?",
+    "options": [
+      "MOS Technology 6507",
+      "Motorola 68000",
+      "Intel 8080",
+      "Zilog Z80"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "The Atari 2600 used a MOS Technology 6507 — a 6502 with a smaller 13-bit address bus — running at 1.19 MHz. Cost-cutting removed interrupt lines and reduced addressable memory."
+  },
+  {
+    "id": "rt_mc5",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which SNES game was the first to use the Super FX graphics coprocessor?",
+    "options": [
+      "Star Fox",
+      "Yoshi's Island",
+      "Doom",
+      "Street Fighter II Turbo"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Star Fox (1993) was the first SNES game to use the Super FX chip, enabling polygon-based 3D graphics not otherwise possible on the base hardware."
+  },
+  {
+    "id": "rt_mc6",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "What was the standard ROM size of early Atari 2600 cartridges?",
+    "options": [
+      "4 KB",
+      "8 KB",
+      "16 KB",
+      "32 KB"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Original Atari 2600 cartridges were limited to 4 KB of ROM. Bank switching was later developed by ingenious programmers to allow larger games like Pitfall II."
+  },
+  {
+    "id": "rt_mc7",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which company co-developed the TurboGrafx-16 (PC Engine) alongside NEC?",
+    "options": [
+      "Hudson Soft",
+      "Sega",
+      "Konami",
+      "Taito"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "NEC and Hudson Soft jointly developed the PC Engine, released in Japan in 1987. Hudson designed the CPU (HuC6280) and GPU while NEC handled manufacturing."
+  },
+  {
+    "id": "rt_mc8",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "What was the Sega Mega Drive's secondary processor, used for sound and Master System backward compatibility?",
+    "options": [
+      "Zilog Z80",
+      "MOS 6502",
+      "Intel 8080",
+      "Motorola 6809"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "The Mega Drive's secondary Zilog Z80 handled FM sound chip communication and could run Master System software via the Power Base Converter add-on."
+  },
+  {
+    "id": "rt_mc9",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which Treasure-developed Mega Drive game features a puppet protagonist who detaches and throws his own head?",
+    "options": [
+      "Dynamite Headdy",
+      "Gunstar Heroes",
+      "Alien Soldier",
+      "Comix Zone"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Dynamite Headdy (1994) stars Headdy, a marionette who fires his detachable head as a weapon and collects different head power-ups that change his abilities."
+  },
+  {
+    "id": "rt_mc10",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Approximately how much did the SNK Neo Geo AES home console cost at US launch in 1990?",
+    "options": [
+      "$650",
+      "$299",
+      "$199",
+      "$399"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "The Neo Geo AES launched at $649.99 — the most expensive home console of its era by far. Individual game cartridges could cost over $200 each."
+  },
+  {
+    "id": "rt_mc11",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "What is the name of the alien final boss in the SNES RPG Earthbound (Mother 2)?",
+    "options": [
+      "Giygas",
+      "Lavos",
+      "Mother Brain",
+      "Ridley"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Giygas is Earthbound's terrifying final villain — an incomprehensible alien entity defeated only through prayer. Its abstract, disturbing visual design remains iconic."
+  },
+  {
+    "id": "rt_mc12",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which game was bundled with the Sega Mega Drive at launch in Japan and let players transform into powerful animals?",
+    "options": [
+      "Altered Beast",
+      "Golden Axe",
+      "Strider",
+      "Phantasy Star II"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Altered Beast (1988) was the Mega Drive's pack-in launch game. Players collect spirit balls to morph into a werewolf, bear, golden wolf or dragon."
+  },
+  {
+    "id": "rt_mc13",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "What peripheral did Nintendo bundle with early NES Deluxe Sets to present the console as a toy rather than a video game system?",
+    "options": [
+      "R.O.B. (Robotic Operating Buddy)",
+      "Power Glove",
+      "Zapper",
+      "Power Pad"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "After the 1983 video game crash, Nintendo bundled R.O.B. with the NES to market it as a toy to sceptical US retailers. Only two games ever used R.O.B.: Gyromite and Stack-Up."
+  },
+  {
+    "id": "rt_mc14",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which Treasure game for the Mega Drive consists almost entirely of rapid boss battles and is notorious for its extreme difficulty?",
+    "options": [
+      "Alien Soldier",
+      "Gunstar Heroes",
+      "Dynamite Headdy",
+      "Vectorman"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Alien Soldier (1995) by Treasure features 25 bosses with almost no filler levels. Gamefan magazine called it 'possibly the hardest game ever created.'"
+  },
+  {
+    "id": "rt_mc15",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "What was the screen resolution of the original Nintendo Game Boy?",
+    "options": [
+      "160×144",
+      "256×192",
+      "320×240",
+      "128×128"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "The original Game Boy's LCD was 160×144 pixels, displaying 4 shades of grey-green. Despite its limitations it dominated the handheld market against the more powerful Game Gear and Lynx."
+  },
+  {
+    "id": "rt_tf1",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "The Atari 5200 was natively backward compatible with Atari 2600 cartridges.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "False. The 5200 was not backward compatible out of the box — a separate adapter was sold separately. Many owners found this frustrating given the large existing 2600 library."
+  },
+  {
+    "id": "rt_tf2",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "The SNES was the first mainstream home console controller to feature L and R shoulder buttons.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "True. Nintendo introduced shoulder buttons on the SNES controller in 1990, a design element now standard on virtually every controller."
+  },
+  {
+    "id": "rt_tf3",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "The Sega Mega Drive used a Yamaha FM synthesizer chip for sound.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "True. The Yamaha YM2612 6-channel FM synthesizer gave the Mega Drive a rich, distinctive sound, famously used in Streets of Rage, Sonic and many other titles."
+  },
+  {
+    "id": "rt_tf4",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "Chrono Trigger was developed by a team that included Hironobu Sakaguchi, Yuji Horii and Dragon Ball artist Akira Toriyama.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "True. This 'Dream Team' collaboration produced what is widely regarded as one of the greatest RPGs ever made."
+  },
+  {
+    "id": "rt_tf5",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "The Sega Game Gear had a larger, colour, backlit screen compared to the original monochrome Game Boy.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "True. Game Gear had a 3.2-inch colour backlit screen vs Game Boy's 2.6-inch green monochrome. The trade-off: Game Gear drained 6 AA batteries in about 3-5 hours."
+  },
+  {
+    "id": "rt_tf6",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "The SNK Neo Geo AES home cartridges were identical to those used in the MVS arcade hardware.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "True. The AES and MVS shared identical hardware and ROM boards, which is why home cartridges were extremely expensive — they were essentially arcade boards for home use."
+  },
+  {
+    "id": "rt_tf7",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "The ColecoVision was released before the Atari 5200.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "hard",
+    "timeLimit": 15,
+    "explanation": "True. ColecoVision launched in August 1982, three months before the Atari 5200 in November 1982. ColecoVision's superior graphics and Donkey Kong port helped it sell over 2 million units."
+  },
+  {
+    "id": "rt_tf8",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "Nintendo 64 cartridges could hold more data than PlayStation CD-ROMs.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "False. N64 cartridges maxed out at around 64 MB while a PlayStation CD-ROM held ~650 MB. This storage gap is a key reason Final Fantasy VII switched from Nintendo to Sony."
+  },
+  {
+    "id": "rt_fb1",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "In Chrono Trigger, the frog knight's real human name is ______.",
+    "correctAnswer": "Glenn",
+    "acceptableAnswers": [
+      "glenn"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Glenn was transformed into a frog-knight by the wizard Magus. He wields the legendary Masamune sword and is one of the most beloved characters in the game."
+  },
+  {
+    "id": "rt_fb2",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "The Sega Mega Drive was released in North America under the name Sega ______.",
+    "correctAnswer": "Genesis",
+    "acceptableAnswers": [
+      "genesis"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "The Mega Drive was rebranded as the Genesis for North America because 'Mega Drive' was already trademarked by a US company."
+  },
+  {
+    "id": "rt_fb3",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "Using the Konami Code in Contra on the NES grants players ______ extra lives.",
+    "correctAnswer": "30",
+    "acceptableAnswers": [
+      "thirty",
+      "30 lives"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "↑↑↓↓←→←→BA grants 30 lives in Contra — widely considered essential to completing the game without prior memorisation of the levels."
+  },
+  {
+    "id": "rt_fb4",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "The Atari 2600 was originally sold as the Atari VCS, where VCS stands for Video Computer ______.",
+    "correctAnswer": "System",
+    "acceptableAnswers": [
+      "system"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "The VCS (Video Computer System) name was dropped in 1982 when the Atari 5200 launched and Atari needed to distinguish the older console."
+  },
+  {
+    "id": "rt_fb5",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "In Streets of Rage 2, Adam Hunter is replaced by a massive wrestler named Max ______.",
+    "correctAnswer": "Thunder",
+    "acceptableAnswers": [
+      "thunder"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Max Thunder is a power-focused brawler added to the Streets of Rage 2 roster. Adam was kidnapped and became a plot device, leaving the fight to Axel, Blaze, Skate and Max."
+  },
+  {
+    "id": "rt_fb6",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "In the Mega Drive game Comix Zone, the comic book artist protagonist is named Sketch ______.",
+    "correctAnswer": "Turner",
+    "acceptableAnswers": [
+      "turner"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Sketch Turner is an artist sucked into his own comic book by his villain creation Mortus in Comix Zone (1995) — a game noted for its unique panel-to-panel movement mechanic."
+  },
+  {
+    "id": "rt_fb7",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "Super Metroid on the SNES takes place on the alien planet ______.",
+    "correctAnswer": "Zebes",
+    "acceptableAnswers": [
+      "zebes"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Planet Zebes is the labyrinthine setting of Super Metroid (1994), home to the Space Pirates and Mother Brain. Its nonlinear design pioneered the 'Metroidvania' genre."
+  },
+  {
+    "id": "rt_fb8",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "The NES game Mega Man 2 features a memorable robot master named Metal ______.",
+    "correctAnswer": "Man",
+    "acceptableAnswers": [
+      "man"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Metal Man is one of Mega Man 2's eight robot masters, known for throwing Metal Blades — widely considered the most overpowered weapon in the game."
+  },
+  {
+    "id": "rt_ft1",
+    "type": "free_text",
+    "category": "gaming",
+    "question": "What was the name of Sega's 32-bit add-on peripheral for the Mega Drive/Genesis?",
+    "correctAnswer": "32X",
+    "acceptableAnswers": [
+      "sega 32x",
+      "32x",
+      "mega 32x",
+      "super 32x"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "The Sega 32X (1994) plugged into the Mega Drive's cartridge slot and added dual SH2 processors. It was a commercial failure with only 36 games, discontinued within a year."
+  },
+  {
+    "id": "rt_ft2",
+    "type": "free_text",
+    "category": "gaming",
+    "question": "Name the futuristic racing SNES launch title that used Mode 7 to simulate 3D track scaling.",
+    "correctAnswer": "F-Zero",
+    "acceptableAnswers": [
+      "f zero",
+      "f-zero"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "F-Zero (1990) used Mode 7 to rotate and scale a flat track texture, creating the illusion of speed and depth. It remains one of the SNES's most impressive technical showcases."
+  },
+  {
+    "id": "rt_ft3",
+    "type": "free_text",
+    "category": "gaming",
+    "question": "Name the alien planet-parasite that serves as the final boss in Chrono Trigger.",
+    "correctAnswer": "Lavos",
+    "acceptableAnswers": [
+      "lavos"
+    ],
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Lavos is a planet-draining alien that has been living inside the Earth for 65 million years. Players can actually fight it as early as 12,000 BC if they choose."
+  },
+  {
+    "id": "rt_ft4",
+    "type": "free_text",
+    "category": "gaming",
+    "question": "Name the 1988 Capcom NES game where the hero uses a bionic grappling arm instead of jumping to traverse levels.",
+    "correctAnswer": "Bionic Commando",
+    "acceptableAnswers": [
+      "bionic commando"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "Bionic Commando (1988) is notable for having no jump button — players must swing and climb using a mechanical grappling arm in a grid of interconnected areas."
+  },
+  {
+    "id": "rt_ft5",
+    "type": "free_text",
+    "category": "gaming",
+    "question": "What NES floor-mat peripheral let players control games by running and jumping on its pressure-sensitive pads?",
+    "correctAnswer": "Power Pad",
+    "acceptableAnswers": [
+      "power pad",
+      "family fun fitness",
+      "family trainer"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "The Power Pad (1986) was a large floor mat with 12 pressure-sensitive buttons used for sports games like Stadium Events and World Class Track Meet."
+  },
+  {
+    "id": "rt_ft6",
+    "type": "free_text",
+    "category": "gaming",
+    "question": "Name the CD-ROM add-on peripheral Atari released for the Jaguar in 1995.",
+    "correctAnswer": "Jaguar CD",
+    "acceptableAnswers": [
+      "jaguar cd",
+      "atari jaguar cd"
+    ],
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "The Atari Jaguar CD (1995) added CD-ROM capabilities and sold fewer than 20,000 units. Atari exited the hardware business in 1996 and never released another console."
+  },
+  {
+    "id": "rt_cw1",
+    "type": "closest_wins",
+    "category": "gaming",
+    "question": "In what year was the Atari 2600 first released?",
+    "correctAnswer": 1977,
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "The Atari 2600 launched on September 11, 1977, originally as the Atari VCS, priced at $199. It went on to sell over 30 million units."
+  },
+  {
+    "id": "rt_cw2",
+    "type": "closest_wins",
+    "category": "gaming",
+    "question": "In what year did the Super Famicom (SNES) launch in Japan?",
+    "correctAnswer": 1990,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "The Super Famicom launched in Japan on November 21, 1990, selling 300,000 units on its first day despite being allocated only through lottery in some areas."
+  },
+  {
+    "id": "rt_cw3",
+    "type": "closest_wins",
+    "category": "gaming",
+    "question": "How many bits was the Sega Mega Drive / Genesis marketed as?",
+    "correctAnswer": 16,
+    "unit": "bits",
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "The Mega Drive was a 16-bit console. Sega's marketing aggressively promoted this with slogans like 'Genesis does what Nintendon't.'"
+  },
+  {
+    "id": "rt_cw4",
+    "type": "closest_wins",
+    "category": "gaming",
+    "question": "Approximately how many officially licensed games were released for the NES in North America?",
+    "correctAnswer": 700,
+    "unit": "games",
+    "difficulty": "hard",
+    "timeLimit": 20,
+    "explanation": "The NES had approximately 700 officially licensed games in North America, released between 1985 and 1994."
+  },
+  {
+    "id": "rt_cw5",
+    "type": "closest_wins",
+    "category": "gaming",
+    "question": "In what year was the original Nintendo Game Boy released in North America?",
+    "correctAnswer": 1989,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "The Game Boy launched in North America on July 31, 1989, bundled with Tetris — a pairing that made it an instant bestseller."
+  },
+  {
+    "id": "rt_rk1",
+    "type": "ranking",
+    "category": "gaming",
+    "question": "Rank these Sega consoles by Japanese launch year (oldest first):",
+    "items": [
+      "Mega Drive",
+      "Saturn",
+      "Dreamcast"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2
+    ],
+    "allowPartialCredit": true,
+    "difficulty": "medium",
+    "timeLimit": 25,
+    "explanation": "Mega Drive (October 1988) → Saturn (November 1994) → Dreamcast (November 1998)"
+  },
+  {
+    "id": "rt_rk2",
+    "type": "ranking",
+    "category": "gaming",
+    "question": "Rank these NES games by Japanese release year (oldest first):",
+    "items": [
+      "Super Mario Bros",
+      "Mega Man 2",
+      "Castlevania III"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2
+    ],
+    "allowPartialCredit": true,
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "explanation": "Super Mario Bros (September 1985) → Mega Man 2 (December 1988) → Castlevania III (September 1989)"
+  },
+  {
+    "id": "rt_rk3",
+    "type": "ranking",
+    "category": "gaming",
+    "question": "Rank these consoles by main CPU RAM amount (smallest to largest):",
+    "items": [
+      "Atari 2600 (128 bytes)",
+      "NES (2 KB)",
+      "SNES (128 KB)"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2
+    ],
+    "allowPartialCredit": true,
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "explanation": "Atari 2600 had only 128 bytes of RAM; NES had 2 KB; SNES had 128 KB of work RAM — each generation a dramatic leap in available memory."
+  },
+  {
+    "id": "rt_rk4",
+    "type": "ranking",
+    "category": "gaming",
+    "question": "Rank these SNES RPGs by Japanese release year (oldest first):",
+    "items": [
+      "Final Fantasy IV",
+      "Secret of Mana",
+      "Chrono Trigger"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2
+    ],
+    "allowPartialCredit": true,
+    "difficulty": "hard",
+    "timeLimit": 30,
+    "explanation": "Final Fantasy IV (July 1991) → Secret of Mana (August 1993) → Chrono Trigger (March 1995)"
+  },
+  {
+    "id": "rt_sb1",
+    "type": "speed_buzz",
+    "category": "gaming",
+    "question": "What was the direct home console successor to the Sega Master System?",
+    "options": [
+      "Mega Drive",
+      "Saturn",
+      "Game Gear",
+      "32X"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 10,
+    "explanation": "The Sega Mega Drive (1988) succeeded the 8-bit Master System and brought 16-bit gaming to homes."
+  },
+  {
+    "id": "rt_sb2",
+    "type": "speed_buzz",
+    "category": "gaming",
+    "question": "Which Atari console released in 1993 was controversially marketed as '64-bit'?",
+    "options": [
+      "Jaguar",
+      "Lynx",
+      "7800",
+      "5200"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 12,
+    "explanation": "The Atari Jaguar (1993) was marketed as the first 64-bit console. Its actual architecture was debated — critics argued it was closer to two 32-bit chips working together."
+  },
+  {
+    "id": "rt_cc1",
+    "type": "clue_chain",
+    "category": "gaming",
+    "question": "Which retro console am I?",
+    "clues": [
+      "I was released by Sega in 1988 in Japan running a Motorola 68000 processor",
+      "My name was changed in North America due to a US trademark conflict",
+      "I was marketed as 16-bit and competed head-to-head with the Super Nintendo",
+      "In Japan and Europe I was the Mega Drive; in North America I was the Sega ___"
+    ],
+    "correctAnswer": "Sega Genesis",
+    "acceptableAnswers": [
+      "genesis",
+      "mega drive",
+      "sega mega drive",
+      "sega genesis"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
+  },
+  {
+    "id": "rt_cc2",
+    "type": "clue_chain",
+    "category": "gaming",
+    "question": "Which retro SNES game am I?",
+    "clues": [
+      "I was released in 1995 and developed by the so-called 'Dream Team' at Square",
+      "I let players travel through time to prehistoric, medieval, futuristic and other eras",
+      "My party includes a frog-knight named Glenn, a robot named Robo and a cavewoman named Ayla",
+      "My final boss is a planet-draining alien parasite named Lavos"
+    ],
+    "correctAnswer": "Chrono Trigger",
+    "acceptableAnswers": [
+      "chrono trigger"
+    ],
+    "difficulty": "easy",
+    "timeLimit": 60
   }
 ]
