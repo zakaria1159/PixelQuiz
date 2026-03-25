@@ -2358,5 +2358,551 @@
     ],
     "difficulty": "easy",
     "timeLimit": 60
+  },
+  {
+    "question": "Which coprocessor chip in SNES cartridges handled 3D math for games like Super Mario Kart and Pilotwings?",
+    "type": "multiple_choice",
+    "options": [
+      "DSP-1",
+      "SA-1",
+      "Super FX",
+      "CX4"
+    ],
+    "correctAnswer": "DSP-1",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189068s21"
+  },
+  {
+    "question": "How many Hitachi SH-2 processors did the Sega Saturn contain?",
+    "type": "multiple_choice",
+    "options": [
+      "1",
+      "2",
+      "4",
+      "3"
+    ],
+    "correctAnswer": "2",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189070n59"
+  },
+  {
+    "question": "Which NES game was the first to use battery-backed SRAM to save progress?",
+    "type": "multiple_choice",
+    "options": [
+      "The Legend of Zelda",
+      "Metroid",
+      "Mega Man 2",
+      "Castlevania II"
+    ],
+    "correctAnswer": "The Legend of Zelda",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189073x82"
+  },
+  {
+    "question": "What was the US launch price of the Sega Saturn in May 1995?",
+    "type": "multiple_choice",
+    "options": [
+      "$299",
+      "$349",
+      "$399",
+      "$449"
+    ],
+    "correctAnswer": "$399",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189076p23"
+  },
+  {
+    "question": "Which Nintendo engineer designed the Virtual Boy and the original Game Boy?",
+    "type": "multiple_choice",
+    "options": [
+      "Shigeru Miyamoto",
+      "Gunpei Yokoi",
+      "Satoru Iwata",
+      "Masayuki Uemura"
+    ],
+    "correctAnswer": "Gunpei Yokoi",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189078w92"
+  },
+  {
+    "question": "Which SNES RPG used the SA-1 coprocessor chip — effectively doubling the CPU speed to ~10 MHz?",
+    "type": "multiple_choice",
+    "options": [
+      "Final Fantasy VI",
+      "Super Mario RPG",
+      "Chrono Trigger",
+      "Earthbound"
+    ],
+    "correctAnswer": "Super Mario RPG",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189081q14"
+  },
+  {
+    "question": "What was the development codename for the Nintendo 64 during its pre-release period?",
+    "type": "multiple_choice",
+    "options": [
+      "Dolphin",
+      "Project Reality",
+      "Ultra 64 Dev Kit",
+      "Revolution"
+    ],
+    "correctAnswer": "Project Reality",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189083m25"
+  },
+  {
+    "question": "Sonic & Knuckles introduced a 'lock-on' cartridge slot. Which game, when locked on, let players play as Knuckles in a previous title?",
+    "type": "multiple_choice",
+    "options": [
+      "Sonic the Hedgehog",
+      "Sonic the Hedgehog 2",
+      "Sonic CD",
+      "Sonic Spinball"
+    ],
+    "correctAnswer": "Sonic the Hedgehog 2",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189086s86"
+  },
+  {
+    "question": "The Atari Lynx, released in 1989, was notable for being the first handheld with which feature?",
+    "type": "multiple_choice",
+    "options": [
+      "Stereo sound",
+      "A colour backlit LCD screen",
+      "Wireless multiplayer",
+      "A built-in rechargeable battery"
+    ],
+    "correctAnswer": "A colour backlit LCD screen",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189088u81"
+  },
+  {
+    "question": "Which PC Engine/TurboGrafx-16 game is considered the first 'true' CD-ROM game when the PC Engine CD-ROM² add-on launched in 1988?",
+    "type": "multiple_choice",
+    "options": [
+      "Dungeon Explorer",
+      "Fighting Street",
+      "Ys Book I & II",
+      "Gate of Thunder"
+    ],
+    "correctAnswer": "Fighting Street",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189091e35"
+  },
+  {
+    "question": "How much Video RAM (VRAM) did the Sega Mega Drive contain?",
+    "type": "multiple_choice",
+    "options": [
+      "32 KB",
+      "48 KB",
+      "64 KB",
+      "128 KB"
+    ],
+    "correctAnswer": "64 KB",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189093v10"
+  },
+  {
+    "question": "Which Mega Drive game by Treasure features a two-player co-op shooter where characters can grab and throw each other as weapons?",
+    "type": "multiple_choice",
+    "options": [
+      "Contra: Hard Corps",
+      "Gunstar Heroes",
+      "Soldier of Fortune",
+      "Shinobi III"
+    ],
+    "correctAnswer": "Gunstar Heroes",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189096w36"
+  },
+  {
+    "question": "In Castlevania: Symphony of the Night, what percentage of the map must be explored to unlock the inverted castle?",
+    "type": "multiple_choice",
+    "options": [
+      "100%",
+      "Defeating Richter triggers it",
+      "80%",
+      "Finding all relics triggers it"
+    ],
+    "correctAnswer": "Defeating Richter triggers it",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189098v84"
+  },
+  {
+    "question": "What was the main CPU of the original Sony PlayStation?",
+    "type": "multiple_choice",
+    "options": [
+      "Motorola 68000 at 8 MHz",
+      "MIPS R3000A at 33.8688 MHz",
+      "Intel 80486 at 25 MHz",
+      "NEC V810 at 20 MHz"
+    ],
+    "correctAnswer": "MIPS R3000A at 33.8688 MHz",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189101a18"
+  },
+  {
+    "question": "Which SNES game holds the record for the largest official cartridge at 48 megabits, thanks to the S-DD1 decompression chip?",
+    "type": "multiple_choice",
+    "options": [
+      "Donkey Kong Country 2",
+      "Street Fighter Alpha 2",
+      "Tales of Phantasia",
+      "Star Ocean"
+    ],
+    "correctAnswer": "Star Ocean",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189103v41"
+  },
+  {
+    "question": "The original PlayStation was initially co-developed with Nintendo as a CD-ROM add-on for the Super Nintendo.",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189106a27"
+  },
+  {
+    "question": "The Sega Game Gear uses the same Z80 processor as the Sega Master System.",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189108i26"
+  },
+  {
+    "question": "The Neo Geo Pocket Color cartridges are compatible with the full-size Neo Geo AES home console.",
+    "type": "true_false",
+    "correctAnswer": "false",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189111a42"
+  },
+  {
+    "question": "Castlevania: Symphony of the Night was originally released for the Super Nintendo.",
+    "type": "true_false",
+    "correctAnswer": "false",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189113w15"
+  },
+  {
+    "question": "The SNES CPU runs at approximately 3.58 MHz under standard conditions.",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189116q60"
+  },
+  {
+    "question": "Donkey Kong Country on the SNES used pre-rendered 3D graphics created on Silicon Graphics workstations.",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189118p93"
+  },
+  {
+    "question": "The id Software game DOOM (1993) supported network multiplayer at launch.",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189121i88"
+  },
+  {
+    "question": "The Sega 32X add-on was able to play Sega CD games without any additional hardware.",
+    "type": "true_false",
+    "correctAnswer": "false",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189123m66"
+  },
+  {
+    "question": "In Castlevania, the Belmont family's iconic weapon used to defeat Dracula is called the ______.",
+    "type": "fill_blank",
+    "correctAnswer": "Vampire Killer",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189126a29"
+  },
+  {
+    "question": "In Donkey Kong Country, the two playable Kong characters are Donkey Kong and ______.",
+    "type": "fill_blank",
+    "correctAnswer": "Diddy Kong",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774407189129u69"
+  },
+  {
+    "question": "In Mega Man, the Blue Bomber's robotic dog companion is named ______.",
+    "type": "fill_blank",
+    "correctAnswer": "Rush",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774407189131q17"
+  },
+  {
+    "question": "In Street Fighter II, Ryu's iconic fireball projectile move is called the ______.",
+    "type": "fill_blank",
+    "correctAnswer": "Hadouken",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774407189134z93"
+  },
+  {
+    "question": "The 1993 id Software FPS that popularised the genre and featured UAC Mars bases was called ______.",
+    "type": "fill_blank",
+    "correctAnswer": "Doom",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774407189136p45"
+  },
+  {
+    "question": "The horse Link rides in The Legend of Zelda: Ocarina of Time is named ______.",
+    "type": "fill_blank",
+    "correctAnswer": "Epona",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774407189139l27"
+  },
+  {
+    "question": "In Final Fantasy VI (III in the West), the primary villain who destroys the world at the end of Act 1 is ______.",
+    "type": "fill_blank",
+    "correctAnswer": "Kefka",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189141m65"
+  },
+  {
+    "question": "The Sega Mega Drive action game about a superhero in a comic book world, developed by Sega, is called Comix ______.",
+    "type": "fill_blank",
+    "correctAnswer": "Zone",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774407189144z65"
+  },
+  {
+    "question": "Name the Nintendo handheld released in 1995 that used a red monochrome display and was discontinued within a year due to poor sales and health concerns.",
+    "type": "free_text",
+    "correctAnswer": "Virtual Boy",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189146o16"
+  },
+  {
+    "question": "What is the name of the add-on peripheral that could be attached to a Sega Mega Drive to add a 68000-based 32-bit processor and was used for FMV games?",
+    "type": "free_text",
+    "correctAnswer": "Sega CD",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189149o16"
+  },
+  {
+    "question": "Name the 1994 Rare-developed SNES platformer that starred a gorilla and introduced pre-rendered 3D graphics to home consoles.",
+    "type": "free_text",
+    "correctAnswer": "Donkey Kong Country",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774407189151n67"
+  },
+  {
+    "question": "What is the name of the weapon that Alucard uses as his default in Castlevania: Symphony of the Night?",
+    "type": "free_text",
+    "correctAnswer": "Alucard Sword",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189154p16"
+  },
+  {
+    "question": "Name the Sega Mega Drive game developed by Technosoft in 1991, considered one of the best shoot-em-ups on the platform, where you pilot the Fire Leo ship.",
+    "type": "free_text",
+    "correctAnswer": "Thunder Force III",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189156v32"
+  },
+  {
+    "question": "What is the subtitle of the NES Castlevania game released in 1987 where you explore Dracula's non-linear world and collect his body parts?",
+    "type": "free_text",
+    "correctAnswer": "Simon's Quest",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189159p30"
+  },
+  {
+    "question": "In what year did the PC Engine (TurboGrafx-16) launch in Japan?",
+    "type": "closest_wins",
+    "correctAnswer": 1987,
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189161a66"
+  },
+  {
+    "question": "In what year was Street Fighter II: The World Warrior first released in arcades?",
+    "type": "closest_wins",
+    "correctAnswer": 1991,
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774407189164a74"
+  },
+  {
+    "question": "How many kilobytes of Work RAM did the Sega Mega Drive / Genesis have?",
+    "type": "closest_wins",
+    "correctAnswer": 64,
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189166i81"
+  },
+  {
+    "question": "In what year did the Sega Saturn launch in Japan?",
+    "type": "closest_wins",
+    "correctAnswer": 1994,
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189169s39"
+  },
+  {
+    "question": "In what year was id Software's DOOM released?",
+    "type": "closest_wins",
+    "correctAnswer": 1993,
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774407189171r52"
+  },
+  {
+    "question": "Rank these Castlevania games by release year (oldest first):",
+    "type": "ranking",
+    "items": [
+      "Castlevania (NES)",
+      "Castlevania II: Simon's Quest",
+      "Castlevania III: Dracula's Curse",
+      "Super Castlevania IV"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189174n47"
+  },
+  {
+    "question": "Rank these Mega Drive / Genesis games by Japanese release year (oldest first):",
+    "type": "ranking",
+    "items": [
+      "Sonic the Hedgehog",
+      "Streets of Rage",
+      "Gunstar Heroes",
+      "Sonic & Knuckles"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189176h98"
+  },
+  {
+    "question": "Rank these home consoles by the amount of system RAM they contained (least to most):",
+    "type": "ranking",
+    "items": [
+      "Atari 2600 (128 bytes)",
+      "NES (2 KB)",
+      "SNES (128 KB)",
+      "PlayStation 1 (2 MB)"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189179f20"
+  },
+  {
+    "question": "Rank these Street Fighter games by original arcade release year (oldest first):",
+    "type": "ranking",
+    "items": [
+      "Street Fighter",
+      "Street Fighter II",
+      "Street Fighter Alpha",
+      "Street Fighter III"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189181m92"
+  },
+  {
+    "question": "Which handheld console did Sega release in 1990 to compete directly with the Nintendo Game Boy?",
+    "type": "speed_buzz",
+    "correctAnswer": "Game Gear",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774407189184l62"
+  },
+  {
+    "question": "In which Konami series do you play as a vampire-hunting family battling Dracula across multiple eras?",
+    "type": "speed_buzz",
+    "correctAnswer": "Castlevania",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774407189186s56"
+  },
+  {
+    "question": "Which retro game am I?\n• I was released in 1993 for MS-DOS as shareware\n• I was created by id Software\n• I popularised the first-person shooter genre\n• Players fight demons on Mars after a teleportation experiment goes wrong",
+    "type": "clue_chain",
+    "clues": [
+      "I was released in 1993 for MS-DOS as shareware",
+      "I was created by id Software",
+      "I popularised the first-person shooter genre",
+      "Players fight demons on Mars after a teleportation experiment goes wrong"
+    ],
+    "correctAnswer": "Doom",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774407189189o32"
+  },
+  {
+    "question": "Which retro console am I?\n• I was released by NEC and Hudson Soft in Japan in 1987\n• I used HuCard cartridges the size of a credit card\n• My North American name was TurboGrafx-16\n• I was the first console to support a CD-ROM add-on",
+    "type": "clue_chain",
+    "clues": [
+      "I was released by NEC and Hudson Soft in Japan in 1987",
+      "I used HuCard cartridges the size of a credit card",
+      "My North American name was TurboGrafx-16",
+      "I was the first console to support a CD-ROM add-on"
+    ],
+    "correctAnswer": "PC Engine",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774407189191u71"
   }
 ]
