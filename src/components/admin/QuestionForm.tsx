@@ -106,7 +106,7 @@ export default function QuestionForm({ initialValues, allCategories, onSubmit, s
   return (
     <form onSubmit={handleSubmit} className="space-y-5 max-w-2xl">
       {/* Row 1: Type, Category, Lang */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div>
           <label className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-1">Type</label>
           <select value={form.type} onChange={e => set('type', e.target.value)} className="w-full bg-white/5 border border-white/10 focus:border-indigo-500 text-white text-sm py-2.5 px-3 rounded-lg outline-none">
@@ -217,7 +217,7 @@ export default function QuestionForm({ initialValues, allCategories, onSubmit, s
       )}
 
       {t === 'closest_wins' && (
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <InputField label="Correct Answer (number)" value={form.correctAnswer} onChange={(v: number) => set('correctAnswer', v)} type="number" placeholder="42" />
           <InputField label="Unit (optional)" value={form.unit} onChange={(v: string) => set('unit', v)} placeholder="km, years…" />
         </div>
@@ -241,7 +241,7 @@ export default function QuestionForm({ initialValues, allCategories, onSubmit, s
       {t === 'music_guess' && (
         <>
           <InputField label="Deezer Search Query" value={form.deezerQuery} onChange={(v: string) => set('deezerQuery', v)} placeholder="bohemian rhapsody queen" />
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <InputField label="Song Title (correct answer)" value={form.correctAnswer} onChange={(v: string) => set('correctAnswer', v)} placeholder="Bohemian Rhapsody" />
             <InputField label="Artist" value={form.artist} onChange={(v: string) => set('artist', v)} placeholder="Queen" />
           </div>
@@ -282,7 +282,7 @@ export default function QuestionForm({ initialValues, allCategories, onSubmit, s
       )}
 
       {/* Common: Difficulty + Time limit */}
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className="block text-xs font-bold text-zinc-400 uppercase tracking-widest mb-2">Difficulty</label>
           <div className="flex gap-2">

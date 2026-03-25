@@ -52,7 +52,7 @@ export default function QuestionsPage() {
           placeholder="Search…"
           value={filters.search}
           onChange={e => setFilters(f => ({ ...f, search: e.target.value }))}
-          className="bg-white/5 border border-white/10 text-white placeholder-zinc-600 text-sm px-4 py-2 rounded-lg outline-none focus:border-indigo-500 w-56"
+          className="bg-white/5 border border-white/10 text-white placeholder-zinc-600 text-sm px-4 py-2 rounded-lg outline-none focus:border-indigo-500 w-full sm:w-56"
         />
         {[
           { key: 'lang', options: ['en', 'fr'], label: 'All langs' },
@@ -75,8 +75,33 @@ export default function QuestionsPage() {
         )}
       </div>
 
-      {/* Table */}
-      <div className="rounded-xl overflow-hidden border" style={{ borderColor: '#1f2035' }}>
+      {/* Mobile cards */}
+      <div className="md:hidden space-y-2">
+        {loading ? (
+          <p className="text-center text-zinc-600 py-8">Loading…</p>
+        ) : questions.length === 0 ? (
+          <p className="text-center text-zinc-600 py-8">No questions found</p>
+        ) : questions.map(q => (
+          <div key={`${q.id}-${q._lang}`} className="rounded-xl p-4 border" style={{ background: '#0f1117', borderColor: '#1f2035' }}>
+            <p className="text-zinc-300 text-sm mb-2 line-clamp-2">{q.question}</p>
+            <div className="flex flex-wrap gap-2 text-xs mb-3">
+              <span className="text-indigo-400 font-mono">{q.type}</span>
+              <span className={`font-bold ${q.difficulty === 'easy' ? 'text-emerald-400' : q.difficulty === 'medium' ? 'text-amber-400' : 'text-red-400'}`}>{q.difficulty}</span>
+              <span className="text-zinc-500 font-mono uppercase">{q._lang}</span>
+              <span className="text-zinc-500">{q.category}</span>
+            </div>
+            <div className="flex gap-4">
+              <Link href={`/admin/questions/${q.id}/edit?lang=${q._lang}&category=${q.category}`} className="text-indigo-400 hover:text-indigo-300 font-semibold text-xs">Edit</Link>
+              <button onClick={() => handleDelete(q)} disabled={deleting === q.id} className="text-red-500 hover:text-red-400 font-semibold text-xs disabled:opacity-40">
+                {deleting === q.id ? '…' : 'Delete'}
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop table */}
+      <div className="hidden md:block rounded-xl overflow-hidden border" style={{ borderColor: '#1f2035' }}>
         <table className="w-full text-sm">
           <thead>
             <tr style={{ background: '#0f1117', borderBottom: '1px solid #1f2035' }}>
@@ -95,27 +120,17 @@ export default function QuestionsPage() {
               <tr><td colSpan={6} className="px-4 py-8 text-center text-zinc-600">No questions found</td></tr>
             ) : questions.map(q => (
               <tr key={`${q.id}-${q._lang}`} style={{ borderBottom: '1px solid #1a1d2e' }} className="hover:bg-white/[0.02] transition-colors">
-                <td className="px-4 py-3 text-zinc-300 max-w-xs">
-                  <span className="line-clamp-1">{q.question}</span>
-                </td>
+                <td className="px-4 py-3 text-zinc-300 max-w-xs"><span className="line-clamp-1">{q.question}</span></td>
+                <td className="px-4 py-3"><span className="text-indigo-400 text-xs font-mono">{q.type}</span></td>
                 <td className="px-4 py-3">
-                  <span className="text-indigo-400 text-xs font-mono">{q.type}</span>
-                </td>
-                <td className="px-4 py-3">
-                  <span className={`text-xs font-bold ${q.difficulty === 'easy' ? 'text-emerald-400' : q.difficulty === 'medium' ? 'text-amber-400' : 'text-red-400'}`}>
-                    {q.difficulty}
-                  </span>
+                  <span className={`text-xs font-bold ${q.difficulty === 'easy' ? 'text-emerald-400' : q.difficulty === 'medium' ? 'text-amber-400' : 'text-red-400'}`}>{q.difficulty}</span>
                 </td>
                 <td className="px-4 py-3 text-zinc-500 text-xs font-mono uppercase">{q._lang}</td>
                 <td className="px-4 py-3 text-zinc-500 text-xs">{q.category}</td>
                 <td className="px-4 py-3">
                   <div className="flex items-center gap-3 justify-end">
                     <Link href={`/admin/questions/${q.id}/edit?lang=${q._lang}&category=${q.category}`} className="text-indigo-400 hover:text-indigo-300 font-semibold text-xs">Edit</Link>
-                    <button
-                      onClick={() => handleDelete(q)}
-                      disabled={deleting === q.id}
-                      className="text-red-500 hover:text-red-400 font-semibold text-xs disabled:opacity-40"
-                    >
+                    <button onClick={() => handleDelete(q)} disabled={deleting === q.id} className="text-red-500 hover:text-red-400 font-semibold text-xs disabled:opacity-40">
                       {deleting === q.id ? '…' : 'Delete'}
                     </button>
                   </div>

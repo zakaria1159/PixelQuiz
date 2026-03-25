@@ -481,7 +481,7 @@ export function SharedGameView({
           >
             {isFillBlankQuestion(question) ? (
               <p className="text-xl font-bold text-white text-center leading-relaxed">
-                {question.question.split('___').map((part, i, arr) => (
+                {question.question.replace(/_{3}(\s*_{3})*/g, '___').split('___').map((part, i, arr) => (
                   <React.Fragment key={i}>
                     {part}
                     {i < arr.length - 1 && (
