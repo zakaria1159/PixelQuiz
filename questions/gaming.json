@@ -2904,5 +2904,1204 @@
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189191u71"
+  },
+  {
+    "question": "What was the name of the very first Game & Watch title, released by Nintendo in April 1980?",
+    "type": "multiple_choice",
+    "options": [
+      "Fire",
+      "Ball",
+      "Parachute",
+      "Chef"
+    ],
+    "correctAnswer": "Ball",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742233p62"
+  },
+  {
+    "question": "Which Game & Watch title, released in 1982, was the first video game to feature a directional pad (D-pad)?",
+    "type": "multiple_choice",
+    "options": [
+      "Mickey Mouse",
+      "Donkey Kong",
+      "Mario Bros.",
+      "Popeye"
+    ],
+    "correctAnswer": "Donkey Kong",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742235x82"
+  },
+  {
+    "question": "Who designed the Game & Watch series at Nintendo?",
+    "type": "speed_buzz",
+    "correctAnswer": "Gunpei Yokoi",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742238e13"
+  },
+  {
+    "question": "The Game & Watch name referred to the fact that each unit was both a game and a ______.",
+    "type": "fill_blank",
+    "correctAnswer": "watch",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742240o72"
+  },
+  {
+    "question": "In what year was the first Game & Watch unit released?",
+    "type": "closest_wins",
+    "correctAnswer": 1980,
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742243r93"
+  },
+  {
+    "question": "Game & Watch units used what type of display technology?",
+    "type": "multiple_choice",
+    "options": [
+      "CRT",
+      "OLED",
+      "LCD",
+      "LED"
+    ],
+    "correctAnswer": "LCD",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742246w68"
+  },
+  {
+    "question": "The original Game Boy's model designation 'DMG' stands for what?",
+    "type": "multiple_choice",
+    "options": [
+      "Digital Mobile Gaming",
+      "Dot Matrix Game",
+      "Dual Mode Gear",
+      "Dynamic Mono Graphic"
+    ],
+    "correctAnswer": "Dot Matrix Game",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742248m20"
+  },
+  {
+    "question": "Which game was bundled with the Game Boy in North America and Europe at launch in 1989?",
+    "type": "multiple_choice",
+    "options": [
+      "Super Mario Land",
+      "Tetris",
+      "Alleyway",
+      "Baseball"
+    ],
+    "correctAnswer": "Tetris",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742251c57"
+  },
+  {
+    "question": "What Sharp/Nintendo hybrid CPU did the original Game Boy use, running at approximately 4.19 MHz?",
+    "type": "multiple_choice",
+    "options": [
+      "MOS 6502",
+      "Motorola 68000",
+      "Sharp LR35902",
+      "Zilog Z80"
+    ],
+    "correctAnswer": "Sharp LR35902",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742253q75"
+  },
+  {
+    "question": "How many shades of colour could the original Game Boy's display render?",
+    "type": "multiple_choice",
+    "options": [
+      "2",
+      "4",
+      "8",
+      "16"
+    ],
+    "correctAnswer": "4",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742256e28"
+  },
+  {
+    "question": "What was the US retail launch price of the original Game Boy in 1989?",
+    "type": "multiple_choice",
+    "options": [
+      "$69.99",
+      "$79.99",
+      "$89.99",
+      "$99.99"
+    ],
+    "correctAnswer": "$89.99",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742258y90"
+  },
+  {
+    "question": "Kirby's Dream Land, released in 1992 for Game Boy, was developed by which studio under Masahiro Sakurai?",
+    "type": "multiple_choice",
+    "options": [
+      "Intelligent Systems",
+      "HAL Laboratory",
+      "Rare",
+      "Camelot"
+    ],
+    "correctAnswer": "HAL Laboratory",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742261f63"
+  },
+  {
+    "question": "The Legend of Zelda: Link's Awakening on Game Boy was notable for being the first Zelda game without which character?",
+    "type": "multiple_choice",
+    "options": [
+      "Ganon",
+      "Princess Zelda",
+      "Impa",
+      "Both Ganon and Princess Zelda"
+    ],
+    "correctAnswer": "Both Ganon and Princess Zelda",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742263g59"
+  },
+  {
+    "question": "The Game Boy used how many AA batteries?",
+    "type": "multiple_choice",
+    "options": [
+      "2",
+      "4",
+      "6",
+      "8"
+    ],
+    "correctAnswer": "4",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742266x50"
+  },
+  {
+    "question": "In what year were Pokémon Red and Green first released in Japan for the Game Boy?",
+    "type": "closest_wins",
+    "correctAnswer": 1996,
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742268h44"
+  },
+  {
+    "question": "The Game Boy Camera accessory, released in 1998, could capture images at what resolution?",
+    "type": "multiple_choice",
+    "options": [
+      "64×48 pixels",
+      "128×112 pixels",
+      "160×144 pixels",
+      "256×224 pixels"
+    ],
+    "correctAnswer": "128×112 pixels",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742271i50"
+  },
+  {
+    "question": "Which Game Boy accessory allowed players to trade and battle Pokémon between two cartridges?",
+    "type": "fill_blank",
+    "correctAnswer": "Link Cable",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742273l10"
+  },
+  {
+    "question": "The Game Boy Pocket, released in 1996, was a slimmer redesign that required fewer batteries. How many did it use?",
+    "type": "multiple_choice",
+    "options": [
+      "1 AA",
+      "2 AAA",
+      "2 AA",
+      "4 AAA"
+    ],
+    "correctAnswer": "2 AAA",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742276q90"
+  },
+  {
+    "question": "The Game Boy Light was a backlit Japan-exclusive model released in 1998. True or false?",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742278d84"
+  },
+  {
+    "question": "How many AA batteries did the Sega Game Gear require?",
+    "type": "multiple_choice",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "8"
+    ],
+    "correctAnswer": "6",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742281a77"
+  },
+  {
+    "question": "Which accessory let Game Gear owners play Sega Master System cartridges on their handheld?",
+    "type": "multiple_choice",
+    "options": [
+      "Power Base Converter",
+      "Master Gear Converter",
+      "Game Gear Adapter",
+      "SMS Link"
+    ],
+    "correctAnswer": "Master Gear Converter",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742283z28"
+  },
+  {
+    "question": "The Game Gear's screen resolution was identical to the Game Boy at 160×144 pixels. True or false?",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742286j16"
+  },
+  {
+    "question": "The Game Gear launched in Japan in 1990 with approximately how many hours of battery life on 6 AA batteries?",
+    "type": "multiple_choice",
+    "options": [
+      "1–2 hours",
+      "3–5 hours",
+      "6–8 hours",
+      "8–10 hours"
+    ],
+    "correctAnswer": "3–5 hours",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742288l74"
+  },
+  {
+    "question": "Which Sega accessory could turn the Game Gear into a portable television set?",
+    "type": "free_text",
+    "correctAnswer": "TV Tuner",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742291h61"
+  },
+  {
+    "question": "The Game Gear's CPU ran at what clock speed?",
+    "type": "multiple_choice",
+    "options": [
+      "1.79 MHz",
+      "3.58 MHz",
+      "4.19 MHz",
+      "7.16 MHz"
+    ],
+    "correctAnswer": "3.58 MHz",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742293w18"
+  },
+  {
+    "question": "In what year was the Game Boy Color released?",
+    "type": "closest_wins",
+    "correctAnswer": 1998,
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742296t18"
+  },
+  {
+    "question": "How many simultaneous colors could the Game Boy Color display on screen?",
+    "type": "multiple_choice",
+    "options": [
+      "16",
+      "32",
+      "56",
+      "256"
+    ],
+    "correctAnswer": "56",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742298i51"
+  },
+  {
+    "question": "The Game Boy Color ran its CPU at double the original Game Boy's speed. What was its clock speed?",
+    "type": "multiple_choice",
+    "options": [
+      "4.19 MHz",
+      "6 MHz",
+      "8 MHz",
+      "16 MHz"
+    ],
+    "correctAnswer": "8 MHz",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742301g11"
+  },
+  {
+    "question": "Which RPG sequel released on Game Boy Color in 1999 introduced Day/Night cycles and breeding mechanics to the Pokémon series?",
+    "type": "multiple_choice",
+    "options": [
+      "Pokémon Yellow",
+      "Pokémon Gold and Silver",
+      "Pokémon Crystal",
+      "Pokémon Trading Card Game"
+    ],
+    "correctAnswer": "Pokémon Gold and Silver",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742303a95"
+  },
+  {
+    "question": "The Game Boy Color was backward compatible with original Game Boy cartridges. True or false?",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742306c39"
+  },
+  {
+    "question": "Which Konami stealth game received a Game Boy Color version in 2000, using top-down gameplay?",
+    "type": "multiple_choice",
+    "options": [
+      "Splinter Cell",
+      "Metal Gear Solid",
+      "Tenchu",
+      "Syphon Filter"
+    ],
+    "correctAnswer": "Metal Gear Solid",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742308j83"
+  },
+  {
+    "question": "The Game Boy Color had how much RAM compared to the original Game Boy?",
+    "type": "multiple_choice",
+    "options": [
+      "Same (8 KB)",
+      "Double (16 KB)",
+      "Quadruple (32 KB)",
+      "Eight times (64 KB)"
+    ],
+    "correctAnswer": "Quadruple (32 KB)",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742311g38"
+  },
+  {
+    "question": "What CPU architecture did the Game Boy Advance use?",
+    "type": "multiple_choice",
+    "options": [
+      "Z80",
+      "MIPS",
+      "ARM7TDMI",
+      "PowerPC"
+    ],
+    "correctAnswer": "ARM7TDMI",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742314h84"
+  },
+  {
+    "question": "The original Game Boy Advance (not SP) lacked which feature that frustrated players in dark environments?",
+    "type": "multiple_choice",
+    "options": [
+      "Stereo speakers",
+      "A backlit or frontlit screen",
+      "A headphone jack",
+      "Rumble support"
+    ],
+    "correctAnswer": "A backlit or frontlit screen",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742316l13"
+  },
+  {
+    "question": "The Game Boy Advance SP was released in 2003. What was its distinctive form factor?",
+    "type": "fill_blank",
+    "correctAnswer": "clamshell",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742318s61"
+  },
+  {
+    "question": "The GBA Micro, released in 2005, could NOT play which cartridge types?",
+    "type": "multiple_choice",
+    "options": [
+      "GBA cartridges",
+      "Game Boy and Game Boy Color cartridges",
+      "DS cartridges",
+      "NES cartridges"
+    ],
+    "correctAnswer": "Game Boy and Game Boy Color cartridges",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742321q27"
+  },
+  {
+    "question": "What was the screen resolution of the Game Boy Advance?",
+    "type": "multiple_choice",
+    "options": [
+      "160×144",
+      "240×160",
+      "256×192",
+      "320×240"
+    ],
+    "correctAnswer": "240×160",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742324p26"
+  },
+  {
+    "question": "Which GBA launch title featured isometric RPG gameplay and elemental Djinn mechanics?",
+    "type": "multiple_choice",
+    "options": [
+      "Final Fantasy Tactics Advance",
+      "Golden Sun",
+      "Breath of Fire",
+      "Advance Wars"
+    ],
+    "correctAnswer": "Golden Sun",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742326s29"
+  },
+  {
+    "question": "The GBA could play original Game Boy and Game Boy Color cartridges. True or false?",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742329v31"
+  },
+  {
+    "question": "In what year was the Game Boy Advance released in Japan?",
+    "type": "closest_wins",
+    "correctAnswer": 2001,
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742331x24"
+  },
+  {
+    "question": "Which Castlevania GBA title, released in 2001, directly continued the Metroidvania formula of Symphony of the Night?",
+    "type": "multiple_choice",
+    "options": [
+      "Harmony of Dissonance",
+      "Aria of Sorrow",
+      "Circle of the Moon",
+      "Dawn of Sorrow"
+    ],
+    "correctAnswer": "Circle of the Moon",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742334c83"
+  },
+  {
+    "question": "The Nintendo DS contained two CPUs. Which pair of processors powered it?",
+    "type": "multiple_choice",
+    "options": [
+      "Two ARM9 cores",
+      "ARM9 at 67 MHz + ARM7 at 33 MHz",
+      "ARM11 + ARM9",
+      "MIPS + ARM9"
+    ],
+    "correctAnswer": "ARM9 at 67 MHz + ARM7 at 33 MHz",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742336j42"
+  },
+  {
+    "question": "What was the screen resolution of each Nintendo DS screen?",
+    "type": "multiple_choice",
+    "options": [
+      "160×144",
+      "240×160",
+      "256×192",
+      "320×240"
+    ],
+    "correctAnswer": "256×192",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742338k27"
+  },
+  {
+    "question": "The Nintendo DS was the best-selling dedicated handheld gaming device of all time. Approximately how many units were sold across all DS variants?",
+    "type": "closest_wins",
+    "correctAnswer": 154,
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742341y61"
+  },
+  {
+    "question": "Which Nintendo DS game sold over 30 million copies and became the system's best-selling title?",
+    "type": "multiple_choice",
+    "options": [
+      "Pokémon Diamond and Pearl",
+      "Brain Age",
+      "Mario Kart DS",
+      "New Super Mario Bros."
+    ],
+    "correctAnswer": "New Super Mario Bros.",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742343r22"
+  },
+  {
+    "question": "The DSi, released in 2008, removed the Slot-2 (GBA cartridge slot) and added two cameras. True or false?",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742346n49"
+  },
+  {
+    "question": "The Nintendo DS's lower screen was a ______ display, allowing players to interact directly.",
+    "type": "fill_blank",
+    "correctAnswer": "touchscreen",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742348q42"
+  },
+  {
+    "question": "Which Nintendo DS game used the microphone to blow out candles and was one of the system's launch titles?",
+    "type": "multiple_choice",
+    "options": [
+      "Nintendogs",
+      "Feel the Magic: XY/XX",
+      "Meteos",
+      "WarioWare: Touched!"
+    ],
+    "correctAnswer": "Feel the Magic: XY/XX",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742351t19"
+  },
+  {
+    "question": "The original Nintendo DS launched in North America in November 2004. What was it originally called before the final name was revealed?",
+    "type": "multiple_choice",
+    "options": [
+      "Nintendo DS (always)",
+      "Project Nitro",
+      "Game Boy DS",
+      "Nintendo Twin"
+    ],
+    "correctAnswer": "Project Nitro",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742353w35"
+  },
+  {
+    "question": "Pokémon Diamond and Pearl introduced the Nintendo DS online trading feature called the Global ______.",
+    "type": "fill_blank",
+    "correctAnswer": "Trade Station",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742356i91"
+  },
+  {
+    "question": "The DS Lite, released in June 2006, was slimmer and lighter. It retained the GBA Slot-2 cartridge slot. True or false?",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742358u49"
+  },
+  {
+    "question": "Which DS game by Atlus became one of the most acclaimed JRPGs on the platform, featuring characters who must survive a 7-day game in Shibuya?",
+    "type": "multiple_choice",
+    "options": [
+      "Radiant Historia",
+      "The World Ends With You",
+      "Chrono Trigger DS",
+      "Dragon Quest IX"
+    ],
+    "correctAnswer": "The World Ends With You",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742361f97"
+  },
+  {
+    "question": "Brain Age: Train Your Brain in Minutes a Day was developed under the supervision of which Japanese neuroscientist?",
+    "type": "multiple_choice",
+    "options": [
+      "Satoru Iwata",
+      "Ryuta Kawashima",
+      "Shigeru Miyamoto",
+      "Masahiro Sakurai"
+    ],
+    "correctAnswer": "Ryuta Kawashima",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742363d47"
+  },
+  {
+    "question": "The Nintendo DS used which wireless protocol for local multiplayer?",
+    "type": "multiple_choice",
+    "options": [
+      "Bluetooth",
+      "802.11b Wi-Fi",
+      "Infrared",
+      "Proprietary RF"
+    ],
+    "correctAnswer": "802.11b Wi-Fi",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742366m43"
+  },
+  {
+    "question": "What display innovation did the Nintendo 3DS introduce without requiring special glasses?",
+    "type": "fill_blank",
+    "correctAnswer": "glasses-free 3D",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742369u69"
+  },
+  {
+    "question": "In what year was the Nintendo 3DS released in Japan?",
+    "type": "closest_wins",
+    "correctAnswer": 2011,
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742371x45"
+  },
+  {
+    "question": "Which 3DS game is widely credited with saving the Fire Emblem franchise from cancellation due to poor sales of previous entries?",
+    "type": "multiple_choice",
+    "options": [
+      "Fire Emblem Fates",
+      "Fire Emblem: Shadow Dragon",
+      "Fire Emblem: Awakening",
+      "Fire Emblem Warriors"
+    ],
+    "correctAnswer": "Fire Emblem: Awakening",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742374p96"
+  },
+  {
+    "question": "The New Nintendo 3DS, released in 2014 in Japan, added which additional analog input?",
+    "type": "multiple_choice",
+    "options": [
+      "A second full circle pad",
+      "A C-Stick nub above the face buttons",
+      "Two extra shoulder triggers",
+      "A gyroscope joystick"
+    ],
+    "correctAnswer": "A C-Stick nub above the face buttons",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742376j29"
+  },
+  {
+    "question": "The 2DS, released in 2013, was a budget variant of the 3DS that removed the 3D screen and the ______ form factor.",
+    "type": "fill_blank",
+    "correctAnswer": "clamshell",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742379h24"
+  },
+  {
+    "question": "Which 3DS launch title featured Kid Icarus's Pit in a fast-paced third-person shooter designed by Masahiro Sakurai?",
+    "type": "multiple_choice",
+    "options": [
+      "Star Fox 64 3D",
+      "Kid Icarus: Uprising",
+      "Super Mario 3D Land",
+      "Pilotwings Resort"
+    ],
+    "correctAnswer": "Kid Icarus: Uprising",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742381v49"
+  },
+  {
+    "question": "The Nintendo 3DS was region-locked, preventing cartridges from other regions from being played. True or false?",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742384o73"
+  },
+  {
+    "question": "Which Nintendo 3DS game featuring anthropomorphic animals and a quiet village life sold over 12 million copies on the system?",
+    "type": "multiple_choice",
+    "options": [
+      "Animal Crossing: New Leaf",
+      "Tomodachi Life",
+      "Animal Crossing: Happy Home Designer",
+      "Nintendogs + Cats"
+    ],
+    "correctAnswer": "Animal Crossing: New Leaf",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742386l81"
+  },
+  {
+    "question": "The New Nintendo 3DS added support for which Nintendo figure-scanning technology?",
+    "type": "fill_blank",
+    "correctAnswer": "amiibo",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742388n54"
+  },
+  {
+    "question": "Approximately how many 3DS units (all variants) were sold worldwide?",
+    "type": "closest_wins",
+    "correctAnswer": 76,
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742391v36"
+  },
+  {
+    "question": "Which monster-hunting franchise became a massive system seller for the 3DS in Japan, with Monster Hunter 4 Ultimate?",
+    "type": "multiple_choice",
+    "options": [
+      "Toukiden",
+      "Soul Sacrifice",
+      "Monster Hunter",
+      "God Eater"
+    ],
+    "correctAnswer": "Monster Hunter",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742393j74"
+  },
+  {
+    "question": "Pokémon X and Y, released in 2013, were the first mainline Pokémon games rendered entirely in ______.",
+    "type": "fill_blank",
+    "correctAnswer": "3D",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742396z70"
+  },
+  {
+    "question": "What optical disc format did the PSP use for its game media?",
+    "type": "multiple_choice",
+    "options": [
+      "Mini DVD",
+      "UMD",
+      "Blu-ray mini",
+      "GD-ROM mini"
+    ],
+    "correctAnswer": "UMD",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742398k66"
+  },
+  {
+    "question": "In what year did the PSP launch in Japan?",
+    "type": "closest_wins",
+    "correctAnswer": 2004,
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742401n70"
+  },
+  {
+    "question": "What was the screen size of the PSP?",
+    "type": "multiple_choice",
+    "options": [
+      "3.8 inches",
+      "4.3 inches",
+      "5.0 inches",
+      "4.7 inches"
+    ],
+    "correctAnswer": "4.3 inches",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742403b23"
+  },
+  {
+    "question": "Which PSP model removed the UMD drive entirely and sold games exclusively through digital download?",
+    "type": "multiple_choice",
+    "options": [
+      "PSP-2000",
+      "PSP-3000",
+      "PSP Go",
+      "PSP Street"
+    ],
+    "correctAnswer": "PSP Go",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742406p77"
+  },
+  {
+    "question": "Which Monster Hunter title became one of the best-selling PSP games in Japan, selling over 4 million copies domestically?",
+    "type": "multiple_choice",
+    "options": [
+      "Monster Hunter Freedom",
+      "Monster Hunter Portable 3rd",
+      "Monster Hunter Freedom Unite",
+      "Monster Hunter Tri"
+    ],
+    "correctAnswer": "Monster Hunter Freedom Unite",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742408e53"
+  },
+  {
+    "question": "Crisis Core: Final Fantasy VII on PSP was a prequel focusing on which character's story?",
+    "type": "multiple_choice",
+    "options": [
+      "Sephiroth",
+      "Cloud Strife",
+      "Zack Fair",
+      "Aerith Gainsborough"
+    ],
+    "correctAnswer": "Zack Fair",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742411r84"
+  },
+  {
+    "question": "The PSP used a MIPS-based CPU. What was its maximum clock speed?",
+    "type": "multiple_choice",
+    "options": [
+      "166 MHz",
+      "222 MHz",
+      "333 MHz",
+      "444 MHz"
+    ],
+    "correctAnswer": "333 MHz",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742413t35"
+  },
+  {
+    "question": "Dissidia Final Fantasy, a fighting/RPG hybrid for PSP, featured heroes and villains from how many Final Fantasy titles?",
+    "type": "multiple_choice",
+    "options": [
+      "8",
+      "10",
+      "12",
+      "13"
+    ],
+    "correctAnswer": "10",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742416j65"
+  },
+  {
+    "question": "The PSP Go, released in 2009, used a slide-out form factor and stored games on internal flash memory. True or false?",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742418a69"
+  },
+  {
+    "question": "Which PSP game was the first God of War title on a handheld, released in 2008?",
+    "type": "free_text",
+    "correctAnswer": "God of War: Chains of Olympus",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742421f23"
+  },
+  {
+    "question": "The PSP could act as a second screen and controller for which Sony home console via Remote Play?",
+    "type": "multiple_choice",
+    "options": [
+      "PlayStation 2",
+      "PlayStation 3",
+      "PlayStation 4",
+      "Both PS3 and PS4"
+    ],
+    "correctAnswer": "PlayStation 3",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742423l82"
+  },
+  {
+    "question": "GTA: Liberty City Stories was originally a PSP exclusive before being ported to PS2. The city in the game was a reimagining of which GTA III setting?",
+    "type": "free_text",
+    "correctAnswer": "Liberty City",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742426d70"
+  },
+  {
+    "question": "The original PS Vita (PCH-1000) used what type of display panel?",
+    "type": "multiple_choice",
+    "options": [
+      "IPS LCD",
+      "TN LCD",
+      "OLED",
+      "AMOLED"
+    ],
+    "correctAnswer": "OLED",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742428d20"
+  },
+  {
+    "question": "The PS Vita Slim (PCH-2000) replaced the OLED screen with which display technology?",
+    "type": "multiple_choice",
+    "options": [
+      "AMOLED",
+      "E-Ink",
+      "IPS LCD",
+      "TN LCD"
+    ],
+    "correctAnswer": "IPS LCD",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742431g96"
+  },
+  {
+    "question": "The PS Vita used proprietary memory cards that were notorious for being expensive. True or false?",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742433c81"
+  },
+  {
+    "question": "Which PS Vita launch title, developed by Guerrilla Cambridge, was a handheld first-person shooter set in the Killzone universe?",
+    "type": "multiple_choice",
+    "options": [
+      "Resistance: Burning Skies",
+      "Killzone: Mercenary",
+      "Unit 13",
+      "SOCOM: Fireteam Bravo"
+    ],
+    "correctAnswer": "Killzone: Mercenary",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742436o66"
+  },
+  {
+    "question": "Which PS Vita game, a PS3 port published by Atlus, is widely considered the definitive version of the game and one of the best RPGs on the system?",
+    "type": "multiple_choice",
+    "options": [
+      "Persona 3 Portable",
+      "Persona 4 Golden",
+      "Persona 5 Royal",
+      "Catherine"
+    ],
+    "correctAnswer": "Persona 4 Golden",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742438e16"
+  },
+  {
+    "question": "Gravity Rush (Gravity Daze in Japan) was a PS Vita exclusive that let players control gravity. Who developed it?",
+    "type": "multiple_choice",
+    "options": [
+      "Naughty Dog",
+      "Japan Studio / Project Siren",
+      "Media Molecule",
+      "Bend Studio"
+    ],
+    "correctAnswer": "Japan Studio / Project Siren",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742441f62"
+  },
+  {
+    "question": "The PS Vita was the first PlayStation handheld to feature dual analog sticks. True or false?",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742443u49"
+  },
+  {
+    "question": "In what year did the PS Vita launch in Japan?",
+    "type": "closest_wins",
+    "correctAnswer": 2011,
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742446c52"
+  },
+  {
+    "question": "The PS Vita featured a rear touch panel in addition to its front touchscreen. True or false?",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742448g75"
+  },
+  {
+    "question": "Tearaway, a craft-paper platformer made exclusively for PS Vita, was developed by which studio known for LittleBigPlanet?",
+    "type": "multiple_choice",
+    "options": [
+      "Guerrilla Games",
+      "Media Molecule",
+      "Naughty Dog",
+      "Santa Monica Studio"
+    ],
+    "correctAnswer": "Media Molecule",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742450b84"
+  },
+  {
+    "question": "Rank these Nintendo handhelds by release year in Japan (oldest first):",
+    "type": "ranking",
+    "items": [
+      "Game Boy",
+      "Game Boy Color",
+      "Game Boy Advance",
+      "Nintendo DS"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742453o12"
+  },
+  {
+    "question": "Rank these Sony and Nintendo handhelds by launch year (oldest first):",
+    "type": "ranking",
+    "items": [
+      "Game Boy Advance",
+      "PSP",
+      "Nintendo DS",
+      "PS Vita"
+    ],
+    "correctOrder": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742455j41"
+  },
+  {
+    "question": "Rank these handheld consoles by approximate total units sold worldwide (least to most):",
+    "type": "ranking",
+    "items": [
+      "PS Vita (~15M)",
+      "3DS (~76M)",
+      "PSP (~80M)",
+      "Nintendo DS (~154M)"
+    ],
+    "correctOrder": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742458p46"
+  },
+  {
+    "question": "Which came first: the Sega Game Gear or the Atari Lynx?",
+    "type": "multiple_choice",
+    "options": [
+      "They launched the same year (1989)",
+      "Atari Lynx (1989) came before Game Gear (1990)",
+      "Game Gear (1989) came before Atari Lynx (1990)",
+      "Atari Lynx (1990) came before Game Gear (1991)"
+    ],
+    "correctAnswer": "Atari Lynx (1989) came before Game Gear (1990)",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742460y73"
+  },
+  {
+    "question": "Which is the only handheld in this list that required no batteries and had its own built-in power source? (Answer: none — all required external power or charging)",
+    "type": "true_false",
+    "correctAnswer": "false",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742462f66"
+  },
+  {
+    "question": "The Nintendo DS 'Slot-2' allowed players to insert Game Boy Advance cartridges to unlock bonus content in some DS games. True or false?",
+    "type": "true_false",
+    "correctAnswer": "true",
+    "difficulty": "medium",
+    "category": "gaming",
+    "id": "ga1774409742465u86"
+  },
+  {
+    "question": "Name the Nintendo portable released in 1989 that featured a lime-green tinted screen and went on to sell over 118 million units across all variants.",
+    "type": "clue_chain",
+    "clues": [
+      "Released in 1989, designed by Gunpei Yokoi",
+      "Screen displayed 4 shades on a greenish LCD",
+      "Tetris was bundled with it in Western markets",
+      "Its model designation was DMG-01"
+    ],
+    "correctAnswer": "Game Boy",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742467w86"
+  },
+  {
+    "question": "Which handheld am I?\n• I was Sony's first handheld game console\n• I used UMD discs for games\n• My screen measured 4.3 inches\n• I launched in Japan in December 2004",
+    "type": "clue_chain",
+    "clues": [
+      "I was Sony's first handheld game console",
+      "I used UMD discs for games",
+      "My screen measured 4.3 inches",
+      "I launched in Japan in December 2004"
+    ],
+    "correctAnswer": "PSP",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742470o96"
+  },
+  {
+    "question": "The PSP's full name stands for PlayStation ______.",
+    "type": "fill_blank",
+    "correctAnswer": "Portable",
+    "difficulty": "easy",
+    "category": "gaming",
+    "id": "ga1774409742472t61"
+  },
+  {
+    "question": "The original Game Boy launched in Japan on April 21, 1989. What was bundled with Japanese Game Boys at launch instead of Tetris?",
+    "type": "multiple_choice",
+    "options": [
+      "Tetris",
+      "Super Mario Land",
+      "Alleyway",
+      "Baseball"
+    ],
+    "correctAnswer": "Super Mario Land",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409742475i65"
+  },
+  {
+    "question": "The Sega Nomad, released in 1995, was a handheld version of which home console that could play its cartridges natively?",
+    "type": "multiple_choice",
+    "options": [
+      "Sega Master System",
+      "Sega Mega Drive / Genesis",
+      "Sega Saturn",
+      "Sega 32X"
+    ],
+    "correctAnswer": "Sega Mega Drive / Genesis",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409754693q54"
+  },
+  {
+    "question": "The Nintendo DS lite was slimmer than the original DS and retained backward compatibility with GBA games via its Slot-2. How much lighter was the DS Lite compared to the original DS?",
+    "type": "multiple_choice",
+    "options": [
+      "About 10% lighter",
+      "About 21% lighter",
+      "About 33% lighter",
+      "About 50% lighter"
+    ],
+    "correctAnswer": "About 21% lighter",
+    "difficulty": "hard",
+    "category": "gaming",
+    "id": "ga1774409754695l19"
   }
 ]
