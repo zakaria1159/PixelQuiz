@@ -236,7 +236,13 @@ export const useGame = (options: UseGameOptions = {}) => {
       timeLimit: number
     }) => {
       console.log('🎯 Question started:', data.questionIndex + 1, 'of', data.totalQuestions)
-      setQuestionScores(null) // clear between-question screen
+      // Update gameState FIRST so any re-render triggered by later setters sees the correct
+      // status and question — prevents a flash of the previous question's reveal UI
+      const current = useGameStore.getState().gameState
+      if (current) {
+        setGameState({ ...current, gameStatus: 'question', currentQuestion: data.question, currentQuestionIndex: data.questionIndex })
+      }
+      setQuestionScores(null) // clear between-question screen (after gameState update)
       setCurrentQuestion(data.question)
       setQuestionIndex(data.questionIndex)
       setTotalQuestions(data.totalQuestions)
@@ -244,11 +250,6 @@ export const useGame = (options: UseGameOptions = {}) => {
       setQuestionStartTime(Date.now())
       setAnsweredPlayers([])
       setReadyPlayers(prev => ({ ...prev, [data.questionIndex]: [] }))
-      // Ensure gameStatus transitions to 'question' (it may be 'starting' for first question)
-      const current = useGameStore.getState().gameState
-      if (current && current.gameStatus !== 'question') {
-        setGameState({ ...current, gameStatus: 'question', currentQuestion: data.question, currentQuestionIndex: data.questionIndex })
-      }
     })
 
     // Question results

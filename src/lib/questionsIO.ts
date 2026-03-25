@@ -60,7 +60,7 @@ export function getQuestions(filters: QuestionFilter = {}): any[] {
   for (const lang of langs) {
     const categories = filters.category ? [filters.category] : getCategories(lang)
     for (const cat of categories) {
-      const qs = readCategory(cat, lang).map(q => ({ ...q, _lang: lang }))
+      const qs = readCategory(cat, lang).map(q => ({ ...q, category: q.category || cat, _lang: lang }))
       results.push(...qs)
     }
   }
@@ -93,7 +93,7 @@ export function getQuestion(id: string, lang?: 'en' | 'fr'): { question: any; la
 export function createQuestion(question: any, lang: 'en' | 'fr', category: string): any {
   if (!isValidCategory(category, lang)) throw new Error(`Invalid category: ${category}`)
   const id = `${category.slice(0, 2)}${Date.now()}${Math.random().toString(36).slice(2, 5)}`
-  const newQ = { ...question, id }
+  const newQ = { ...question, id, category }
   delete newQ._lang
   const qs = readCategory(category, lang)
   qs.push(newQ)

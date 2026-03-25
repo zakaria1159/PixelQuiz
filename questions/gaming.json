@@ -709,7 +709,7 @@
     "type": "pixel_reveal",
     "category": "gaming",
     "question": "Which video game character is this?",
-    "imageUrl": "/quiz-images/pixel/gaming-kratos.jpg",
+    "imageUrl": "/quiz-images/gaming-kratos.jpg",
     "correctAnswer": "Kratos",
     "acceptableAnswers": [
       "kratos",
@@ -725,7 +725,7 @@
     "type": "pixel_reveal",
     "category": "gaming",
     "question": "Which video game character is this?",
-    "imageUrl": "/quiz-images/pixel/gaming-geralt.jpg",
+    "imageUrl": "/quiz-images/gaming-geralt.jpg",
     "correctAnswer": "Geralt of Rivia",
     "acceptableAnswers": [
       "geralt",
@@ -856,49 +856,6 @@
     "explanation": "Donkey Kong is Nintendo's giant gorilla, first appearing as the villain of the 1981 arcade game. He later became the hero of his own platformer series."
   },
   {
-    "id": "as_gam_2",
-    "type": "animal_sound",
-    "category": "gaming",
-    "question": "Which primate makes this sound?",
-    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/5/56/Pant-hoot_call_made_by_a_male_chimpanzee.ogg",
-    "correctAnswer": "Chimpanzee",
-    "acceptableAnswers": [
-      "Chimpanzee",
-      "Chimp",
-      "Monkey"
-    ],
-    "difficulty": "medium",
-    "timeLimit": 20
-  },
-  {
-    "id": "as_gam_7",
-    "type": "animal_sound",
-    "category": "gaming",
-    "question": "Which venomous snake makes this rattling sound?",
-    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/2/22/Rattlesnake.ogg",
-    "correctAnswer": "Rattlesnake",
-    "acceptableAnswers": [
-      "Rattlesnake",
-      "Diamondback rattlesnake"
-    ],
-    "difficulty": "medium",
-    "timeLimit": 20
-  },
-  {
-    "id": "as_gam_9",
-    "type": "animal_sound",
-    "category": "gaming",
-    "question": "Which animal makes this sound?",
-    "audioUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Bellender_Fuchs.ogg",
-    "correctAnswer": "Fox",
-    "acceptableAnswers": [
-      "Fox",
-      "Red fox"
-    ],
-    "difficulty": "medium",
-    "timeLimit": 20
-  },
-  {
     "id": "mg_gam_1",
     "type": "music_guess",
     "category": "gaming",
@@ -1010,108 +967,6 @@
     "difficulty": "medium",
     "timeLimit": 20,
     "explanation": "Fortnite, released by Epic Games in 2017, popularised the battle royale genre and has attracted over 350 million registered players worldwide."
-  },
-  {
-    "id": "fg_gam_1",
-    "type": "flag_guess",
-    "category": "gaming",
-    "question": "Which country does this flag belong to?",
-    "countryCode": "jp",
-    "correctAnswer": "Japan",
-    "acceptableAnswers": [
-      "Japan"
-    ],
-    "difficulty": "easy",
-    "timeLimit": 15,
-    "explanation": "Japan is home to Nintendo, Sony PlayStation, Capcom, Konami, Square Enix and Bandai Namco — arguably the world's most influential gaming nation."
-  },
-  {
-    "id": "fg_gam_2",
-    "type": "flag_guess",
-    "category": "gaming",
-    "question": "Which country does this flag belong to?",
-    "countryCode": "kr",
-    "correctAnswer": "South Korea",
-    "acceptableAnswers": [
-      "South Korea",
-      "Korea"
-    ],
-    "difficulty": "medium",
-    "timeLimit": 15,
-    "explanation": "South Korea is the global capital of esports, home to the world's top StarCraft, League of Legends and Overwatch teams and players."
-  },
-  {
-    "id": "fg_gam_3",
-    "type": "flag_guess",
-    "category": "gaming",
-    "question": "Which country does this flag belong to?",
-    "countryCode": "se",
-    "correctAnswer": "Sweden",
-    "acceptableAnswers": [
-      "Sweden"
-    ],
-    "difficulty": "medium",
-    "timeLimit": 15,
-    "explanation": "Sweden punches above its weight in gaming, producing Minecraft (Mojang), Battlefield (DICE), Candy Crush (King) and several top esports organisations."
-  },
-  {
-    "id": "fg_gam_4",
-    "type": "flag_guess",
-    "category": "gaming",
-    "question": "Which country does this flag belong to?",
-    "countryCode": "fi",
-    "correctAnswer": "Finland",
-    "acceptableAnswers": [
-      "Finland"
-    ],
-    "difficulty": "medium",
-    "timeLimit": 15,
-    "explanation": "Finland is home to Rovio (Angry Birds) and Supercell (Clash of Clans, Brawl Stars), two of the most successful mobile gaming companies in the world."
-  },
-  {
-    "id": "fg_gam_5",
-    "type": "flag_guess",
-    "category": "gaming",
-    "question": "Which country does this flag belong to?",
-    "countryCode": "fr",
-    "correctAnswer": "France",
-    "acceptableAnswers": [
-      "France"
-    ],
-    "difficulty": "easy",
-    "timeLimit": 15,
-    "explanation": "France is home to Ubisoft (Assassin's Creed, Far Cry, Watch Dogs) and Infogrames, making it one of Europe's leading video game development hubs."
-  },
-  {
-    "id": "fg_gam_6",
-    "type": "flag_guess",
-    "category": "gaming",
-    "question": "Which country does this flag belong to?",
-    "countryCode": "cn",
-    "correctAnswer": "China",
-    "acceptableAnswers": [
-      "China"
-    ],
-    "difficulty": "easy",
-    "timeLimit": 15,
-    "explanation": "China is the world's largest gaming market by revenue and is home to Tencent, the world's biggest gaming company, which owns stakes in Riot Games, Epic and Supercell."
-  },
-  {
-    "id": "fg_gam_7",
-    "type": "flag_guess",
-    "category": "gaming",
-    "question": "Which country does this flag belong to?",
-    "countryCode": "us",
-    "correctAnswer": "United States",
-    "acceptableAnswers": [
-      "United States",
-      "USA",
-      "United States of America",
-      "America"
-    ],
-    "difficulty": "easy",
-    "timeLimit": 15,
-    "explanation": "The US is home to major studios including Blizzard, EA, Rockstar Games, Naughty Dog and Bungie, and hosts events like E3 and The Game Awards."
   },
   {
     "id": "gm_mc6",
