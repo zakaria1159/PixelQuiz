@@ -8,6 +8,7 @@
     "start": "next start",
     "server": "node server.js",
     "dev:server": "nodemon server.js",
+    "validate": "node scripts/validate-questions.js",
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
@@ -15,6 +16,7 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.79.0",
+    "@supabase/supabase-js": "^2.100.0",
     "clsx": "^2.0.0",
     "cors": "^2.8.5",
     "dotenv": "^17.3.1",

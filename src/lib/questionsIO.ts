@@ -1,47 +1,35 @@
-import fs from 'fs'
-import path from 'path'
+import { createClient, SupabaseClient } from '@supabase/supabase-js'
 
-const QUESTIONS_DIR = path.join(process.cwd(), 'questions')
-
-// Returns the file path for a given category + language
-function filePath(category: string, lang: 'en' | 'fr'): string {
-  return lang === 'fr'
-    ? path.join(QUESTIONS_DIR, 'fr', `${category}.json`)
-    : path.join(QUESTIONS_DIR, `${category}.json`)
+function getClient(): SupabaseClient {
+  const url = process.env.SUPABASE_URL
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY
+  if (!url || !key) throw new Error('Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY')
+  return createClient(url, key)
 }
 
-// Validate that a category string is safe (exists as a JSON file in the dir)
-function isValidCategory(category: string, lang: 'en' | 'fr'): boolean {
-  const allowed = getCategories(lang)
-  return allowed.includes(category)
-}
-
-// List all categories available for a language (from filesystem)
-export function getCategories(lang: 'en' | 'fr'): string[] {
-  const dir = lang === 'fr' ? path.join(QUESTIONS_DIR, 'fr') : QUESTIONS_DIR
-  if (!fs.existsSync(dir)) return []
-  return fs
-    .readdirSync(dir)
-    .filter(f => f.endsWith('.json'))
-    .map(f => f.replace('.json', ''))
-    .sort()
-}
-
-// Read all questions from a category file
-function readCategory(category: string, lang: 'en' | 'fr'): any[] {
-  const fp = filePath(category, lang)
-  if (!fs.existsSync(fp)) return []
-  try {
-    return JSON.parse(fs.readFileSync(fp, 'utf8'))
-  } catch {
-    return []
+// Maps a DB row back to the flat question shape the rest of the app expects
+function rowToQuestion(row: any): any {
+  const { id, lang, category, type, question, difficulty, time_limit, explanation, data } = row
+  return {
+    id,
+    _lang: lang,
+    category,
+    type,
+    question,
+    difficulty,
+    timeLimit: time_limit,
+    ...(explanation != null ? { explanation } : {}),
+    ...data,
   }
 }
 
-// Write all questions back to a category file
-function writeCategory(category: string, lang: 'en' | 'fr', questions: any[]): void {
-  const fp = filePath(category, lang)
-  fs.writeFileSync(fp, JSON.stringify(questions, null, 2), 'utf8')
+// Splits a flat question object into common columns + type-specific data blob
+function splitQuestion(q: any): { common: Record<string, any>; data: Record<string, any> } {
+  const { id, _lang, category, type, question, difficulty, timeLimit, explanation, ...rest } = q
+  return {
+    common: { id, category, type, question, difficulty, time_limit: timeLimit, explanation: explanation ?? null },
+    data: rest,
+  }
 }
 
 export interface QuestionFilter {
@@ -52,79 +40,104 @@ export interface QuestionFilter {
   search?: string
 }
 
-// List questions with optional filters
-export function getQuestions(filters: QuestionFilter = {}): any[] {
-  const langs: Array<'en' | 'fr'> = filters.lang ? [filters.lang] : ['en', 'fr']
-  const results: any[] = []
-
-  for (const lang of langs) {
-    const categories = filters.category ? [filters.category] : getCategories(lang)
-    for (const cat of categories) {
-      const qs = readCategory(cat, lang).map(q => ({ ...q, category: q.category || cat, _lang: lang }))
-      results.push(...qs)
-    }
-  }
-
-  return results.filter(q => {
-    if (filters.type && q.type !== filters.type) return false
-    if (filters.difficulty && q.difficulty !== filters.difficulty) return false
-    if (filters.search) {
-      const s = filters.search.toLowerCase()
-      if (!q.question?.toLowerCase().includes(s)) return false
-    }
-    return true
-  })
+export async function getCategories(lang: 'en' | 'fr'): Promise<string[]> {
+  const { data, error } = await getClient()
+    .from('questions')
+    .select('category')
+    .eq('lang', lang)
+  if (error || !data) return []
+  return [...new Set(data.map((r: any) => r.category as string))].sort()
 }
 
-// Find a single question by id across all files (or in a specific lang)
-export function getQuestion(id: string, lang?: 'en' | 'fr'): { question: any; lang: 'en' | 'fr'; category: string } | null {
-  const langs: Array<'en' | 'fr'> = lang ? [lang] : ['en', 'fr']
-  for (const l of langs) {
-    for (const cat of getCategories(l)) {
-      const qs = readCategory(cat, l)
-      const q = qs.find(q => q.id === id)
-      if (q) return { question: { ...q, _lang: l }, lang: l, category: cat }
-    }
+export async function getQuestions(filters: QuestionFilter = {}): Promise<any[]> {
+  let query = getClient().from('questions').select('*')
+
+  if (filters.lang) query = query.eq('lang', filters.lang)
+  if (filters.category) query = query.eq('category', filters.category)
+  if (filters.type) query = query.eq('type', filters.type)
+  if (filters.difficulty) query = query.eq('difficulty', filters.difficulty)
+
+  const { data, error } = await query
+  if (error || !data) return []
+
+  let results = data.map(rowToQuestion)
+
+  if (filters.search) {
+    const s = filters.search.toLowerCase()
+    results = results.filter((q: any) => q.question?.toLowerCase().includes(s))
   }
-  return null
+
+  return results
 }
 
-// Add a new question to a category file
-export function createQuestion(question: any, lang: 'en' | 'fr', category: string): any {
-  if (!isValidCategory(category, lang)) throw new Error(`Invalid category: ${category}`)
+export async function getQuestion(
+  id: string,
+  lang?: 'en' | 'fr'
+): Promise<{ question: any; lang: 'en' | 'fr'; category: string } | null> {
+  let query = getClient().from('questions').select('*').eq('id', id)
+  if (lang) query = query.eq('lang', lang)
+
+  const { data, error } = await query.maybeSingle()
+  if (error || !data) return null
+
+  return { question: rowToQuestion(data), lang: data.lang, category: data.category }
+}
+
+export async function createQuestion(question: any, lang: 'en' | 'fr', category: string): Promise<any> {
   const id = `${category.slice(0, 2)}${Date.now()}${Math.random().toString(36).slice(2, 5)}`
   const newQ = { ...question, id, category }
   delete newQ._lang
-  const qs = readCategory(category, lang)
-  qs.push(newQ)
-  writeCategory(category, lang, qs)
-  return newQ
+
+  const { common, data } = splitQuestion(newQ)
+
+  const { data: inserted, error } = await getClient()
+    .from('questions')
+    .insert({ ...common, lang, data })
+    .select()
+    .single()
+
+  if (error) throw new Error(error.message)
+  return rowToQuestion(inserted)
 }
 
-// Update an existing question in its file
-export function updateQuestion(id: string, updates: any, lang: 'en' | 'fr', category: string): any | null {
-  if (!isValidCategory(category, lang)) return null
-  const qs = readCategory(category, lang)
-  const idx = qs.findIndex(q => q.id === id)
-  if (idx === -1) return null
-  const updated = { ...qs[idx], ...updates, id }
-  delete updated._lang
-  qs[idx] = updated
-  writeCategory(category, lang, qs)
-  return updated
+export async function updateQuestion(
+  id: string,
+  updates: any,
+  lang: 'en' | 'fr',
+  category: string
+): Promise<any | null> {
+  const existing = await getQuestion(id, lang)
+  if (!existing) return null
+
+  const merged = { ...existing.question, ...updates, id }
+  delete merged._lang
+
+  const { common, data } = splitQuestion(merged)
+
+  const { data: updated, error } = await getClient()
+    .from('questions')
+    .update({ ...common, lang, data })
+    .eq('id', id)
+    .eq('lang', lang)
+    .select()
+    .single()
+
+  if (error) return null
+  return rowToQuestion(updated)
 }
 
-// Delete a question from its file
-export function deleteQuestion(id: string, lang: 'en' | 'fr', category: string): boolean {
-  if (!isValidCategory(category, lang)) return false
-  const qs = readCategory(category, lang)
-  const next = qs.filter(q => q.id !== id)
-  if (next.length === qs.length) return false
-  writeCategory(category, lang, next)
-  return true
+export async function deleteQuestion(id: string, lang: 'en' | 'fr', category: string): Promise<boolean> {
+  const { error, count } = await getClient()
+    .from('questions')
+    .delete({ count: 'exact' })
+    .eq('id', id)
+    .eq('lang', lang)
+    .eq('category', category)
+
+  return !error && (count ?? 0) > 0
 }
 
-// Notify game server to reload questions from disk
+// Notify game server to reload its in-memory question cache from the DB
 export async function reloadGameServer(): Promise<void> {
   try {
     const base = process.env.GAME_SERVER_URL || 'http://localhost:3003'

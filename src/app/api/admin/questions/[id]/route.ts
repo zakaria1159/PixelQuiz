@@ -7,7 +7,7 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
   if (!lang || !category) {
     return NextResponse.json({ error: 'lang and category are required' }, { status: 400 })
   }
-  const updated = updateQuestion(params.id, updates, lang, category)
+  const updated = await updateQuestion(params.id, updates, lang, category)
   if (!updated) return NextResponse.json({ error: 'Not found' }, { status: 404 })
   await reloadGameServer()
   return NextResponse.json({ question: updated })
@@ -20,7 +20,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { id: strin
   if (!lang || !category) {
     return NextResponse.json({ error: 'lang and category are required' }, { status: 400 })
   }
-  const ok = deleteQuestion(params.id, lang, category)
+  const ok = await deleteQuestion(params.id, lang, category)
   if (!ok) return NextResponse.json({ error: 'Not found' }, { status: 404 })
   await reloadGameServer()
   return NextResponse.json({ ok: true })

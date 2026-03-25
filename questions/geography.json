@@ -864,7 +864,7 @@
     "explanation": "The Eiffel Tower was built in 1889 in Paris, France, designed by Gustave Eiffel for the World's Fair."
   },
   {
-    "id": "ig2",
+    "id": "geo_ig2",
     "type": "image_guess",
     "category": "geography",
     "question": "What famous landmark is this?",

@@ -2368,7 +2368,7 @@
       "Super FX",
       "CX4"
     ],
-    "correctAnswer": "DSP-1",
+    "correctAnswer": 0,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189068s21"
@@ -2382,7 +2382,7 @@
       "4",
       "3"
     ],
-    "correctAnswer": "2",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189070n59"
@@ -2396,7 +2396,7 @@
       "Mega Man 2",
       "Castlevania II"
     ],
-    "correctAnswer": "The Legend of Zelda",
+    "correctAnswer": 0,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189073x82"
@@ -2410,7 +2410,7 @@
       "$399",
       "$449"
     ],
-    "correctAnswer": "$399",
+    "correctAnswer": 2,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189076p23"
@@ -2424,7 +2424,7 @@
       "Satoru Iwata",
       "Masayuki Uemura"
     ],
-    "correctAnswer": "Gunpei Yokoi",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189078w92"
@@ -2438,7 +2438,7 @@
       "Chrono Trigger",
       "Earthbound"
     ],
-    "correctAnswer": "Super Mario RPG",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189081q14"
@@ -2452,7 +2452,7 @@
       "Ultra 64 Dev Kit",
       "Revolution"
     ],
-    "correctAnswer": "Project Reality",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189083m25"
@@ -2466,7 +2466,7 @@
       "Sonic CD",
       "Sonic Spinball"
     ],
-    "correctAnswer": "Sonic the Hedgehog 2",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189086s86"
@@ -2480,7 +2480,7 @@
       "Wireless multiplayer",
       "A built-in rechargeable battery"
     ],
-    "correctAnswer": "A colour backlit LCD screen",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189088u81"
@@ -2494,7 +2494,7 @@
       "Ys Book I & II",
       "Gate of Thunder"
     ],
-    "correctAnswer": "Fighting Street",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189091e35"
@@ -2508,7 +2508,7 @@
       "64 KB",
       "128 KB"
     ],
-    "correctAnswer": "64 KB",
+    "correctAnswer": 2,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189093v10"
@@ -2522,7 +2522,7 @@
       "Soldier of Fortune",
       "Shinobi III"
     ],
-    "correctAnswer": "Gunstar Heroes",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189096w36"
@@ -2536,7 +2536,7 @@
       "80%",
       "Finding all relics triggers it"
     ],
-    "correctAnswer": "Defeating Richter triggers it",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189098v84"
@@ -2550,7 +2550,7 @@
       "Intel 80486 at 25 MHz",
       "NEC V810 at 20 MHz"
     ],
-    "correctAnswer": "MIPS R3000A at 33.8688 MHz",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189101a18"
@@ -2564,7 +2564,7 @@
       "Tales of Phantasia",
       "Star Ocean"
     ],
-    "correctAnswer": "Star Ocean",
+    "correctAnswer": 3,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189103v41"
@@ -2572,7 +2572,7 @@
   {
     "question": "The original PlayStation was initially co-developed with Nintendo as a CD-ROM add-on for the Super Nintendo.",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189106a27"
@@ -2580,7 +2580,7 @@
   {
     "question": "The Sega Game Gear uses the same Z80 processor as the Sega Master System.",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189108i26"
@@ -2588,7 +2588,7 @@
   {
     "question": "The Neo Geo Pocket Color cartridges are compatible with the full-size Neo Geo AES home console.",
     "type": "true_false",
-    "correctAnswer": "false",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189111a42"
@@ -2596,7 +2596,7 @@
   {
     "question": "Castlevania: Symphony of the Night was originally released for the Super Nintendo.",
     "type": "true_false",
-    "correctAnswer": "false",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189113w15"
@@ -2604,7 +2604,7 @@
   {
     "question": "The SNES CPU runs at approximately 3.58 MHz under standard conditions.",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189116q60"
@@ -2612,7 +2612,7 @@
   {
     "question": "Donkey Kong Country on the SNES used pre-rendered 3D graphics created on Silicon Graphics workstations.",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189118p93"
@@ -2620,7 +2620,7 @@
   {
     "question": "The id Software game DOOM (1993) supported network multiplayer at launch.",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189121i88"
@@ -2628,7 +2628,7 @@
   {
     "question": "The Sega 32X add-on was able to play Sega CD games without any additional hardware.",
     "type": "true_false",
-    "correctAnswer": "false",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774407189123m66"
@@ -2914,7 +2914,7 @@
       "Parachute",
       "Chef"
     ],
-    "correctAnswer": "Ball",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742233p62"
@@ -2928,7 +2928,7 @@
       "Mario Bros.",
       "Popeye"
     ],
-    "correctAnswer": "Donkey Kong",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742235x82"
@@ -2966,7 +2966,7 @@
       "LCD",
       "LED"
     ],
-    "correctAnswer": "LCD",
+    "correctAnswer": 2,
     "difficulty": "easy",
     "category": "gaming",
     "id": "ga1774409742246w68"
@@ -2980,7 +2980,7 @@
       "Dual Mode Gear",
       "Dynamic Mono Graphic"
     ],
-    "correctAnswer": "Dot Matrix Game",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742248m20"
@@ -2994,7 +2994,7 @@
       "Alleyway",
       "Baseball"
     ],
-    "correctAnswer": "Tetris",
+    "correctAnswer": 1,
     "difficulty": "medium",
     "category": "gaming",
     "id": "ga1774409742251c57"
@@ -3008,7 +3008,7 @@
       "Sharp LR35902",
       "Zilog Z80"
     ],
-    "correctAnswer": "Sharp LR35902",
+    "correctAnswer": 2,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742253q75"
@@ -3022,7 +3022,7 @@
       "8",
       "16"
     ],
-    "correctAnswer": "4",
+    "correctAnswer": 1,
     "difficulty": "medium",
     "category": "gaming",
     "id": "ga1774409742256e28"
@@ -3036,7 +3036,7 @@
       "$89.99",
       "$99.99"
     ],
-    "correctAnswer": "$89.99",
+    "correctAnswer": 2,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742258y90"
@@ -3050,7 +3050,7 @@
       "Rare",
       "Camelot"
     ],
-    "correctAnswer": "HAL Laboratory",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742261f63"
@@ -3064,7 +3064,7 @@
       "Impa",
       "Both Ganon and Princess Zelda"
     ],
-    "correctAnswer": "Both Ganon and Princess Zelda",
+    "correctAnswer": 3,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742263g59"
@@ -3078,7 +3078,7 @@
       "6",
       "8"
     ],
-    "correctAnswer": "4",
+    "correctAnswer": 1,
     "difficulty": "medium",
     "category": "gaming",
     "id": "ga1774409742266x50"
@@ -3100,7 +3100,7 @@
       "160×144 pixels",
       "256×224 pixels"
     ],
-    "correctAnswer": "128×112 pixels",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742271i50"
@@ -3122,7 +3122,7 @@
       "2 AA",
       "4 AAA"
     ],
-    "correctAnswer": "2 AAA",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742276q90"
@@ -3130,7 +3130,7 @@
   {
     "question": "The Game Boy Light was a backlit Japan-exclusive model released in 1998. True or false?",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742278d84"
@@ -3144,7 +3144,7 @@
       "6",
       "8"
     ],
-    "correctAnswer": "6",
+    "correctAnswer": 2,
     "difficulty": "medium",
     "category": "gaming",
     "id": "ga1774409742281a77"
@@ -3158,7 +3158,7 @@
       "Game Gear Adapter",
       "SMS Link"
     ],
-    "correctAnswer": "Master Gear Converter",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742283z28"
@@ -3166,7 +3166,7 @@
   {
     "question": "The Game Gear's screen resolution was identical to the Game Boy at 160×144 pixels. True or false?",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742286j16"
@@ -3180,7 +3180,7 @@
       "6–8 hours",
       "8–10 hours"
     ],
-    "correctAnswer": "3–5 hours",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742288l74"
@@ -3202,7 +3202,7 @@
       "4.19 MHz",
       "7.16 MHz"
     ],
-    "correctAnswer": "3.58 MHz",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742293w18"
@@ -3224,7 +3224,7 @@
       "56",
       "256"
     ],
-    "correctAnswer": "56",
+    "correctAnswer": 2,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742298i51"
@@ -3238,7 +3238,7 @@
       "8 MHz",
       "16 MHz"
     ],
-    "correctAnswer": "8 MHz",
+    "correctAnswer": 2,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742301g11"
@@ -3252,7 +3252,7 @@
       "Pokémon Crystal",
       "Pokémon Trading Card Game"
     ],
-    "correctAnswer": "Pokémon Gold and Silver",
+    "correctAnswer": 1,
     "difficulty": "easy",
     "category": "gaming",
     "id": "ga1774409742303a95"
@@ -3260,7 +3260,7 @@
   {
     "question": "The Game Boy Color was backward compatible with original Game Boy cartridges. True or false?",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "easy",
     "category": "gaming",
     "id": "ga1774409742306c39"
@@ -3274,7 +3274,7 @@
       "Tenchu",
       "Syphon Filter"
     ],
-    "correctAnswer": "Metal Gear Solid",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742308j83"
@@ -3288,7 +3288,7 @@
       "Quadruple (32 KB)",
       "Eight times (64 KB)"
     ],
-    "correctAnswer": "Quadruple (32 KB)",
+    "correctAnswer": 2,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742311g38"
@@ -3302,7 +3302,7 @@
       "ARM7TDMI",
       "PowerPC"
     ],
-    "correctAnswer": "ARM7TDMI",
+    "correctAnswer": 2,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742314h84"
@@ -3316,7 +3316,7 @@
       "A headphone jack",
       "Rumble support"
     ],
-    "correctAnswer": "A backlit or frontlit screen",
+    "correctAnswer": 1,
     "difficulty": "medium",
     "category": "gaming",
     "id": "ga1774409742316l13"
@@ -3338,7 +3338,7 @@
       "DS cartridges",
       "NES cartridges"
     ],
-    "correctAnswer": "Game Boy and Game Boy Color cartridges",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742321q27"
@@ -3352,7 +3352,7 @@
       "256×192",
       "320×240"
     ],
-    "correctAnswer": "240×160",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742324p26"
@@ -3366,7 +3366,7 @@
       "Breath of Fire",
       "Advance Wars"
     ],
-    "correctAnswer": "Golden Sun",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742326s29"
@@ -3374,7 +3374,7 @@
   {
     "question": "The GBA could play original Game Boy and Game Boy Color cartridges. True or false?",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "easy",
     "category": "gaming",
     "id": "ga1774409742329v31"
@@ -3396,7 +3396,7 @@
       "Circle of the Moon",
       "Dawn of Sorrow"
     ],
-    "correctAnswer": "Circle of the Moon",
+    "correctAnswer": 2,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742334c83"
@@ -3410,7 +3410,7 @@
       "ARM11 + ARM9",
       "MIPS + ARM9"
     ],
-    "correctAnswer": "ARM9 at 67 MHz + ARM7 at 33 MHz",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742336j42"
@@ -3424,7 +3424,7 @@
       "256×192",
       "320×240"
     ],
-    "correctAnswer": "256×192",
+    "correctAnswer": 2,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742338k27"
@@ -3446,7 +3446,7 @@
       "Mario Kart DS",
       "New Super Mario Bros."
     ],
-    "correctAnswer": "New Super Mario Bros.",
+    "correctAnswer": 3,
     "difficulty": "medium",
     "category": "gaming",
     "id": "ga1774409742343r22"
@@ -3454,7 +3454,7 @@
   {
     "question": "The DSi, released in 2008, removed the Slot-2 (GBA cartridge slot) and added two cameras. True or false?",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "medium",
     "category": "gaming",
     "id": "ga1774409742346n49"
@@ -3476,7 +3476,7 @@
       "Meteos",
       "WarioWare: Touched!"
     ],
-    "correctAnswer": "Feel the Magic: XY/XX",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742351t19"
@@ -3490,7 +3490,7 @@
       "Game Boy DS",
       "Nintendo Twin"
     ],
-    "correctAnswer": "Project Nitro",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742353w35"
@@ -3506,7 +3506,7 @@
   {
     "question": "The DS Lite, released in June 2006, was slimmer and lighter. It retained the GBA Slot-2 cartridge slot. True or false?",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "medium",
     "category": "gaming",
     "id": "ga1774409742358u49"
@@ -3520,7 +3520,7 @@
       "Chrono Trigger DS",
       "Dragon Quest IX"
     ],
-    "correctAnswer": "The World Ends With You",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742361f97"
@@ -3534,7 +3534,7 @@
       "Shigeru Miyamoto",
       "Masahiro Sakurai"
     ],
-    "correctAnswer": "Ryuta Kawashima",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742363d47"
@@ -3548,7 +3548,7 @@
       "Infrared",
       "Proprietary RF"
     ],
-    "correctAnswer": "802.11b Wi-Fi",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742366m43"
@@ -3578,7 +3578,7 @@
       "Fire Emblem: Awakening",
       "Fire Emblem Warriors"
     ],
-    "correctAnswer": "Fire Emblem: Awakening",
+    "correctAnswer": 2,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742374p96"
@@ -3592,7 +3592,7 @@
       "Two extra shoulder triggers",
       "A gyroscope joystick"
     ],
-    "correctAnswer": "A C-Stick nub above the face buttons",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742376j29"
@@ -3614,7 +3614,7 @@
       "Super Mario 3D Land",
       "Pilotwings Resort"
     ],
-    "correctAnswer": "Kid Icarus: Uprising",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742381v49"
@@ -3622,7 +3622,7 @@
   {
     "question": "The Nintendo 3DS was region-locked, preventing cartridges from other regions from being played. True or false?",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "medium",
     "category": "gaming",
     "id": "ga1774409742384o73"
@@ -3636,7 +3636,7 @@
       "Animal Crossing: Happy Home Designer",
       "Nintendogs + Cats"
     ],
-    "correctAnswer": "Animal Crossing: New Leaf",
+    "correctAnswer": 0,
     "difficulty": "medium",
     "category": "gaming",
     "id": "ga1774409742386l81"
@@ -3666,7 +3666,7 @@
       "Monster Hunter",
       "God Eater"
     ],
-    "correctAnswer": "Monster Hunter",
+    "correctAnswer": 2,
     "difficulty": "easy",
     "category": "gaming",
     "id": "ga1774409742393j74"
@@ -3688,7 +3688,7 @@
       "Blu-ray mini",
       "GD-ROM mini"
     ],
-    "correctAnswer": "UMD",
+    "correctAnswer": 1,
     "difficulty": "easy",
     "category": "gaming",
     "id": "ga1774409742398k66"
@@ -3710,7 +3710,7 @@
       "5.0 inches",
       "4.7 inches"
     ],
-    "correctAnswer": "4.3 inches",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742403b23"
@@ -3724,7 +3724,7 @@
       "PSP Go",
       "PSP Street"
     ],
-    "correctAnswer": "PSP Go",
+    "correctAnswer": 2,
     "difficulty": "medium",
     "category": "gaming",
     "id": "ga1774409742406p77"
@@ -3738,7 +3738,7 @@
       "Monster Hunter Freedom Unite",
       "Monster Hunter Tri"
     ],
-    "correctAnswer": "Monster Hunter Freedom Unite",
+    "correctAnswer": 2,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742408e53"
@@ -3752,7 +3752,7 @@
       "Zack Fair",
       "Aerith Gainsborough"
     ],
-    "correctAnswer": "Zack Fair",
+    "correctAnswer": 2,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742411r84"
@@ -3766,7 +3766,7 @@
       "333 MHz",
       "444 MHz"
     ],
-    "correctAnswer": "333 MHz",
+    "correctAnswer": 2,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742413t35"
@@ -3780,7 +3780,7 @@
       "12",
       "13"
     ],
-    "correctAnswer": "10",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742416j65"
@@ -3788,7 +3788,7 @@
   {
     "question": "The PSP Go, released in 2009, used a slide-out form factor and stored games on internal flash memory. True or false?",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "medium",
     "category": "gaming",
     "id": "ga1774409742418a69"
@@ -3810,7 +3810,7 @@
       "PlayStation 4",
       "Both PS3 and PS4"
     ],
-    "correctAnswer": "PlayStation 3",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742423l82"
@@ -3832,7 +3832,7 @@
       "OLED",
       "AMOLED"
     ],
-    "correctAnswer": "OLED",
+    "correctAnswer": 2,
     "difficulty": "medium",
     "category": "gaming",
     "id": "ga1774409742428d20"
@@ -3846,7 +3846,7 @@
       "IPS LCD",
       "TN LCD"
     ],
-    "correctAnswer": "IPS LCD",
+    "correctAnswer": 2,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742431g96"
@@ -3854,7 +3854,7 @@
   {
     "question": "The PS Vita used proprietary memory cards that were notorious for being expensive. True or false?",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "easy",
     "category": "gaming",
     "id": "ga1774409742433c81"
@@ -3868,7 +3868,7 @@
       "Unit 13",
       "SOCOM: Fireteam Bravo"
     ],
-    "correctAnswer": "Killzone: Mercenary",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742436o66"
@@ -3882,7 +3882,7 @@
       "Persona 5 Royal",
       "Catherine"
     ],
-    "correctAnswer": "Persona 4 Golden",
+    "correctAnswer": 1,
     "difficulty": "medium",
     "category": "gaming",
     "id": "ga1774409742438e16"
@@ -3896,7 +3896,7 @@
       "Media Molecule",
       "Bend Studio"
     ],
-    "correctAnswer": "Japan Studio / Project Siren",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742441f62"
@@ -3904,7 +3904,7 @@
   {
     "question": "The PS Vita was the first PlayStation handheld to feature dual analog sticks. True or false?",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "easy",
     "category": "gaming",
     "id": "ga1774409742443u49"
@@ -3920,7 +3920,7 @@
   {
     "question": "The PS Vita featured a rear touch panel in addition to its front touchscreen. True or false?",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "medium",
     "category": "gaming",
     "id": "ga1774409742448g75"
@@ -3934,7 +3934,7 @@
       "Naughty Dog",
       "Santa Monica Studio"
     ],
-    "correctAnswer": "Media Molecule",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742450b84"
@@ -4005,7 +4005,7 @@
       "Game Gear (1989) came before Atari Lynx (1990)",
       "Atari Lynx (1990) came before Game Gear (1991)"
     ],
-    "correctAnswer": "Atari Lynx (1989) came before Game Gear (1990)",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742460y73"
@@ -4013,7 +4013,7 @@
   {
     "question": "Which is the only handheld in this list that required no batteries and had its own built-in power source? (Answer: none — all required external power or charging)",
     "type": "true_false",
-    "correctAnswer": "false",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742462f66"
@@ -4021,7 +4021,7 @@
   {
     "question": "The Nintendo DS 'Slot-2' allowed players to insert Game Boy Advance cartridges to unlock bonus content in some DS games. True or false?",
     "type": "true_false",
-    "correctAnswer": "true",
+    "correctAnswer": 0,
     "difficulty": "medium",
     "category": "gaming",
     "id": "ga1774409742465u86"
@@ -4071,7 +4071,7 @@
       "Alleyway",
       "Baseball"
     ],
-    "correctAnswer": "Super Mario Land",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409742475i65"
@@ -4085,7 +4085,7 @@
       "Sega Saturn",
       "Sega 32X"
     ],
-    "correctAnswer": "Sega Mega Drive / Genesis",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409754693q54"
@@ -4099,7 +4099,7 @@
       "About 33% lighter",
       "About 50% lighter"
     ],
-    "correctAnswer": "About 21% lighter",
+    "correctAnswer": 1,
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409754695l19"

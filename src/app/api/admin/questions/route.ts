@@ -10,11 +10,12 @@ export async function GET(req: NextRequest) {
     difficulty: searchParams.get('difficulty') || undefined,
     search: searchParams.get('search') || undefined,
   }
-  const questions = getQuestions(filters)
-  const categories = {
-    en: getCategories('en'),
-    fr: getCategories('fr'),
-  }
+  const [questions, enCats, frCats] = await Promise.all([
+    getQuestions(filters),
+    getCategories('en'),
+    getCategories('fr'),
+  ])
+  const categories = { en: enCats, fr: frCats }
   return NextResponse.json({ questions, categories })
 }
 
@@ -24,7 +25,7 @@ export async function POST(req: NextRequest) {
   if (!lang || !category) {
     return NextResponse.json({ error: 'lang and category are required' }, { status: 400 })
   }
-  const created = createQuestion(question, lang, category)
+  const created = await createQuestion(question, lang, category)
   await reloadGameServer()
   return NextResponse.json({ question: created }, { status: 201 })
 }

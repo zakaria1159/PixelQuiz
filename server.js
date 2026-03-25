@@ -6,36 +6,49 @@ const { Server } = require('socket.io')
 const { calculateScore, getMaxScore } = require('./scoring')
 const cors = require('cors')
 const Anthropic = require('@anthropic-ai/sdk')
-const fs = require('fs')
-const path = require('path')
+const { createClient } = require('@supabase/supabase-js')
 
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
-// Load questions from a directory into an array
-function loadQuestionsFromDir(dir) {
-  const questions = []
-  if (!fs.existsSync(dir)) return questions
-  for (const file of fs.readdirSync(dir)) {
-    if (!file.endsWith('.json')) continue
-    try {
-      const content = fs.readFileSync(path.join(dir, file), 'utf8')
-      questions.push(...JSON.parse(content))
-    } catch (e) {
-      console.error(`Failed to load ${file}:`, e.message)
-    }
-  }
-  return questions
+function getSupabase() {
+  const url = process.env.SUPABASE_URL
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY
+  if (!url || !key) throw new Error('Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY')
+  return createClient(url, key)
 }
 
-// Load questions at startup — one pool per language
-const questionsDir = path.join(__dirname, 'questions')
-const questionsByLang = {
-  en: loadQuestionsFromDir(questionsDir),
-  fr: loadQuestionsFromDir(path.join(questionsDir, 'fr')),
+function rowToQuestion(row) {
+  const { id, lang, category, type, question, difficulty, time_limit, explanation, data } = row
+  return {
+    id,
+    category,
+    type,
+    question,
+    difficulty,
+    timeLimit: time_limit,
+    ...(explanation != null ? { explanation } : {}),
+    ...data,
+  }
 }
+
+async function loadQuestionsFromDB(lang) {
+  try {
+    const { data, error } = await getSupabase()
+      .from('questions')
+      .select('*')
+      .eq('lang', lang)
+    if (error) { console.error('Supabase error:', error.message); return [] }
+    return (data || []).map(rowToQuestion)
+  } catch (e) {
+    console.error('Failed to load questions from DB:', e.message)
+    return []
+  }
+}
+
+// Populated async at startup — one pool per language
+const questionsByLang = { en: [], fr: [] }
 // Keep allQuestions as English for backwards compatibility
-const allQuestions = questionsByLang.en
-console.log(`📚 Loaded questions — EN: ${questionsByLang.en.length}, FR: ${questionsByLang.fr.length}`)
+let allQuestions = questionsByLang.en
 
 // Smart text normalization - removes accents and normalizes case
 function normalizeText(text) {
@@ -616,24 +629,26 @@ function getRandomQuestions(settings = {}) {
     return shuffle(roundRobin(shuffledBuckets).slice(0, questionCount))
   }
 
-  // General mode: balance by type first, then by category within each type
-  const byType = {}
+  // General mode: balance by category first, then vary by type within each category.
+  // This prevents a large category (e.g. gaming with 11 types) from dominating the
+  // round-robin just because it has more unique question types than others.
+  const byCat = {}
   for (const q of pool) {
-    if (!byType[q.type]) byType[q.type] = []
-    byType[q.type].push(q)
+    if (!byCat[q.category]) byCat[q.category] = []
+    byCat[q.category].push(q)
   }
 
-  const typeBuckets = shuffle(Object.keys(byType)).map(type => {
-    const byCategory = {}
-    for (const q of byType[type]) {
-      if (!byCategory[q.category]) byCategory[q.category] = []
-      byCategory[q.category].push(q)
+  const catBuckets = shuffle(Object.keys(byCat)).map(cat => {
+    const byType = {}
+    for (const q of byCat[cat]) {
+      if (!byType[q.type]) byType[q.type] = []
+      byType[q.type].push(q)
     }
-    const catBuckets = shuffle(Object.keys(byCategory)).map(c => shuffle(byCategory[c]))
-    return roundRobin(catBuckets)
+    const typeBuckets = shuffle(Object.keys(byType)).map(t => shuffle(byType[t]))
+    return roundRobin(typeBuckets)
   })
 
-  const standardQuestions = shuffle(roundRobin(typeBuckets).slice(0, questionCount))
+  const standardQuestions = shuffle(roundRobin(catBuckets).slice(0, questionCount))
 
   // Mix mode: combine custom + standard, total capped at questionCount + custom count
   if (customQuestions.length > 0) {
@@ -904,6 +919,9 @@ io.on('connection', (socket) => {
       }
 
       const questions = getRandomQuestions(settings)
+      const catDist = questions.reduce((acc, q) => { acc[q.category] = (acc[q.category]||0)+1; return acc }, {})
+      console.log(`🎲 Question selection — pool: ${questionsByLang[settings.lang||'en']?.length} | settings:`, JSON.stringify({categories: settings.categories, difficulties: settings.difficulties, types: settings.types}))
+      console.log(`📊 Category distribution:`, JSON.stringify(catDist))
       game.questions = questions
       game.settings.streamerMode = settings?.streamerMode ?? false
       game.currentQuestionIndex = 0
@@ -2213,22 +2231,34 @@ app.get('/health', (req, res) => {
   })
 })
 
-// Internal reload endpoint — only accepts requests from localhost
-app.post('/internal/reload-questions', (req, res) => {
+// Internal reload endpoint — refreshes in-memory question cache from DB
+app.post('/internal/reload-questions', async (req, res) => {
   const secret = process.env.ADMIN_PASSWORD
   const auth = req.headers['authorization']
   if (!secret || auth !== `Bearer ${secret}`) {
     return res.status(403).json({ error: 'Forbidden' })
   }
-  questionsByLang.en = loadQuestionsFromDir(questionsDir)
-  questionsByLang.fr = loadQuestionsFromDir(path.join(questionsDir, 'fr'))
+  const [en, fr] = await Promise.all([loadQuestionsFromDB('en'), loadQuestionsFromDB('fr')])
+  questionsByLang.en = en
+  questionsByLang.fr = fr
+  allQuestions = questionsByLang.en
   console.log(`🔄 Questions reloaded — EN: ${questionsByLang.en.length}, FR: ${questionsByLang.fr.length}`)
   res.json({ ok: true, en: questionsByLang.en.length, fr: questionsByLang.fr.length })
 })
 
 const PORT = process.env.PORT || 3003
 
-server.listen(PORT, () => {
-  console.log(`🎮 Game server running on port ${PORT}`)
-  console.log(`📊 Health check: http://localhost:${PORT}/health`)
-})
+async function init() {
+  const [en, fr] = await Promise.all([loadQuestionsFromDB('en'), loadQuestionsFromDB('fr')])
+  questionsByLang.en = en
+  questionsByLang.fr = fr
+  allQuestions = questionsByLang.en
+  console.log(`📚 Loaded questions — EN: ${questionsByLang.en.length}, FR: ${questionsByLang.fr.length}`)
+
+  server.listen(PORT, () => {
+    console.log(`🎮 Game server running on port ${PORT}`)
+    console.log(`📊 Health check: http://localhost:${PORT}/health`)
+  })
+}
+
+init()

@@ -864,7 +864,7 @@
     "explanation": "La tour Eiffel a été construite en 1889 à Paris, France, conçue par Gustave Eiffel pour l'Exposition universelle."
   },
   {
-    "id": "ig2",
+    "id": "geo_ig2",
     "type": "image_guess",
     "category": "geography",
     "question": "Quel est ce monument célèbre ?",
