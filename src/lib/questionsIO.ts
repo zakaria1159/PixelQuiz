@@ -46,7 +46,7 @@ export async function getCategories(lang: 'en' | 'fr'): Promise<string[]> {
     .select('category')
     .eq('lang', lang)
   if (error || !data) return []
-  return [...new Set(data.map((r: any) => r.category as string))].sort()
+  return Array.from(new Set(data.map((r: any) => r.category as string))).sort()
 }
 
 export async function getQuestions(filters: QuestionFilter = {}): Promise<any[]> {
