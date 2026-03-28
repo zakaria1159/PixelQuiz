@@ -4103,5 +4103,783 @@
     "difficulty": "hard",
     "category": "gaming",
     "id": "ga1774409754695l19"
+  },
+  {
+    "id": "gm_rec1",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Elden Ring (2022) was developed by which studio?",
+    "options": [
+      "Bandai Namco",
+      "FromSoftware",
+      "Capcom",
+      "CD Projekt Red"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "FromSoftware developed Elden Ring, with Bandai Namco publishing it."
+  },
+  {
+    "id": "gm_rec2",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which famous author co-created the lore for Elden Ring?",
+    "options": [
+      "J.R.R. Tolkien",
+      "George R.R. Martin",
+      "Brandon Sanderson",
+      "Neil Gaiman"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "George R.R. Martin, author of Game of Thrones, wrote the mythos for Elden Ring."
+  },
+  {
+    "id": "gm_rec3",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "What is the name of Kratos's son in God of War (2018) and Ragnarök?",
+    "options": [
+      "Atreus",
+      "Baldur",
+      "Thor",
+      "Freyr"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Atreus, also known as Loki in Norse mythology, is Kratos's son and companion."
+  },
+  {
+    "id": "gm_rec4",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "Hogwarts Legacy is set in the 1800s, long before the events of the Harry Potter books.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Hogwarts Legacy takes place in the late 1800s, roughly 100 years before Harry Potter's story."
+  },
+  {
+    "id": "gm_rec5",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "The Legend of Zelda: Tears of the Kingdom is the direct sequel to which game?",
+    "options": [
+      "Skyward Sword",
+      "Breath of the Wild",
+      "Ocarina of Time",
+      "A Link to the Past"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Tears of the Kingdom (2023) is the direct sequel to Breath of the Wild (2017)."
+  },
+  {
+    "id": "gm_rec6",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "In Marvel's Spider-Man 2 (2023), who is the second playable Spider-Man alongside Peter Parker?",
+    "options": [
+      "Ben Reilly",
+      "Miguel O'Hara",
+      "Miles Morales",
+      "Kaine Parker"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Miles Morales and Peter Parker are both playable in Marvel's Spider-Man 2."
+  },
+  {
+    "id": "gm_rec7",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Baldur's Gate 3 was developed by which studio?",
+    "options": [
+      "Obsidian Entertainment",
+      "Larian Studios",
+      "BioWare",
+      "inXile Entertainment"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Larian Studios, also known for the Divinity: Original Sin series, developed Baldur's Gate 3."
+  },
+  {
+    "id": "gm_rec8",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "In Palworld (2024), what are the collectible creatures called?",
+    "options": [
+      "Monsters",
+      "Pals",
+      "Spirits",
+      "Critters"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Palworld revolves around collecting and training creatures called Pals."
+  },
+  {
+    "id": "gm_rec9",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Helldivers 2 (2024) has players fighting for which fictional government?",
+    "options": [
+      "The Galactic Federation",
+      "Super Earth",
+      "The Interstellar Republic",
+      "Humanity First"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "In Helldivers 2, players are soldiers of Super Earth, spreading managed democracy across the galaxy."
+  },
+  {
+    "id": "gm_rec10",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Who is the main protagonist of Final Fantasy XVI (2023)?",
+    "options": [
+      "Noctis",
+      "Clive Rosfield",
+      "Lightning",
+      "Zack Fair"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Clive Rosfield is the adult protagonist of Final Fantasy XVI, set in the world of Valisthea."
+  },
+  {
+    "id": "gm_rec11",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Cyberpunk 2077 is set in which fictional city?",
+    "options": [
+      "Neo Tokyo",
+      "Night City",
+      "Mega City One",
+      "New Atlantis"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Night City, a sprawling dystopian metropolis in California, is the setting of Cyberpunk 2077."
+  },
+  {
+    "id": "gm_rec12",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "In Stray (2022), what animal does the player control?",
+    "options": [
+      "A dog",
+      "A rabbit",
+      "A cat",
+      "A fox"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Stray is an adventure game where you play as a stray cat navigating a post-apocalyptic city."
+  },
+  {
+    "id": "gm_rec13",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "What unique mechanic defines Hi-Fi Rush (2023)?",
+    "options": [
+      "Time manipulation",
+      "Everything attacks in sync with the music beat",
+      "Reality shifting between two worlds",
+      "Gravity reversal"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Hi-Fi Rush syncs all gameplay — attacks, enemies, and the world — to the beat of the music."
+  },
+  {
+    "id": "gm_rec14",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "It Takes Two won Game of the Year at The Game Awards 2021.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "It Takes Two by Hazelight Studios won GOTY at The Game Awards 2021, beating out other major titles."
+  },
+  {
+    "id": "gm_rec15",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "What is the open-world region called in Pokémon Legends: Arceus (2022)?",
+    "options": [
+      "Kalos",
+      "Hisui",
+      "Paldea",
+      "Galar"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Hisui is an ancient version of the Sinnoh region, set in feudal-era Japan."
+  },
+  {
+    "id": "gm_rec16",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Pokémon Scarlet and Violet are set in which region?",
+    "options": [
+      "Hisui",
+      "Kalos",
+      "Paldea",
+      "Alola"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Paldea, inspired by the Iberian Peninsula, is the setting of Pokémon Scarlet and Violet."
+  },
+  {
+    "id": "gm_rec17",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "What new ability did Kirby gain in Kirby and the Forgotten Land (2022)?",
+    "options": [
+      "Wing Kirby flight",
+      "Mouthful Mode",
+      "Crystal ability",
+      "Ghost form"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Mouthful Mode lets Kirby inhale large objects like cars, traffic cones, and vending machines."
+  },
+  {
+    "id": "gm_rec18",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "What new power-up lets Mario transform into an elephant in Super Mario Bros. Wonder (2023)?",
+    "options": [
+      "Elephant Fruit",
+      "Wonder Flower",
+      "Mega Mushroom",
+      "Bubble Flower"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "The Elephant Fruit transforms Mario into Elephant Mario, one of the new power-ups in Wonder."
+  },
+  {
+    "id": "gm_rec19",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "In Metroid Dread (2021), what new robotic enemies relentlessly pursue Samus?",
+    "options": [
+      "Space Pirates",
+      "E.M.M.I.",
+      "Metroids",
+      "Chozo Soldiers"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "E.M.M.I. (Extraplanetary Multiform Mobile Identifier) robots are nearly indestructible hunters in Metroid Dread."
+  },
+  {
+    "id": "gm_rec20",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Vampire Survivors (2022) is best described as which type of game?",
+    "options": [
+      "First-person shooter",
+      "Turn-based RPG",
+      "Bullet-hell survivor",
+      "Open-world adventure"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Vampire Survivors is a bullet-hell survivor game where you auto-attack waves of enemies."
+  },
+  {
+    "id": "gm_rec21",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Diablo IV is set in which dark fantasy world?",
+    "options": [
+      "Tamriel",
+      "Sanctuary",
+      "Wraeclast",
+      "Westeros"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Sanctuary is the world where the eternal conflict between Heaven and Hell takes place in Diablo."
+  },
+  {
+    "id": "gm_rec22",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Street Fighter 6 (2023) introduced which new combat system replacing V-Gauge?",
+    "options": [
+      "Focus Attack System",
+      "Drive System",
+      "Revenge Gauge",
+      "Soul Charge"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "The Drive System is Street Fighter 6's new core mechanic, enabling Drive Rush, Parry, Impact and more."
+  },
+  {
+    "id": "gm_rec23",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Who is the main playable character in Tekken 8 (2024)?",
+    "options": [
+      "Kazuya Mishima",
+      "Heihachi Mishima",
+      "Jin Kazama",
+      "Lars Alexandersson"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Jin Kazama is the central protagonist of Tekken 8, continuing his battle against his father Kazuya."
+  },
+  {
+    "id": "gm_rec24",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Lies of P (2023) is a Soulslike game based on which classic fairy tale character?",
+    "options": [
+      "Snow White",
+      "Pinocchio",
+      "Little Red Riding Hood",
+      "Cinderella"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Lies of P reimagines Pinocchio as a dark Soulslike, set in the Belle Époque city of Krat."
+  },
+  {
+    "id": "gm_rec25",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Astro Bot (2024) is exclusively available on which platform?",
+    "options": [
+      "Xbox Series X",
+      "Nintendo Switch",
+      "PC via Steam",
+      "PlayStation 5"
+    ],
+    "correctAnswer": 3,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Astro Bot is a PS5-exclusive platformer developed by Team Asobi, the creators of Astro's Playroom."
+  },
+  {
+    "id": "gm_rec26",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Black Myth: Wukong (2024) is based on which classic Chinese novel?",
+    "options": [
+      "Dream of the Red Chamber",
+      "Journey to the West",
+      "Romance of the Three Kingdoms",
+      "Water Margin"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Black Myth: Wukong is inspired by Journey to the West, a 16th-century Chinese epic following Sun Wukong."
+  },
+  {
+    "id": "gm_rec27",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Dragon's Dogma 2 (2024) was developed by which studio?",
+    "options": [
+      "Square Enix",
+      "FromSoftware",
+      "Capcom",
+      "Bandai Namco"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Capcom developed Dragon's Dogma 2, the long-awaited sequel to the 2012 original."
+  },
+  {
+    "id": "gm_rec28",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Forza Horizon 5 (2021) is set in which country?",
+    "options": [
+      "Brazil",
+      "Australia",
+      "Mexico",
+      "Japan"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Forza Horizon 5 features a stunning open-world recreation of Mexico, its largest map yet."
+  },
+  {
+    "id": "gm_rec29",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which studio developed God of War Ragnarök (2022)?",
+    "options": [
+      "Naughty Dog",
+      "Insomniac Games",
+      "Santa Monica Studio",
+      "Guerrilla Games"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Santa Monica Studio developed both God of War (2018) and its sequel Ragnarök."
+  },
+  {
+    "id": "gm_rec30",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "What is the name of Elden Ring's 2024 DLC expansion?",
+    "options": [
+      "Ashes of Erdtree",
+      "Shadow of the Erdtree",
+      "Curse of the Erdtree",
+      "Blood of the Erdtree"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Shadow of the Erdtree, released June 2024, is the only DLC for Elden Ring and received universal acclaim."
+  },
+  {
+    "id": "gm_rec31",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "Hogwarts Legacy allows players to choose their Hogwarts house at the start of the game.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Players are sorted into one of the four Hogwarts houses: Gryffindor, Slytherin, Ravenclaw, or Hufflepuff."
+  },
+  {
+    "id": "gm_rec32",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Palworld was developed by which studio?",
+    "options": [
+      "Capcom",
+      "PocketPair",
+      "Square Enix",
+      "Game Freak"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "PocketPair, a small Japanese indie studio, developed Palworld, which became a massive hit in early 2024."
+  },
+  {
+    "id": "gm_rec33",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Resident Evil 4 Remake (2023) — who is the main protagonist?",
+    "options": [
+      "Chris Redfield",
+      "Leon S. Kennedy",
+      "Jill Valentine",
+      "Claire Redfield"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Leon S. Kennedy returns as the protagonist in the Resident Evil 4 Remake, rescuing the President's daughter."
+  },
+  {
+    "id": "gm_rec34",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Dead Space Remake (2023) was developed by which studio?",
+    "options": [
+      "Capcom",
+      "EA Motive",
+      "Visceral Games",
+      "Naughty Dog"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "EA Motive rebuilt Dead Space from the ground up, as the original studio Visceral Games was shut down in 2017."
+  },
+  {
+    "id": "gm_rec35",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Assassin's Creed Mirage (2023) is set in which city?",
+    "options": [
+      "Cairo",
+      "Constantinople",
+      "Baghdad",
+      "Jerusalem"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Mirage is set in 9th-century Baghdad and follows Basim Ibn Is'haq, returning to the series' stealth roots."
+  },
+  {
+    "id": "gm_rec36",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Balatro (2024) is a roguelite deckbuilder based on which card game?",
+    "options": [
+      "Blackjack",
+      "Poker",
+      "Bridge",
+      "Solitaire"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Balatro uses poker hand rules as its core mechanic, letting players build decks to create overpowered combos."
+  },
+  {
+    "id": "gm_rec37",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Prince of Persia: The Lost Crown (2024) is a 2D Metroidvania developed by which Ubisoft team?",
+    "options": [
+      "Ubisoft Quebec",
+      "Ubisoft Montpellier",
+      "Ubisoft Paris",
+      "Ubisoft Montreal"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Ubisoft Montpellier, known for Rayman Origins and Beyond Good & Evil, developed The Lost Crown."
+  },
+  {
+    "id": "gm_rec38",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "In Baldur's Gate 3, what is the maximum number of players supported in co-op?",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "6"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Baldur's Gate 3 supports up to 4 players in co-op, matching the standard D&D party size."
+  },
+  {
+    "id": "gm_rec39",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "In Cyberpunk 2077, your customisable protagonist is simply known as ___.",
+    "correctAnswer": "V",
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "The player character in Cyberpunk 2077 goes by the nickname V, regardless of their backstory choice."
+  },
+  {
+    "id": "gm_rec40",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "What new ability in Tears of the Kingdom allows Link to reverse the flow of time on objects?",
+    "options": [
+      "Rewind",
+      "Recall",
+      "Ascend",
+      "Fuse"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Recall rewinds the movement of an object, letting Link ride falling rocks back up or reverse projectiles."
+  },
+  {
+    "id": "gm_rec41",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "Alan Wake 2 (2023) is Alan Wake's first direct single-player sequel.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "timeLimit": 15,
+    "explanation": "Alan Wake 2 is the first direct sequel to Alan Wake (2010), released 13 years later by Remedy Entertainment."
+  },
+  {
+    "id": "gm_rec42",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Sea of Stars (2023) is a turn-based RPG heavily inspired by which classic SNES game?",
+    "options": [
+      "Final Fantasy VI",
+      "Chrono Trigger",
+      "EarthBound",
+      "Secret of Mana"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Sea of Stars draws heavy inspiration from Chrono Trigger, particularly its combat system and visual style."
+  },
+  {
+    "id": "gm_rec43",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "In which year was the open-world action RPG Elden Ring released?",
+    "options": [
+      "2021",
+      "2022",
+      "2023",
+      "2020"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Elden Ring was released on February 25, 2022 for PC, PS4, PS5, Xbox One and Xbox Series X/S."
+  },
+  {
+    "id": "gm_rec44",
+    "type": "true_false",
+    "category": "gaming",
+    "question": "Overwatch 2 is a free-to-play game, unlike the original Overwatch which required a purchase.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "timeLimit": 12,
+    "explanation": "Overwatch 2 launched in October 2022 as a free-to-play replacement for the original game."
+  },
+  {
+    "id": "gm_rec45",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which of these games won Game of the Year at The Game Awards 2023?",
+    "options": [
+      "Hogwarts Legacy",
+      "Starfield",
+      "Baldur's Gate 3",
+      "The Legend of Zelda: Tears of the Kingdom"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Baldur's Gate 3 swept The Game Awards 2023, winning Game of the Year among many other categories."
+  },
+  {
+    "id": "gm_rec46",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "What is the name of the protagonist in Starfield (2023)?",
+    "options": [
+      "The Wanderer",
+      "Your custom character",
+      "The Ranger",
+      "Vasco"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Like other Bethesda RPGs, Starfield's protagonist is a fully customisable player character with no set name."
+  },
+  {
+    "id": "gm_rec47",
+    "type": "fill_blank",
+    "category": "gaming",
+    "question": "The Phantom Liberty expansion for Cyberpunk 2077 introduced a new district called ___.",
+    "correctAnswer": "Dogtown",
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Dogtown is the new lawless district in Night City added by the Phantom Liberty DLC in 2023."
+  },
+  {
+    "id": "gm_rec48",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Armored Core VI: Fires of Rubicon (2023) marked FromSoftware's return to the mech series after approximately how many years?",
+    "options": [
+      "5 years",
+      "7 years",
+      "10 years",
+      "15 years"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "The last Armored Core entry was Verdict Day in 2013, making Fires of Rubicon a return after about 10 years."
+  },
+  {
+    "id": "gm_rec49",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "In The Legend of Zelda: Tears of the Kingdom, what ability lets Link pass through ceilings?",
+    "options": [
+      "Revali's Gale",
+      "Ultrahand",
+      "Ascend",
+      "Recall"
+    ],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "timeLimit": 15,
+    "explanation": "Ascend lets Link swim upward through solid surfaces above him, enabling vertical traversal through structures."
+  },
+  {
+    "id": "gm_rec50",
+    "type": "multiple_choice",
+    "category": "gaming",
+    "question": "Which game won Game of the Year at The Game Awards 2024?",
+    "options": [
+      "Elden Ring: Shadow of the Erdtree",
+      "Astro Bot",
+      "Black Myth: Wukong",
+      "Metaphor: ReFantazio"
+    ],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "timeLimit": 20,
+    "explanation": "Astro Bot by Team Asobi won Game of the Year at The Game Awards 2024."
   }
 ]
