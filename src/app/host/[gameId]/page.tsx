@@ -74,14 +74,11 @@ export default function HostPage() {
   useEffect(() => {
     if (gameCode && !gameState && isConnected) {
       setIsCreating(true)
-      // Add a small delay to ensure connection is fully established
-      setTimeout(() => {
-        const success = createGame(gameCode)
-        if (!success) {
-          console.error('Failed to create game')
-        }
-        setIsCreating(false)
-      }, 500)
+      const success = createGame(gameCode)
+      if (!success) {
+        console.error('Failed to create game')
+      }
+      setIsCreating(false)
     }
   }, [gameCode, gameState, createGame, isConnected])
 

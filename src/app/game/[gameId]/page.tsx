@@ -72,14 +72,11 @@ export default function GamePage() {
   useEffect(() => {
     if (gameCode && !gameState && isConnected) {
       setIsJoining(true)
-      // Add a small delay to ensure connection is fully established
-      setTimeout(() => {
-        const success = joinGame(gameCode, playerName)
-        if (!success) {
-          console.error('Failed to join game')
-        }
-        setIsJoining(false)
-      }, 500)
+      const success = joinGame(gameCode, playerName)
+      if (!success) {
+        console.error('Failed to join game')
+      }
+      setIsJoining(false)
     }
   }, [gameCode, gameState, joinGame, isConnected, playerName])
 

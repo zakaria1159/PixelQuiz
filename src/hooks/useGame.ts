@@ -59,6 +59,9 @@ export const useGame = (options: UseGameOptions = {}) => {
   const hasConnected = useRef(false)
   const currentGameCode = useRef<string | null>(null)
   const hiddenAt = useRef<number | null>(null)
+  // Only true after a successful game-created / player-joined / rejoin-success.
+  // Guards against rejoin-error arriving late and triggering "abandoned" on a fresh join.
+  const hasSuccessfullyJoined = useRef(false)
 
   // Connect to socket on mount
   useEffect(() => {
@@ -152,6 +155,7 @@ export const useGame = (options: UseGameOptions = {}) => {
     // Rejoin success — restore full game state after refresh/reconnect
     socketManager.onRejoinSuccess((data) => {
       console.log('🔄 Rejoin successful')
+      hasSuccessfullyJoined.current = true
       setGameState(data.gameState)
       currentGameCode.current = gameCode || null
       if (data.isHost) {
@@ -168,9 +172,10 @@ export const useGame = (options: UseGameOptions = {}) => {
 
     socketManager.onRejoinError((data) => {
       console.log('⚠️ Rejoin failed:', data.message)
-      // Only treat as abandoned if we were previously in a game.
-      // A null currentGameCode means this is a fresh load — ignore the error.
-      if (currentGameCode.current) {
+      // Only treat as abandoned if we previously had a confirmed join.
+      // Ignore errors that arrive late from the initial auto-rejoin on page load —
+      // those race against joinGame/createGame setting currentGameCode.
+      if (hasSuccessfullyJoined.current) {
         setIsAbandoned(true)
       }
     })
@@ -178,6 +183,7 @@ export const useGame = (options: UseGameOptions = {}) => {
     // Game created (host only)
     socketManager.onGameCreated((data: { gameCode: string; gameState: GameState }) => {
       console.log('🎮 Game created:', data.gameCode)
+      hasSuccessfullyJoined.current = true
       setGameState(data.gameState)
       currentGameCode.current = data.gameCode
       
@@ -197,6 +203,7 @@ export const useGame = (options: UseGameOptions = {}) => {
       console.log('👤 Player joined:', data.player.name)
       console.log('📊 Updated game state:', data.gameState)
       console.log('👥 Players in game:', data.gameState.players.length)
+      hasSuccessfullyJoined.current = true
       setGameState(data.gameState)
       
       // Set current player for joining player
