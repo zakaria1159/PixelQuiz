@@ -699,7 +699,7 @@ const createGameState = (gameCode, hostId) => ({
   answers: {},
   questionStartTime: 0,
   settings: {
-    maxPlayers: 10,
+    maxPlayers: 50,
     questionsPerGame: 8,
     timePerQuestion: 15,
     categories: ['pop_culture'],
@@ -924,6 +924,7 @@ io.on('connection', (socket) => {
       console.log(`📊 Category distribution:`, JSON.stringify(catDist))
       game.questions = questions
       game.settings.streamerMode = settings?.streamerMode ?? false
+      game.settings.maxPlayers = Math.min(settings?.maxPlayers ?? 50, 200)
       game.currentQuestionIndex = 0
       game.currentQuestion = questions[0]
       game.gameStatus = 'question'
