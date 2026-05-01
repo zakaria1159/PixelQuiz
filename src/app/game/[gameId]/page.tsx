@@ -179,6 +179,45 @@ export default function GamePage() {
     )
   }
 
+  if (connectionError === 'Game is full') {
+    const watchLink = `/watch/${gameCode}`
+    return (
+      <div style={{ minHeight: '100svh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'radial-gradient(ellipse at 50% -10%, #13154a 0%, #09090f 70%)', padding: '24px' }}>
+        <div style={{ textAlign: 'center', maxWidth: '360px' }}>
+          <div style={{ fontSize: '48px', marginBottom: '16px' }}>🎭</div>
+          <h2 style={{ fontSize: '22px', fontWeight: 900, color: 'white', marginBottom: '10px' }}>Game is full</h2>
+          <p style={{ fontSize: '14px', color: '#71717a', marginBottom: '24px', lineHeight: 1.6 }}>
+            All player slots are taken, but you can still watch the action live.
+          </p>
+          <a
+            href={watchLink}
+            style={{
+              display: 'inline-block',
+              padding: '12px 28px',
+              borderRadius: '12px',
+              background: 'rgba(99,102,241,0.2)',
+              border: '1px solid rgba(99,102,241,0.4)',
+              color: '#a5b4fc',
+              fontWeight: 700,
+              fontSize: '14px',
+              textDecoration: 'none',
+            }}
+          >
+            Watch live →
+          </a>
+          <div style={{ marginTop: '16px' }}>
+            <button
+              onClick={clearError}
+              style={{ background: 'none', border: 'none', color: '#52525b', fontSize: '12px', cursor: 'pointer', fontWeight: 600 }}
+            >
+              Try again
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   if (connectionError) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-black">
