@@ -12,6 +12,7 @@ export interface QuizSettings {
   customQuestions?: any[]
   customOnly?: boolean
   streamerMode?: boolean
+  maxPlayers?: number
 }
 
 const CATEGORIES = [
@@ -64,6 +65,7 @@ const LANGUAGES = [
 
 interface QuizSettingsPanelProps {
   onChange: (settings: QuizSettings) => void
+  streamerMode?: boolean
 }
 
 // Reusable toggle grid
@@ -135,16 +137,17 @@ const ALL_THEMED_CATEGORY_IDS  = THEMED_CATEGORIES.map(c => c.id)
 const ALL_CATEGORY_IDS  = [...ALL_GENERAL_CATEGORY_IDS, ...ALL_THEMED_CATEGORY_IDS]
 const ALL_TYPE_IDS      = QUESTION_TYPES.map(t => t.id)
 
-export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
+export function QuizSettingsPanel({ onChange, streamerMode = false }: QuizSettingsPanelProps) {
   const { t, lang: storeLang } = useTranslation()
   const [selectedCategories,  setSelectedCategories]  = useState<string[]>([])
   const [selectedTypes,       setSelectedTypes]       = useState<string[]>([])
   const [selectedDifficulties, setSelectedDifficulties] = useState<string[]>([])
   const [questionCount,       setQuestionCount]       = useState(10)
   const [lang,                setLang]                = useState(storeLang)
+  const [maxPlayers,          setMaxPlayers]          = useState(50)
 
-  const emit = (cats: string[], types: string[], diffs: string[], count: number, l: string) =>
-    onChange({ categories: cats, types, difficulties: diffs, questionCount: count, lang: l })
+  const emit = (cats: string[], types: string[], diffs: string[], count: number, l: string, mp: number = maxPlayers) =>
+    onChange({ categories: cats, types, difficulties: diffs, questionCount: count, lang: l, maxPlayers: mp })
 
   // Emit initial state so parent has correct values without user interaction
   useEffect(() => {
@@ -402,6 +405,40 @@ export function QuizSettingsPanel({ onChange }: QuizSettingsPanelProps) {
           accentColor='rgba(20,184,166'
         />
       </div>
+
+      {/* Max players — streamer mode only */}
+      {streamerMode && (
+        <div>
+          <div style={{ fontSize: '11px', fontWeight: 700, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '10px' }}>
+            Max players
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <input
+              type="number"
+              min={2}
+              max={200}
+              value={maxPlayers}
+              onChange={(e) => {
+                const val = Math.min(200, Math.max(2, Number(e.target.value)))
+                setMaxPlayers(val)
+                emit(selectedCategories, selectedTypes, selectedDifficulties, questionCount, lang, val)
+              }}
+              style={{
+                width: '80px',
+                padding: '8px 10px',
+                borderRadius: '10px',
+                border: '1.5px solid rgba(99,102,241,0.4)',
+                background: 'rgba(99,102,241,0.1)',
+                color: '#c7d2fe',
+                fontWeight: 700,
+                fontSize: '15px',
+                textAlign: 'center',
+              }}
+            />
+            <span style={{ fontSize: '12px', color: '#52525b' }}>players max (2–200)</span>
+          </div>
+        </div>
+      )}
 
     </div>
   )
