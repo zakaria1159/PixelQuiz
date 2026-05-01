@@ -114,6 +114,7 @@ export function Lobby({
   const [streamerMode, setStreamerMode] = useState(false)
   const [spectatorCount, setSpectatorCount] = useState(0)
   const watchUrl = typeof window !== 'undefined' ? `${window.location.origin}/watch/${gameCode}` : `/watch/${gameCode}`
+  const overlayUrl = typeof window !== 'undefined' ? `${window.location.origin}/overlay/${gameCode}` : `/overlay/${gameCode}`
   const { t } = useTranslation()
   const canStart = isSolo ? players.length >= 1 : players.length >= 2
   const nonHostPlayers = players.filter(p => !p.isHost)
@@ -212,7 +213,7 @@ export function Lobby({
         {/* Quiz settings — host only */}
         {isHost && (
           <div className="glass p-5" style={{ animation: 'slideUpFadeIn 0.4s ease 0.21s both' }}>
-            <QuizSettingsPanel onChange={setSettings} />
+            <QuizSettingsPanel onChange={setSettings} streamerMode={streamerMode} />
           </div>
         )}
 
@@ -316,6 +317,22 @@ export function Lobby({
                     <button
                       onClick={(e) => { e.stopPropagation(); navigator.clipboard.writeText(watchUrl) }}
                       style={{ fontSize: '9px', fontWeight: 700, color: '#6366f1', background: 'rgba(99,102,241,0.15)', border: 'none', borderRadius: '5px', padding: '3px 8px', cursor: 'pointer', flexShrink: 0 }}
+                    >
+                      COPY
+                    </button>
+                  </div>
+                </div>
+
+                {/* OBS overlay link */}
+                <div style={{ marginTop: '10px' }}>
+                  <div style={{ fontSize: '10px', color: '#71717a', fontWeight: 600, marginBottom: '5px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    OBS overlay (add as browser source)
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'rgba(168,85,247,0.08)', border: '1px solid rgba(168,85,247,0.2)', borderRadius: '8px', padding: '8px 10px' }}>
+                    <span style={{ flex: 1, fontSize: '11px', color: '#c4b5fd', fontFamily: 'monospace', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{overlayUrl}</span>
+                    <button
+                      onClick={(e) => { e.stopPropagation(); navigator.clipboard.writeText(overlayUrl) }}
+                      style={{ fontSize: '9px', fontWeight: 700, color: '#a855f7', background: 'rgba(168,85,247,0.15)', border: 'none', borderRadius: '5px', padding: '3px 8px', cursor: 'pointer', flexShrink: 0 }}
                     >
                       COPY
                     </button>
