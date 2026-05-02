@@ -258,7 +258,7 @@ export function SharedGameView({
   const totalPlayers  = players.length
   const allAnswered   = totalPlayers > 0 && answeredCount >= totalPlayers
   const isDanger        = timeLeft <= 5 && timeLeft > 0
-  const pixelSize       = hasAnswered ? 1 : Math.max(1, Math.round(24 * Math.sqrt(timeLeft / timeLimit)))
+  const pixelSize       = hasAnswered ? 1 : Math.max(1, Math.round(1 + 6 * (timeLeft / timeLimit)))
   const allowedDuration = isAnimalSoundQuestion(question)
     ? 30  // animal sounds play in full — no progressive reveal
     : isMusicGuessQuestion(question)
