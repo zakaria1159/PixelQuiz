@@ -1842,7 +1842,9 @@ socket.on('player-ready', (data) => {
         socket.emit('spectator-error', { message: 'Game not found' })
         return
       }
-      if (!game.settings.streamerMode) {
+      // Allow spectators in the lobby (game not started yet) so the host can set up OBS.
+      // Once the game is active, enforce streamerMode.
+      if (game.gameStatus !== 'waiting' && !game.settings.streamerMode) {
         socket.emit('spectator-error', { message: 'Streamer mode is not enabled for this game' })
         return
       }
