@@ -625,9 +625,9 @@ export function SharedGameView({
                       pixelSize={pixelSize}
                       className="rounded-xl"
                     />
-                    {!hasAnswered && (
+                    {!hasAnswered && pixelSize === 1 && (
                       <div className="absolute top-2 right-2 glass text-xs text-white px-2 py-1 rounded-lg">
-                        {pixelSize > 1 ? t('percent_revealed', { n: Math.round((1 - pixelSize / 24) * 100) }) : t('fully_revealed')}
+                        {t('fully_revealed')}
                       </div>
                     )}
                   </div>
